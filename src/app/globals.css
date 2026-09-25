@@ -1,0 +1,332 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f9fa;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --accent-indigo: #0066ab;
+  --accent-violet: #0066ab;
+  --accent-amber: #f59e0b;
+  --accent-emerald: #10b981;
+  --accent-purple: #0066ab;
+  --gradient-hero: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-noto-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== TYPOGRAPHY ========== */
+.font-reading {
+  font-family: var(--font-noto-sans), sans-serif;
+  line-height: 1.9;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+/* ========== GLASS MORPHISM (Removed for Corporate Style) ========== */
+.bg-white shadow-sm border border-gray-200 {
+  background: #ffffff;
+  border: 1px solid var(--border);
+}
+
+.bg-white shadow-sm border border-gray-200 {
+  background: #f8f9fa;
+  border: 1px solid var(--border);
+}
+
+/* ========== GRADIENTS (Removed for Corporate Style) ========== */
+.gradient-text {
+  color: #0066ab;
+}
+
+
+.gradient-amber-orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}
+
+/* ========== CARDS ========== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  border-color: #0066ab;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== STEP INDICATOR ========== */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.step-dot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.step-dot-active {
+  background: linear-gradient(135deg, #6366f1, #7c3aed);
+  color: white;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+.step-dot-complete {
+  background: #10b981;
+  color: white;
+}
+
+.step-dot-inactive {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* ========== DRAG AND DROP ========== */
+.drag-card {
+  cursor: grab;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.drag-card:active {
+  cursor: grabbing;
+  transform: rotate(2deg) scale(1.05);
+}
+
+.drag-card.dragging {
+  opacity: 0.5;
+}
+
+.drop-slot {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  min-height: 5rem;
+}
+
+.drop-slot.drag-over {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.drop-slot.correct {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+/* ========== SHAKE ANIMATION ========== */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* ========== CARD FLIP ========== */
+.card-flip-container {
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card-flip-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* ========== GLOW EFFECT ========== */
+.shadow-md {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.shadow-md {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+/* ========== HAN-VIET TOOLTIP ========== */
+.han-viet-trigger {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #60a5fa;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.han-viet-trigger:hover {
+  color: #93c5fd;
+  text-decoration-color: #93c5fd;
+}
+
+.han-viet-trigger.highlighted {
+  background: rgba(99, 162, 241, 0.15);
+  border-radius: 2px;
+  animation: pulse-highlight 2s ease-in-out infinite;
+}
+
+@keyframes pulse-highlight {
+  0%, 100% { background: rgba(99, 162, 241, 0.1); }
+  50% { background: rgba(99, 162, 241, 0.25); }
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm 10mm;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Times New Roman', serif;
+  }
+
+  .no-print,
+  nav,
+  footer,
+  button,
+  header {
+    display: none !important;
+  }
+
+  .print-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16mm;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .fold-line {
+    border-right: 1px dashed #9ca3af;
+    position: relative;
+  }
+
+  .print-show {
+    display: block !important;
+  }
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s ease both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease both;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.4s ease both;
+}
+
+/* Stagger children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 60ms; }
+.stagger > *:nth-child(3) { animation-delay: 120ms; }
+.stagger > *:nth-child(4) { animation-delay: 180ms; }
+.stagger > *:nth-child(5) { animation-delay: 240ms; }
