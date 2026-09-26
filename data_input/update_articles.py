@@ -68,39 +68,67 @@ def update_articles_by_slug(filename="articles_template.xlsx", target_slug=None)
         article_db_id = check_res.data[0]["id"]
         print(f"\n🔄 Đang cập nhật bài: '{row['title']}' (slug: {slug}) | UUID: {article_db_id}...")
 
+        content_raw_val = str(row.get("content_raw", "")).strip()
+        p1_text = str(row.get("p1_text", "")).strip()
+        p2_text = str(row.get("p2_text", "")).strip()
+        
+        paragraphs = []
+        if p1_text or p2_text:
+            if p1_text:
+                paragraphs.append({
+                    "id": "p1",
+                    "actor": "parent",
+                    "text": p1_text,
+                    "parent_coaching": {
+                        "say_aloud_script": str(row.get("p1_say_aloud", "")).strip(),
+                        "pedagogical_focus": "Cha làm mẫu suy nghĩ to thành tiếng để định hướng hình dung."
+                    }
+                })
+            if p2_text:
+                paragraphs.append({
+                    "id": "p2",
+                    "actor": "student",
+                    "text": p2_text,
+                    "parent_coaching": {
+                        "ask_child_prompt": str(row.get("p2_ask_child", "")).strip(),
+                        "visual_hint": "Gợi ý con quan sát chi tiết mấu chốt trong đoạn."
+                    }
+                })
+        elif content_raw_val:
+            raw_paras = [p.strip() for p in content_raw_val.split('\n') if p.strip()]
+            for i, p_text in enumerate(raw_paras):
+                actor = "parent" if i % 2 == 0 else "student"
+                paragraphs.append({
+                    "id": f"p{i+1}",
+                    "actor": actor,
+                    "text": p_text,
+                    "parent_coaching": {
+                        "say_aloud_script": "Cùng đọc to đoạn này nhé." if actor == "parent" else "",
+                        "ask_child_prompt": "Con nghĩ gì về đoạn văn này?" if actor == "student" else "",
+                        "pedagogical_focus": "Hướng dẫn đọc diễn cảm." if actor == "parent" else "Kiểm tra mức độ tập trung."
+                    }
+                })
+
+        category_val = str(row.get("category", "")).strip()
+        page_count_val = safe_int(row.get("page_count"), 0)
+        if page_count_val == 0 and (category_val == "1-trang" or len(paragraphs) > 2):
+            page_count_val = 1
+
         # Dựng khối structured_data chuẩn 6 bước (0-5)
         structured_data = {
             "article_meta": {
                 "slug": slug,
-                "topic": str(row.get("category", "")).strip(),
+                "topic": category_val,
                 "target_grade": safe_int(row.get("target_grade"), 7),
-                "estimated_minutes": safe_int(row.get("estimated_minutes"), 15)
+                "estimated_minutes": safe_int(row.get("estimated_minutes"), 15),
+                "page_count": page_count_val
             },
             "step_0_immersion": {
                 "hero_image_url": str(row.get("hero_image_url", "")).strip(),
                 "prediction_prompt": f"Quan sát tiêu đề '{row.get('title')}' và bức ảnh trên, con dự đoán bài viết này sẽ nói về hiện tượng hay câu chuyện gì?"
             },
             "step_1_think_aloud": {
-                "paragraphs": [
-                    {
-                        "id": "p1",
-                        "actor": "parent",
-                        "text": str(row.get("p1_text", "")).strip(),
-                        "parent_coaching": {
-                            "say_aloud_script": str(row.get("p1_say_aloud", "")).strip(),
-                            "pedagogical_focus": "Cha làm mẫu suy nghĩ to thành tiếng để định hướng hình dung."
-                        }
-                    },
-                    {
-                        "id": "p2",
-                        "actor": "student",
-                        "text": str(row.get("p2_text", "")).strip(),
-                        "parent_coaching": {
-                            "ask_child_prompt": str(row.get("p2_ask_child", "")).strip(),
-                            "visual_hint": "Gợi ý con quan sát chi tiết mấu chốt trong đoạn."
-                        }
-                    }
-                ]
+                "paragraphs": paragraphs
             },
             "step_2_graphic_organizer": {
                 "type": "cause_and_effect",

@@ -126,8 +126,8 @@ const FEATURES = [
   {
     icon: <Zap className="w-5 h-5 text-[#0066ab]" />,
     iconBg: 'bg-indigo-500/10',
-    title: 'Đồng bộ Thời Gian Thực',
-    desc: 'Bố/mẹ quét QR để kết nối. Mọi hành động của con hiện ngay trên điện thoại bố/mẹ.',
+    title: 'Siêu nhận thức (Metacognition)',
+    desc: 'Phương pháp đọc hiểu Siêu nhận thức (Metacognition): Rèn luyện cho học sinh lớp 7 năng lực tự quan sát, tự điều chỉnh và làm chủ tư duy đọc thông qua mô hình Cha - Con song hành.',
   },
   {
     icon: <Brain className="w-5 h-5 text-amber-400" />,

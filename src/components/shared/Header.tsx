@@ -24,7 +24,8 @@ export function Header() {
         {/* Nav */}
         <nav className="flex items-center gap-1">
           <NavLink href="/" icon={<Home className="w-3.5 h-3.5" />} label="Trang chủ" />
-          <NavLink href="/read" icon={<BookOpen className="w-3.5 h-3.5" />} label="Đọc bài" />
+          <NavLink href="/read" icon={<BookOpen className="w-3.5 h-3.5" />} label="Bài ngắn" />
+          <NavLink href="/read-pages" icon={<span className="inline-flex items-center justify-center font-bold text-[10px] sm:text-xs bg-blue-100/50 text-[#0066ab] px-1 py-0.5 rounded border border-[#0066ab]/20 w-4 h-4">1T</span>} label="1 Trang" />
           <NavLink href="/dictionary" icon={<Search className="w-3.5 h-3.5" />} label="Từ điển" />
           <NavLink href="/passport" icon={<Bookmark className="w-3.5 h-3.5" />} label="Hộ chiếu" />
         </nav>

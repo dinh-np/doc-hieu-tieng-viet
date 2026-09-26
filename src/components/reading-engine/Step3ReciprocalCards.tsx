@@ -83,6 +83,12 @@ export function Step3ReciprocalCards({
         </div>
       </div>
 
+      {!isParentView && (
+        <div className="flex items-center gap-1.5 mb-4 px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-700 border border-blue-100">
+          <span className="text-xs font-bold">Huấn luyện viên Chiến thuật: AI gợi mở tư duy, không giải bài hộ</span>
+        </div>
+      )}
+
       {/* Cards grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 stagger">
         {cards.map((card, idx) => {
@@ -93,7 +99,7 @@ export function Step3ReciprocalCards({
           return (
             <div key={idx} className={`card-flip-container relative ${isFlipped ? 'z-20' : 'z-0'}`} style={{ animationDelay: `${idx * 80}ms` }}>
               <div
-                className={`card-flip-inner relative w-full h-full min-h-[220px] md:min-h-[260px] cursor-pointer rounded-2xl ${isFlipped ? 'flipped' : ''}`}
+                className={`card-flip-inner relative w-full h-auto min-h-[220px] md:min-h-[260px] cursor-pointer rounded-2xl ${isFlipped ? 'flipped' : ''}`}
                 onClick={() => !isParentView && handleFlip(idx)}
                 style={{ transformStyle: 'preserve-3d' }}
               >
@@ -111,7 +117,7 @@ export function Step3ReciprocalCards({
 
                 {/* Back face */}
                 <div
-                  className={`card-back rounded-2xl border ${config.bg} p-4 flex flex-col gap-2 relative w-full h-full`}
+                  className={`card-back rounded-2xl border ${config.bg} p-4 flex flex-col gap-3 relative w-full h-auto min-h-[220px] md:min-h-[260px]`}
                   style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
                 >
                   <div className="flex items-center gap-2 mb-1">
@@ -130,15 +136,25 @@ export function Step3ReciprocalCards({
                     </p>
 
                     {!isParentView && (
-                      <div className="space-y-2 mt-auto pt-2">
+                      <p className="text-[10px] text-slate-500 mt-2 mb-2 bg-slate-50 p-1.5 rounded border border-slate-100 font-medium leading-relaxed">
+                        💡 Con thử vận dụng 3 chiến thuật: (1) Chiết tự từ gốc Hán-Việt, (2) Tìm manh mối ngữ cảnh trong đoạn trước, (3) Tóm tắt theo nguyên nhân - kết quả.
+                      </p>
+                    )}
+
+                    {!isParentView && (
+                      <div className="space-y-3 mt-auto pt-3">
                         <textarea
-                          className="w-full rounded-lg bg-gray-100 border border-gray-200 text-xs text-slate-700 p-2 resize-none focus:outline-none focus:border-indigo-500/50"
+                          className="w-full rounded-lg bg-gray-100 border border-gray-200 text-xs text-slate-700 p-2 min-h-[70px] resize-none overflow-hidden leading-relaxed focus:outline-none focus:border-indigo-500/50"
                           placeholder="Ghi câu trả lời của con..."
                           rows={2}
                           value={responses[idx] || ''}
                           onChange={(e) =>
                             setResponses((prev) => ({ ...prev, [idx]: e.target.value }))
                           }
+                          onInput={(e) => {
+                            e.currentTarget.style.height = 'auto';
+                            e.currentTarget.style.height = e.currentTarget.scrollHeight + 'px';
+                          }}
                         />
                         {!isDone && (
                           <button

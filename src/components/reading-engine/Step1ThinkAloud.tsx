@@ -145,7 +145,10 @@ export function Step1ThinkAloud({
                     ) : null}
 
                     {scriptVisible[idx] && !isParentView && (
-                      <div className="rounded-lg bg-white shadow-sm border border-gray-200 p-3 animate-fade-in">
+                      <div className="rounded-lg bg-white shadow-sm border border-gray-200 p-3 animate-fade-in mt-2">
+                        <div className="flex items-center gap-1.5 mb-2 px-2 py-1 rounded bg-blue-50 text-blue-700 w-fit">
+                          <span className="text-[10px] font-bold">Huấn luyện viên Chiến thuật: AI gợi mở tư duy, không giải bài hộ</span>
+                        </div>
                         <p className="text-xs text-slate-600">
                           {para.parent_coaching.say_aloud_script ||
                             para.parent_coaching.ask_child_prompt}

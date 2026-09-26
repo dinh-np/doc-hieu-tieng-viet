@@ -6,6 +6,7 @@ export interface ArticleMeta {
   target_grade: number;
   word_count: number;
   estimated_minutes: number;
+  page_count?: number;
 }
 
 export interface ParentCoachingScript {
@@ -99,5 +100,6 @@ export interface ReadingArticle {
   content_raw: string;
   structured_data: StructuredData;
   is_published: boolean;
+  page_count?: number;
   created_at: string;
 }

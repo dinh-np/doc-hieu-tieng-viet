@@ -111,6 +111,30 @@ export function Step5ReadingLog({
         </div>
       )}
 
+      {/* Strategy Reflection */}
+      {!isParentView && (
+        <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-5 space-y-3 mb-6">
+          <p className="text-sm font-bold text-indigo-800 uppercase tracking-wider">
+            🧠 Tự đánh giá chiến lược
+          </p>
+          <p className="text-slate-800 text-sm font-medium">Hôm nay chiến thuật nào giúp con hiểu sâu bài đọc nhất?</p>
+          <div className="flex flex-col gap-2 mt-2">
+            <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+              <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+              Sơ đồ tư duy
+            </label>
+            <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+              <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+              Phân tích từ khó
+            </label>
+            <label className="flex items-center gap-2 text-sm text-slate-700 cursor-pointer">
+              <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
+              Đặt câu hỏi phản biện
+            </label>
+          </div>
+        </div>
+      )}
+
       {/* Complete Session Button */}
       <button
         onClick={onComplete}

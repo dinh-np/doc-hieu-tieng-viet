@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ReadingArticle } from '@/types/article';
 import { ArrowRight, Lightbulb } from 'lucide-react';
 
@@ -8,7 +8,19 @@ interface Step0Props {
 }
 
 export function Step0BookImmersion({ article, onComplete }: Step0Props) {
-  const [prediction, setPrediction] = useState('');
+  const [prediction, setPrediction] = React.useState('');
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const rawParagraphs = (article.content_raw || '').split('\n').filter(p => p.trim() !== '');
   const structuredParagraphs = article.structured_data?.step_1_think_aloud?.paragraphs?.map(p => p.text) || [];
@@ -21,6 +33,11 @@ export function Step0BookImmersion({ article, onComplete }: Step0Props) {
 
   return (
     <div className="max-w-3xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-20">
+      {/* Scroll Progress Indicator */}
+      <div
+        className="fixed top-0 left-0 h-1 bg-[#0066ab] z-50 transition-all duration-150 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
       {/* Hero Section */}
       <div className="rounded-t-xl overflow-hidden bg-[#f8f9fa] border-b border-gray-200 shadow-sm">
         {article.hero_image_url && (
@@ -43,14 +60,14 @@ export function Step0BookImmersion({ article, onComplete }: Step0Props) {
         </div>
       </div>
 
-      {/* Full Content Canvas */}
-      <div className="bg-[#fefefe] border border-gray-200 rounded-lg p-8 md:p-12 shadow-sm">
+      {/* Full Content Canvas (A4 Book Page Simulation) */}
+      <div className="bg-white border border-gray-200 rounded-sm p-8 md:p-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ring-1 ring-black/5 mx-auto max-w-[210mm]">
         <div 
           className="prose prose-lg max-w-none prose-slate font-reading"
           style={{ color: '#1f2937' }}
         >
           {paragraphs.map((paragraph, idx) => (
-            <p key={idx} className="mb-4 text-justify leading-relaxed">
+            <p key={idx} className="mb-6 text-justify leading-[2] indent-8">
               {paragraph}
             </p>
           ))}
