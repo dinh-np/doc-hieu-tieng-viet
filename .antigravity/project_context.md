@@ -12,6 +12,7 @@
 * **Styling & UI:** Tailwind CSS v4, Lucide React, Radix UI Primitives. 
   * **Design System:** Corporate Light Theme inspired by Krones (Primary color: `#0066AB`, Backgrounds: `#ffffff`, `#f8f9fa`, Typography: `Noto Sans`, `Georgia`).
 * **Backend & DB:** Supabase (PostgreSQL, Row Level Security, Supabase Auth via Magic Link/Google).
+* **AI & Automation SDK:** `@google/genai` (Gemini API `gemini-3.8-flash` / `gemini-3.7-flash` with Structured Outputs `responseSchema` for automated Sino-Vietnamese etymology extraction).
 * **Realtime Sync:** Supabase Realtime Broadcast Channels (Two-way sync: Child View - Con ↔ Parent Co-pilot - Cha Mẹ).
 * **State Management:** Zustand (`useReadingSession.ts`).
 * **Mobile-First & Touch Interaction:** Fully responsive components with strict event propagation isolation on mobile devices.
@@ -36,3 +37,11 @@
 * Mathematical formula layout: `Root A (meaning) + Root B (meaning) ➔ Compound Meaning`.
 * Morpheme tree: Click any root to explore related compounds sharing that root.
 * Contextual popover embedded directly into reading passages plus mini guessing quizzes.
+* **Normalized 3-Table Relational Schema in Supabase:**
+  * `han_viet_roots` (168+ root morphemes: `id`, `hanzi`, `reading_vi`, `root_meaning`, `created_at`).
+  * `han_viet_compounds` (124+ compounds including 100 core SGK Grade 7 words: `id`, `word`, `slug`, `full_meaning`, `example_sentence`, `math_formula`, `subject_tag`, `grade_level`, `quiz_data`, `created_at`).
+  * `compound_root_links` (222+ N-N links: `id`, `compound_id`, `root_id`, `position_order` 1 or 2, `related_words`).
+* **Automated Seeding & AI Scraping Pipeline:**
+  * `scripts/seed_han_viet.ts` (`npm run seed:hanviet`): Parses `./learning_materials/tu_dien_han_viet_co_ban_sgk_100_tu.md` and `./learning_materials/tu_dien_han_viet_chiet_tu.md` to seed 100 textbook compounds, roots, links, and interactive quizzes into Supabase.
+  * `src/lib/agents/han_viet_scraper.ts` & `scripts/extract_han_viet.ts`: Gemini-powered agent that extracts new Grade 7 Sino-Vietnamese compounds from textbook passages, decomposes their root morphemes and quizzes, and saves them to Supabase without duplicating existing roots or compounds.
+```

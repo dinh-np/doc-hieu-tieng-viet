@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "tsx --env-file=.env.local src/lib/supabase/seed.ts"
+    "seed": "tsx --env-file=.env.local src/lib/supabase/seed.ts",
+    "seed:hanviet": "tsx scripts/seed_han_viet.ts"
   },
   "dependencies": {
+    "@google/genai": "^2.32.0",
     "@hello-pangea/dnd": "^18.0.1",
     "@radix-ui/react-dialog": "^1.1.23",
     "@radix-ui/react-popover": "^1.1.23",
