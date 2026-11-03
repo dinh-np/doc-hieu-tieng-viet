@@ -16,10 +16,12 @@ When developing `/dictionary` routes, `<HanVietTooltip />`, and dictionary data 
 * Styled with bold text and a dashed blue underline (`underline decoration-dashed decoration-blue-400 cursor-pointer`).
 * Clicking or hovering triggers a Radix Popover displaying the mathematical root breakdown and a direct link to the dictionary entry.
 
-### 3. Database Seeding & AI Etymology Scraper
+### 3. Database Seeding, AI Etymology Scraper & Automated Expansion
 * **3-Table Relational Integrity:** Always maintain relational consistency across:
   1. `han_viet_roots` (`id`, `hanzi`, `reading_vi` unique, `root_meaning`, `created_at`).
   2. `han_viet_compounds` (`id`, `word` unique, `slug` unique, `full_meaning`, `example_sentence`, `math_formula`, `subject_tag`, `grade_level`, `quiz_data`, `created_at`).
   3. `compound_root_links` (`id`, `compound_id`, `root_id`, `position_order` 1 or 2, `related_words` text[]).
+* **Dynamic PWA Fetching:** `/dictionary` and `/dictionary/[slug]` must query Supabase directly (`export const dynamic = 'force-dynamic'; export const revalidate = 0;`) rather than relying only on static seed arrays.
 * **Seed 100 Core SGK Words:** Run `npm run seed:hanviet` (`tsx scripts/seed_han_viet.ts`) to parse `./learning_materials/tu_dien_han_viet_co_ban_sgk_100_tu.md` and `./learning_materials/tu_dien_han_viet_chiet_tu.md` and upsert into Supabase.
-* **Automated SGK Extraction Agent:** Use `scrapeAndSaveHanVietFromText` from `src/lib/agents/han_viet_scraper.ts` (or CLI `npx tsx scripts/extract_han_viet.ts`) powered by `@google/genai` (`GEMINI_API_KEY`) to extract new Grade 7 Sino-Vietnamese compounds from textbook passages without duplicating existing roots or compounds.
+* **Automated SGK Passage Scraper:** Use `scrapeAndSaveHanVietFromText` from `src/lib/agents/han_viet_scraper.ts` (or CLI `npx tsx scripts/extract_han_viet.ts`) powered by `@google/genai` (`GEMINI_API_KEY`) to extract new Grade 7 Sino-Vietnamese compounds from textbook passages.
+* **Automated Dictionary Expansion:** Run `npm run expand:hanviet` (`tsx scripts/expand_han_viet.ts --count=30 --topic="..."`) to automatically query existing compounds as an exclusion list and generate/upsert new batches of Grade 7 Sino-Vietnamese words via Gemini API.

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "seed": "tsx --env-file=.env.local src/lib/supabase/seed.ts",
-    "seed:hanviet": "tsx scripts/seed_han_viet.ts"
+    "seed:hanviet": "tsx scripts/seed_han_viet.ts",
+    "expand:hanviet": "tsx scripts/expand_han_viet.ts --count=30"
   },
   "dependencies": {
     "@google/genai": "^2.32.0",
