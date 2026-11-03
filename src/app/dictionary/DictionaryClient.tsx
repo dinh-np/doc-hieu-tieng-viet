@@ -4,20 +4,24 @@ import { useState } from 'react';
 import { Header } from '@/components/shared/Header';
 import Link from 'next/link';
 import { Search, ArrowRight } from 'lucide-react';
-import { HAN_VIET_COMPOUNDS_SEED } from '@/lib/supabase/seed';
-import { SUBJECT_TAG_LABELS, SUBJECT_TAG_COLORS } from '@/types/dictionary';
+import { HanVietCompound, SUBJECT_TAG_LABELS, SUBJECT_TAG_COLORS } from '@/types/dictionary';
 
-const SUBJECTS = ['Tất cả', 'ngu-van', 'lich-su', 'dia-ly', 'khoa-hoc'];
+const SUBJECTS = ['Tất cả', 'SGK', 'ngu-van', 'lich-su', 'dia-ly', 'khoa-hoc'];
 
-export default function DictionaryPageClient() {
+interface DictionaryPageClientProps {
+  initialCompounds: HanVietCompound[];
+}
+
+export default function DictionaryPageClient({ initialCompounds }: DictionaryPageClientProps) {
   const [query, setQuery] = useState('');
   const [activeSubject, setActiveSubject] = useState('Tất cả');
 
-  const filtered = HAN_VIET_COMPOUNDS_SEED.filter((c) => {
+  const filtered = initialCompounds.filter((c) => {
     const matchQuery =
       !query ||
       c.word.toLowerCase().includes(query.toLowerCase()) ||
-      c.full_meaning.toLowerCase().includes(query.toLowerCase());
+      c.full_meaning.toLowerCase().includes(query.toLowerCase()) ||
+      c.math_formula?.toLowerCase().includes(query.toLowerCase());
     const matchSubject =
       activeSubject === 'Tất cả' || c.subject_tag === activeSubject;
     return matchQuery && matchSubject;
@@ -34,7 +38,7 @@ export default function DictionaryPageClient() {
             <span className="text-slate-800">Hán-Việt</span>
           </h1>
           <p className="text-slate-600">
-            {HAN_VIET_COMPOUNDS_SEED.length} từ lớp 7 · Công thức toán học gốc hình vị
+            {initialCompounds.length} từ lớp 7 · Công thức toán học gốc hình vị
           </p>
         </div>
 
@@ -45,8 +49,8 @@ export default function DictionaryPageClient() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Tìm từ... (vd: nghịch lý, hải đăng)"
-            className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white shadow-sm border border-gray-200 border border-gray-200 text-slate-800 placeholder-slate-600 text-sm focus:outline-none focus:border-[#0066ab]/40 transition-all"
+            placeholder="Tìm từ... (vd: giang sơn, hải đăng, độc lập)"
+            className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white shadow-sm border border-gray-200 text-slate-800 placeholder-slate-600 text-sm focus:outline-none focus:border-[#0066ab]/40 transition-all"
           />
         </div>
 
@@ -59,10 +63,10 @@ export default function DictionaryPageClient() {
               className={`flex-shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
                 activeSubject === s
                   ? 'bg-[#0066ab] text-white'
-                  : 'bg-white shadow-sm border border-gray-200 border border-gray-200 text-slate-600 hover:text-slate-800'
+                  : 'bg-white shadow-sm border border-gray-200 text-slate-600 hover:text-slate-800'
               }`}
             >
-              {s === 'Tất cả' ? 'Tất cả' : SUBJECT_TAG_LABELS[s]}
+              {s === 'Tất cả' ? `Tất cả (${initialCompounds.length})` : SUBJECT_TAG_LABELS[s] || s}
             </button>
           ))}
         </div>
@@ -74,16 +78,16 @@ export default function DictionaryPageClient() {
               key={compound.slug}
               href={`/dictionary/${compound.slug}`}
               className="card rounded-2xl p-5 group hover:scale-[1.01] hover:border-[#0066ab]/30 transition-all animate-fade-in-up"
-              style={{ animationDelay: `${i * 40}ms` }}
+              style={{ animationDelay: `${Math.min(i * 25, 400)}ms` }}
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <h2 className="text-xl font-black gradient-text">{compound.word}</h2>
                 <span
                   className={`text-xs px-2 py-0.5 rounded-full font-semibold flex-shrink-0 ${
-                    SUBJECT_TAG_COLORS[compound.subject_tag] || ''
+                    SUBJECT_TAG_COLORS[compound.subject_tag] || 'bg-slate-100 text-slate-700'
                   }`}
                 >
-                  {SUBJECT_TAG_LABELS[compound.subject_tag]}
+                  {SUBJECT_TAG_LABELS[compound.subject_tag] || compound.subject_tag}
                 </span>
               </div>
               <p className="text-sm text-slate-600 leading-relaxed mb-3">{compound.full_meaning}</p>

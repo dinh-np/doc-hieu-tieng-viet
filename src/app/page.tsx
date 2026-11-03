@@ -98,7 +98,7 @@ export default function HomePage() {
             href="/dictionary"
             icon={<Brain className="w-5 h-5" />}
             title="Từ điển Hán-Việt"
-            desc="30 từ lớp 7 cần học"
+            desc="120+ từ lớp 7 chiết tự"
             gradient="from-amber-500 to-orange-500"
           />
           <QuickLink
@@ -133,7 +133,7 @@ const FEATURES = [
     icon: <Brain className="w-5 h-5 text-amber-400" />,
     iconBg: 'bg-amber-500/10',
     title: 'Từ điển Hán-Việt',
-    desc: '30 từ lớp 7 với công thức toán học. Chạm vào từ trong bài để xem ngay nghĩa gốc.',
+    desc: 'Hơn 120 từ Hán-Việt lớp 7 với công thức toán học. Chạm vào từ trong bài để xem ngay nghĩa gốc.',
   },
   {
     icon: <Printer className="w-5 h-5 text-emerald-400" />,

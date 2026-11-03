@@ -58,6 +58,7 @@ export interface EtymologyGardenEntry {
 
 // Subject tag display names
 export const SUBJECT_TAG_LABELS: Record<string, string> = {
+  'SGK': 'SGK Cơ Bản',
   'ngu-van': 'Ngữ Văn',
   'lich-su': 'Lịch Sử',
   'dia-ly': 'Địa Lý',
@@ -65,6 +66,7 @@ export const SUBJECT_TAG_LABELS: Record<string, string> = {
 };
 
 export const SUBJECT_TAG_COLORS: Record<string, string> = {
+  'SGK': 'bg-sky-100 text-sky-700',
   'ngu-van': 'bg-violet-100 text-violet-700',
   'lich-su': 'bg-amber-100 text-amber-700',
   'dia-ly': 'bg-emerald-100 text-emerald-700',
