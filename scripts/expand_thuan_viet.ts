@@ -149,10 +149,39 @@ const THUAN_VIET_RESPONSE_SCHEMA = {
   },
 };
 
+const SUB_THEMES = [
+  'Nhóm 1: Từ tượng thanh mô phỏng âm thanh thiên nhiên (tiếng gió, tiếng mưa, tiếng suối, tiếng chim muông, tiếng côn trùng, tiếng bước chân, tiếng trống...)',
+  'Nhóm 2: Từ tượng hình gợi tả dáng vẻ con người, dáng đi, tư thế lao động, nét mặt trong văn học Việt Nam lớp 7',
+  'Nhóm 3: Từ láy miêu tả cảm xúc, tâm trạng, nỗi nhớ, niềm vui, sự xúc động hoặc tính cách phẩm chất con người',
+  'Nhóm 4: Từ tượng hình và từ láy miêu tả màu sắc, ánh sáng, không gian sông nước, núi rừng, đồng quê Việt Nam',
+  'Nhóm 5: Từ đa nghĩa và từ láy giàu hình ảnh trong lịch sử, địa lí (địa hình, khí hậu, sông ngòi, chiến trận, làng nghề)',
+];
+
+export function normalizeVietnameseWord(word: string): string {
+  return word
+    .trim()
+    .toLowerCase()
+    .normalize('NFC')
+    .replace(/oà/g, 'òa')
+    .replace(/oá/g, 'óa')
+    .replace(/oả/g, 'ỏa')
+    .replace(/oã/g, 'õa')
+    .replace(/oạ/g, 'ọa')
+    .replace(/oè/g, 'òe')
+    .replace(/oé/g, 'óe')
+    .replace(/oẻ/g, 'ỏe')
+    .replace(/uỳ/g, 'ùy')
+    .replace(/uý/g, 'úy')
+    .replace(/uỷ/g, 'ủy')
+    .replace(/uỹ/g, 'ũy')
+    .replace(/uỵ/g, 'ụy');
+}
+
 export async function generateThuanVietBatchFromGemini(
   batchCount: number,
   topic: string,
-  excludedWords: string[]
+  excludedWords: string[],
+  roundIndex = 0
 ): Promise<GeneratedThuanVietItem[]> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
@@ -160,13 +189,15 @@ export async function generateThuanVietBatchFromGemini(
   }
 
   const ai = new GoogleGenAI({ apiKey });
+  const subTheme = SUB_THEMES[roundIndex % SUB_THEMES.length];
 
   const prompt = `
 Bạn là chuyên gia Ngôn ngữ Tiếng Việt và Sư phạm THCS (lớp 7 - 12 tuổi).
-Hãy chọn lọc và biên soạn ĐÚNG ${batchCount} từ Thuần Việt giàu hình ảnh, cảm xúc hoặc trừu tượng thường gặp trong ${topic}.
+Hãy chọn lọc và biên soạn ĐÚNG ${batchCount} từ Thuần Việt giàu hình ảnh, cảm xúc thường gặp trong ${topic}.
+🎯 Trọng tâm đợt này: ${subTheme}.
 
 ⚠️ QUY TẮC BẮT BUỘC:
-1. Chỉ chọn từ Thuần Việt (từ láy, từ tượng hình, từ tượng thanh, từ đa nghĩa giàu hình tượng như: màu mỡ, nhấp nhô, bạt ngàn, khúc khuỷu, chằng chịt, trù phú, khẳng khiu...).
+1. Chỉ chọn từ Thuần Việt (từ láy, từ tượng hình, từ tượng thanh, từ đa nghĩa giàu hình tượng).
 2. TUYỆT ĐỐI KHÔNG TRÙNG với bất kỳ từ nào trong danh sách đã có dưới đây:
 [${excludedWords.join(', ')}]
 3. Trường "word_type" bắt buộc chọn đúng 1 trong 4 nhãn: "tu_lay" | "tu_tuong_hinh" | "tu_tuong_thanh" | "tu_da_nghia".
@@ -190,11 +221,11 @@ Hãy chọn lọc và biên soạn ĐÚNG ${batchCount} từ Thuần Việt già
           config: {
             responseMimeType: 'application/json',
             responseSchema: THUAN_VIET_RESPONSE_SCHEMA,
-            temperature: 0.4,
+            temperature: 0.8,
           },
         }),
         new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error(`Timeout 60s trên model ${modelName}`)), 60000)
+          setTimeout(() => reject(new Error(`Timeout 75s trên model ${modelName}`)), 75000)
         ),
       ]);
       rawText = response.text;
@@ -249,24 +280,30 @@ async function main() {
   console.log(`🎯 Số lượng từ mục tiêu : ${count} từ`);
   console.log(`📚 Chủ đề               : ${topic}`);
 
-  // ── BƯỚC 1: Đồng bộ cột `english_equivalent` cho bảng `han_viet_compounds` (nếu cột đã được tạo) ──
-  const { error: checkHvColErr } = await supabase
+  // ── BƯỚC 1: Đồng bộ cột `english_equivalent` cho bảng `han_viet_compounds` (nếu còn từ chưa có) ──
+  const { data: missingEnRows, error: checkHvColErr } = await supabase
     .from('han_viet_compounds')
-    .select('id, slug, english_equivalent')
-    .limit(1);
+    .select('id, slug')
+    .is('english_equivalent', null);
 
   if (!checkHvColErr) {
-    console.log('\n🇬🇧 [1/3] Đang cập nhật english_equivalent cho các từ ghép Hán-Việt hiện có...');
-    let updatedHvCount = 0;
-    for (const [slug, enText] of Object.entries(HAN_VIET_ENGLISH_ANCHORS)) {
-      const { error: upErr } = await supabase
-        .from('han_viet_compounds')
-        .update({ english_equivalent: enText })
-        .eq('slug', slug)
-        .is('english_equivalent', null);
-      if (!upErr) updatedHvCount++;
+    if (missingEnRows && missingEnRows.length > 0) {
+      console.log('\n🇬🇧 [1/3] Đang cập nhật english_equivalent cho các từ ghép Hán-Việt còn thiếu...');
+      let updatedHvCount = 0;
+      for (const row of missingEnRows) {
+        const enText = HAN_VIET_ENGLISH_ANCHORS[row.slug];
+        if (enText) {
+          const { error: upErr } = await supabase
+            .from('han_viet_compounds')
+            .update({ english_equivalent: enText })
+            .eq('id', row.id);
+          if (!upErr) updatedHvCount++;
+        }
+      }
+      console.log(`   ✅ Đã đồng bộ mỏ neo tiếng Anh cho ${updatedHvCount} từ Hán-Việt.`);
+    } else {
+      console.log('\n🇬🇧 [1/3] Tất cả từ Hán-Việt đã có đủ english_equivalent.');
     }
-    console.log(`   ✅ Đã đồng bộ mỏ neo tiếng Anh cho ${updatedHvCount} từ Hán-Việt.`);
   } else {
     console.log(
       '\nℹ️  [1/3] Cột `english_equivalent` trên `han_viet_compounds` đang chờ chạy file SQL migration (`supabase/migrations/create_thuan_viet_dictionary.sql`).'
@@ -291,12 +328,12 @@ async function main() {
     process.exit(1);
   }
 
-  const existingWords = new Set((existingRows || []).map((r) => r.word.trim().toLowerCase()));
+  const existingWords = new Set((existingRows || []).map((r) => normalizeVietnameseWord(r.word)));
   console.log(`\n📦 [2/3] Số từ Thuần Việt hiện có trong DB: ${existingWords.size} từ`);
 
   // Nếu DB chưa có đủ 30 từ hạt giống ban đầu, nạp trước từ THUAN_VIET_SEED_DATA
   const seedToInsert = THUAN_VIET_SEED_DATA.filter(
-    (item) => !existingWords.has(item.word.trim().toLowerCase())
+    (item) => !existingWords.has(normalizeVietnameseWord(item.word))
   ).slice(0, count);
 
   const itemsToUpsert: GeneratedThuanVietItem[] = seedToInsert.map((s) => ({
@@ -314,15 +351,15 @@ async function main() {
   }));
 
   for (const s of itemsToUpsert) {
-    existingWords.add(s.word.trim().toLowerCase());
+    existingWords.add(normalizeVietnameseWord(s.word));
   }
 
   // Nếu vẫn cần sinh thêm từ mới ngoài 30 từ hạt giống bằng Gemini API
   const remainingNeeded = count - itemsToUpsert.length;
   if (remainingNeeded > 0 && !seedOnly && process.env.GEMINI_API_KEY) {
-    const BATCH_SIZE = 5;
+    const BATCH_SIZE = 8;
     let rounds = 0;
-    while (itemsToUpsert.length < count && rounds < 10) {
+    while (itemsToUpsert.length < count && rounds < 6) {
       rounds++;
       const reqCount = Math.min(BATCH_SIZE, count - itemsToUpsert.length);
       console.log(
@@ -332,10 +369,11 @@ async function main() {
         const generated = await generateThuanVietBatchFromGemini(
           reqCount,
           topic,
-          Array.from(existingWords)
+          Array.from(existingWords),
+          rounds - 1
         );
         for (const g of generated) {
-          const key = g.word.trim().toLowerCase();
+          const key = normalizeVietnameseWord(g.word);
           if (!existingWords.has(key) && itemsToUpsert.length < count) {
             existingWords.add(key);
             itemsToUpsert.push(g);
