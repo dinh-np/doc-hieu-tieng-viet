@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { METACOGNITION_ARTICLES_SEED } from '@/data/metacognition-seed';
 import type { MetacognitionArticle } from '@/types/metacognition';
+import { deepNormalizeVietnamese } from '@/lib/utils/vietnamese-text';
 import { MetacognitionReaderClient } from './MetacognitionReaderClient';
 
 export const dynamic = 'force-dynamic';
@@ -30,7 +31,7 @@ async function resolveArticle(id: string): Promise<MetacognitionArticle | null> 
     if (data && data.structured_data) {
       const sd = data.structured_data as Record<string, unknown>;
       if (Array.isArray(sd.chunks) && sd.planning && sd.evaluating) {
-        return {
+        return deepNormalizeVietnamese({
           ...(sd as unknown as MetacognitionArticle),
           id: (data.slug as string) || (data.id as string),
           slug: data.slug as string,
@@ -41,14 +42,14 @@ async function resolveArticle(id: string): Promise<MetacognitionArticle | null> 
             han_viet_Popup:
               c.han_viet_Popup || seedMatch?.chunks[idx]?.han_viet_Popup || [],
           })),
-        };
+        });
       }
     }
   } catch {
     // Fallback sang seedMatch
   }
 
-  return seedMatch || null;
+  return seedMatch ? deepNormalizeVietnamese(seedMatch) : null;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

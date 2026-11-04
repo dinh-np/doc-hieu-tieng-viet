@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import confetti from 'canvas-confetti';
+import { cleanVietnameseText, deepNormalizeVietnamese } from '@/lib/utils/vietnamese-text';
 import {
   ArrowLeft,
   Brain,
@@ -54,7 +55,8 @@ interface PersistedStudentState {
   takeawayInput: string;
 }
 
-export function MetacognitionReaderClient({ article }: MetacognitionReaderClientProps) {
+export function MetacognitionReaderClient({ article: rawArticle }: MetacognitionReaderClientProps) {
+  const article = useMemo(() => deepNormalizeVietnamese(rawArticle), [rawArticle]);
   const storageKey = `doc_hieu_metacog_state_${article.id}_v1`;
 
   // ── State lưu trữ toàn bộ bài làm của học sinh (tự động đồng bộ LocalStorage) ──
@@ -394,20 +396,29 @@ export function MetacognitionReaderClient({ article }: MetacognitionReaderClient
   const renderFormattedChunkText = (chunk: ChunkData) => {
     const glossaryMap = new Map<string, HanVietPopItem>();
     (chunk.han_viet_Popup || []).forEach((item) => {
-      glossaryMap.set(item.term.toLowerCase(), item);
+      const normalizedKey = cleanVietnameseText(item.term).toLowerCase();
+      glossaryMap.set(normalizedKey, {
+        ...item,
+        term: cleanVietnameseText(item.term),
+        formula: cleanVietnameseText(item.formula),
+        meaning: cleanVietnameseText(item.meaning),
+        english_anchor: item.english_anchor ? cleanVietnameseText(item.english_anchor) : undefined,
+      });
     });
 
-    const parts = chunk.original_text.split(/(\*\*.*?\*\*)/g);
+    const normalizedOriginalText = cleanVietnameseText(chunk.original_text);
+    const parts = normalizedOriginalText.split(/(\*\*[^*]+\*\*)/g);
 
     return parts.map((part, idx) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        const innerText = part.slice(2, -2);
+        const innerText = cleanVietnameseText(part.slice(2, -2));
         const hvItem = glossaryMap.get(innerText.toLowerCase());
 
         if (hvItem) {
           const isOpen =
             activeHanVietPopup?.chunkId === chunk.chunk_id &&
-            activeHanVietPopup?.item.term.toLowerCase() === innerText.toLowerCase();
+            cleanVietnameseText(activeHanVietPopup?.item.term).toLowerCase() ===
+              innerText.toLowerCase();
 
           return (
             <span key={idx} className="relative inline-block">
@@ -421,18 +432,18 @@ export function MetacognitionReaderClient({ article }: MetacognitionReaderClient
                 onMouseEnter={() =>
                   setActiveHanVietPopup({ chunkId: chunk.chunk_id, item: hvItem })
                 }
-                className="font-extrabold text-[#0066ab] bg-blue-50 hover:bg-blue-100 px-1.5 py-0.5 rounded-md underline decoration-dashed decoration-[#0066ab] underline-offset-4 cursor-pointer transition-colors"
+                className="font-extrabold text-[#0066ab] bg-blue-50 hover:bg-blue-100 px-1.5 py-0.5 rounded-md underline decoration-dashed decoration-[#0066ab] underline-offset-4 cursor-pointer transition-colors whitespace-nowrap"
                 title="Chạm để bẻ khóa từ Hán-Việt"
               >
-                {innerText}
+                {innerText.normalize('NFC')}
                 <span className="ml-1 text-[10px] font-black text-amber-600 align-top">🔑</span>
               </button>
 
               {isOpen && (
-                <span className="no-print absolute left-0 bottom-full mb-2 w-72 sm:w-80 p-3.5 rounded-2xl bg-slate-900 text-white shadow-xl border border-slate-700 z-50 text-left block space-y-1.5">
+                <span className="no-print absolute left-0 bottom-full mb-2 w-72 sm:w-80 p-3.5 rounded-2xl bg-slate-900 text-white shadow-xl border border-slate-700 z-50 text-left block space-y-1.5 font-sans">
                   <span className="flex items-center justify-between gap-2">
                     <span className="text-xs font-black uppercase tracking-wider text-amber-400">
-                      🔑 Bẻ khóa Hán - Việt: {hvItem.term}
+                      🔑 Bẻ khóa Hán - Việt: {hvItem.term.normalize('NFC')}
                     </span>
                     <button
                       type="button"
@@ -446,14 +457,14 @@ export function MetacognitionReaderClient({ article }: MetacognitionReaderClient
                     </button>
                   </span>
                   <span className="block text-xs font-extrabold text-emerald-300 bg-slate-800 px-2.5 py-1.5 rounded-lg">
-                    📐 {hvItem.formula}
+                    📐 {hvItem.formula.normalize('NFC')}
                   </span>
                   <span className="block text-xs text-slate-200 leading-relaxed">
-                    {hvItem.meaning}
+                    {hvItem.meaning.normalize('NFC')}
                   </span>
                   {hvItem.english_anchor && (
                     <span className="inline-block text-[11px] font-bold text-sky-300 bg-sky-950/80 px-2 py-0.5 rounded border border-sky-700">
-                      🇬🇧 {hvItem.english_anchor}
+                      🇬🇧 {hvItem.english_anchor.normalize('NFC')}
                     </span>
                   )}
                 </span>
@@ -468,12 +479,12 @@ export function MetacognitionReaderClient({ article }: MetacognitionReaderClient
             key={idx}
             className="font-extrabold text-slate-900 bg-amber-100/70 px-1 rounded"
           >
-            {innerText}
+            {innerText.normalize('NFC')}
           </strong>
         );
       }
 
-      return <React.Fragment key={idx}>{part}</React.Fragment>;
+      return <React.Fragment key={idx}>{part.normalize('NFC')}</React.Fragment>;
     });
   };
 
@@ -732,7 +743,7 @@ export function MetacognitionReaderClient({ article }: MetacognitionReaderClient
                         <div
                           onMouseUp={() => handleTextSelectionInChunk(chunk.chunk_id)}
                           onTouchEnd={() => handleTextSelectionInChunk(chunk.chunk_id)}
-                          className="text-base sm:text-lg leading-[1.85] text-slate-800 font-serif select-text bg-slate-50/70 p-5 rounded-2xl border border-slate-200/90"
+                          className="text-base sm:text-lg leading-[1.85] text-slate-800 font-reading select-text bg-slate-50/70 p-5 rounded-2xl border border-slate-200/90"
                         >
                           {renderFormattedChunkText(chunk)}
                         </div>

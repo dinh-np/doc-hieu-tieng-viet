@@ -1,12 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Be_Vietnam_Pro, Noto_Sans } from "next/font/google";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
-  subsets: ["vietnamese"],
-  weight: ["400", "500", "600", "700", "900"],
+  subsets: ["vietnamese", "latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
   variable: "--font-noto-sans",
+});
+
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ["vietnamese", "latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-be-vietnam",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +42,9 @@ export default function RootLayout({
     <html lang="vi">
       <head>
       </head>
-      <body className={`antialiased ${notoSans.variable}`}>{children}</body>
+      <body className={`antialiased ${notoSans.variable} ${beVietnamPro.variable} ${notoSans.className}`}>
+        {children}
+      </body>
     </html>
   );
 }

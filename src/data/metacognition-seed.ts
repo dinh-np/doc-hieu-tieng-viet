@@ -1,10 +1,12 @@
 import type { MetacognitionArticle } from '@/types/metacognition';
+import { deepNormalizeVietnamese } from '@/lib/utils/vietnamese-text';
 
 /**
  * KHO BÀI ĐỌC SIÊU NHẬN THỨC 3 PHA (PLANNING - MONITORING - EVALUATING)
  * Gồm các bài mẫu chuẩn SGK Lớp 7: Lịch sử 7 (Bài 6), Địa lí 7 (Bài 5), và Ngữ văn 7
+ * Toàn bộ chuỗi văn bản đều được chuẩn hóa về Unicode dựng sẵn (NFC).
  */
-export const METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
+const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
@@ -407,4 +409,9 @@ export const METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
     },
   },
 ];
+
+export const METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = deepNormalizeVietnamese(
+  RAW_METACOGNITION_ARTICLES_SEED
+);
+
 

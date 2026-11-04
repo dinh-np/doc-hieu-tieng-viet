@@ -255,10 +255,29 @@ ${articleText}
   }
 
   const parsed = JSON.parse(rawText) as ExtractedHanVietItem[];
+  const cleanNFC = (s: string) =>
+    (s || '').replace(/([\p{L}])\s+([\u0300-\u036f]+)/gu, '$1$2').normalize('NFC').trim();
+
   return parsed.map((item) => ({
     ...item,
-    word: item.word.trim(),
-    slug: toSlug(item.word),
+    word: cleanNFC(item.word),
+    slug: toSlug(cleanNFC(item.word)),
+    full_meaning: cleanNFC(item.full_meaning),
+    english_equivalent: cleanNFC(item.english_equivalent || ''),
+    example_sentence: cleanNFC(item.example_sentence),
+    math_formula: cleanNFC(item.math_formula),
+    root1: {
+      ...item.root1,
+      reading_vi: cleanNFC(item.root1.reading_vi),
+      root_meaning: cleanNFC(item.root1.root_meaning),
+      related_words: (item.root1.related_words || []).map(cleanNFC),
+    },
+    root2: {
+      ...item.root2,
+      reading_vi: cleanNFC(item.root2.reading_vi),
+      root_meaning: cleanNFC(item.root2.root_meaning),
+      related_words: (item.root2.related_words || []).map(cleanNFC),
+    },
     grade_level: gradeLevel,
     subject_tag: options.subjectTag || item.subject_tag || 'SGK',
   }));

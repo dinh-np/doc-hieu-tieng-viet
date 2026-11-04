@@ -27,16 +27,18 @@ html {
 body {
   background-color: var(--background);
   color: var(--text-primary);
-  font-family: var(--font-noto-sans), sans-serif;
+  font-family: var(--font-noto-sans), var(--font-be-vietnam), "Segoe UI", Roboto, sans-serif;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ========== TYPOGRAPHY ========== */
-.font-reading {
-  font-family: var(--font-noto-sans), sans-serif;
+.font-reading,
+.font-serif {
+  font-family: var(--font-noto-sans), var(--font-be-vietnam), "Segoe UI", Roboto, sans-serif;
   line-height: 1.9;
-  font-size: 1.05rem;
   letter-spacing: 0.01em;
 }
 
