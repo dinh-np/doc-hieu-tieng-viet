@@ -4,8 +4,12 @@
 * **Supabase DDL:** Review table definitions and RLS policies in `src/lib/supabase/schema.sql` and `PROJECT_SPEC_DOC_HIEU_TIENG_VIET.md` (Section 3).
 * **Type Declarations:** Located in `src/types/`:
   * `article.ts`: Interfaces for `structured_data`, 5-step stages, and QAR items.
-  * `dictionary.ts`: Interfaces for `han_viet_roots`, `han_viet_compounds`, `compound_root_links`, `EtymologyFormula`, and `SUBJECT_TAG_LABELS` (`SGK`, `ngu-van`, `lich-su`, `dia-ly`, `khoa-hoc`).
+  * `dictionary.ts`: Interfaces for `han_viet_roots`, `han_viet_compounds`, `compound_root_links`, `ThuanVietEntry`, `EtymologyFormula`, and `SUBJECT_TAG_LABELS` (`SGK`, `ngu-van`, `lich-su`, `dia-ly`, `khoa-hoc`).
+  * `metacognition.ts`: Interfaces for 3-Phase Metacognition (`MarkingSymbol`, `ChunkData`, `MetacognitionArticle`, `HanVietPopItem`, `MARKING_SYMBOLS_META`).
   * `session.ts`: Interfaces for the Realtime reading session and Zustand state.
+* **Vietnamese Typography & Normalization Utility:**
+  * `src/lib/utils/vietnamese-text.ts` (`cleanVietnameseText`, `deepNormalizeVietnamese`) ➔ Normalizes all Vietnamese strings to Unicode `NFC` and strips stray spaces before combining marks.
+  * `src/app/layout.tsx` & `src/app/globals.css` ➔ Loads `Noto_Sans` and `Be_Vietnam_Pro` with `subsets: ["vietnamese", "latin", "latin-ext"]` so Vietnamese diacritics render seamlessly without fallback font mismatches.
 
 ## 2. Component & Script Directory Map
 * **Reading Engine Core:** `src/components/reading-engine/`

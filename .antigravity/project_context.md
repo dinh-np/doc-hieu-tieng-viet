@@ -10,7 +10,7 @@
 ## 2. Technology Stack
 * **Framework:** Next.js 15+ (App Router, React 19, TypeScript strict mode).
 * **Styling & UI:** Tailwind CSS v4, Lucide React, Radix UI Primitives. 
-  * **Design System:** Corporate Light Theme inspired by Krones (Primary color: `#0066AB`, Backgrounds: `#ffffff`, `#f8f9fa`, Typography: `Noto Sans`, `Georgia`).
+  * **Design System:** Corporate Light Theme inspired by Krones (Primary color: `#0066AB`, Backgrounds: `#ffffff`, `#f8f9fa`, Typography: `Noto Sans` & `Be Vietnam Pro` loaded with full `["vietnamese", "latin", "latin-ext"]` subsets in `src/app/layout.tsx`, plus Unicode `NFC` normalization via `src/lib/utils/vietnamese-text.ts` to prevent split diacritics).
 * **Backend & DB:** Supabase (PostgreSQL, Row Level Security, Supabase Auth via Magic Link/Google).
 * **AI & Automation SDK:** `@google/genai` (Gemini API with Structured Outputs `responseSchema` for automated Sino-Vietnamese etymology extraction and dictionary expansion).
 * **Realtime Sync:** Supabase Realtime Broadcast Channels (Two-way sync: Child View - Con ↔ Parent Co-pilot - Cha Mẹ).
