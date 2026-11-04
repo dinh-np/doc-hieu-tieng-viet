@@ -58,9 +58,27 @@ CREATE TABLE IF NOT EXISTS han_viet_compounds (
   full_meaning TEXT NOT NULL,
   example_sentence TEXT NOT NULL,
   math_formula TEXT NOT NULL,      -- "Hải (biển) + Đăng (đèn) -> Ngọn đèn soi đường trên biển"
-  subject_tag TEXT NOT NULL,       -- 'ngu-van', 'lich-su', 'dia-ly', 'khoa-hoc'
+  english_equivalent TEXT,         -- "Prosperous / Flourishing", "Differentiate / Diversify"
+  subject_tag TEXT NOT NULL,       -- 'ngu-van', 'lich-su', 'dia-ly', 'khoa-hoc', 'SGK'
   grade_level INT DEFAULT 7,
   quiz_data JSONB NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 6b. Bảng từ điển Thuần Việt (Pure Vietnamese Dictionary)
+CREATE TABLE IF NOT EXISTS public.thuan_viet_dictionary (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  word TEXT NOT NULL UNIQUE,              -- Ví dụ: "màu mỡ", "nhấp nhô", "bạt ngàn"
+  word_type TEXT NOT NULL,                -- 'tu_lay' | 'tu_tuong_hinh' | 'tu_tuong_thanh' | 'tu_da_nghia'
+  simple_meaning TEXT NOT NULL,           -- Nghĩa đời thường cho học sinh 12 tuổi
+  mental_image TEXT,                      -- Gợi ý bức tranh tưởng tượng (Visual clue)
+  context_clue TEXT,                      -- Mẹo nhận biết qua ngữ cảnh (3 chữ trước / sau)
+  english_equivalent TEXT,                -- Từ tiếng Anh tương đương (ví dụ: "Fertile", "Undulating")
+  example_sentence TEXT NOT NULL,         -- Câu ví dụ chuẩn văn cảnh SGK hoặc đời sống
+  synonyms TEXT[] DEFAULT ARRAY[]::TEXT[],-- Từ đồng nghĩa đời thường
+  grade_level INT DEFAULT 7,
+  subject_tag TEXT DEFAULT 'SGK',
+  quiz_data JSONB,                        -- Câu đố tương tác mini cho từ này
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 

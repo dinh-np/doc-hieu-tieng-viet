@@ -33,18 +33,30 @@
 * Seeded via dedicated python script `data_input/import_1page_articles.py`.
 * Utilizes the same 5-step engine but optimized for extensive immersion.
 
-## 5. Sino-Vietnamese Etymology Module
-* Mathematical formula layout: `Root A (meaning) + Root B (meaning) ➔ Compound Meaning`.
-* Morpheme tree: Click any root to explore related compounds sharing that root.
-* Contextual popover embedded directly into reading passages plus mini guessing quizzes.
+## 5. Dual Dictionary & Gamification Module (`/dictionary` & `/games`)
+* **Sino-Vietnamese Etymology (`Từ điển Hán - Việt`):**
+  * Mathematical formula layout: `Root A (meaning) + Root B (meaning) ➔ Compound Meaning`.
+  * English Cognitive Anchor (`🇬🇧 english_equivalent`): Bridges Grade 7 English vocabulary (e.g., `"Prosperous / Flourishing"`) to abstract Sino-Vietnamese compounds.
+  * Morpheme tree: Click any root to explore related compounds sharing that root.
+  * Contextual popover embedded directly into reading passages plus mini guessing quizzes.
+* **Pure Vietnamese Sensory Dictionary (`Từ điển Thuần Việt`):**
+  * Table `public.thuan_viet_dictionary` (with 30+ curated Grade 7 fallback entries in `src/lib/supabase/thuan-viet-seed.ts`): `word`, `word_type` (`tu_lay`, `tu_tuong_hinh`, `tu_tuong_thanh`, `tu_da_nghia`, `khac`), `simple_meaning`, `mental_image`, `context_clue`, `english_equivalent`, `example_sentence`, `synonyms`, `grade_level`, `subject_tag`, `quiz_data`.
+  * Helps 12-year-olds visualize evocative Vietnamese words (`khúc khích`, `lênh đênh`, `xào xạc`, `lắt léo`...) through sensory mental imagery (`mental_image`) and context clues.
+* **Centralized Vocabulary Arena (`/games` - Đấu Trường Từ Vựng):**
+  * **Mode 1 (🧩 Thợ Rèn Hình Vị - Hán Việt):** Combine 2 root morphemes (`han_viet_roots`) matching the target compound meaning (`han_viet_compounds`).
+  * **Mode 2 (🎨 Bức Họa Ngôn Từ - Thuần Việt):** Guess pure Vietnamese words from `mental_image` or cloze `example_sentence`.
+  * **Mode 3 (⚔️ Đấu Trường Thực Chiến - Tổng Hợp):** *Flashcard Blitz* (15s countdown timer matching meanings + `🇬🇧 english_equivalent`) and *Bác Sĩ Câu Văn* (diagnosing and fixing contextually misused words).
+  * Features Score, Combo Streak, visual countdown bar, Web Audio API sound effects, `canvas-confetti`, and `localStorage` high score persistence.
 * **Dynamic Supabase Rendering on PWA:**
-  * `/dictionary` (`src/app/dictionary/page.tsx` & `DictionaryClient.tsx`) and `/dictionary/[slug]` (`src/app/dictionary/[slug]/page.tsx`) dynamically query `han_viet_compounds`, `compound_root_links`, and `han_viet_roots` from Supabase (`force-dynamic`).
-* **Normalized 3-Table Relational Schema in Supabase:**
+  * `/dictionary` (`src/app/dictionary/page.tsx` & `DictionaryClient.tsx`), `/dictionary/[slug]`, and `/games` (`src/app/games/page.tsx` & `GamesClient.tsx`) dynamically query `han_viet_compounds`, `compound_root_links`, `han_viet_roots`, and `thuan_viet_dictionary` from Supabase (`force-dynamic`).
+* **Normalized Relational Schema in Supabase (`supabase/migrations/create_thuan_viet_dictionary.sql`):**
   * `han_viet_roots` (197+ root morphemes: `id`, `hanzi`, `reading_vi`, `root_meaning`, `created_at`).
-  * `han_viet_compounds` (154+ compounds: `id`, `word`, `slug`, `full_meaning`, `example_sentence`, `math_formula`, `subject_tag`, `grade_level`, `quiz_data`, `created_at`).
+  * `han_viet_compounds` (154+ compounds: `id`, `word`, `slug`, `full_meaning`, `english_equivalent`, `example_sentence`, `math_formula`, `subject_tag`, `grade_level`, `quiz_data`, `created_at`).
   * `compound_root_links` (282+ N-N links: `id`, `compound_id`, `root_id`, `position_order` 1 or 2, `related_words`).
+  * `thuan_viet_dictionary` (30+ entries: `id`, `word`, `word_type`, `simple_meaning`, `mental_image`, `context_clue`, `english_equivalent`, `example_sentence`, `synonyms`, `grade_level`, `subject_tag`, `quiz_data`, `created_at`).
 * **Automated Seeding, Scraping & Expansion Pipeline:**
-  * `scripts/seed_han_viet.ts` (`npm run seed:hanviet`): Parses `./learning_materials/tu_dien_han_viet_co_ban_sgk_100_tu.md` and `./learning_materials/tu_dien_han_viet_chiet_tu.md` to seed 100 textbook compounds, roots, links, and interactive quizzes into Supabase.
-  * `src/lib/agents/han_viet_scraper.ts` & `scripts/extract_han_viet.ts`: Gemini-powered agent that extracts new Grade 7 Sino-Vietnamese compounds from textbook passages and saves them to Supabase without duplicating existing roots or compounds.
-  * `scripts/expand_han_viet.ts` (`npm run expand:hanviet`): Automated CLI generator that queries existing compounds from Supabase as an exclusion list and uses Gemini API (`--count=30`, `--topic="..."`) to generate and upsert batches of new non-duplicate Grade 7 compounds.
+  * `scripts/seed_han_viet.ts` (`npm run seed:hanviet`): Seeds 100 textbook compounds, roots, links, and interactive quizzes into Supabase.
+  * `src/lib/agents/han_viet_scraper.ts` & `scripts/extract_han_viet.ts`: Gemini-powered agent that extracts new Grade 7 Sino-Vietnamese compounds (including `english_equivalent`) from textbook passages.
+  * `scripts/expand_han_viet.ts` (`npm run expand:hanviet`): Automated CLI generator for new non-duplicate Grade 7 Sino-Vietnamese compounds with `english_equivalent`.
+  * `scripts/expand_thuan_viet.ts` (`npm run expand:thuanviet`): Automated CLI seeder and Gemini expander for Grade 7 Pure Vietnamese sensory words (`thuan_viet_dictionary`).
 ```

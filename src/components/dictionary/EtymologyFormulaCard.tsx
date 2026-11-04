@@ -22,9 +22,16 @@ export function EtymologyFormulaCard({
       {/* Subject tag + word title */}
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h2 className={`font-bold gradient-text ${compact ? 'text-xl' : 'text-3xl'}`}>
-            {compound.word}
-          </h2>
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <h2 className={`font-bold gradient-text ${compact ? 'text-xl' : 'text-3xl'}`}>
+              {compound.word}
+            </h2>
+            {compound.english_equivalent && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                🇬🇧 {compound.english_equivalent}
+              </span>
+            )}
+          </div>
           <p className={`text-slate-600 mt-1 ${compact ? 'text-xs' : 'text-sm'}`}>
             {compound.full_meaning}
           </p>

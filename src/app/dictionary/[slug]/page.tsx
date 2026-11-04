@@ -4,6 +4,7 @@ import { EtymologyFormulaCard } from '@/components/dictionary/EtymologyFormulaCa
 import { MiniEtymologyQuiz } from '@/components/dictionary/MiniEtymologyQuiz';
 import { createClient } from '@/lib/supabase/server';
 import { HAN_VIET_COMPOUNDS_SEED, HAN_VIET_ROOTS_SEED } from '@/lib/supabase/seed';
+import { HAN_VIET_ENGLISH_ANCHORS } from '@/lib/supabase/thuan-viet-seed';
 import { HanVietCompound, HanVietRoot } from '@/types/dictionary';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -46,10 +47,15 @@ export default async function DictionarySlugPage({ params }: { params: Promise<{
   if (!compoundRow && !seedFallback) return notFound();
 
   const compound: HanVietCompound = compoundRow
-    ? (compoundRow as HanVietCompound)
+    ? {
+        ...(compoundRow as HanVietCompound),
+        english_equivalent:
+          compoundRow.english_equivalent || HAN_VIET_ENGLISH_ANCHORS[slug] || null,
+      }
     : {
         ...seedFallback!,
         id: seedFallback!.slug,
+        english_equivalent: HAN_VIET_ENGLISH_ANCHORS[slug] || null,
         created_at: '',
       };
 

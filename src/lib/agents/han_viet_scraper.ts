@@ -3,6 +3,7 @@
  *
  * Tích hợp Gemini API (@google/genai) sử dụng GEMINI_API_KEY từ .env.local
  * Tự động nhận diện từ Hán-Việt quan trọng lớp 7, bẻ khóa chiết tự theo đúng schema
+ * (bao gồm cả english_equivalent làm mỏ neo nhận thức tiếng Anh)
  * và ghi vào 3 bảng Supabase (`han_viet_roots`, `han_viet_compounds`, `compound_root_links`)
  * mà không làm trùng lặp các từ/hình vị đã có.
  */
@@ -31,6 +32,7 @@ export interface ExtractedHanVietItem {
   full_meaning: string;
   example_sentence: string;
   math_formula: string;
+  english_equivalent?: string;
   subject_tag: string;
   grade_level: number;
   root1: ExtractedRootMorpheme;
@@ -92,6 +94,11 @@ const EXTRACTION_RESPONSE_SCHEMA = {
         type: Type.STRING,
         description:
           'Công thức ghép nghĩa theo dạng: "Âm 1 (nghĩa 1) + Âm 2 (nghĩa 2) → Nghĩa tổng hợp của từ ghép".',
+      },
+      english_equivalent: {
+        type: Type.STRING,
+        description:
+          'Từ hoặc cụm từ tiếng Anh tương đương gần nhất làm mỏ neo nhận thức cho học sinh (ví dụ: "Prosperous / Flourishing", "Terrain / Topography").',
       },
       subject_tag: {
         type: Type.STRING,
@@ -157,6 +164,7 @@ const EXTRACTION_RESPONSE_SCHEMA = {
       'full_meaning',
       'example_sentence',
       'math_formula',
+      'english_equivalent',
       'subject_tag',
       'root1',
       'root2',
@@ -191,6 +199,7 @@ Nhiệm vụ của bạn là đọc văn bản bài học SGK dưới đây và:
    - Hình vị 1 (chữ Hán, âm đọc chuẩn viết hoa chữ cái đầu, nghĩa gốc ngắn gọn, 2-3 từ liên quan).
    - Hình vị 2 (chữ Hán, âm đọc chuẩn viết hoa chữ cái đầu, nghĩa gốc ngắn gọn, 2-3 từ liên quan).
    - Công thức ghép nghĩa dạng toán học: "Âm 1 (nghĩa 1) + Âm 2 (nghĩa 2) → Nghĩa tổng quát".
+   - Từ/cụm từ tiếng Anh tương đương gần nhất (english_equivalent) làm mỏ neo nhận thức (Ví dụ: "Prosperous / Flourishing", "Differentiate / Diversify").
    - Nghĩa giải thích phù hợp học sinh lớp ${gradeLevel} và 1 câu ví dụ sinh động.
    - 1 câu đố trắc nghiệm (4 đáp án, 1 đáp án đúng) kèm lời giải thích chiết tự.
 3. Gắn thẻ môn học (subject_tag) là "${defaultSubject}" (hoặc một trong: "dia-ly", "lich-su", "ngu-van", "khoa-hoc", "SGK").
@@ -201,22 +210,27 @@ ${articleText}
 """
 `.trim();
 
-  const modelsToTry = ['gemini-3.8-flash', 'gemini-3.7-flash', 'gemini-3.5-flash', 'gemini-3.1-flash-lite'];
+  const modelsToTry = ['gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.5-flash', 'gemini-3.7-flash', 'gemini-3.8-flash'];
   let rawText: string | undefined;
   let lastError: unknown;
 
   for (const modelName of modelsToTry) {
     for (let attempt = 1; attempt <= 2; attempt++) {
       try {
-        const response = await ai.models.generateContent({
-          model: modelName,
-          contents: prompt,
-          config: {
-            responseMimeType: 'application/json',
-            responseSchema: EXTRACTION_RESPONSE_SCHEMA,
-            temperature: 0.2,
-          },
-        });
+        const response = await Promise.race([
+          ai.models.generateContent({
+            model: modelName,
+            contents: prompt,
+            config: {
+              responseMimeType: 'application/json',
+              responseSchema: EXTRACTION_RESPONSE_SCHEMA,
+              temperature: 0.2,
+            },
+          }),
+          new Promise<never>((_, reject) =>
+            setTimeout(() => reject(new Error(`Timeout 60s trên ${modelName}`)), 60000)
+          ),
+        ]);
         rawText = response.text;
         break;
       } catch (err: unknown) {
@@ -235,6 +249,7 @@ ${articleText}
   if (!rawText && lastError) {
     throw lastError;
   }
+
   if (!rawText) {
     return [];
   }
@@ -346,6 +361,7 @@ export async function saveExtractedHanVietToSupabase(
       full_meaning: string;
       example_sentence: string;
       math_formula: string;
+      english_equivalent?: string | null;
       subject_tag: string;
       grade_level: number;
       quiz_data: QuizData;
@@ -369,6 +385,7 @@ export async function saveExtractedHanVietToSupabase(
         full_meaning: item.full_meaning.trim(),
         example_sentence: item.example_sentence.trim(),
         math_formula: item.math_formula.trim(),
+        english_equivalent: item.english_equivalent?.trim() || null,
         subject_tag: item.subject_tag || 'SGK',
         grade_level: item.grade_level || 7,
         quiz_data: item.quiz_data,
@@ -380,13 +397,30 @@ export async function saveExtractedHanVietToSupabase(
   let insertedLinksCount = 0;
 
   if (newCompoundsToInsert.length > 0) {
-    const { data: insertedCompounds, error: insertCompErr } = await supabase
+    // Thử insert kèm english_equivalent; nếu DB chưa kịp chạy migration cột english_equivalent thì fallback an toàn
+    let insertedCompounds: Array<{ id: string; word: string; slug: string }> | null = null;
+    const { data: dataWithEn, error: errWithEn } = await supabase
       .from('han_viet_compounds')
       .insert(newCompoundsToInsert.map((x) => x.payload))
       .select('id, word, slug');
 
-    if (insertCompErr) {
-      throw new Error(`Lỗi thêm mới han_viet_compounds: ${insertCompErr.message}`);
+    if (errWithEn && errWithEn.message?.includes('english_equivalent')) {
+      const fallbackPayloads = newCompoundsToInsert.map(({ payload: { english_equivalent, ...rest } }) => {
+        void english_equivalent;
+        return rest;
+      });
+      const { data: dataFallback, error: errFallback } = await supabase
+        .from('han_viet_compounds')
+        .insert(fallbackPayloads)
+        .select('id, word, slug');
+      if (errFallback) {
+        throw new Error(`Lỗi thêm mới han_viet_compounds: ${errFallback.message}`);
+      }
+      insertedCompounds = dataFallback;
+    } else if (errWithEn) {
+      throw new Error(`Lỗi thêm mới han_viet_compounds: ${errWithEn.message}`);
+    } else {
+      insertedCompounds = dataWithEn;
     }
 
     upsertedCompoundsCount = insertedCompounds?.length ?? 0;
@@ -490,7 +524,7 @@ async function runCli() {
 
   console.log(`✅ Đã nhận diện ${result.extracted.length} từ Hán-Việt:`);
   for (const item of result.extracted) {
-    console.log(`   • ${item.word}: ${item.math_formula}`);
+    console.log(`   • ${item.word} (${item.english_equivalent || ''}): ${item.math_formula}`);
   }
   console.log(`\n📊 Kết quả lưu trữ Supabase:`);
   console.log(`   - Hình vị mới thêm vào han_viet_roots: ${result.insertedRootsCount}`);
@@ -511,4 +545,3 @@ if (isMain) {
     process.exit(1);
   });
 }
-

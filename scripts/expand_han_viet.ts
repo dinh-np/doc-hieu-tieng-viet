@@ -81,6 +81,11 @@ const EXPAND_RESPONSE_SCHEMA = {
         type: Type.STRING,
         description: 'Công thức ngữ nghĩa theo dạng: "Âm 1 (nghĩa 1) + Âm 2 (nghĩa 2) → Nghĩa tổng quát".',
       },
+      english_equivalent: {
+        type: Type.STRING,
+        description:
+          'Từ hoặc cụm từ tiếng Anh tương đương gần nhất làm mỏ neo nhận thức cho học sinh (ví dụ: "Prosperous / Flourishing", "Differentiate / Diversify").',
+      },
       subject_tag: {
         type: Type.STRING,
         description: 'Một trong các giá trị: "ngu-van", "lich-su", "dia-ly", "khoa-hoc", hoặc "SGK".',
@@ -142,6 +147,7 @@ const EXPAND_RESPONSE_SCHEMA = {
       'full_meaning',
       'example_sentence',
       'math_formula',
+      'english_equivalent',
       'subject_tag',
       'root1',
       'root2',
@@ -177,7 +183,8 @@ Hãy chọn lọc và biên soạn ĐÚNG ${batchCount} từ ghép Hán-Việt (
 3. Mỗi từ phải là từ ghép Hán-Việt 2 âm tiết chuẩn xác, có chữ Hán (hanzi) chính xác cho từng hình vị 1 và hình vị 2.
 4. Trường "subject_tag" phải được phân loại hợp lý vào một trong các nhãn: "ngu-van", "lich-su", "dia-ly", "khoa-hoc", hoặc "SGK" (ưu tiên "${defaultTag}" nếu phù hợp chủ đề).
 5. Công thức ngữ nghĩa (math_formula) trình bày theo dạng: "Âm 1 (nghĩa 1) + Âm 2 (nghĩa 2) → Nghĩa tổng hợp".
-6. Câu đố (quiz_data) có 4 phương án (1 phương án is_correct = true, 3 phương án is_correct = false).
+6. Trường "english_equivalent": cung cấp 1-2 từ/cụm từ tiếng Anh tương đương gần nhất làm mỏ neo nhận thức cho học sinh (ví dụ: "Prosperous / Flourishing", "Differentiate / Diversify").
+7. Câu đố (quiz_data) có 4 phương án (1 phương án is_correct = true, 3 phương án is_correct = false).
 `.trim();
 
   // Ưu tiên các model tốc độ cao, kèm cơ chế timeout 90s mỗi lần gọi (không truyền thinkingConfig cho các model không hỗ trợ)

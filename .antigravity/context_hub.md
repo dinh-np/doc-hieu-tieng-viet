@@ -17,17 +17,21 @@
 * **Reading Routes:** 
   * `src/app/read/` ➔ Standard short-article flow.
   * `src/app/read-pages/` ➔ Long-reading module segmented by page_count (A4 immersion styling).
-* **Dictionary Routes & Components:**
-  * `src/app/dictionary/page.tsx` & `DictionaryClient.tsx` ➔ Server-fetched dynamic catalog of all Supabase `han_viet_compounds` with search and subject tag filters.
-  * `src/app/dictionary/[slug]/page.tsx` ➔ Dynamic detail view joining `han_viet_compounds`, `compound_root_links`, and `han_viet_roots`.
-  * `src/components/dictionary/EtymologyFormulaCard.tsx` ➔ Mathematical root addition card.
+* **Dictionary & Gamification Routes & Components:**
+  * `src/app/dictionary/page.tsx` & `DictionaryClient.tsx` ➔ Server-fetched dynamic dual-dictionary catalog with smooth tab switching between **Từ điển Hán - Việt** (`han_viet_compounds`) and **Từ điển Thuần Việt** (`thuan_viet_dictionary`), search, subject filters, word-type filters, and `🇬🇧 english_equivalent` cognitive anchors.
+  * `src/app/dictionary/[slug]/page.tsx` ➔ Dynamic detail view joining `han_viet_compounds`, `compound_root_links`, and `han_viet_roots` with English anchor badges.
+  * `src/app/games/page.tsx` & `src/app/games/GamesClient.tsx` ➔ Centralized Vocabulary Arena (**Đấu Trường Từ Vựng**) with 3 modes: 🧩 *Thợ Rèn Hình Vị* (Hán-Việt), 🎨 *Bức Họa Ngôn Từ* (Thuần Việt), and ⚔️ *Đấu Trường Thực Chiến* (Flashcard Blitz 15s + Bác Sĩ Câu Văn), complete with Web Audio sound effects, confetti, and `localStorage` high scores.
+  * `src/components/dictionary/EtymologyFormulaCard.tsx` ➔ Mathematical root addition card with `🇬🇧 english_equivalent`.
   * `src/components/dictionary/HanVietTooltip.tsx` ➔ In-text popover for vocabulary breakdown.
   * `src/components/dictionary/MiniEtymologyQuiz.tsx` ➔ Interactive morpheme puzzle.
+  * `src/lib/supabase/thuan-viet-seed.ts` ➔ Curated seed data of 30 Grade 7 pure Vietnamese entries (`THUAN_VIET_SEED_DATA`) and 154 English cognitive anchors (`HAN_VIET_ENGLISH_ANCHORS`).
 * **AI Agents & Dictionary Scripts:**
-  * `src/lib/agents/han_viet_scraper.ts` ➔ Gemini API (`@google/genai`) agent to automatically extract Sino-Vietnamese compounds, root morphemes, math formulas, and quizzes from new SGK passages and sync them to Supabase (`han_viet_roots`, `han_viet_compounds`, `compound_root_links`).
+  * `supabase/migrations/create_thuan_viet_dictionary.sql` ➔ SQL migration adding `english_equivalent` to `han_viet_compounds` and creating `public.thuan_viet_dictionary` with RLS policies.
+  * `src/lib/agents/han_viet_scraper.ts` ➔ Gemini API (`@google/genai`) agent to automatically extract Sino-Vietnamese compounds, `english_equivalent`, root morphemes, math formulas, and quizzes from new SGK passages.
   * `scripts/extract_han_viet.ts` ➔ CLI runner for the Han-Viet scraper agent (`npx tsx scripts/extract_han_viet.ts "<text>"`).
   * `scripts/seed_han_viet.ts` ➔ Seed runner (`npm run seed:hanviet`) that parses `./learning_materials/tu_dien_han_viet_co_ban_sgk_100_tu.md` and `./learning_materials/tu_dien_han_viet_chiet_tu.md` into Supabase.
-  * `scripts/expand_han_viet.ts` ➔ Automated batch dictionary expander (`npm run expand:hanviet` or `npx tsx scripts/expand_han_viet.ts --count=30 --topic="Lịch sử"`), querying existing Supabase words as an exclusion list and generating new Grade 7 words via Gemini API.
+  * `scripts/expand_han_viet.ts` ➔ Automated batch Sino-Vietnamese dictionary expander (`npm run expand:hanviet`), generating new Grade 7 words + `english_equivalent` via Gemini API.
+  * `scripts/expand_thuan_viet.ts` ➔ Automated batch Pure Vietnamese dictionary seeder & expander (`npm run expand:thuanviet`), populating `thuan_viet_dictionary` via seed + Gemini API.
 * **Learning Materials (`learning_materials/`):**
   * `tu_dien_han_viet_co_ban_sgk_100_tu.md` (and `tu_dien_han_viet_co_ban_sgk.md`) ➔ Master table of 100 core THCS Sino-Vietnamese compounds and interactive quizzes.
   * `tu_dien_han_viet_chiet_tu.md` ➔ Detailed etymological breakdowns and morpheme quizzes.
