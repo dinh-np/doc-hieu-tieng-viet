@@ -53,20 +53,20 @@
   * `han_viet_roots` (197+ root morphemes: `id`, `hanzi`, `reading_vi`, `root_meaning`, `created_at`).
   * `han_viet_compounds` (154+ compounds: `id`, `word`, `slug`, `full_meaning`, `english_equivalent`, `example_sentence`, `math_formula`, `subject_tag`, `grade_level`, `quiz_data`, `created_at`).
   * `compound_root_links` (282+ N-N links: `id`, `compound_id`, `root_id`, `position_order` 1 or 2, `related_words`).
-  * `thuan_viet_dictionary` (30+ entries: `id`, `word`, `word_type`, `simple_meaning`, `mental_image`, `context_clue`, `english_equivalent`, `example_sentence`, `synonyms`, `grade_level`, `subject_tag`, `quiz_data`, `created_at`).
+  * `thuan_viet_dictionary` (83+ entries: `id`, `word`, `word_type`, `simple_meaning`, `mental_image`, `context_clue`, `english_equivalent`, `example_sentence`, `synonyms`, `grade_level`, `subject_tag`, `quiz_data`, `created_at`).
 * **Automated Seeding, Scraping & Expansion Pipeline:**
   * `scripts/seed_han_viet.ts` (`npm run seed:hanviet`): Seeds 100 textbook compounds, roots, links, and interactive quizzes into Supabase.
   * `src/lib/agents/han_viet_scraper.ts` & `scripts/extract_han_viet.ts`: Gemini-powered agent that extracts new Grade 7 Sino-Vietnamese compounds (including `english_equivalent`) from textbook passages.
   * `scripts/expand_han_viet.ts` (`npm run expand:hanviet`): Automated CLI generator for new non-duplicate Grade 7 Sino-Vietnamese compounds with `english_equivalent`.
-  * `scripts/expand_thuan_viet.ts` (`npm run expand:thuanviet`): Automated CLI seeder and Gemini expander for Grade 7 Pure Vietnamese sensory words (`thuan_viet_dictionary`).
+  * `scripts/expand_thuan_viet.ts` (`npm run expand:thuanviet`): Automated CLI seeder and Gemini expander for Grade 7 Pure Vietnamese sensory words (`thuan_viet_dictionary`) with rotating sub-themes and Vietnamese diacritic normalization.
 
 ## 6. Interactive Vietnamese Grammar Module (`/grammar` - Phẫu Thuật Cấu Trúc Câu)
-* **Pedagogical Framework:** Designed for Grade 7 (12-year-old) students with strong logic & English skills who struggle with complex Vietnamese syntax. Converts dry grammar theory into visual **Sentence Anatomy** based on research by Nguyễn Hiến Lê - Trương Văn Chình and GS. Diệp Quang Ban:
-  * **Level 1 (`sentence_core` / `pick_core`):** 🦴 *Khung Xương Câu* (Chủ từ + Thuật từ / Vị từ làm đỉnh — `🇬🇧 Subject + Verb Core`) with an interactive **X-Ray "Lọc Xương"** filter that fades out peripheral modifiers.
-  * **Level 2 (`topic_comment`):** 🔜 *Cấu Trúc Đề - Thuyết* (`🇬🇧 Topic - Comment`).
-  * **Level 3 (`sentence_slicing` / `slice_slash` & `connectors_logic` / `drag_logic_arrow`):** ✂️ *Dao Mổ Tách Câu* (slicing long textbook compound sentences with `/`) and 🔗 *Mũi Tên Logic* (mapping `Nhờ/Do/Vì... nên...`, `Mặc dù... nhưng...` into Cause ➔ Effect / Contrast diagrams).
-  * **Level 4:** *Từ loại theo ngữ cảnh* (Từ tính vs. Từ vị).
+* **Pedagogical Framework:** Designed for Grade 7 (12-year-old) students with strong logic & English skills who struggle with complex Vietnamese syntax. Converts dry grammar theory into visual **Sentence Anatomy** based on research by Nguyễn Hiến Lê - Trương Văn Chình and GS. Diệp Quang Ban across a 4-Level Cognitive Progression:
+  * **[Tab 1] Level 1 (`sentence_core` / `pick_core`, `level_order: 1`):** 🦴 *Khung Xương Câu* (Chủ từ + Thuật từ / Vị từ làm đỉnh — `🇬🇧 Subject + Verb Core`) with an interactive **X-Ray "Lọc Xương"** filter that fades out peripheral modifiers.
+  * **[Tab 2] Level 2 (`sentence_slicing` / `slice_slash`, `level_order: 2`):** ✂️ *Dao Mổ Tách Câu* (slicing long textbook compound sentences into independent clauses with `/`).
+  * **[Tab 3] Level 3 (`connectors_logic` / `drag_logic_arrow`, `level_order: 3`):** 🔗 *Mũi Tên Logic* (mapping `Nhờ/Do/Vì... nên...`, `Mặc dù... nhưng...` into Cause ➔ Effect / Contrast diagrams).
+  * **[Tab 4] Level 4 (`topic_comment`, `level_order: 4`):** 🔜 *Cấu Trúc Đề - Thuyết & Từ Vị Theo Ngữ Cảnh* (`🇬🇧 Topic - Comment & Part of Speech vs. Syntactic Role`).
 * **Schema & Fallback Seed:**
   * Table `public.grammar_exercises` (`supabase/migrations/create_grammar_exercises.sql`) and seed runner `scripts/seed_grammar.ts` (`npm run seed:grammar`).
-  * Curated seed bank `src/data/grammar-seed.ts` (16 Grade 7 textbook exercises across History, Geography, Literature, and Science) with instant fallback.
+  * Curated seed bank `src/data/grammar-seed.ts` (16 Grade 7 textbook exercises across History, Geography, Literature, and Science) synced to Supabase with instant local fallback.
 ```

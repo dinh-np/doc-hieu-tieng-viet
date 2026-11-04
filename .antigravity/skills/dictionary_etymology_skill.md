@@ -32,3 +32,11 @@ When developing `/dictionary` routes, `<HanVietTooltip />`, and dictionary data 
   - `npm run seed:hanviet` (`tsx scripts/seed_han_viet.ts`)
   - `npm run expand:hanviet` (`tsx scripts/expand_han_viet.ts --count=30`)
   - `npm run expand:thuanviet` (`tsx scripts/expand_thuan_viet.ts --count=30`)
+  - `npm run seed:grammar` (`tsx scripts/seed_grammar.ts`)
+
+### 4. Interactive Sentence Anatomy (`/grammar`)
+* **4-Level Cognitive Progression (`public.grammar_exercises` & `src/data/grammar-seed.ts`):**
+  - **Level 1 (`sentence_core` / `pick_core`, `level_order: 1`):** Identify Subject + Predicate core and toggle the **🦴 Lọc Xương (X-Ray)** filter to fade out modifiers.
+  - **Level 2 (`sentence_slicing` / `slice_slash`, `level_order: 2`):** Slice long compound sentences at clause boundaries using `✂️ /`.
+  - **Level 3 (`connectors_logic` / `drag_logic_arrow`, `level_order: 3`):** Map logical conjunctions (`Nhờ/Do/Vì... nên...`, `Mặc dù... nhưng...`) into `[Vế A] ➔ [Vế B]` diagrams.
+  - **Level 4 (`topic_comment`, `level_order: 4`):** Topic-Comment (Đề - Thuyết) and Contextual Word Roles (Từ tính vs. Từ vị).
