@@ -59,4 +59,14 @@
   * `src/lib/agents/han_viet_scraper.ts` & `scripts/extract_han_viet.ts`: Gemini-powered agent that extracts new Grade 7 Sino-Vietnamese compounds (including `english_equivalent`) from textbook passages.
   * `scripts/expand_han_viet.ts` (`npm run expand:hanviet`): Automated CLI generator for new non-duplicate Grade 7 Sino-Vietnamese compounds with `english_equivalent`.
   * `scripts/expand_thuan_viet.ts` (`npm run expand:thuanviet`): Automated CLI seeder and Gemini expander for Grade 7 Pure Vietnamese sensory words (`thuan_viet_dictionary`).
+
+## 6. Interactive Vietnamese Grammar Module (`/grammar` - Phẫu Thuật Cấu Trúc Câu)
+* **Pedagogical Framework:** Designed for Grade 7 (12-year-old) students with strong logic & English skills who struggle with complex Vietnamese syntax. Converts dry grammar theory into visual **Sentence Anatomy** based on research by Nguyễn Hiến Lê - Trương Văn Chình and GS. Diệp Quang Ban:
+  * **Level 1 (`sentence_core` / `pick_core`):** 🦴 *Khung Xương Câu* (Chủ từ + Thuật từ / Vị từ làm đỉnh — `🇬🇧 Subject + Verb Core`) with an interactive **X-Ray "Lọc Xương"** filter that fades out peripheral modifiers.
+  * **Level 2 (`topic_comment`):** 🔜 *Cấu Trúc Đề - Thuyết* (`🇬🇧 Topic - Comment`).
+  * **Level 3 (`sentence_slicing` / `slice_slash` & `connectors_logic` / `drag_logic_arrow`):** ✂️ *Dao Mổ Tách Câu* (slicing long textbook compound sentences with `/`) and 🔗 *Mũi Tên Logic* (mapping `Nhờ/Do/Vì... nên...`, `Mặc dù... nhưng...` into Cause ➔ Effect / Contrast diagrams).
+  * **Level 4:** *Từ loại theo ngữ cảnh* (Từ tính vs. Từ vị).
+* **Schema & Fallback Seed:**
+  * Table `public.grammar_exercises` (`supabase/migrations/create_grammar_exercises.sql`) and seed runner `scripts/seed_grammar.ts` (`npm run seed:grammar`).
+  * Curated seed bank `src/data/grammar-seed.ts` (16 Grade 7 textbook exercises across History, Geography, Literature, and Science) with instant fallback.
 ```

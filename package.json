@@ -10,7 +10,8 @@
     "seed": "tsx --env-file=.env.local src/lib/supabase/seed.ts",
     "seed:hanviet": "tsx scripts/seed_han_viet.ts",
     "expand:hanviet": "tsx scripts/expand_han_viet.ts --count=30",
-    "expand:thuanviet": "tsx scripts/expand_thuan_viet.ts --count=30"
+    "expand:thuanviet": "tsx scripts/expand_thuan_viet.ts --count=30",
+    "seed:grammar": "tsx scripts/seed_grammar.ts"
   },
   "dependencies": {
     "@google/genai": "^2.32.0",
