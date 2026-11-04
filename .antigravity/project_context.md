@@ -69,4 +69,12 @@
 * **Schema & Fallback Seed:**
   * Table `public.grammar_exercises` (`supabase/migrations/create_grammar_exercises.sql`) and seed runner `scripts/seed_grammar.ts` (`npm run seed:grammar`).
   * Curated seed bank `src/data/grammar-seed.ts` (16 Grade 7 textbook exercises across History, Geography, Literature, and Science) synced to Supabase with instant local fallback.
+
+## 7. 3-Phase Metacognition Reading Module (`/metacognition-read`)
+* **Pedagogical Framework:** Independent 3-Phase Metacognition reader (`Planning – Monitoring – Evaluating`) combining **Feynman Explanations**, **Parent Think-Aloud Modeling (Ba làm mẫu)**, and **6-Symbol Marking Text** (`[?]`, `[!]`, `[*]`, `[C]`, `[P]`, `[KL]`):
+  * **Phase 1 (Planning):** Active Recall question + Prediction prompt + Sticky 6-Symbol Marking Text Legend Bar.
+  * **Phase 2 (Monitoring):** 2-column split screen (60% Original Text with interactive Han-Viet etymology pop-ups & text-selection Marking Text highlighter — 40% Feynman explanation, Parent Think-Aloud modeling, and Student 5-word reflection journal).
+  * **Phase 3 (Evaluating):** 3-level QAR challenge (with Parent/Teacher hints), Interactive Mindmap Matrix Table, 3-2-1 Reflection + Traffic Light (`🟢🟡🔴`), and Golden Takeaway box.
+* **Print & Export:** Built-in **🖨️ Xuất bản in A4** (`@media print` 2-column worksheet) and **📄 Tải file Word (`.doc`)** generator.
+* **Data & Sync:** Defined in `src/types/metacognition.ts`, seeded via `src/data/metacognition-seed.ts`, `supabase_1page_articles.sql`, and `scripts/seed_metacognition.ts` (`npm run seed:metacognition`) into `public.one_page_articles`.
 ```

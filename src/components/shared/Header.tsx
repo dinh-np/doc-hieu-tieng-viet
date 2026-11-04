@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { BookOpen, Search, Home, Bookmark, Wifi, WifiOff, Gamepad2, Dna } from 'lucide-react';
+import { BookOpen, Search, Home, Bookmark, Wifi, WifiOff, Gamepad2, Dna, Brain } from 'lucide-react';
 import { useReadingSession } from '@/lib/stores/useReadingSession';
 
 export function Header() {
@@ -26,6 +26,7 @@ export function Header() {
           <NavLink href="/" icon={<Home className="w-3.5 h-3.5" />} label="Trang chủ" />
           <NavLink href="/read" icon={<BookOpen className="w-3.5 h-3.5" />} label="Bài ngắn" />
           <NavLink href="/read-pages" icon={<span className="inline-flex items-center justify-center font-bold text-[10px] sm:text-xs bg-blue-100/50 text-[#0066ab] px-1 py-0.5 rounded border border-[#0066ab]/20 w-4 h-4">1T</span>} label="1 Trang" />
+          <NavLink href="/metacognition-read" icon={<Brain className="w-3.5 h-3.5 text-[#0066ab]" />} label="Đọc Siêu Nhận Thức" />
           <NavLink href="/dictionary" icon={<Search className="w-3.5 h-3.5" />} label="Từ điển" />
           <NavLink href="/grammar" icon={<Dna className="w-3.5 h-3.5 text-[#0066ab]" />} label="Cấu trúc câu" />
           <NavLink href="/games" icon={<Gamepad2 className="w-3.5 h-3.5 text-[#0066ab]" />} label="Đấu trường" />

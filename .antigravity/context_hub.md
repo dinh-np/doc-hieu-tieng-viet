@@ -17,6 +17,7 @@
 * **Reading Routes:** 
   * `src/app/read/` ➔ Standard short-article flow.
   * `src/app/read-pages/` ➔ Long-reading module segmented by page_count (A4 immersion styling).
+  * `src/app/metacognition-read/page.tsx` & `src/app/metacognition-read/[id]/page.tsx` (`MetacognitionReaderClient.tsx`) ➔ 3-Phase Metacognition Reading Engine (*Planning – Monitoring – Evaluating*) with 60/40 split-screen Feynman & Parent Think-Aloud modeling, interactive 6-symbol Marking Text (`[?]`, `[!]`, `[*]`, `[C]`, `[P]`, `[KL]`), QAR + Matrix + 3-2-1 Traffic Light reflection, and A4 Print / Word `.doc` export (`src/types/metacognition.ts`, `src/data/metacognition-seed.ts`, `scripts/seed_metacognition.ts`).
 * **Dictionary & Gamification Routes & Components:**
   * `src/app/dictionary/page.tsx` & `DictionaryClient.tsx` ➔ Server-fetched dynamic dual-dictionary catalog with smooth tab switching between **Từ điển Hán - Việt** (`han_viet_compounds`) and **Từ điển Thuần Việt** (`thuan_viet_dictionary`), search, subject filters, word-type filters, and `🇬🇧 english_equivalent` cognitive anchors.
   * `src/app/dictionary/[slug]/page.tsx` ➔ Dynamic detail view joining `han_viet_compounds`, `compound_root_links`, and `han_viet_roots` with English anchor badges.
