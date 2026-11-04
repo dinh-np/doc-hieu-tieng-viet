@@ -41,7 +41,7 @@ export default function HomePage() {
               className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-white shadow-sm border border-gray-200 border border-gray-200 text-slate-800 font-semibold text-base hover:border-gray-300 transition-all"
             >
               <Search className="w-4 h-4" />
-              Từ điển Hán-Việt
+              Tự điển Tiếng Việt
             </Link>
           </div>
         </section>
@@ -97,8 +97,8 @@ export default function HomePage() {
           <QuickLink
             href="/dictionary"
             icon={<Brain className="w-5 h-5" />}
-            title="Từ điển Hán-Việt"
-            desc="120+ từ lớp 7 chiết tự"
+            title="Tự điển Tiếng Việt"
+            desc="Hán-Việt chiết tự & Thuần Việt"
             gradient="from-amber-500 to-orange-500"
           />
           <QuickLink
@@ -132,8 +132,8 @@ const FEATURES = [
   {
     icon: <Brain className="w-5 h-5 text-amber-400" />,
     iconBg: 'bg-amber-500/10',
-    title: 'Từ điển Hán-Việt',
-    desc: 'Hơn 120 từ Hán-Việt lớp 7 với công thức toán học. Chạm vào từ trong bài để xem ngay nghĩa gốc.',
+    title: 'Tự điển Tiếng Việt',
+    desc: 'Tích hợp từ điển Hán-Việt (công thức chiết tự) và Thuần Việt (hình ảnh liên tưởng) kèm mỏ neo tiếng Anh.',
   },
   {
     icon: <Printer className="w-5 h-5 text-emerald-400" />,
