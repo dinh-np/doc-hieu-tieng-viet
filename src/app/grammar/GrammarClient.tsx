@@ -57,7 +57,7 @@ const TABS: {
     id: 'sentence_slicing',
     label: '✂️ Dao Mổ Tách Câu',
     sublabel: 'Cắt nhỏ câu ghép dài SGK',
-    levelBadge: 'Level 3',
+    levelBadge: 'Level 2',
     icon: <Scissors className="w-4 h-4" />,
   },
   {
@@ -70,8 +70,8 @@ const TABS: {
   {
     id: 'topic_comment',
     label: '🔜 Cấu Trúc Đề - Thuyết',
-    sublabel: 'Đề - Thuyết & Từ vị (Sắp ra mắt)',
-    levelBadge: 'Level 2 & 4',
+    sublabel: 'Sắp ra mắt',
+    levelBadge: 'Level 4',
     icon: <Layers className="w-4 h-4" />,
     isComingSoon: true,
   },
@@ -578,16 +578,16 @@ export function GrammarClient({ initialExercises }: GrammarClientProps) {
           })}
         </section>
 
-        {/* ── TAB 4: LỘ TRÌNH MỞ RỘNG LEVEL 2 (ĐỀ - THUYẾT) & LEVEL 4 (TỪ VỊ) ── */}
+        {/* ── TAB 4: LỘ TRÌNH MỞ RỘNG LEVEL 4 (ĐỀ - THUYẾT & TỪ VỊ) ── */}
         {activeTab === 'topic_comment' ? (
           <section className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-gray-100 pb-4">
               <div>
                 <span className="px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold">
-                  🔜 LỘ TRÌNH MỞ RỘNG (SCALABILITY ROADMAP)
+                  🔜 LEVEL 4 • LỘ TRÌNH NÂNG CAO (SCALABILITY ROADMAP)
                 </span>
                 <h2 className="text-xl sm:text-2xl font-black text-slate-900 mt-2">
-                  Cấu Trúc Đề - Thuyết (Level 2) & Từ Vị Theo Ngữ Cảnh (Level 4)
+                  Cấu Trúc Đề - Thuyết & Từ Vị Theo Ngữ Cảnh (Level 4)
                 </h2>
               </div>
               <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-xl">
@@ -596,11 +596,11 @@ export function GrammarClient({ initialExercises }: GrammarClientProps) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Card Level 2 */}
+              {/* Card Đề - Thuyết */}
               <div className="rounded-2xl border border-purple-200 bg-purple-50/40 p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-wider text-purple-700 bg-purple-100 px-2.5 py-1 rounded-lg">
-                    Level 2 • Topic - Comment
+                    Level 4A • Topic - Comment
                   </span>
                   <span className="text-xs font-semibold text-purple-700">
                     🇬🇧 Topic (As for X) + Comment

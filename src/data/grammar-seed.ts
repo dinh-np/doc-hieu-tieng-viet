@@ -446,11 +446,11 @@ export const GRAMMAR_SEED_DATA: GrammarExercise[] = [
   },
 
   // ===========================================================================
-  // LEVEL 3A: DAO MỔ TÁCH CÂU (sentence_slicing / slice_slash) — BÀI TẬP CẮT CÂU GHÉP
+  // LEVEL 2: DAO MỔ TÁCH CÂU (sentence_slicing / slice_slash) — BÀI TẬP CẮT CÂU GHÉP
   // ===========================================================================
   {
     id: 'a3000001-0000-4000-8000-000000000011',
-    level_order: 3,
+    level_order: 2,
     lesson_category: 'sentence_slicing',
     title: 'Dao Mổ 1: Cảnh mùa xuân vùng cao (Ngữ văn 7)',
     rule_explanation:
@@ -494,7 +494,7 @@ export const GRAMMAR_SEED_DATA: GrammarExercise[] = [
   },
   {
     id: 'a3000001-0000-4000-8000-000000000012',
-    level_order: 3,
+    level_order: 2,
     lesson_category: 'sentence_slicing',
     title: 'Dao Mổ 2: Kháng chiến chống Tống trên sông Như Nguyệt (Lịch sử 7)',
     rule_explanation:
@@ -538,7 +538,7 @@ export const GRAMMAR_SEED_DATA: GrammarExercise[] = [
   },
   {
     id: 'a3000001-0000-4000-8000-000000000013',
-    level_order: 3,
+    level_order: 2,
     lesson_category: 'sentence_slicing',
     title: 'Dao Mổ 3: Sự phân hóa thiên nhiên châu Âu (Địa lí 7)',
     rule_explanation:
