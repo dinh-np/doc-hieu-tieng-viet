@@ -31,13 +31,41 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 export default async function ReadPagesPage() {
   const supabase = await createClient();
-  const { data: articlesData } = await supabase
+
+  // Ưu tiên lọc theo cột `article_type = 'one_page'`; nếu DB chưa thêm cột `article_type` thì lọc loại trừ `category = 'metacognition'`
+  let articlesData: unknown[] | null = null;
+  const { data: typedData, error: typedErr } = await supabase
     .from('one_page_articles')
     .select('*')
     .eq('is_published', true)
+    .eq('article_type', 'one_page')
+    .neq('category', 'metacognition')
     .order('created_at', { ascending: false });
 
-  const articles = (articlesData || []) as ReadingArticle[];
+  if (!typedErr && typedData) {
+    articlesData = typedData;
+  } else {
+    const { data: fallbackData } = await supabase
+      .from('one_page_articles')
+      .select('*')
+      .eq('is_published', true)
+      .neq('category', 'metacognition')
+      .order('created_at', { ascending: false });
+    articlesData = fallbackData;
+  }
+
+  // Đảm bảo loại trừ triệt để mọi bài thuộc loại 'metacognition'
+  const articles = ((articlesData || []) as (ReadingArticle & {
+    article_type?: string;
+  })[]).filter((row) => {
+    const sd = row.structured_data as unknown as Record<string, unknown> | null;
+    if (row.article_type === 'metacognition') return false;
+    if (row.category === 'metacognition') return false;
+    if (sd && (sd.article_type === 'metacognition' || sd.metacognition_version === '3-phase-v1')) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--gradient-hero)' }}>

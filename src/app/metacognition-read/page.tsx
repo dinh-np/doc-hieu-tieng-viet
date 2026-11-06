@@ -30,15 +30,30 @@ async function getMetacognitionArticles(): Promise<MetacognitionArticle[]> {
 
   try {
     const supabase = await createClient();
-    const { data, error } = await supabase
-      .from('one_page_articles')
-      .select('id, slug, title, structured_data')
-      .eq('is_published', true);
+    // Ưu tiên truy vấn theo `.eq('article_type', 'metacognition')`, fallback sang `.eq('category', 'metacognition')`
+    let rows: { id: unknown; slug: unknown; title: unknown; category?: unknown; article_type?: unknown; structured_data: unknown }[] | null = null;
 
-    if (!error && data) {
-      for (const row of data) {
+    const { data: byType, error: typeErr } = await supabase
+      .from('one_page_articles')
+      .select('id, slug, title, category, article_type, structured_data')
+      .eq('is_published', true)
+      .eq('article_type', 'metacognition');
+
+    if (!typeErr && byType) {
+      rows = byType;
+    } else {
+      const { data: byCategory } = await supabase
+        .from('one_page_articles')
+        .select('id, slug, title, category, structured_data')
+        .eq('is_published', true)
+        .eq('category', 'metacognition');
+      rows = byCategory;
+    }
+
+    if (rows) {
+      for (const row of rows) {
         const sd = row.structured_data as Record<string, unknown> | null;
-        if (sd && sd.metacognition_version === '3-phase-v1' && Array.isArray(sd.chunks)) {
+        if (sd && Array.isArray(sd.chunks)) {
           const slugOrId = (row.slug as string) || (row.id as string);
           if (!seenIds.has(slugOrId)) {
             seenIds.add(slugOrId);

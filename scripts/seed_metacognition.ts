@@ -54,27 +54,40 @@ async function main() {
 
   const cleanedArticles = deepCleanNFC(METACOGNITION_ARTICLES_SEED);
 
-  const payload = cleanedArticles.map((article) => ({
-    title: cleanVietnameseText(article.title),
-    slug: article.slug || article.id,
-    category:
-      article.subject === 'Lịch sử'
-        ? 'lich-su'
-        : article.subject === 'Địa lí'
-        ? 'dia-ly'
-        : 'ngu-van',
-    target_grade: article.grade,
-    estimated_minutes: article.target_time_minutes,
-    page_count: 1,
-    content_raw: cleanVietnameseText(
-      article.chunks.map((c) => c.original_text).join('\n\n')
-    ),
-    structured_data: {
-      metacognition_version: '3-phase-v1',
-      ...article,
-    },
-    is_published: true,
-  }));
+  // Kiểm tra xem bảng `one_page_articles` đã có cột `article_type` chưa
+  const { error: checkColErr } = await supabase
+    .from('one_page_articles')
+    .select('id, article_type')
+    .limit(1);
+
+  const hasArticleTypeColumn = !checkColErr;
+
+  const payload = cleanedArticles.map((article) => {
+    const baseRow: Record<string, unknown> = {
+      title: cleanVietnameseText(article.title),
+      slug: article.slug || article.id,
+      // Đặt category = 'metacognition' để phân tách hoàn toàn với bài đọc 1 trang thông thường
+      category: 'metacognition',
+      target_grade: article.grade,
+      estimated_minutes: article.target_time_minutes,
+      page_count: 1,
+      content_raw: cleanVietnameseText(
+        article.chunks.map((c) => c.original_text).join('\n\n')
+      ),
+      structured_data: {
+        article_type: 'metacognition',
+        metacognition_version: '3-phase-v1',
+        ...article,
+      },
+      is_published: true,
+    };
+
+    if (hasArticleTypeColumn) {
+      baseRow.article_type = 'metacognition';
+    }
+
+    return baseRow;
+  });
 
   const { data, error } = await supabase
     .from('one_page_articles')

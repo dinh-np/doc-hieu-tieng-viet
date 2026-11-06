@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS public.one_page_articles (
     title TEXT NOT NULL,
     slug TEXT UNIQUE NOT NULL,
     category TEXT NOT NULL DEFAULT 'khoa-hoc',
+    article_type TEXT NOT NULL DEFAULT 'one_page', -- 'one_page' | 'metacognition'
     target_grade INT DEFAULT 7,
     estimated_minutes INT DEFAULT 20,
     page_count INT DEFAULT 1,
@@ -14,6 +15,9 @@ CREATE TABLE IF NOT EXISTS public.one_page_articles (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
+
+ALTER TABLE public.one_page_articles
+  ADD COLUMN IF NOT EXISTS article_type TEXT NOT NULL DEFAULT 'one_page';
 
 -- Enable RLS
 ALTER TABLE public.one_page_articles ENABLE ROW LEVEL SECURITY;
