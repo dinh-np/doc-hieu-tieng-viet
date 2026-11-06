@@ -30,9 +30,10 @@ When developing `/dictionary` routes, `<HanVietTooltip />`, and dictionary data 
   - Mode 3: ⚔️ *Đấu Trường Thực Chiến* (15-second *Flashcard Blitz* & *Bác Sĩ Câu Văn* mixing both dictionaries).
 * **Automated Expansion CLI Scripts:**
   - `npm run seed:hanviet` (`tsx scripts/seed_han_viet.ts`)
-  - `npm run expand:hanviet` (`tsx scripts/expand_han_viet.ts --count=30`)
-  - `npm run expand:thuanviet` (`tsx scripts/expand_thuan_viet.ts --count=30`)
+  - `npm run expand:hanviet` (`tsx scripts/expand_han_viet.ts --count=30` or targeted `npx tsx scripts/expand_han_viet.ts --words="hình thành, hình thức, cơ chế, phương pháp"`) — Scans academic THCS vocabulary, social life, science journalism, and **Root Morpheme Genealogy ("Gia phả hình vị")** from `han_viet_roots`.
+  - `npm run expand:thuanviet` (`tsx scripts/expand_thuan_viet.ts --count=30` or targeted `npx tsx scripts/expand_thuan_viet.ts --words="gắn bó, dở dang, ngập ngừng"`) — Scans vivid pure Vietnamese sensory, psychological, literary, and daily communication vocabulary.
   - `npm run seed:grammar` (`tsx scripts/seed_grammar.ts`)
+  - `npm run seed:metacognition` (`tsx scripts/seed_metacognition.ts`)
 
 ### 4. Interactive Sentence Anatomy (`/grammar`)
 * **4-Level Cognitive Progression (`public.grammar_exercises` & `src/data/grammar-seed.ts`):**

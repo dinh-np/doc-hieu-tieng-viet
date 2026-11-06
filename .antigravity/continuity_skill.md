@@ -12,9 +12,10 @@ Whenever the AI performs code generation or refactoring in `Doc_Hieu_Tieng_Viet`
 * **Child View (`/read/[id]`):** Zero hints, zero answer keys, zero distractions. Focus purely on reading and interacting.
 * **Parent View (`/read/[id]/parent`):** Full director script, "Pedagogical Trap" warnings, remote step navigation controls, and answer telemetry.
 
-## 3. Strict Master JSON Schema Invariance (`structured_data`)
+## 3. Strict Master JSON Schema Invariance (`structured_data`) & Article Type Separation
 * Any newly added article MUST adhere 100% to the TypeScript interface of `structured_data`. Never skip any of the 5 steps, vocabulary anchors, or offline reading tasks.
 * Long-form articles (`page_count > 0`) should be isolated to `/read-pages` keeping `/read` explicitly for short warmup articles.
+* Within `one_page_articles`, strictly separate standard 1-page articles (`article_type: 'one_page'`) from 3-phase Metacognition articles (`article_type: 'metacognition'`, `category: 'metacognition'`) so `/read-pages` and `/metacognition-read` never display duplicate entries.
 
 ## 4. Print Media Invariance
 * The `/read/[id]/print` route must render correctly on standard A4 Landscape paper when triggering `Ctrl + P` / `Cmd + P`.
@@ -30,6 +31,6 @@ Whenever the AI performs code generation or refactoring in `Doc_Hieu_Tieng_Viet`
 * **CRITICAL RULE:** These route segment configs CANNOT be exported from a Client Component (files with `'use client'`). If `page.tsx` is a Client Component, you MUST place these exports in a Server Component `layout.tsx` inside the same directory to prevent runtime/build errors.
 
 ## 7. Mobile-First & Touch Event Isolation
-* **Responsive Layouts:** Interactive elements (e.g. flip cards, drag-and-drops) must degrade gracefully on mobile (e.g. `grid-cols-1 md:grid-cols-2`).
+* **Responsive Layouts & 2-Row Header:** Interactive elements (e.g. flip cards, drag-and-drops) must degrade gracefully on mobile (e.g. `grid-cols-1 md:grid-cols-2`). The global `<Header />` (`src/components/shared/Header.tsx`) must maintain its 2-row `flex-wrap lg:flex-nowrap` structure on mobile so the right-side action buttons (`Hộ chiếu` and `<InstallAppButton />` `Cài App`) never overflow off the right edge of 360px–412px viewports.
 * **Z-Index & Sizing:** Avoid fixed absolute heights for containers containing dynamic content; use `min-h` and allow relative wrappers to grow. Active overlay items must explicitly elevate their stacking context (e.g., `z-20`).
 * **Touch Isolation:** Ensure nested interactive inputs (textareas, buttons) inside clickable cards contain `onClick={(e) => e.stopPropagation()}` and `onTouchStart={(e) => e.stopPropagation()}` to guarantee typing/scrolling doesn't accidentally trigger parent container actions.

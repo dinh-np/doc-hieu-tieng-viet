@@ -27,3 +27,13 @@ When implementing components in `src/components/reading-engine/`, follow these U
 ### Step 5: Screen-to-Paper Bridge
 * Prominently display a primary action button: "Print A4 Worksheet" (opens `/read/[id]/print`).
 * Display up to two curated physical book recommendations featuring cover art, title, author, publisher, and educational relevance summary.
+
+---
+
+### 3-Phase Metacognition Reading Engine (`/metacognition-read` & `MetacognitionReaderClient.tsx`)
+* **Phase 1 (Planning):** Active Recall warmup + Prediction prompt + Sticky 6-symbol Marking Text legend (`[?]`, `[!]`, `[*]`, `[C]`, `[P]`, `[KL]`).
+* **Phase 2 (Monitoring):** 60/40 two-column split layout:
+  * **Left Column (60%):** Original text with inline interactive Han-Viet etymology popups (`🔑`) and text-selection Marking Text highlighter.
+  * **Right Column (40%):** Socratic question (`🤔 Hỏi xoáy`), bold **`💡 Giải thích giản đơn:`** (`<strong>`), Parent Think-Aloud modeling (`🧠 Ba làm mẫu`), and Student 5-word reflection journal (`✍️ Góc của con`).
+* **Phase 3 (Evaluating):** 3-tier QAR questions, 4-row Mindmap Matrix, 3-2-1 Reflection + Traffic Light (`🟢🟡🔴`), and Golden Takeaway box.
+* **Print & Export:** Supports both `@media print` 2-column A4 worksheet and `.doc` Word export.

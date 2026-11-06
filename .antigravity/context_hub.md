@@ -18,10 +18,13 @@
   * `Step3ReciprocalCards.tsx` ➔ 4 reciprocal role-reversal cards (Mobile-optimized with responsive grid, auto-height textarea, and touch-isolated input zones).
   * `Step4QARDetection.tsx` ➔ 3-tier QAR questions and color highlighters.
   * `Step5ReadingLog.tsx` ➔ Offline pen-and-paper challenge and book suggestions.
+* **Shared Navigation & PWA Components:**
+  * `src/components/shared/Header.tsx` (re-exported by `src/components/Navbar.tsx`) ➔ Responsive 2-row mobile / 1-row desktop sticky navbar (`flex-wrap lg:flex-nowrap`). Row 1 houses Logo + App Title on the left and `/passport` (**Hộ chiếu**) + `<InstallAppButton />` (**Cài App**) on the right; Row 2 houses the 7 main navigation links with active route highlighting (`usePathname()`) and `.no-scrollbar`.
+  * `src/components/InstallAppButton.tsx` ➔ Multi-platform smart PWA install button (auto-detects standalone mode to hide itself, handles `beforeinstallprompt` on Chrome/Edge/Android, and provides tailored 2-step visual installation modals for iPhone/iPad Safari, Android, and Windows/Mac desktop browsers).
 * **Reading Routes:** 
   * `src/app/read/` ➔ Standard short-article flow.
-  * `src/app/read-pages/` ➔ Long-reading module segmented by page_count (A4 immersion styling).
-  * `src/app/metacognition-read/page.tsx` & `src/app/metacognition-read/[id]/page.tsx` (`MetacognitionReaderClient.tsx`) ➔ 3-Phase Metacognition Reading Engine (*Planning – Monitoring – Evaluating*) with 60/40 split-screen Feynman & Parent Think-Aloud modeling, interactive 6-symbol Marking Text (`[?]`, `[!]`, `[*]`, `[C]`, `[P]`, `[KL]`), QAR + Matrix + 3-2-1 Traffic Light reflection, and A4 Print / Word `.doc` export (`src/types/metacognition.ts`, `src/data/metacognition-seed.ts`, `scripts/seed_metacognition.ts`).
+  * `src/app/read-pages/` ➔ Long-reading module segmented by `page_count` (A4 immersion styling). Filters `one_page_articles` to exclude `article_type = 'metacognition'` (`category != 'metacognition'`).
+  * `src/app/metacognition-read/page.tsx` & `src/app/metacognition-read/[id]/page.tsx` (`MetacognitionReaderClient.tsx`) ➔ 3-Phase Metacognition Reading Engine (*Planning – Monitoring – Evaluating*) querying `article_type = 'metacognition'`, featuring 60/40 split-screen bold **`💡 Giải thích giản đơn:`** & Parent Think-Aloud modeling, interactive 6-symbol Marking Text (`[?]`, `[!]`, `[*]`, `[C]`, `[P]`, `[KL]`), QAR + Matrix + 3-2-1 Traffic Light reflection, and A4 Print / Word `.doc` export (`src/types/metacognition.ts`, `src/data/metacognition-seed.ts`, `scripts/seed_metacognition.ts`). Includes 3 foundational & textbook articles: `"Mindset - Bài 1 - Sức mạnh của Tư duy - Growth Mindset"`, `"Lịch sử 7 - Bài 6"`, and `"Địa lí 7 - Bài 5"`.
 * **Dictionary & Gamification Routes & Components:**
   * `src/app/dictionary/page.tsx` & `DictionaryClient.tsx` ➔ Server-fetched dynamic dual-dictionary catalog with smooth tab switching between **Từ điển Hán - Việt** (`han_viet_compounds`) and **Từ điển Thuần Việt** (`thuan_viet_dictionary`), search, subject filters, word-type filters, and `🇬🇧 english_equivalent` cognitive anchors.
   * `src/app/dictionary/[slug]/page.tsx` ➔ Dynamic detail view joining `han_viet_compounds`, `compound_root_links`, and `han_viet_roots` with English anchor badges.
@@ -37,8 +40,8 @@
   * `src/lib/agents/han_viet_scraper.ts` ➔ Gemini API (`@google/genai`) agent to automatically extract Sino-Vietnamese compounds, `english_equivalent`, root morphemes, math formulas, and quizzes from new SGK passages.
   * `scripts/extract_han_viet.ts` ➔ CLI runner for the Han-Viet scraper agent (`npx tsx scripts/extract_han_viet.ts "<text>"`).
   * `scripts/seed_han_viet.ts` ➔ Seed runner (`npm run seed:hanviet`) that parses `./learning_materials/tu_dien_han_viet_co_ban_sgk_100_tu.md` and `./learning_materials/tu_dien_han_viet_chiet_tu.md` into Supabase.
-  * `scripts/expand_han_viet.ts` ➔ Automated batch Sino-Vietnamese dictionary expander (`npm run expand:hanviet`), generating new Grade 7 words + `english_equivalent` via Gemini API.
-  * `scripts/expand_thuan_viet.ts` ➔ Automated batch Pure Vietnamese dictionary seeder & expander (`npm run expand:thuanviet`), populating `thuan_viet_dictionary` via seed + Gemini API.
+  * `scripts/expand_han_viet.ts` ➔ Automated Sino-Vietnamese dictionary expander (`npm run expand:hanviet`), scanning academic THCS vocabulary, social life, science journalism, and **Root Morpheme Genealogy ("Gia phả hình vị")** from `han_viet_roots`, plus supporting targeted word lists via `--words="hình thành, hình thức, ..."`.
+  * `scripts/expand_thuan_viet.ts` ➔ Automated Pure Vietnamese dictionary seeder & expander (`npm run expand:thuanviet`), scanning vivid sensory/psychological/literary vocabulary and supporting targeted word lists via `--words="gắn bó, dở dang, ..."`.
 * **Learning Materials (`learning_materials/`):**
   * `tu_dien_han_viet_co_ban_sgk_100_tu.md` (and `tu_dien_han_viet_co_ban_sgk.md`) ➔ Master table of 100 core THCS Sino-Vietnamese compounds and interactive quizzes.
   * `tu_dien_han_viet_chiet_tu.md` ➔ Detailed etymological breakdowns and morpheme quizzes.
