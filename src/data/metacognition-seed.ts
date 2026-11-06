@@ -3,16 +3,226 @@ import { deepNormalizeVietnamese } from '@/lib/utils/vietnamese-text';
 
 /**
  * KHO BÀI ĐỌC SIÊU NHẬN THỨC 3 PHA (PLANNING - MONITORING - EVALUATING)
- * Gồm các bài mẫu chuẩn SGK Lớp 7: Lịch sử 7 (Bài 6), Địa lí 7 (Bài 5), và Ngữ văn 7
+ * Gồm bài đọc nền tảng Growth Mindset (Sức mạnh của Tư duy) và các bài mẫu chuẩn SGK Lớp 7:
+ * Lịch sử 7 (Bài 6), Địa lí 7 (Bài 5)
  * Toàn bộ chuỗi văn bản đều được chuẩn hóa về Unicode dựng sẵn (NFC).
  */
 const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
+  // ===========================================================================
+  // BÀI NỀN TẢNG: GROWTH MINDSET - SỨC MẠNH CỦA TƯ DUY (NHẬT KÝ CÚ ĐÔI)
+  // ===========================================================================
+  {
+    id: 'growth-mindset-suc-manh-tu-duy',
+    slug: 'growth-mindset-suc-manh-tu-duy',
+    article_type: 'metacognition',
+    subject: 'Kỹ năng sống',
+    grade: 7,
+    title: 'Sức Mạnh Của Tư Duy — Nhật Ký Cú Đôi',
+    subtitle:
+      'Bài đọc nền tảng giúp rèn luyện Tư duy phát triển (Growth Mindset): biến thất bại thành thông tin học hỏi và mở khóa sức mạnh kỳ diệu của chữ "CHƯA".',
+    target_time_minutes: 25,
+    planning: {
+      active_recall_question:
+        "Khi gặp một bài toán khó hoặc một màn chơi game liên tục bị 'Game Over', phản ứng đầu tiên trong đầu em thường là gì: muốn bỏ cuộc hay muốn thử lại?",
+      prediction_prompt:
+        "Theo em, một người sinh ra thông minh là do gen bẩm sinh hay do bộ não được 'tập tạ' mỗi ngày?",
+    },
+    chunks: [
+      {
+        chunk_id: 'gm-chunk-1',
+        order: 1,
+        title: 'Chặng 1: Khả năng của bạn không hề bị đóng khung',
+        original_text:
+          "Có bao giờ bạn nghĩ rằng ai sinh ra thông minh thì sẽ luôn giỏi, còn ai kém hơn thì đành chịu? Sự thật không phải vậy! Trí óc của bạn giống như một **khối cơ bắp**. Khi gặp bài toán khó hay thử thách mới, đó không phải là lúc bạn bị **phán xét** 'xem mình kém đến đâu', mà là lúc não bộ đang được rèn luyện để ngày càng mạnh mẽ và thông minh hơn.",
+        han_viet_Popup: [
+          {
+            term: 'phán xét',
+            formula: 'Phán [Đoán, quyết định] + Xét [Soi xét, tìm hiểu]',
+            meaning: 'Đưa ra lời chê bai hay đánh giá người khác.',
+            english_anchor: 'Judge / Criticize',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question: '🤔 Hỏi xoáy: Ủa não bộ mà cũng giống bắp tay được sao ba?',
+          dialogue_answer:
+            "💡 Giải thích kiểu Feynman: Tưởng tượng não mình y hệt bắp tay vậy con! Nếu không nâng tạ thì tay mềm xèo. Mỗi lần con 'vò đầu bứt tai' giải một bài khó, chính là lúc các sợi dây thần kinh trong não đang gồng lên nâng tạ để to khỏe hơn đấy!",
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Khi đọc từ 'khối cơ bắp', ba dùng ký hiệu [C] để liên kết: à, vậy thông minh không phải số trời định sẵn, mà giống như tập gym vậy!",
+        },
+        student_reflection: {
+          selected_symbols: ['C', '*'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'gm-chunk-2',
+        order: 2,
+        title: 'Chặng 2: Hai kiểu tư duy: Cố định và Phát triển',
+        original_text:
+          'Con người có 2 hệ tư duy: **Tư duy cố định (Fixed Mindset)** tin rằng tài năng là sẵn có, làm bạn luôn sợ sai và sợ bị đánh giá. Ngược lại, **Tư duy phát triển (Growth Mindset)** giúp bạn hiểu rằng mọi kỹ năng đều có thể rèn luyện. Người có tư duy phát triển không xem **thất bại** là **bản án**, mà là thông tin quý giá để học hỏi.',
+        han_viet_Popup: [
+          {
+            term: 'thất bại',
+            formula: 'Thất [Mất, trượt] + Bại [Thua, hỏng việc]',
+            meaning: 'Chưa đạt được mục tiêu trong lần thử này, nhưng là dữ liệu để làm tốt hơn lần sau.',
+            english_anchor: 'Failure / Setback',
+          },
+          {
+            term: 'bản án',
+            formula: 'Bản [Văn bản] + Án [Phán quyết cố định]',
+            meaning: 'Lời kết tội đóng đinh không thể thay đổi.',
+            english_anchor: 'Verdict / Sentence',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question: '🤔 Hỏi xoáy: Khác biệt lớn nhất giữa hai kiểu người này là gì?',
+          dialogue_answer:
+            "💡 Giải thích kiểu Feynman: Giống hệt lúc chơi game! Người tư duy cố định vừa thấy màn hình hiện 'Game Over' là đập máy bảo: 'Game rác, mình dở tệ'. Còn người có tư duy phát triển sẽ cười: 'Ồ, hố sâu chỗ này! Lần sau mình nhảy sớm 1 giây là qua!'.",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ba dùng ký hiệu [*] ở câu cuối: Thất bại không phải là dấu chấm hết, nó chỉ là một bản tin hướng dẫn cách đi đúng!',
+        },
+        student_reflection: {
+          selected_symbols: ['*'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'gm-chunk-3',
+        order: 3,
+        title: "Chặng 3: Sức mạnh kỳ diệu của 'Chữ CHƯA'",
+        original_text:
+          "Thay vì tự dán nhãn 'Mình không làm được việc này', hãy thêm một từ kỳ diệu: **'Mình CHƯA làm được'**. Chữ **'CHƯA'** mở ra cánh cửa hy vọng và sự **tiến bộ**. Nó nhắc bạn rằng bạn chỉ đang ở trên hành trình học hỏi, và với thời gian cùng phương pháp đúng, bạn hoàn toàn có thể **chinh phục** được.",
+        han_viet_Popup: [
+          {
+            term: 'tiến bộ',
+            formula: 'Tiến [Đi lên phía trước] + Bộ [Bước chân]',
+            meaning: 'Bước lên phía trước, ngày càng giỏi và hoàn thiện hơn.',
+            english_anchor: 'Progress / Improvement',
+          },
+          {
+            term: 'chinh phục',
+            formula: 'Chinh [Đi xa vượt thử thách] + Phục [Làm cho khuất phục]',
+            meaning: 'Vượt qua thử thách khó khăn để làm chủ mục tiêu.',
+            english_anchor: 'Conquer / Master',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question: "🤔 Hỏi xoáy: Chỉ thêm một chữ 'chưa' thôi mà khác nhiều vậy sao?",
+          dialogue_answer:
+            "💡 Giải thích kiểu Feynman: Nói 'Không làm được' giống như con tự tay khóa trái cửa phòng rồi vứt chìa khóa đi. Nhưng khi thêm chữ 'CHƯA', con đã cắm sẵn chiếc chìa khóa vào ổ, chỉ cần xoay nhẹ là cánh cửa cơ hội mở toang!",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [!] ở chữ CHƯA. Đây là thần chú tâm lý: đổi từ bế tắc sang hy vọng chỉ trong 1 giây!',
+        },
+        student_reflection: {
+          selected_symbols: ['!'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'gm-chunk-4',
+        order: 4,
+        title: 'Chặng 4: Nỗ lực là chiếc cầu nối duy nhất',
+        original_text:
+          "Cố gắng nhiều không có nghĩa là bạn kém cỏi. Ngược lại, **nỗ lực chính là con đường duy nhất** giúp bạn đi từ 'chưa biết' đến **'thành thạo'**. Mọi vận động viên nhà vô địch hay thiên tài đều không tự nhiên giỏi sẵn, họ vượt lên nhờ **kiên trì** luyện tập qua hàng nghìn lần thử và sai.",
+        han_viet_Popup: [
+          {
+            term: 'thành thạo',
+            formula: 'Thành [Hoàn thành, chín muồi] + Thạo [Quen tay, tinh thông]',
+            meaning: 'Làm việc gì đó cực kỳ khéo léo, nhuần nhuyễn nhờ rèn luyện nhiều lần.',
+            english_anchor: 'Proficient / Mastery',
+          },
+          {
+            term: 'kiên trì',
+            formula: 'Kiên [Vững chắc, bền bỉ] + Trì [Giữ vững không buông]',
+            meaning: 'Giữ vững quyết tâm theo đuổi đến cùng dù gặp khó khăn.',
+            english_anchor: 'Persevere / Persistent',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question: '🤔 Hỏi xoáy: Người ta nói thiên tài thì cần gì luyện tập nhiều?',
+          dialogue_answer:
+            '💡 Giải thích kiểu Feynman: Không ai vừa cầm cây đàn guitar lên là gảy ngay được bài hát hay. Tất cả các cao thủ đều bấm trật ngón và chai cả đầu ngón tay hàng nghìn lần trước khi lên sân khấu!',
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ký hiệu [KL]: Nỗ lực là bằng chứng của việc con đang tiến lên, chứ không phải bằng chứng con dở!',
+        },
+        student_reflection: {
+          selected_symbols: ['KL'],
+          thought_note: '',
+        },
+      },
+    ],
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Cấp độ 1: Tìm ngay trong bài (Right There)',
+          question: 'Theo bài đọc, não bộ của chúng ta giống với bộ phận nào trên cơ thể?',
+          hint: 'Con nhìn ngay Chặng 1, cụm từ được in đậm ở câu thứ ba nhé!',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Cấp độ 2: Tổng hợp & Xâu chuỗi (Think & Search)',
+          question:
+            'Người có Tư duy cố định và Tư duy phát triển phản ứng khác nhau thế nào khi gặp thất bại?',
+          hint: 'Xem lại Chặng 2: một bên coi thất bại là bản án/đánh giá, một bên coi thất bại là thông tin quý giá để học hỏi.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Cấp độ 3: Suy luận & Liên hệ (Author & Me)',
+          question:
+            'Tuần này có việc gì con từng nghĩ "mình không làm được", giờ con sẽ thử gắn thêm chữ "CHƯA" vào không?',
+          hint: 'Liên hệ một môn học, bài toán khó, kỹ năng thể thao hoặc ngoại ngữ mà con đang rèn luyện.',
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: '1. Não bộ giống như',
+          prompt: 'Hình ảnh so sánh với bộ phận nào trên cơ thể?',
+          sample_keywords: 'Khối cơ bắp cần được nâng tạ rèn luyện',
+        },
+        {
+          category: '2. Tư duy cố định',
+          prompt: 'Thái độ trước cái sai và định kiến về tài năng?',
+          sample_keywords: 'Sợ sai, sợ bị phán xét, tin tài năng là cố định',
+        },
+        {
+          category: '3. Tư duy phát triển',
+          prompt: 'Cách nhìn nhận thất bại và kỹ năng?',
+          sample_keywords: 'Xem thất bại là thông tin quý giá để học hỏi',
+        },
+        {
+          category: '4. Từ ma thuật',
+          prompt: 'Từ nào biến sự bế tắc thành hy vọng?',
+          sample_keywords: 'Chữ "CHƯA" — mở ra chìa khóa hy vọng',
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Não bộ giống như khối cơ bắp, càng giải bài khó càng phát triển mạnh mẽ hơn.',
+          'Thất bại không phải là bản án mà là thông tin quý giá để học hỏi.',
+          'Nỗ lực kiên trì là chiếc cầu nối duy nhất đưa ta từ chưa biết đến thành thạo.',
+        ],
+        two_surprises: [
+          'Chỉ thêm một chữ "CHƯA" vào cuối câu đã mở toang cánh cửa hy vọng.',
+          'Ngay cả các nhà vô địch và thiên tài cũng phải trải qua hàng nghìn lần thử và sai.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question: '',
+        },
+      },
+      takeaway_sentence:
+        'Giá trị của em không nằm ở chỗ luôn đúng, mà nằm ở chỗ em luôn sẵn sàng học hỏi!',
+    },
+  },
+
   // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
     id: 'lich-su-7-bai-6-dong-nam-a',
     slug: 'lich-su-7-bai-6-dong-nam-a',
+    article_type: 'metacognition',
     subject: 'Lịch sử',
     grade: 7,
     title:
@@ -217,6 +427,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   {
     id: 'dia-li-7-bai-5-thien-nhien-chau-a',
     slug: 'dia-li-7-bai-5-thien-nhien-chau-a',
+    article_type: 'metacognition',
     subject: 'Địa lí',
     grade: 7,
     title:

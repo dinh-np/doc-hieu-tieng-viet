@@ -98,7 +98,8 @@ export interface ChunkData {
 export interface MetacognitionArticle {
   id: string;
   slug?: string;
-  subject: string; // 'Lịch sử' | 'Địa lí' | 'Ngữ văn'
+  article_type?: 'metacognition' | 'one_page';
+  subject: string; // 'Kỹ năng sống' | 'Lịch sử' | 'Địa lí' | 'Ngữ văn'
   grade: number;   // 7
   title: string;
   subtitle?: string;

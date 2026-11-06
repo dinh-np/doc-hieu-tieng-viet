@@ -141,7 +141,7 @@ export default async function MetacognitionListPage() {
           <div className="flex items-center justify-between">
             <h2 className="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-[#0066ab]" />
-              Danh Sách Bài Đọc Mẫu SGK Lớp 7 ({articles.length} bài)
+              Danh Sách Bài Đọc Siêu Nhận Thức ({articles.length} bài)
             </h2>
             <span className="text-xs font-semibold text-slate-500">
               Hỗ trợ in A4 & xuất file Word (.doc)
@@ -151,7 +151,9 @@ export default async function MetacognitionListPage() {
           <div className="grid grid-cols-1 gap-4">
             {articles.map((article) => {
               const subjectColor =
-                article.subject === 'Lịch sử'
+                article.subject === 'Kỹ năng sống'
+                  ? 'bg-purple-100 text-purple-800 border-purple-300'
+                  : article.subject === 'Lịch sử'
                   ? 'bg-amber-100 text-amber-800 border-amber-300'
                   : article.subject === 'Địa lí'
                   ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
