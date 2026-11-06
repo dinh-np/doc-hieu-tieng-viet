@@ -2,11 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Search, Home, Bookmark, Wifi, WifiOff, Gamepad2, Dna, Brain } from 'lucide-react';
-import { useReadingSession } from '@/lib/stores/useReadingSession';
+import { BookOpen, Search, Home, Bookmark, Gamepad2, Dna, Brain } from 'lucide-react';
+import { InstallAppButton } from '@/components/InstallAppButton';
 
 export function Header() {
-  const syncStatus = useReadingSession((s) => s.syncStatus);
   const pathname = usePathname();
 
   const isPassportActive = pathname?.startsWith('/passport');
@@ -25,7 +24,7 @@ export function Header() {
           </span>
         </Link>
 
-        {/* HÀNG 1 (Phải trên Mobile / Cuối trên Desktop): Nút Bookmark (Hộ chiếu) + Trạng thái mạng */}
+        {/* HÀNG 1 (Phải trên Mobile / Cuối trên Desktop): Nút Hộ chiếu + Nút Cài App (PWA) */}
         <div className="order-2 lg:order-3 flex items-center gap-1.5 sm:gap-2 shrink-0">
           <Link
             href="/passport"
@@ -41,22 +40,7 @@ export function Header() {
             <span className="hidden sm:inline whitespace-nowrap">Hộ chiếu</span>
           </Link>
 
-          {syncStatus === 'synced' || syncStatus === 'parent_connected' ? (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-200 whitespace-nowrap shrink-0">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <Wifi className="w-3 h-3 text-emerald-600 shrink-0" />
-              <span className="text-[11px] sm:text-xs text-emerald-600 font-medium whitespace-nowrap">
-                {syncStatus === 'parent_connected' ? 'Cha - Mẹ đã kết nối' : 'Đã đồng bộ'}
-              </span>
-            </div>
-          ) : (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-500/10 border border-gray-200 whitespace-nowrap shrink-0">
-              <WifiOff className="w-3 h-3 text-slate-500 shrink-0" />
-              <span className="text-[11px] sm:text-xs text-slate-500 font-medium whitespace-nowrap">
-                Ngoại tuyến
-              </span>
-            </div>
-          )}
+          <InstallAppButton />
         </div>
 
         {/* HÀNG 2 trên Mobile / Giữa trên Desktop: Dải icon điều hướng chính */}
