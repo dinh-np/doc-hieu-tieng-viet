@@ -9,7 +9,7 @@ import { deepNormalizeVietnamese } from '@/lib/utils/vietnamese-text';
  */
 const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   // ===========================================================================
-  // BÀI NỀN TẢNG: GROWTH MINDSET - SỨC MẠNH CỦA TƯ DUY (NHẬT KÝ CÚ ĐÔI)
+  // BÀI NỀN TẢNG: GROWTH MINDSET - SỨC MẠNH CỦA TƯ DUY
   // ===========================================================================
   {
     id: 'growth-mindset-suc-manh-tu-duy',
@@ -17,7 +17,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
     article_type: 'metacognition',
     subject: 'Kỹ năng sống',
     grade: 7,
-    title: 'Sức Mạnh Của Tư Duy — Nhật Ký Cú Đôi',
+    title: 'Mindset - Bài 1 - Sức mạnh của Tư duy - Growth Mindset',
     subtitle:
       'Bài đọc nền tảng giúp rèn luyện Tư duy phát triển (Growth Mindset): biến thất bại thành thông tin học hỏi và mở khóa sức mạnh kỳ diệu của chữ "CHƯA".',
     target_time_minutes: 25,
