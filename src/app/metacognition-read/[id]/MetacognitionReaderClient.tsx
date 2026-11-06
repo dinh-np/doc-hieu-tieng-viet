@@ -883,7 +883,7 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                                 'Giải thích giản đơn'
                               );
                             const match = normalizedAnswer.match(
-                              /^(💡\s*Giải thích giản đơn:?)\s*(.*)$/s
+                              /^(💡\s*Giải thích giản đơn:?)\s*([\s\S]*)$/
                             );
                             if (match) {
                               return (
@@ -1418,7 +1418,7 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                           'Giải thích giản đơn'
                         );
                       const match = normalizedAnswer.match(
-                        /^(💡\s*Giải thích giản đơn:?)\s*(.*)$/s
+                        /^(💡\s*Giải thích giản đơn:?)\s*([\s\S]*)$/
                       );
                       if (match) {
                         return (
