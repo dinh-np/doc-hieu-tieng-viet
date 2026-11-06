@@ -45,7 +45,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
         feynman_explanation: {
           dialogue_question: '🤔 Hỏi xoáy: Ủa não bộ mà cũng giống bắp tay được sao ba?',
           dialogue_answer:
-            "💡 Giải thích kiểu Feynman: Tưởng tượng não mình y hệt bắp tay vậy con! Nếu không nâng tạ thì tay mềm xèo. Mỗi lần con 'vò đầu bứt tai' giải một bài khó, chính là lúc các sợi dây thần kinh trong não đang gồng lên nâng tạ để to khỏe hơn đấy!",
+            "💡 Giải thích giản đơn: Tưởng tượng não mình y hệt bắp tay vậy con! Nếu không nâng tạ thì tay mềm xèo. Mỗi lần con 'vò đầu bứt tai' giải một bài khó, chính là lúc các sợi dây thần kinh trong não đang gồng lên nâng tạ để to khỏe hơn đấy!",
           metacognition_modeling:
             "🧠 Ba làm mẫu (Think-Aloud): Khi đọc từ 'khối cơ bắp', ba dùng ký hiệu [C] để liên kết: à, vậy thông minh không phải số trời định sẵn, mà giống như tập gym vậy!",
         },
@@ -77,7 +77,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
         feynman_explanation: {
           dialogue_question: '🤔 Hỏi xoáy: Khác biệt lớn nhất giữa hai kiểu người này là gì?',
           dialogue_answer:
-            "💡 Giải thích kiểu Feynman: Giống hệt lúc chơi game! Người tư duy cố định vừa thấy màn hình hiện 'Game Over' là đập máy bảo: 'Game rác, mình dở tệ'. Còn người có tư duy phát triển sẽ cười: 'Ồ, hố sâu chỗ này! Lần sau mình nhảy sớm 1 giây là qua!'.",
+            "💡 Giải thích giản đơn: Giống hệt lúc chơi game! Người tư duy cố định vừa thấy màn hình hiện 'Game Over' là đập máy bảo: 'Game rác, mình dở tệ'. Còn người có tư duy phát triển sẽ cười: 'Ồ, hố sâu chỗ này! Lần sau mình nhảy sớm 1 giây là qua!'.",
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Ba dùng ký hiệu [*] ở câu cuối: Thất bại không phải là dấu chấm hết, nó chỉ là một bản tin hướng dẫn cách đi đúng!',
         },
@@ -109,7 +109,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
         feynman_explanation: {
           dialogue_question: "🤔 Hỏi xoáy: Chỉ thêm một chữ 'chưa' thôi mà khác nhiều vậy sao?",
           dialogue_answer:
-            "💡 Giải thích kiểu Feynman: Nói 'Không làm được' giống như con tự tay khóa trái cửa phòng rồi vứt chìa khóa đi. Nhưng khi thêm chữ 'CHƯA', con đã cắm sẵn chiếc chìa khóa vào ổ, chỉ cần xoay nhẹ là cánh cửa cơ hội mở toang!",
+            "💡 Giải thích giản đơn: Nói 'Không làm được' giống như con tự tay khóa trái cửa phòng rồi vứt chìa khóa đi. Nhưng khi thêm chữ 'CHƯA', con đã cắm sẵn chiếc chìa khóa vào ổ, chỉ cần xoay nhẹ là cánh cửa cơ hội mở toang!",
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [!] ở chữ CHƯA. Đây là thần chú tâm lý: đổi từ bế tắc sang hy vọng chỉ trong 1 giây!',
         },
@@ -141,7 +141,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
         feynman_explanation: {
           dialogue_question: '🤔 Hỏi xoáy: Người ta nói thiên tài thì cần gì luyện tập nhiều?',
           dialogue_answer:
-            '💡 Giải thích kiểu Feynman: Không ai vừa cầm cây đàn guitar lên là gảy ngay được bài hát hay. Tất cả các cao thủ đều bấm trật ngón và chai cả đầu ngón tay hàng nghìn lần trước khi lên sân khấu!',
+            '💡 Giải thích giản đơn: Không ai vừa cầm cây đàn guitar lên là gảy ngay được bài hát hay. Tất cả các cao thủ đều bấm trật ngón và chai cả đầu ngón tay hàng nghìn lần trước khi lên sân khấu!',
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Ký hiệu [KL]: Nỗ lực là bằng chứng của việc con đang tiến lên, chứ không phải bằng chứng con dở!',
         },
@@ -267,7 +267,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
           dialogue_question:
             '🤔 Hỏi xoáy: Tại sao chỉ vì một cái "eo biển Ma-lắc-ca" mà cả bản đồ Đông Nam Á thay đổi?',
           dialogue_answer:
-            '💡 Giải thích kiểu Feynman: Con hãy tưởng tượng tàu buôn thời xưa giống như xe tải đường dài chạy từ Ấn Độ sang Trung Quốc. Khi "trạm dừng chân" cũ (Phù Nam) đóng cửa, tất cả xe tải buộc phải đi tắt qua con hẻm độc đạo mang tên Eo biển Ma-lắc-ca. Ai mở "trạm xăng và siêu thị" ngay con hẻm này thì chắc chắn hốt bạc!',
+            '💡 Giải thích giản đơn: Con hãy tưởng tượng tàu buôn thời xưa giống như xe tải đường dài chạy từ Ấn Độ sang Trung Quốc. Khi "trạm dừng chân" cũ (Phù Nam) đóng cửa, tất cả xe tải buộc phải đi tắt qua con hẻm độc đạo mang tên Eo biển Ma-lắc-ca. Ai mở "trạm xăng và siêu thị" ngay con hẻm này thì chắc chắn hốt bạc!',
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Khi đọc đoạn này, ba gạch chân ngay cụm "Phù Nam suy vong" [P] và "eo biển Ma-lắc-ca" [*]. Ba tự hỏi: Khi một trung tâm cũ sụp đổ thì dòng tiền thương mại chảy đi đâu? À, nó chảy xuống eo biển phía Nam!',
         },
@@ -306,7 +306,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
           dialogue_question:
             '🤔 Hỏi xoáy: Cùng ở Đông Nam Á mà sao người làm ruộng, người lại đi thu phí tàu biển?',
           dialogue_answer:
-            '💡 Giải thích kiểu Feynman: Giống như hai người bạn khởi nghiệp dựa vào "vốn tự có" của nhà mình! Nhà bạn ở vùng đồng bằng có sông lớn nhiều phù sa (như Chân Lạp, Đại Cồ Việt) thì mở nông trại trồng lúa nuôi quân. Còn nhà bạn Sri Vi-giay-a ở ngoài đảo nhiều núi đá nhưng nằm ngay mặt tiền đường biển quốc tế thì mở cảng thu thuế và bán gia vị!',
+            '💡 Giải thích giản đơn: Giống như hai người bạn khởi nghiệp dựa vào "vốn tự có" của nhà mình! Nhà bạn ở vùng đồng bằng có sông lớn nhiều phù sa (như Chân Lạp, Đại Cồ Việt) thì mở nông trại trồng lúa nuôi quân. Còn nhà bạn Sri Vi-giay-a ở ngoài đảo nhiều núi đá nhưng nằm ngay mặt tiền đường biển quốc tế thì mở cảng thu thuế và bán gia vị!',
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Ba thấy từ "Ngược lại" — đây là dấu hiệu so sánh đối lập! Ba đánh dấu [*] cho cặp đối lập: Lục địa (Lưu vực sông ➔ Trồng lúa) vs. Hải đảo (Eo biển ➔ Thương cảng Sri Vi-giay-a).',
         },
@@ -345,7 +345,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
           dialogue_question:
             '🤔 Hỏi xoáy: Tại sao đi buôn hạt tiêu, trầm hương mà lại xây được cả đại bảo tháp Phật giáo Bô-rô-bu-đua?',
           dialogue_answer:
-            '💡 Giải thích kiểu Feynman: Vì thời xưa tàu buôn phải nằm chờ gió mùa đổi chiều mất mấy tháng trời ở cảng! Trên tàu không chỉ có thương nhân mà còn có các nhà sư, học giả Ấn Độ. Trong lúc chờ gió, họ trò chuyện, truyền dạy chữ viết, kiến trúc và tôn giáo. Người Đông Nam Á cực kỳ thông minh: học cái hay của Ấn Độ nhưng biến tấu theo gu riêng (bản địa) của mình!',
+            '💡 Giải thích giản đơn: Vì thời xưa tàu buôn phải nằm chờ gió mùa đổi chiều mất mấy tháng trời ở cảng! Trên tàu không chỉ có thương nhân mà còn có các nhà sư, học giả Ấn Độ. Trong lúc chờ gió, họ trò chuyện, truyền dạy chữ viết, kiến trúc và tôn giáo. Người Đông Nam Á cực kỳ thông minh: học cái hay của Ấn Độ nhưng biến tấu theo gu riêng (bản địa) của mình!',
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [!] vì bất ngờ khi biết hạt tiêu, đinh hương thời xưa quý ngang vàng ròng, và đánh dấu [KL] cho bài học: Giao thương kinh tế luôn kéo theo giao lưu văn hóa!',
         },
@@ -472,7 +472,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
           dialogue_question:
             '🤔 Hỏi xoáy: Tại sao vùng núi cao nhất châu Á lại tập trung dồn cục ở ngay vùng trung tâm?',
           dialogue_answer:
-            '💡 Giải thích kiểu Feynman: Con hãy hình dung ở giữa châu Á có một "chiếc mái nhà khổng lồ" (Sơn nguyên Tây Tạng và dãy Hi-ma-lay-a). Từ chiếc mái nhà cao chót vót ở trung tâm đó, các dãy núi và dòng sông lớn tỏa ra bốn phía giống như những máng nước chảy xuống các vùng đồng bằng thấp xung quanh!',
+            '💡 Giải thích giản đơn: Con hãy hình dung ở giữa châu Á có một "chiếc mái nhà khổng lồ" (Sơn nguyên Tây Tạng và dãy Hi-ma-lay-a). Từ chiếc mái nhà cao chót vót ở trung tâm đó, các dãy núi và dòng sông lớn tỏa ra bốn phía giống như những máng nước chảy xuống các vùng đồng bằng thấp xung quanh!',
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Khi đọc số liệu "trải dài từ cực Bắc đến xích đạo", ba đánh dấu ngay [P] (Dự đoán): Trải dài nhiều vĩ độ như vậy thì chắc chắn đoạn tiếp theo sẽ nói về khí hậu phân hóa thành nhiều đới!',
         },
@@ -511,7 +511,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
           dialogue_question:
             '🤔 Hỏi xoáy: Tại sao vùng ở sâu bên trong châu Á lại khô hạn đến mức thành hoang mạc?',
           dialogue_answer:
-            '💡 Giải thích kiểu Feynman: Mây mưa sinh ra từ hơi nước biển. Nhưng châu Á quá "bụng bự" (diện tích quá rộng) lại thêm "bức tường đá" Hi-ma-lay-a cao gần 9km chắn ngang! Khi gió biển mang mây mưa thổi vào, đi hết quãng đường hàng ngàn cây số và vướng núi cao thì rớt hết nước ở ven biển rồi, vào tới trung tâm chỉ còn gió khô khốc!',
+            '💡 Giải thích giản đơn: Mây mưa sinh ra từ hơi nước biển. Nhưng châu Á quá "bụng bự" (diện tích quá rộng) lại thêm "bức tường đá" Hi-ma-lay-a cao gần 9km chắn ngang! Khi gió biển mang mây mưa thổi vào, đi hết quãng đường hàng ngàn cây số và vướng núi cao thì rớt hết nước ở ven biển rồi, vào tới trung tâm chỉ còn gió khô khốc!',
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Ba vẽ ngay trong đầu trục tọa độ 2 chiều [*]: Chiều dọc (Bắc ➔ Nam) đổi theo ánh nắng mặt trời; Chiều ngang (Ven biển ➔ Nội địa) đổi theo lượng mưa từ ẩm sang khô!',
         },
@@ -544,7 +544,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
           dialogue_question:
             '🤔 Hỏi xoáy: Sông Mê Công chảy qua Việt Nam bắt nguồn từ đâu mà mùa khô vẫn không cạn trơ đáy?',
           dialogue_answer:
-            '💡 Giải thích kiểu Feynman: Bắt nguồn từ "tháp nước" Tây Tạng đó con! Mùa xuân - hạ, băng tuyết trên đỉnh núi cao tan ra cộng với mưa gió mùa tạo thành nguồn nước khổng lồ chảy qua 6 quốc gia rồi bồi đắp nên vựa lúa Đồng bằng sông Cửu Long của Việt Nam mình!',
+            '💡 Giải thích giản đơn: Bắt nguồn từ "tháp nước" Tây Tạng đó con! Mùa xuân - hạ, băng tuyết trên đỉnh núi cao tan ra cộng với mưa gió mùa tạo thành nguồn nước khổng lồ chảy qua 6 quốc gia rồi bồi đắp nên vựa lúa Đồng bằng sông Cửu Long của Việt Nam mình!',
           metacognition_modeling:
             '🧠 Ba làm mẫu (Think-Aloud): Ba gắn ký hiệu [C] (Kết nối đời sống) ngay tại chữ "sông Mê Công" vì con sông này gắn trực tiếp với hạt gạo chúng ta ăn mỗi ngày, và [KL] cho mối liên hệ: Địa hình trung tâm cao ➔ Sông chảy tỏa ra 4 phía.',
         },

@@ -302,7 +302,12 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                     <td>
                       <div class="feynman-box">
                         <strong>${chunk.feynman_explanation.dialogue_question}</strong><br/>
-                        ${chunk.feynman_explanation.dialogue_answer}<br/><br/>
+                        ${chunk.feynman_explanation.dialogue_answer
+                          .replace(/Giải thích kiểu Feynman/g, 'Giải thích giản đơn')
+                          .replace(
+                            /^(💡\s*Giải thích giản đơn:?)/,
+                            '<strong>$1</strong>'
+                          )}<br/><br/>
                         <em>${chunk.feynman_explanation.metacognition_modeling}</em>
                       </div>
                       <strong>✍️ Góc của con:</strong><br/>
@@ -871,7 +876,27 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                         </p>
 
                         <p className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-blue-50/50 p-3 rounded-xl border border-blue-100">
-                          {chunk.feynman_explanation.dialogue_answer}
+                          {(() => {
+                            const normalizedAnswer =
+                              chunk.feynman_explanation.dialogue_answer.replace(
+                                /Giải thích kiểu Feynman/g,
+                                'Giải thích giản đơn'
+                              );
+                            const match = normalizedAnswer.match(
+                              /^(💡\s*Giải thích giản đơn:?)\s*(.*)$/s
+                            );
+                            if (match) {
+                              return (
+                                <>
+                                  <strong className="font-bold text-slate-900">
+                                    {match[1]}
+                                  </strong>{' '}
+                                  {match[2]}
+                                </>
+                              );
+                            }
+                            return normalizedAnswer;
+                          })()}
                         </p>
 
                         <div className="p-3 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-950 leading-relaxed">
@@ -1385,7 +1410,26 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                 </td>
                 <td className="border border-black p-2 align-top">
                   <p className="font-bold">{chunk.feynman_explanation.dialogue_question}</p>
-                  <p className="mb-1">{chunk.feynman_explanation.dialogue_answer}</p>
+                  <p className="mb-1">
+                    {(() => {
+                      const normalizedAnswer =
+                        chunk.feynman_explanation.dialogue_answer.replace(
+                          /Giải thích kiểu Feynman/g,
+                          'Giải thích giản đơn'
+                        );
+                      const match = normalizedAnswer.match(
+                        /^(💡\s*Giải thích giản đơn:?)\s*(.*)$/s
+                      );
+                      if (match) {
+                        return (
+                          <>
+                            <strong>{match[1]}</strong> {match[2]}
+                          </>
+                        );
+                      }
+                      return normalizedAnswer;
+                    })()}
+                  </p>
                   <p className="italic text-[9pt] mb-2">
                     {chunk.feynman_explanation.metacognition_modeling}
                   </p>
