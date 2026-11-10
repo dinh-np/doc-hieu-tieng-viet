@@ -33,7 +33,9 @@ When implementing components in `src/components/reading-engine/`, follow these U
 ### 3-Phase Metacognition Reading Engine (`/metacognition-read` & `MetacognitionReaderClient.tsx`)
 * **Phase 1 (Planning):** Active Recall warmup + Prediction prompt + Sticky 6-symbol Marking Text legend (`[?]`, `[!]`, `[*]`, `[C]`, `[P]`, `[KL]`).
 * **Phase 2 (Monitoring):** 60/40 two-column split layout:
-  * **Left Column (60%):** Original text with inline interactive Han-Viet etymology popups (`🔑`) and text-selection Marking Text highlighter.
+  * **Left Column (60%):** Original text with inline interactive Han-Viet etymology popups (`🔑`, supporting both `han_viet_Popup` and `han_viet_popups` via `getChunkPopups(chunk)`) and text-selection Marking Text highlighter.
   * **Right Column (40%):** Socratic question (`🤔 Hỏi xoáy`), bold **`💡 Giải thích giản đơn:`** (`<strong>`), Parent Think-Aloud modeling (`🧠 Ba làm mẫu`), and Student 5-word reflection journal (`✍️ Góc của con`).
-* **Phase 3 (Evaluating):** 3-tier QAR questions, 4-row Mindmap Matrix, 3-2-1 Reflection + Traffic Light (`🟢🟡🔴`), and Golden Takeaway box.
+* **Phase 3 (Evaluating):** 3-tier QAR questions, Mindmap Matrix, 3-2-1 Reflection + Traffic Light (`🟢🟡🔴`), and Golden Takeaway box.
+* **Curated Seed Articles (`src/data/metacognition-seed.ts` & `npm run seed:metacognition`):**
+  * 6 Growth Mindset lessons (`Mindset - Bài 1, Bài 2, Bài 3, Bài 4, Bài 6, Bài 7`) + 2 Grade 7 Textbook lessons (`Lịch sử 7 - Bài 6`, `Địa lí 7 - Bài 5`), all normalized to Unicode NFC via `cleanVietnameseText` and stored in `public.one_page_articles` with `article_type = 'metacognition'` and `category = 'metacognition'`.
 * **Print & Export:** Supports both `@media print` 2-column A4 worksheet and `.doc` Word export.

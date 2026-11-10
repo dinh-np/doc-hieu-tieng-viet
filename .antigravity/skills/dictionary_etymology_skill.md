@@ -28,10 +28,11 @@ When developing `/dictionary` routes, `<HanVietTooltip />`, and dictionary data 
   - Mode 1: 🧩 *Thợ Rèn Hình Vị* (combining 2 `han_viet_roots` to forge a compound).
   - Mode 2: 🎨 *Bức Họa Ngôn Từ* (guessing `thuan_viet_dictionary` words from `mental_image` or cloze `example_sentence`).
   - Mode 3: ⚔️ *Đấu Trường Thực Chiến* (15-second *Flashcard Blitz* & *Bác Sĩ Câu Văn* mixing both dictionaries).
-* **Automated Expansion CLI Scripts:**
+* **Automated Expansion & Seed CLI Scripts:**
   - `npm run seed:hanviet` (`tsx scripts/seed_han_viet.ts`)
-  - `npm run expand:hanviet` (`tsx scripts/expand_han_viet.ts --count=30` or targeted `npx tsx scripts/expand_han_viet.ts --words="hình thành, hình thức, cơ chế, phương pháp"`) — Scans academic THCS vocabulary, social life, science journalism, and **Root Morpheme Genealogy ("Gia phả hình vị")** from `han_viet_roots`.
-  - `npm run expand:thuanviet` (`tsx scripts/expand_thuan_viet.ts --count=30` or targeted `npx tsx scripts/expand_thuan_viet.ts --words="gắn bó, dở dang, ngập ngừng"`) — Scans vivid pure Vietnamese sensory, psychological, literary, and daily communication vocabulary.
+  - `npm run expand:hanviet` (`tsx scripts/expand_han_viet.ts --count=30` or targeted `npx tsx scripts/expand_han_viet.ts --words="phán xét, liên kết, mật độ, phân bố, lục địa, bồi tụ"`) — Scans academic THCS vocabulary, social life, science journalism, and **Root Morpheme Genealogy ("Gia phả hình vị")** from `han_viet_roots`.
+  - `npm run expand:thuanviet` (`tsx scripts/expand_thuan_viet.ts --count=30` or targeted `npx tsx scripts/expand_thuan_viet.ts --words="đóng khung, đóng, khung"`) — Scans vivid pure Vietnamese sensory, psychological, literary, and daily communication vocabulary.
+  - `npm run seed:proverbs` (`tsx scripts/seed_proverbs.ts`) — Upserts 30+ curated Vietnamese proverbs (`src/data/proverbs-seed.ts`) into `public.proverbs`.
   - `npm run seed:grammar` (`tsx scripts/seed_grammar.ts`)
   - `npm run seed:metacognition` (`tsx scripts/seed_metacognition.ts`)
 
@@ -41,3 +42,8 @@ When developing `/dictionary` routes, `<HanVietTooltip />`, and dictionary data 
   - **Level 2 (`sentence_slicing` / `slice_slash`, `level_order: 2`):** Slice long compound sentences at clause boundaries using `✂️ /`.
   - **Level 3 (`connectors_logic` / `drag_logic_arrow`, `level_order: 3`):** Map logical conjunctions (`Nhờ/Do/Vì... nên...`, `Mặc dù... nhưng...`) into `[Vế A] ➔ [Vế B]` diagrams.
   - **Level 4 (`topic_comment`, `level_order: 4`):** Topic-Comment (Đề - Thuyết) and Contextual Word Roles (Từ tính vs. Từ vị).
+
+### 5. Vietnamese Proverbs & Cultural Metaphors (`/proverbs`)
+* **Table & Seed (`public.proverbs` & `src/data/proverbs-seed.ts`):**
+  - Each entry includes `proverb`, `pillar` (`nature_labor` | `morality_society` | `skills_conduct`), `sub_category` (mapped to Vietnamese labels in `SUB_CATEGORY_LABELS`), `literal_meaning`, `figurative_meaning`, `life_skill_note`, `dialectical_view`, `essay_evidence_usage`, `sample_sentence`, `english_anchor`, and `keywords`.
+  - Features 3D flip cards (Literal ➔ Figurative), **💡 Lăng Kính Tuổi 12** drawer with 1-click sample essay sentence copy, and **🎮 Mini-Game "Tục Ngữ Ứng Chiến"**.
