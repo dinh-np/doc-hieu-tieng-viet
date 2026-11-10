@@ -226,7 +226,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
     category: 'metacognition',
     subject: 'Kỹ năng sống',
     grade: 7,
-    title: 'Sức Mạnh Của Tư Duy: Não Bộ Giống Như Cơ Bắp — Khả Năng Không Bị Đóng Khung',
+    title: 'Mindset - Bài 2: Não bộ cần phải được tập "Gym" để không bị đóng khung',
     subtitle:
       'Khám phá cơ chế thần kinh học đằng sau Tư duy phát triển (Growth Mindset): vì sao mỗi bài tập khó chính là một lần não bộ "nâng tạ" để mọc thêm nhánh liên kết neuron mới.',
     target_time_minutes: 25,
