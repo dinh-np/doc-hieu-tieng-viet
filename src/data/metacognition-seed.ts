@@ -791,6 +791,201 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // BÀI NỀN TẢNG 6: SỨC MẠNH KỲ DIỆU CỦA CHỮ 'CHƯA'
+  // ===========================================================================
+  {
+    id: 'mindset-suc-manh-chu-chua',
+    slug: 'mindset-suc-manh-chu-chua',
+    article_type: 'metacognition',
+    category: 'metacognition',
+    subject: 'Kỹ năng sống',
+    grade: 7,
+    title: "Mindset – Bài 6: Sức Mạnh Kỳ Diệu Của Chữ 'CHƯA'",
+    subtitle:
+      'Khám phá chiếc chìa khóa ngôn ngữ chuyển đổi trạng thái não bộ từ "đóng sập / bế tắc" sang "đang trên hành trình tiến bộ", trao lại quyền kiểm soát tương lai cho chính em.',
+    target_time_minutes: 25,
+    planning: {
+      active_recall_question:
+        "Khi đối mặt với một kỹ năng khó (như bơi lội, chơi một nhạc cụ, hoặc giải một bài toán hóc búa), phản xạ đầu tiên của em có phải là buột miệng nói: 'Em không làm được' không?",
+      prediction_prompt:
+        "Em thử đoán xem điều gì kỳ diệu sẽ xảy ra bên trong bộ não nếu em gắn thêm đúng một từ 'CHƯA' vào ngay sau câu 'Em không làm được'?",
+    },
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: "Chặng 1: Từ 'Không làm được' — Cánh cửa bị khóa chặt",
+        original_text:
+          "Khi em thốt lên câu: 'Em không làm được bài này' hay 'Em không có năng khiếu vẽ', bộ não của em sẽ lập tức **đóng sập** lại. Nó phát đi **tín hiệu** rằng mọi chuyện đã kết thúc, không còn hy vọng gì nữa và em nên bỏ cuộc ngay lập tức.",
+        han_viet_Popup: [
+          {
+            term: 'Đóng sập',
+            formula: 'Động từ hình ảnh',
+            meaning:
+              'Hành động khép lại đột ngột và dứt khoát, ngắt hoàn toàn cơ hội suy nghĩ hay tìm tòi cách giải quyết.',
+            english_anchor: 'Shut Down / Slam Shut',
+          },
+          {
+            term: 'Tín hiệu',
+            formula: 'Tín (tin tức, dấu hiệu) + Hiệu (nhận biết)',
+            meaning:
+              'Thông điệp hay mệnh lệnh truyền đi trong mạng lưới thần kinh điều khiển hành vi của não bộ.',
+            english_anchor: 'Signal / Command',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            "🤔 Hỏi xoáy: Nói một câu 'không làm được' thôi mà nghe nguy hiểm vậy sao Ba?",
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Nói câu 'Tôi không làm được' giống hệt như việc con tự tay khóa chặt then cửa phòng lại rồi tiện tay vứt luôn chiếc chìa khóa qua cửa sổ vậy! Bộ não con cực kỳ nghe lời con; khi con phát lệnh bảo 'bó tay rồi', bộ não sẽ lập tức tắt nguồn và đình công, không chịu suy nghĩ thêm một giây nào nữa!",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Khi đọc đoạn này, ba gắn ký hiệu [!] (Bất ngờ) và [?] (Cảnh báo): Lời nói ra có sức mạnh điều khiển não bộ. Câu nói tiêu cực là chiếc khóa tự giam hãm chính mình!',
+        },
+        student_reflection: {
+          selected_symbols: ['!', '?'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: "Chặng 2: Thần chú tâm lý: Thêm một chữ 'CHƯA'",
+        original_text:
+          "Thay vì tự dán nhãn bế tắc, hãy thêm một từ **kỳ diệu**: 'Mình **CHƯA** làm được'. Chữ **'CHƯA'** ngay lập tức mở ra cánh cửa của hy vọng và sự tiến bộ. Nó nhắc nhở em rằng em chỉ đang ở trên **hành trình** học hỏi, và với thời gian cùng nỗ lực đúng, em hoàn toàn sẽ làm được.",
+        han_viet_Popup: [
+          {
+            term: 'Kỳ diệu',
+            formula: 'Kỳ (lạ lùng, đặc biệt) + Diệu (khéo léo, sâu xa)',
+            meaning:
+              'Tạo ra sự biến chuyển phi thường, mang lại kết quả bất ngờ vượt ngoài sức tưởng tượng.',
+            english_anchor: 'Magical / Miraculous',
+          },
+          {
+            term: 'Hành trình',
+            formula: 'Hành (đi lại, bước đi) + Trình (quãng đường, lộ trình)',
+            meaning:
+              'Quá trình tiến bước qua từng chặng để đạt tới mục tiêu, đòi hỏi thời gian và sự kiên trì.',
+            english_anchor: 'Journey / Process',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            "🤔 Hỏi xoáy: Chỉ đổi thêm đúng một chữ 'chưa' thôi mà có sức mạnh lớn vậy sao Ba?",
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Sức mạnh cực kỳ lớn con à! Khi thêm chữ 'CHƯA' vào câu nói ('Em chưa làm được bài này'), con đang cắm chiếc chìa khóa vào ổ khóa. Chỉ cần vặn nhẹ là cánh cửa cơ hội lại mở toang ra! Chữ 'CHƯA' thay đổi hoàn toàn trạng thái tâm trí của con: từ chỗ 'dừng cuộc chơi' chuyển sang 'mình đang trên đường đi tới đích'!",
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [*] (Cốt lõi) và [C] (Kết nối): Chữ 'CHƯA' chính là câu thần chú tâm lý chuyển từ bế tắc (Dead End) sang tiến trình (In Progress) trong tích tắc!",
+        },
+        student_reflection: {
+          selected_symbols: ['*', 'C'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title: "Chặng 3: Biến chữ 'CHƯA' thành thói quen hàng ngày",
+        original_text:
+          "Bất cứ khi nào em gặp **rào cản** trong học tập hay cuộc sống, hãy tập thói quen nhắc nhở bản thân: 'Bây giờ mình chưa giỏi, nhưng nếu luyện tập mỗi ngày, mình sẽ ngày càng tốt hơn'. Chữ 'CHƯA' trao cho em **quyền kiểm soát** tương lai của chính mình.",
+        han_viet_Popup: [
+          {
+            term: 'Rào cản',
+            formula: 'Rào (ngăn chặn) + Cản (chặn lại)',
+            meaning:
+              'Chướng ngại vật hoặc khó khăn tạm thời xuất hiện cản bước tiến của mình.',
+            english_anchor: 'Barrier / Obstacle',
+          },
+          {
+            term: 'Quyền kiểm soát',
+            formula: 'Quyền (thẩm quyền) + Kiểm (xem xét) + Soát (nắm bắt, trông coi)',
+            meaning:
+              'Khả năng tự mình làm chủ suy nghĩ, hành động và quyết định kết quả tương lai của chính bản thân.',
+            english_anchor: 'Locus of Control / Autonomy',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Làm sao để con nhớ dùng chữ này mỗi khi gặp chuyện khó?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Giống như con đang leo núi vậy! Khi ngước lên thấy đỉnh núi còn ở xa, chưa lên tới đỉnh đâu có nghĩa là con bị ngã hay thất bại; điều đó chỉ đơn giản có nghĩa là con cần bước tiếp thêm vài trăm bước nữa thôi! Từ hôm nay, mỗi lần nghe con dùng chữ 'CHƯA' khi gặp bài khó, Ba sẽ mỉm cười và cực kỳ tự hào về tinh thần chiến binh của con!",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ký hiệu [KL] (Kết luận): Đừng vội phán xét kết quả ở thời điểm hiện tại. Tương lai nằm trong tay con nếu con kiên trì tiến thêm từng bước nhỏ!',
+        },
+        student_reflection: {
+          selected_symbols: ['KL'],
+          thought_note: '',
+        },
+      },
+    ],
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Trực tiếp',
+          question:
+            "Theo bài đọc, việc thốt lên câu 'Em không làm được' được ví với hành động nào đối với cánh cửa?",
+          hint: 'Đọc lại Chặng 1 và hình ảnh Feynman giải thích về chiếc chìa khóa phòng.',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Suy ngẫm & Ghép nối',
+          question:
+            "Tại sao việc gắn thêm từ 'CHƯA' lại có thể chuyển hóa trạng thái của não bộ từ bế tắc sang hy vọng?",
+          hint: "So sánh hai trạng thái ở Chặng 2: trạng thái 'dừng lại / khóa cửa' khác gì với trạng thái 'đang trên đường đi / cắm chìa khóa'?",
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Liên hệ bản thân',
+          question:
+            "Hôm nay hoặc tuần này có bài tập, môn học hay kỹ năng nào em từng nghĩ 'mình không làm được'? Em hãy viết lại câu đó thật trọn vẹn với chữ 'CHƯA'?",
+          hint: "Mẫu câu gợi ý: 'Hiện tại mình CHƯA làm được việc..., nhưng nếu mình thử... thì mình sẽ tiến bộ'.",
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: "Khi nói 'Không làm được'",
+          prompt:
+            'Não bộ đóng sập cửa, khóa chặt then và ném chìa khóa đi — rơi vào bế tắc.',
+          sample_keywords:
+            'Não bộ đóng sập cửa, khóa chặt then và ném chìa khóa đi — rơi vào bế tắc.',
+        },
+        {
+          category: "Sức mạnh của chữ 'CHƯA'",
+          prompt:
+            'Cắm chìa khóa vào ổ, mở ra cánh cửa hy vọng và khẳng định mình đang trên hành trình tiến bộ.',
+          sample_keywords:
+            'Cắm chìa khóa vào ổ, mở ra cánh cửa hy vọng và khẳng định mình đang trên hành trình tiến bộ.',
+        },
+        {
+          category: 'Hành động rèn luyện mỗi ngày',
+          prompt:
+            "Biến chữ 'CHƯA' thành câu cửa miệng khi leo núi: Chưa đến đỉnh nghĩa là chỉ cần bước tiếp!",
+          sample_keywords:
+            "Biến chữ 'CHƯA' thành câu cửa miệng khi leo núi: Chưa đến đỉnh nghĩa là chỉ cần bước tiếp!",
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          "Nói 'Không làm được' là tự tay khóa sập cánh cửa hoạt động của não bộ.",
+          "Chữ 'CHƯA' là chiếc chìa khóa thần kỳ mở toang cơ hội học hỏi.",
+          "Chữ 'CHƯA' nhắc nhở em đang ở trên hành trình, chưa xong không có nghĩa là thất bại.",
+        ],
+        two_surprises: [
+          'Bộ não rất biết nghe lời: nếu ta bảo không được thì nó sẽ tắt nguồn nghỉ ngơi luôn.',
+          "Chữ 'CHƯA' biến rào cản tuyệt vọng thành hành trình hy vọng và trao lại quyền kiểm soát tương lai.",
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            "Gắn chữ 'CHƯA' vào mọi câu nói bế tắc của mình từ hôm nay để luôn sẵn sàng bước tiếp.",
+        },
+      },
+      takeaway_sentence:
+        "Chữ 'CHƯA' là chìa khóa thần kỳ giúp em chuyển mọi bế tắc thành hành trình tiến bộ!",
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
