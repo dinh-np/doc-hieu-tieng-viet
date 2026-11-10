@@ -49,6 +49,14 @@ const SUB_CATEGORY_LABELS: Record<string, string> = {
   practicality: 'Tư duy Thực tế & Tận dụng công cụ',
   honor_integrity: 'Danh dự & Phẩm giá trong sạch',
   human_value: 'Giá trị Sinh mệnh & Con người',
+  gratitude: 'Lòng Biết ơn & Trọng ân nghĩa',
+  experience_caution: 'Bài học Vấp ngã & Phòng ngừa rủi ro',
+  caution_etiquette: 'Thận trọng, An toàn & Nếp sống quy củ',
+  communication_composure: 'Bản lĩnh Đối thoại & Kiềm chế bạo lực',
+  moderation_temperance: 'Tiết độ, Chừng mực & Cẩn trọng lời nói',
+  communication_empathy: 'Sức mạnh Lời khen & Lòng bao dung',
+  contentment_greed: 'Biết đủ (Tri túc) & Tránh tham lam vô độ',
+  humility_openmindedness: 'Đức tính Khiêm tốn & Mở rộng tầm nhìn',
 };
 
 export function ProverbsClient({ initialProverbs }: ProverbsClientProps) {

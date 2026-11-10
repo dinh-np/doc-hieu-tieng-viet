@@ -613,6 +613,206 @@ const RAW_PROVERBS_SEED_DATA: ProverbItem[] = [
     keywords: ['giá trị con người', 'sinh mệnh', 'sức khỏe', 'nhân đạo'],
     is_featured: true,
   },
+
+  // ===========================================================================
+  // 23. ƠN AI MỘT CHÚT CHỚ QUÊN, PHIỀN AI MỘT CHÚT ĐỂ BÊN CẠNH LÒNG (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-23-on-ai-mot-chut-cho-quen',
+    proverb: 'Ơn ai một chút chớ quên, phiền ai một chút để bên cạnh lòng',
+    pillar: 'morality_society',
+    sub_category: 'gratitude',
+    literal_meaning:
+      'Thọ ơn của ai dù chỉ là một chút việc nhỏ mọn cũng không được phép quên; khi làm phiền lụy hay nhờ vả ai điều gì dù rất nhỏ nhặt cũng phải luôn ghi nhớ, để bên cạnh lòng (tâm niệm khắc ghi trong dạ) để tìm dịp đền đáp chu tất.',
+    figurative_meaning:
+      'Khuyên răn đạo lý sống trọng ân nghĩa; nhắc nhở con người phải luôn khắc cốt ghi tâm sự giúp đỡ của người khác, bất kể việc lớn hay việc nhỏ, sống có trước có sau và không bao giờ được vô ơn bạc bẽo.',
+    life_skill_note:
+      'Dạy học sinh biết nói lời cảm ơn chân thành và ghi nhớ khi được bạn bè cho mượn cây bút, chia sẻ mẩu bánh hay được thầy cô kiên nhẫn giảng lại bài khó; không coi sự giúp đỡ của người khác là điều hiển nhiên.',
+    dialectical_view:
+      'Đúng đắn khi bồi dưỡng phẩm chất tri ân và lòng trắc ẩn. Tuy nhiên, cần tránh cực đoan biến lòng biết ơn thành gánh nặng mặc cảm tự ti, hoặc vì mang ơn việc nhỏ mà mù quáng làm theo những yêu cầu sai trái vi phạm đạo đức và pháp luật.',
+    essay_evidence_usage:
+      "Rất đắc địa trong bài văn nghị luận xã hội về lòng biết ơn, đạo lý 'Uống nước nhớ nguồn', lối sống nghĩa tình; thích hợp đặt ở Luận điểm bàn về nhân cách của người tử tế hoặc phần Kết bài để đọng lại dư ba.",
+    sample_sentence:
+      "Lời răn 'Ơn ai một chút chớ quên, phiền ai một chút để bên cạnh lòng' không chỉ là thước đo phẩm giá của người xưa, mà còn là ánh sáng soi rọi lối sống ân nghĩa, nhắc ta trân quý từng bàn tay nâng đỡ giữa dòng đời.",
+    english_anchor: 'Gratitude & Mindfulness',
+    keywords: ['biết ơn', 'ân nghĩa', 'khắc cốt ghi tâm', 'đối nhân xử thế'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 24. ĐỨT TAY HAY THUỐC (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-24-dut-tay-hay-thuoc',
+    proverb: 'Đứt tay hay thuốc',
+    pillar: 'skills_conduct',
+    sub_category: 'experience_caution',
+    literal_meaning:
+      "'Đứt tay' là bị thương tổn rách da chảy máu; 'hay thuốc' là biết rõ phương thuốc nào hay, lá thuốc nào rịt vào vết thương thì lành lặn. Khi bị đứt tay đau đớn rồi người ta mới cuống cuồng đi tìm kiếm và sực biết đến thứ thuốc quý.",
+    figurative_meaning:
+      'Hàm chứa hai nét nghĩa sâu sắc: Một là bài học về quy luật nhận thức, con người phải trải qua vấp váp, đau đớn, thất bại mới rút ra được bài học và kinh nghiệm quý giá; hai là châm biếm thói đời lúc bình yên vô sự thì lãng quên, chỉ khi rơi vào cảnh hoạn nạn nguy cấp mới nhớ đến người tài giỏi, ân nhân để cậy nhờ cứu giúp.',
+    life_skill_note:
+      "Giúp học sinh lứa tuổi 12 không nản chí trước những lần điểm kém hay sai sót trong học tập; mỗi lần phạm lỗi chính là một lần 'đứt tay' giúp em tìm ra 'phương thuốc' khắc phục lỗ hổng kiến thức để tiến bộ hơn.",
+    dialectical_view:
+      "Đúng khi nhìn nhận vấp ngã là người thầy nghiêm khắc rèn luyện bản lĩnh. Song không nên thụ động đợi đến khi 'đứt tay' gặp họa mới đi tìm 'thuốc', mà cần có tư duy phòng ngừa, chuẩn bị kỹ lưỡng từ trước để giảm thiểu rủi ro.",
+    essay_evidence_usage:
+      'Phù hợp với các đề văn nghị luận về thái độ trước thất bại, bài học kinh nghiệm, tinh thần học hỏi từ lỗi lầm hoặc bài học về tính chủ động phòng bị trong cuộc sống; nên đặt ở Luận điểm giải thích quy luật trưởng thành.',
+    sample_sentence:
+      "Hiểu theo chiều sâu triết lý, 'Đứt tay hay thuốc' là quy luật muôn đời của sự trưởng thành: chính những vết thương đau đớn và những cú vấp ngã đầu đời là người thầy dạy cho ta bản lĩnh vững vàng nhất.",
+    english_anchor: 'Learning from Mistakes',
+    keywords: ['kinh nghiệm', 'vấp ngã', 'bài học', 'phòng ngừa'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 25. ĂN CÓ CHỖ, ĐỖ CÓ NƠI (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-25-an-co-cho-do-co-noi',
+    proverb: 'Ăn có chỗ, đỗ có nơi',
+    pillar: 'skills_conduct',
+    sub_category: 'caution_etiquette',
+    literal_meaning:
+      "'Đỗ' ở đây là ngủ đỗ, ngủ trọ dọc đường bộ hành thời xưa. Ăn uống phải tìm chỗ đàng hoàng, sạch sẽ; dừng chân ngủ trọ phải chọn nơi vững chãi, an toàn và tử tế, tránh những quán trọ ám muội ('hắc điếm') hay bỏ thuốc mê, thuốc độc vào cơm nước để hãm hại cướp của khách bộ hành.",
+    figurative_meaning:
+      'Khuyên con người khi bước chân ra xã hội phải hết sức cẩn trọng, giữ gìn an toàn tính mạng và phong thái chuẩn mực, có trật tự ngăn nắp; tuyệt đối không bạ đâu ăn đấy, bạ đâu ngả lưng đấy một cách buông tuồng, mất cảnh giác.',
+    life_skill_note:
+      'Rèn luyện cho học sinh kỹ năng tự bảo vệ bản thân và nếp sống kỷ luật: khi đi dã ngoại hay ra đường phải biết chọn thức ăn hợp vệ sinh, không tự ý đi theo người lạ đến nơi vắng vẻ và luôn giữ nếp sinh hoạt gọn gàng, đúng giờ giấc.',
+    dialectical_view:
+      'Đúng đắn về nguyên tắc an toàn cá nhân và nếp sống quy củ. Tuy nhiên, không nên quá câu nệ, cứng nhắc hoặc tỏ ra tiểu thư công tử khi rơi vào hoàn cảnh sinh hoạt dã ngoại, khẩn cấp đòi hỏi tinh thần thích nghi cao và linh hoạt.',
+    essay_evidence_usage:
+      'Rất thích hợp trong bài viết nghị luận về kỹ năng sống, ý thức tự bảo vệ bản thân, lối sống văn minh thanh lịch hoặc nếp sống kỷ luật; nên bố trí ở Luận điểm bàn về lối sống có nguyên tắc.',
+    sample_sentence:
+      "Lời răn 'Ăn có chỗ, đỗ có nơi' từ thời ông cha đến nay vẫn vẹn nguyên giá trị như một bài học nhập môn về sự thận trọng, nhắc nhở thế hệ trẻ biết tự bảo vệ mình trước những cám dỗ và rủi ro khôn lường của cuộc sống.",
+    english_anchor: 'Prudence & Orderliness',
+    keywords: ['cẩn trọng', 'an toàn', 'ngăn nắp', 'nếp sống'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 26. KHÔN RA MIỆNG, DẠI RA TAY (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-26-khon-ra-mieng-dai-ra-tay',
+    proverb: 'Khôn ra miệng, dại ra tay',
+    pillar: 'skills_conduct',
+    sub_category: 'communication_composure',
+    literal_meaning:
+      'Người khôn ngoan sáng suốt thì trí tuệ hiển hiện rõ ràng qua lời ăn tiếng nói mềm mỏng, gãy gọn, thấu tình đạt lý; kẻ rồ dại, khờ khạo thì sự nông nổi lại bộc lộ ra ở đôi bàn tay: lúng túng làm hỏng việc, hoặc hung hăng dùng nắm đấm, vũ lực đánh người.',
+    figurative_meaning:
+      'Khuyên con người phải biết dùng trí tuệ, sự điềm đạm và sức mạnh của ngôn từ khéo léo để thuyết phục và giải quyết mâu thuẫn; phê phán những kẻ kém cỏi, thiếu tự chủ hễ gặp chuyện bất bình là vội vàng dùng bạo lực tay chân chuốc lấy tai họa.',
+    life_skill_note:
+      'Giúp học sinh tuổi dậy thì rèn luyện kỹ năng kiểm soát cơn giận trong các mâu thuẫn học đường: khi bất đồng ý kiến với bạn bè, hãy bình tĩnh dùng lời đối thoại ôn tồn thay vì nóng nảy xô xát, động tay động chân.',
+    dialectical_view:
+      "Đúng đắn khi đề cao văn hóa đối thoại và giải quyết vấn đề bằng trí tuệ ôn hòa. Tuy nhiên, cần tránh ngộ nhận thành thói 'khôn mồm khôn miệng', chỉ giỏi nói suông hứa hão mà lười biếng hành động thực tế, bởi chân lý cần phải đi đôi với đôi tay lao động.",
+    essay_evidence_usage:
+      'Đặc biệt đắc địa trong đề văn nghị luận về văn hóa ứng xử, phòng chống bạo lực học đường, nghệ thuật giao tiếp hoặc kiểm soát cảm xúc; thích hợp đặt ở Luận điểm phê phán hành vi bạo lực bốc đồng.',
+    sample_sentence:
+      "Thấm thía lời răn 'Khôn ra miệng, dại ra tay', người bản lĩnh luôn chọn sức mạnh của sự điềm tĩnh và đối thoại văn minh để hóa giải xích mích thay vì biến đôi tay thành công cụ của bạo lực mù quáng.",
+    english_anchor: 'Verbal Wisdom over Force',
+    keywords: ['khôn ngoan', 'lời nói', 'kiềm chế', 'phi bạo lực'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 27. ĂN BỚT BÁT, NÓI BỚT LỜI (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-27-an-bot-bat-noi-bot-loi',
+    proverb: 'Ăn bớt bát, nói bớt lời',
+    pillar: 'skills_conduct',
+    sub_category: 'moderation_temperance',
+    literal_meaning:
+      "'Ăn bớt bát' là ăn ít đi một vài bát cơm để dạ dày không bị quá no, tránh bội thực sinh bệnh cho thân thể. 'Nói bớt lời' (trong nguyên tác cụ Hòe ghi nhận biến thể 'nói bớt nhời') là nói ít đi vài ba câu để tránh lỡ lời, nói hớ, nói sai mà chuốc lấy vạ miệng, rắc rối cho tinh thần.",
+    figurative_meaning:
+      'Khuyên con người phải biết giữ chừng mực, tiết độ trong ăn uống và thận trọng, kín kẽ trong phát ngôn; biết điểm dừng đúng lúc để giữ gìn sức khỏe thể chất và bảo vệ sự bình an của tâm hồn trước thị phi cuộc đời.',
+    life_skill_note:
+      "Nhắc nhở học sinh tuổi 12 rèn thói quen lắng nghe nhiều hơn nói, 'uốn lưỡi bảy lần trước khi nói', không chen ngang lời thầy cô và bạn bè, tránh bình luận ác ý hay lan truyền tin đồn trên mạng xã hội.",
+    dialectical_view:
+      "Đúng đắn khi rèn luyện tính chừng mực, tránh 'họa từ miệng mà ra'. Dù vậy, không nên áp dụng máy móc thành thái độ rụt rè, 'mũ ni che tai', thụ động im lặng trước cái sai, cái xấu hoặc không dám dũng cảm phát biểu bảo vệ lẽ phải.",
+    essay_evidence_usage:
+      'Phù hợp với các bài văn nghị luận về sự khiêm tốn, văn hóa phát ngôn trên không gian mạng, sự cẩn trọng và lối sống điều độ; nên đặt ở Luận điểm rèn luyện tu dưỡng bản thân.',
+    sample_sentence:
+      "Thực hành bài học 'Ăn bớt bát, nói bớt lời' chính là cách ta rèn luyện kỷ luật nội tâm, học cách lắng nghe để mỗi lời nói thốt ra đều mang sức nặng của sự chín chắn và thấu hiểu.",
+    english_anchor: 'Moderation & Discretion',
+    keywords: ['tiết độ', 'chừng mực', 'cẩn trọng', 'lời nói'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 28. KHEN NGƯỜI THÌ TỐT, GIỘT NGƯỜI THÌ XẤU (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-28-khen-nguoi-thi-tot-giot-nguoi-thi-xau',
+    proverb: 'Khen người thì tốt, giột người thì xấu',
+    pillar: 'skills_conduct',
+    sub_category: 'communication_empathy',
+    literal_meaning:
+      "'Giột người' (trong sách cụ Hòe ghi nhận câu: 'Khen người thì tốt, giột người người xấu') là tiếng cổ, chỉ hành động chặn họng, bắt bẻ gay gắt, chê bai hoặc bới móc điều xấu của người khác. Khen ngợi người thì sinh điều tốt lành; bắt bẻ, chê bai người thì rước lấy điều xấu xa, thù oán.",
+    figurative_meaning:
+      'Khuyên ta nên nhìn vào ưu điểm của người khác để khích lệ, khen ngợi, từ đó tạo dựng mối quan hệ hòa ái, thêm bạn bớt thù; chê trách thói cay nghiệt, hẹp hòi, chỉ chăm chăm bắt bẻ lỗi lầm và nói xấu người khác khiến thiên hạ xa lánh, căm ghét.',
+    life_skill_note:
+      "Dạy học sinh thói quen hào phóng khen ngợi những nỗ lực và điểm tốt của bạn bè trong lớp, từ bỏ thói quen 'bắt bẻ từng câu chữ' hay trêu chọc, gièm pha khuyết điểm của người khác để xây dựng tình bạn lành mạnh.",
+    dialectical_view:
+      'Đúng về nghệ thuật giao tiếp tích cực và thái độ độ lượng. Tuy nhiên, lời khen phải chân thành và đúng sự thật, tránh biến tướng thành tâng bốc nịnh hót; đồng thời sự phê bình mang tính xây dựng, trung thực vẫn rất cần thiết để giúp nhau tiến bộ.',
+    essay_evidence_usage:
+      'Rất phù hợp cho các bài văn bàn về nghệ thuật ứng xử, sức mạnh của lời khen chân thành, văn hóa phê bình và tinh thần bao dung; nên đặt ở Luận điểm phân tích tác động tâm lý trong giao tiếp.',
+    sample_sentence:
+      "Thấu hiểu triết lý 'Khen người thì tốt, giột người thì xấu', ta nhận ra rằng một lời ngợi khen chân thành có thể thắp sáng niềm tin của một con người, trong khi thói bắt bẻ cay nghiệt chỉ gieo rắc thêm những khoảng cách vô hình.",
+    english_anchor: 'Praise vs Fault-finding',
+    keywords: ['khen ngợi', 'giột người', 'bắt bẻ', 'bao dung'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 29. ĐƯỢC VOI ĐÒI TIÊN (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-29-duoc-voi-doi-tien',
+    proverb: 'Được voi đòi tiên',
+    pillar: 'morality_society',
+    sub_category: 'contentment_greed',
+    literal_meaning:
+      "Con voi vốn là loài vật đồ sộ, quý giá bậc nhất chốn rừng xanh; kẻ tham lam khi đã có được con voi quý rồi lại chưa thỏa lòng, lại vòi vĩnh muốn có thứ to lớn và tuyệt mỹ hơn là 'bà tiên' có phép màu huyền diệu.",
+    figurative_meaning:
+      "Phê phán và châm biếm sâu cay thói tham lam vô độ, lòng tham không đáy; hễ đạt được một điều này lại lập tức nảy sinh đòi hỏi những quyền lợi khác cao xa, quá quắt, 'được đằng chân lân đằng đầu' mà không biết điểm dừng.",
+    life_skill_note:
+      'Giúp học sinh rèn luyện thái độ biết đủ và biết ơn: biết trân trọng những gì cha mẹ đã hy sinh chu cấp cho mình, không đua đòi đòi hỏi mua sắm điện thoại đắt tiền hay quần áo hàng hiệu khi nhu cầu học tập đã được đáp ứng đầy đủ.',
+    dialectical_view:
+      "Đúng đắn khi bài trừ thói tham lam vị kỷ, vòi vĩnh hưởng thụ. Dù vậy, cần phân biệt rạch ròi giữa thói 'được voi đòi tiên' (tham lam thụ hưởng vô căn cứ) với ý chí tiến thủ, khát vọng vươn lên không ngừng để chinh phục những đỉnh cao khoa học và tri thức.",
+    essay_evidence_usage:
+      "Dùng trong các bài nghị luận phê phán lòng tham lam, lối sống thực dụng đòi hỏi, hoặc bàn về đức tính 'tri túc' (biết đủ) và lòng biết ơn; nên đặt ở Luận điểm phản biện, phê phán các biểu hiện tiêu cực.",
+    sample_sentence:
+      "Căn bệnh 'Được voi đòi tiên' chính là biểu hiện của một tâm hồn nghèo nàn lòng biết ơn, nơi những dục vọng vị kỷ ngày càng lấn át và xói mòn nhân cách tốt đẹp của con người.",
+    english_anchor: 'Insatiable Greed',
+    keywords: ['tham lam', 'vô độ', 'đòi hỏi', 'biết đủ'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 30. Ở NHÀ NHẤT MẸ NHÌ CON, RA ĐƯỜNG LẮM KẺ GIÒN HƠN TA (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-30-o-nha-nhat-me-nhi-con',
+    proverb: 'Ở nhà nhất mẹ nhì con, ra đường lắm kẻ giòn hơn ta',
+    pillar: 'skills_conduct',
+    sub_category: 'humility_openmindedness',
+    literal_meaning:
+      "Trong nguyên tác cụ Lê Văn Hòe ghi nhận câu: 'Ở nhà nhất mẹ nhì con, ra đường chén vạn kẻ dòn hơn ta'. 'Dòn' (giòn) là tiếng cổ chỉ sự xinh xắn, khéo léo, tốt đẹp; 'chén vạn' nghĩa là muôn vạn, rất nhiều. Ở trong góc nhà chật hẹp chỉ có hai mẹ con thì tự thấy mẹ là nhất trần đời rồi kế đến là con; nhưng khi bước chân ra xã hội rộng lớn mới vỡ lẽ rằng thiên hạ có muôn vạn người xinh đẹp, tài hoa hơn ta gấp bội.",
+    figurative_meaning:
+      "Châm biếm sâu cay thói tự cao tự đại, thói kiêu ngạo hợm hĩnh của những kẻ 'ếch ngồi đáy giếng', chỉ quanh quẩn trong môi trường nhỏ bé đã vội ảo tưởng bản thân là số một; khuyên người đời phải giữ tâm thế khiêm tốn, luôn biết mở rộng tầm mắt ra thế giới mênh mông.",
+    life_skill_note:
+      'Nhắc nhở học sinh luôn giữ đức tính khiêm nhường: dù đạt điểm cao nhất lớp hay xuất sắc nhất trường thì ra ngoài xã hội biển học vẫn vô bờ, luôn có nhiều tấm gương tài năng hơn để em noi theo và học hỏi.',
+    dialectical_view:
+      'Đúng khi răn dạy đức khiêm tốn và tinh thần cầu thị học hỏi suốt đời. Tuy nhiên, tránh hiểu lệch thành tâm lý tự ti, tự ti mặc cảm, đánh mất niềm tin vào năng lực và giá trị độc bản của chính mình.',
+    essay_evidence_usage:
+      'Rất đắc địa trong đề văn nghị luận về đức tính khiêm tốn, phê phán thói kiêu ngạo tự mãn, hoặc bài học về tinh thần không ngừng học hỏi và mở rộng tầm nhìn; thích hợp đặt ở Mở bài để tạo tính hấp dẫn hoặc Luận điểm chính của Thân bài.',
+    sample_sentence:
+      "Lời nhắc nhở dí dỏm mà thâm thúy 'Ở nhà nhất mẹ nhì con, ra đường lắm kẻ giòn hơn ta' dạy cho người trẻ bài học đầu đời về sự khiêm nhường, để biết bước ra khỏi ao làng chật hẹp và hòa mình vào đại dương tri thức bao la.",
+    english_anchor: 'Humility & Modesty',
+    keywords: ['khiêm tốn', 'tự mãn', 'ếch ngồi đáy giếng', 'giòn'],
+    is_featured: true,
+  },
 ];
 
 export const PROVERBS_SEED_DATA: ProverbItem[] = deepNormalizeVietnamese(RAW_PROVERBS_SEED_DATA);
