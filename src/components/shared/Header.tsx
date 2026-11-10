@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Search, Home, Bookmark, Gamepad2, Dna, Brain } from 'lucide-react';
+import { BookOpen, Search, Home, Bookmark, Gamepad2, Dna, Brain, ScrollText } from 'lucide-react';
 import { InstallAppButton } from '@/components/InstallAppButton';
 
 export function Header() {
@@ -81,6 +81,12 @@ export function Header() {
             active={pathname?.startsWith('/dictionary')}
             icon={<Search className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" />}
             label="Từ điển"
+          />
+          <NavLink
+            href="/proverbs"
+            active={pathname?.startsWith('/proverbs')}
+            icon={<ScrollText className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-amber-600 shrink-0" />}
+            label="Tục Ngữ"
           />
           <NavLink
             href="/grammar"

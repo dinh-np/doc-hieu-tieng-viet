@@ -31,11 +31,17 @@ interface ExpandCliArgs {
 }
 
 function parseWordsList(raw: string): string[] {
-  return raw
-    .replace(/^["']|["']$/g, '')
-    .split(/[,;|]+/)
-    .map((w) => w.trim().normalize('NFC'))
-    .filter((w) => w.length > 0);
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const part of raw.replace(/^["']|["']$/g, '').split(/[,;|]+/)) {
+    const w = part.trim().normalize('NFC');
+    const key = w.toLowerCase();
+    if (w.length > 0 && !seen.has(key)) {
+      seen.add(key);
+      result.push(w);
+    }
+  }
+  return result;
 }
 
 function parseCliArgs(argv: string[]): ExpandCliArgs {
