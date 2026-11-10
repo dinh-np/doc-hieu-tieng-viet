@@ -395,6 +395,208 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // BÀI NỀN TẢNG 3: NHẬN DIỆN HAI KIỂU TƯ DUY — CỐ ĐỊNH VÀ PHÁT TRIỂN
+  // ===========================================================================
+  {
+    id: 'mindset-hai-kieu-tu-duy',
+    slug: 'mindset-hai-kieu-tu-duy',
+    article_type: 'metacognition',
+    category: 'metacognition',
+    subject: 'Kỹ năng sống',
+    grade: 7,
+    title: 'Mindset - Bài 3: Nhận Diện Hai Kiểu Tư Duy — Tư duy Cố Định và Tư duy Phát Triển',
+    subtitle:
+      'Nhận diện sự khác biệt giữa Tư duy cố định (Fixed Mindset) và Tư duy phát triển (Growth Mindset), học cách thay đổi lời tự trò chuyện nội tâm (Self-Talk) khi đối mặt với khó khăn và thất bại.',
+    target_time_minutes: 25,
+    planning: {
+      active_recall_question:
+        "Khi chơi game mà bị 'Game Over' hoặc khi nhận một bài kiểm tra bị điểm thấp, phản ứng đầu tiên của em là giận dỗi muốn bỏ cuộc hay tò mò tìm cách thử lại?",
+      prediction_prompt:
+        'Theo em, người có Tư duy cố định và người có Tư duy phát triển sẽ phản ứng khác nhau thế nào khi bị người khác góp ý hoặc khi chính mình mắc lỗi?',
+    },
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: 'Chặng 1: Tư duy cố định (Fixed Mindset) — Chiếc áo giáp chật chội',
+        original_text:
+          '**Tư duy cố định (Fixed Mindset)** tin rằng tài năng và trí thông minh là sẵn có từ khi sinh ra và không thể thay đổi. Người có tư duy cố định luôn **sợ sai**, sợ bị đánh giá là dở, nên họ thường **né tránh** thử thách và chỉ thích làm những việc dễ dàng để tỏ ra mình thông minh.',
+        han_viet_Popup: [
+          {
+            term: 'Tư duy cố định',
+            formula: 'Cố (chắc chắn, giữ chặt) + Định (không lay chuyển)',
+            meaning:
+              'Cách nghĩ rằng năng lực của mình sinh ra đã đóng khung, không thể rèn luyện để giỏi hơn.',
+            english_anchor: 'Fixed Mindset',
+          },
+          {
+            term: 'Né tránh',
+            formula: 'Né (lạng sang bên) + Tránh (không giáp mặt)',
+            meaning:
+              'Tìm cách trốn chạy hoặc lảng đi, không dám đối đầu trực diện với khó khăn.',
+            english_anchor: 'Avoidance / Evade',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Tại sao người có tư duy cố định lại sợ làm sai vậy Ba?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Tư duy cố định giống như việc con tự khoác lên mình một chiếc áo giáp sắt chật chội và nặng nề. Lúc nào cũng nơm nớp sợ áo bị trầy xước nên con chẳng dám chạy nhảy hay đá bóng cùng bạn bè! Họ sợ sai vì nghĩ rằng nếu lỡ làm trật một bài toán, mọi người sẽ dán nhãn coi họ là 'kẻ kém cỏi' mãi mãi.",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Khi đọc đoạn này, ba gắn ký hiệu [!] (Bất ngờ) và [C] (Kết nối): Chiếc áo giáp tưởng để bảo vệ mình, hóa ra lại trói chặt mình khiến mình không lớn lên được!',
+        },
+        student_reflection: {
+          selected_symbols: ['!', 'C'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: 'Chặng 2: Tư duy phát triển (Growth Mindset) — Bộ đồ thể thao thoải mái',
+        original_text:
+          'Ngược lại, **Tư duy phát triển (Growth Mindset)** giúp bạn hiểu rằng mọi kỹ năng đều có thể rèn luyện qua thời gian và phương pháp đúng. Người có tư duy phát triển không xem thất bại là **bản án** phủ nhận giá trị bản thân, mà xem đó là **thông tin quý giá** để học hỏi và điều chỉnh.',
+        han_viet_Popup: [
+          {
+            term: 'Tư duy phát triển',
+            formula: 'Phát (mở rộng) + Triển (vươn xa, tiến tới)',
+            meaning:
+              'Cách suy nghĩ tin rằng trí thông minh và tài năng luôn có thể phát triển nhờ rèn luyện và nỗ lực bền bỉ.',
+            english_anchor: 'Growth Mindset',
+          },
+          {
+            term: 'Bản án',
+            formula: 'Bản (văn bản) + Án (vụ án, quyết định kết tội)',
+            meaning:
+              'Lời phán quyết chấm dứt hy vọng, khẳng định ai đó có lỗi hoặc kém cỏi hoàn toàn.',
+            english_anchor: 'Verdict / Condemnation',
+          },
+          {
+            term: 'Thông tin phản hồi',
+            formula: 'Phản (quay ngược lại) + Hồi (trở về)',
+            meaning:
+              'Dữ liệu cho biết kết quả thực tế để ta biết đường sửa chữa và làm tốt hơn ở lần sau.',
+            english_anchor: 'Feedback',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Vậy người có tư duy phát triển có sợ thất bại không Ba?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Họ cũng chẳng thích thất bại đâu con! Nhưng họ giống như đang mặc bộ đồ thể thao thun co giãn: thoải mái vận động, nếu lỡ té ngã thì tự đứng dậy phủi bụi rồi chạy tiếp. Họ hiểu thất bại không phải dấu chấm hết, nó chỉ là một chiếc 'la bàn' báo rằng: Cách làm cũ chưa đúng, cần đổi chiến lược mới!",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [*] (Cốt lõi) ở câu cuối: Thất bại chỉ là dữ liệu phản hồi (feedback), không phải là bản án kết tội con người mình!',
+        },
+        student_reflection: {
+          selected_symbols: ['*'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title: 'Chặng 3: Chuyển đổi lời tự trò chuyện trong đầu (Self-Talk)',
+        original_text:
+          "Sự khác biệt lớn nhất giữa hai kiểu tư duy nằm ở câu nói em tự nói với chính mình (**Self-Talk**). Thay vì than thở: 'Mình không có **năng khiếu** môn này', người tư duy phát triển sẽ tự nhủ: 'Mình **chưa giỏi** môn này, mình cần luyện tập thêm bằng cách khác'.",
+        han_viet_Popup: [
+          {
+            term: 'Self-Talk',
+            formula: 'Thuật ngữ tâm lý học nhận thức',
+            meaning:
+              'Lời tự trò chuyện nội tâm — những suy nghĩ, câu nói thầm kín ta tự đối thoại với bộ não của mình mỗi ngày.',
+            english_anchor: 'Inner Dialogue / Self-Talk',
+          },
+          {
+            term: 'Năng khiếu',
+            formula: 'Năng (khả năng) + Khiếu (lỗ hổng bộc lộ thiên bẩm)',
+            meaning:
+              'Khả năng tự nhiên sẵn có ở một lĩnh vực nào đó, nhưng nếu không mài giũa rèn luyện thì cũng sẽ bị thui chột.',
+            english_anchor: 'Innate Talent / Gift',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Con có thể tự chuyển từ Tư duy cố định sang Tư duy phát triển được không Ba?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Hoàn toàn được chứ con! Hãy tưởng tượng trong đầu con có một chiếc đĩa hát. Mỗi khi thấy đĩa phát bài 'Game rác quá, mình dở tệ', con hãy bấm dừng lại và đổi sang đĩa mới: 'Ồ, hố sâu chỗ này! Lần sau mình căn giờ nhảy sớm 1 giây là vượt qua ngay!'. Đổi câu thoại là đổi cả tương lai!",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ký hiệu [KL] (Kết luận): Đừng tin mọi suy nghĩ tiêu cực thoảng qua trong đầu. Mình hoàn toàn có thể tự đổi kịch bản suy nghĩ của chính mình!',
+        },
+        student_reflection: {
+          selected_symbols: ['KL'],
+          thought_note: '',
+        },
+      },
+    ],
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Trực tiếp',
+          question:
+            'Theo bài đọc, người có Tư duy cố định tin rằng tài năng và trí thông minh đến từ đâu?',
+          hint: 'Đọc lại Chặng 1, câu đầu tiên: họ nghĩ tài năng có sẵn hay do rèn luyện?',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Suy ngẫm & Ghép nối',
+          question:
+            "Sự khác biệt căn bản trong cách nhìn nhận về 'thất bại' giữa người có Tư duy cố định và người có Tư duy phát triển là gì?",
+          hint: "So sánh hình ảnh 'bản án kết tội' ở Chặng 1 và 'thông tin quý giá/la bàn' ở Chặng 2.",
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Liên hệ bản thân',
+          question:
+            'Trong tình huống nào gần đây (học tập, thể thao, chơi game) em nhận thấy mình đã có suy nghĩ của Tư duy cố định? Em sẽ đổi lời tự trò chuyện (Self-Talk) đó ra sao?',
+          hint: "Thử đổi từ câu 'Mình dở môn này quá' sang câu 'Mình CHƯA... và mình cần...'.",
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Tư duy cố định (Fixed Mindset)',
+          prompt:
+            'Chiếc áo giáp sắt chật chội: Sợ sai, né tránh thử thách, xem thất bại là bản án phủ nhận bản thân.',
+          sample_keywords:
+            'Chiếc áo giáp sắt chật chội: Sợ sai, né tránh thử thách, xem thất bại là bản án phủ nhận bản thân.',
+        },
+        {
+          category: 'Tư duy phát triển (Growth Mindset)',
+          prompt:
+            'Bộ đồ thể thao thoải mái: Xem thất bại là dữ liệu quý giá để học hỏi, mọi kỹ năng đều rèn luyện được.',
+          sample_keywords:
+            'Bộ đồ thể thao thoải mái: Xem thất bại là dữ liệu quý giá để học hỏi, mọi kỹ năng đều rèn luyện được.',
+        },
+        {
+          category: 'Lời tự thoại (Self-Talk)',
+          prompt:
+            "Đổi từ 'Mình không có năng khiếu' thành 'Mình CHƯA làm được, cần tìm thêm chiến lược khác'.",
+          sample_keywords:
+            "Đổi từ 'Mình không có năng khiếu' thành 'Mình CHƯA làm được, cần tìm thêm chiến lược khác'.",
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Tư duy cố định sợ bị đánh giá và chỉ thích làm việc dễ.',
+          'Tư duy phát triển tập trung vào tiến bộ và rèn luyện kỹ năng qua thời gian.',
+          'Thất bại là bài học chỉ đường, không phải bản án.',
+        ],
+        two_surprises: [
+          'Tư duy cố định lo chứng minh bản thân; Tư duy phát triển tập trung vào việc học hỏi.',
+          'Chỉ cần thay đổi một câu nói trong đầu (Self-Talk), ta có thể đổi từ bỏ cuộc sang kiên trì tiếp tục.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            'Lắng nghe lời nói nội tâm của mình mỗi ngày và chủ động thay thế câu nói cố định bằng câu nói phát triển.',
+        },
+      },
+      takeaway_sentence:
+        'Tư duy cố định đóng khung tiềm năng — Tư duy phát triển mở ra vô hạn cơ hội học hỏi!',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
