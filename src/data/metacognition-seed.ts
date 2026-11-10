@@ -597,6 +597,200 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // BÀI NỀN TẢNG 4: THẤT BẠI LÀ 'DẤU CHẤM HẾT' HAY 'TÍN HIỆU ĐỂ NHÌN LẠI MÌNH'?
+  // ===========================================================================
+  {
+    id: 'mindset-giai-ma-that-bai',
+    slug: 'mindset-giai-ma-that-bai',
+    article_type: 'metacognition',
+    category: 'metacognition',
+    subject: 'Kỹ năng sống',
+    grade: 7,
+    title: "Mindset - Bài 4: Thất Bại Là 'Dấu Chấm Hết' Hay 'Tín Hiệu Để Nhìn Lại Mình'?",
+    subtitle:
+      'Giải mã cảm xúc khi gặp thất bại hay làm bài sai: không coi thất bại là "Game-Over" dán nhãn bản thân, mà xem đó là "tín hiệu dữ liệu" của bản đồ GPS để điều chỉnh chiến lược và tiến bộ.',
+    target_time_minutes: 25,
+    planning: {
+      active_recall_question:
+        'Khi con bị điểm kém hoặc làm sai một bài tập khó, cảm xúc đầu tiên xuất hiện trong đầu con là gì?',
+      prediction_prompt:
+        "Con thường nghĩ việc làm sai đó là do bản thân mình 'dở tệ' bẩm sinh, hay do 'chiến lược làm bài' của mình chưa đúng?",
+    },
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: "Chặng 1: Thất bại không phải là dấu chấm hết, không phải là 'Game-Over'",
+        original_text:
+          "Khi gặp một kết quả không như ý — như điểm số kém hay bị thua trong một trận thi đấu — người mang tư duy cố định thường coi đó là **'dấu chấm hết'**, một kết luận rằng bản thân kém cỏi. Tuy nhiên, người có tư duy phát triển hiểu rằng thất bại không **dán nhãn** giá trị con người em. Nó chỉ đơn giản báo hiệu rằng cách làm hiện tại chưa mang lại hiệu quả và em cần điều chỉnh.",
+        han_viet_Popup: [
+          {
+            term: 'Dấu chấm hết',
+            formula: 'Dấu + Chấm + Hết',
+            meaning:
+              'Suy nghĩ tuyệt vọng cho rằng mọi chuyện đã kết thúc hoàn toàn, không còn cơ hội để sửa chữa hay làm lại.',
+            english_anchor: 'Dead End / Game Over',
+          },
+          {
+            term: 'Dán nhãn',
+            formula: 'Dán (gắn chặt) + Nhãn (mác đánh dấu)',
+            meaning:
+              "Vội vàng đưa ra kết luận đóng khung, gán cho bản thân hoặc người khác một tính chất cố định (ví dụ: 'mình là kẻ dở tệ').",
+            english_anchor: 'Labeling / Stereotyping',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            "🤔 Hỏi xoáy: Khi làm sai bài, con có thấy mình như bị dán nhãn 'dở tệ' không?",
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Tưởng tượng con đang đi xe theo bản đồ GPS trên điện thoại. Khi con lỡ quẹo nhầm đường, ứng dụng GPS đâu có mắng con 'Sao ngốc thế!' rồi tự tắt máy đâu! Nó chỉ bình tĩnh phát tín hiệu: 'Đang tính toán lại tuyến đường!'. Thất bại cũng y hệt vậy con à, đó chỉ là chiếc bản đồ GPS đang nhắc con rẽ sang một hướng đi mới thôi!",
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Khi đọc đoạn này, ba gắn ký hiệu [!] (Bất ngờ) và [C] (Kết nối): Thất bại không phải là bảng thông báo 'Game Over' đóng cửa trò chơi, mà chỉ là tín hiệu nhắc mình đổi hướng lái xe!",
+        },
+        student_reflection: {
+          selected_symbols: ['!', 'C'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: 'Chặng 2: Làm sai là tín hiệu dữ liệu giúp điều chỉnh chiến lược',
+        original_text:
+          "Một điểm số chưa tốt không phải là đòn trừng phạt, mà là một **'tín hiệu dữ liệu'** vô cùng quý giá. Nó chỉ ra chính xác lỗ hổng kiến thức hoặc phương pháp ôn tập chưa đúng. Thay vì trốn tránh hay tức giận, người có tư duy phát triển phân tích lỗi sai để tìm ra **chiến lược** làm bài tốt hơn cho lần sau.",
+        han_viet_Popup: [
+          {
+            term: 'Tín hiệu dữ liệu',
+            formula: 'Tín hiệu (dấu hiệu báo trước) + Dữ liệu (thông tin thu thập)',
+            meaning:
+              'Thông tin thực tế khách quan thu được qua kết quả làm bài để phân tích và rút ra manh mối cải thiện.',
+            english_anchor: 'Data Signal / Feedback',
+          },
+          {
+            term: 'Chiến lược',
+            formula: 'Chiến (đấu tranh, hành động) + Lược (kế sách, phương lược)',
+            meaning:
+              'Kế hoạch hành động và phương pháp thông minh được chuẩn bị có chủ đích để đạt được mục tiêu.',
+            english_anchor: 'Strategy',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Làm bài tập bị sai thì có gì quý giá mà bảo là dữ liệu hả Ba?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Giống hệt như khi con chơi game nhập vai vậy! Khi nhân vật của con bị sập bẫy và thua trận, trò chơi không bảo con hãy bỏ cuộc đi. Trò chơi đang tặng con một 'mẹo qua màn' (hint) cực kỳ rõ ràng: Lần sau đến đúng chỗ này thì né ra hoặc nhảy lên! Nhận bài kiểm tra sai, chúng mình cùng làm nhà điều tra để giải mã xem 'tín hiệu dữ liệu' đang chỉ cho con lỗ hổng nào nhé!",
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [*] (Cốt lõi) ở cụm 'tín hiệu dữ liệu': Điểm kém là thông tin dẫn đường (data), không phải chiếc roi trừng phạt giá trị của con!",
+        },
+        student_reflection: {
+          selected_symbols: ['*'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title: 'Chặng 3: Biến cảm giác dằn vặt thành hành động tiến bộ',
+        original_text:
+          "Sự **dằn vặt** và tự trách chỉ làm tiêu tốn năng lượng của trí não mà không giúp giải quyết vấn đề. Khi nhận diện được thất bại chỉ là tín hiệu nhìn lại, em hãy chủ động đặt câu hỏi **phản tư**: 'Lần sau mình sẽ thay đổi bước nào? Mình cần sự hỗ trợ từ ai?'. Chính hành động chủ động này sẽ biến mọi sai lầm thành bệ phóng cho sự trưởng thành.",
+        han_viet_Popup: [
+          {
+            term: 'Dằn vặt',
+            formula: 'Từ láy miêu tả tâm lý',
+            meaning:
+              'Tự dằn xé, giày vò và trách móc bản thân liên tục trong tâm trí mà không tạo ra bất kỳ hành động sửa chữa nào.',
+            english_anchor: 'Self-blame / Guilt',
+          },
+          {
+            term: 'Phản tư',
+            formula: 'Phản (quay ngược lại) + Tư (suy nghĩ, tư duy)',
+            meaning:
+              'Tự soi rọi, nhìn nhận lại suy nghĩ và hành động của bản thân một cách tỉnh táo để đúc kết bài học.',
+            english_anchor: 'Self-Reflection',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Lỡ làm sai mà buồn bã, ân hận thì có sao đâu Ba?',
+          dialogue_answer:
+            '💡 Giải thích giản đơn: Nếu con vô tình làm đổ một cốc nước lênh láng ra bàn, con có ngồi khóc hay quát mắng chiếc cốc thì nước cũng chẳng tự khô được! Cách thông minh nhất là gì? Lấy ngay chiếc khăn lau sạch nước và đặt lại cốc cẩn thận hơn. Sửa sai trong học tập cũng nhẹ nhàng và thực tế y như việc cầm khăn lau bàn vậy!',
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Ký hiệu [KL] (Kết luận): Đừng lãng phí 1 giây nào để tự trách móc. Hãy chuyển toàn bộ năng lượng đó thành danh sách 'chìa khóa hành động sửa sai'!",
+        },
+        student_reflection: {
+          selected_symbols: ['KL'],
+          thought_note: '',
+        },
+      },
+    ],
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Trực tiếp',
+          question:
+            "Theo bài đọc, người có tư duy phát triển coi thất bại là điều gì thay vì coi đó là 'dấu chấm hết'?",
+          hint: 'Nhìn vào Chặng 1 và Chặng 2: Thất bại là tín hiệu dữ liệu của cái gì?',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Suy ngẫm & Ghép nối',
+          question:
+            'Tại sao việc tự dằn vặt và trách móc bản thân khi làm sai lại không giúp ích cho việc tiến bộ?',
+          hint: 'Đọc lại Chặng 3 và liên tưởng đến ví dụ chiếc cốc nước bị đổ của Feynman.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Liên hệ bản thân',
+          question:
+            'Lần tới khi làm sai một bài toán khó hoặc bị điểm chưa như ý, con sẽ tự nói với bản thân câu gì đầu tiên?',
+          hint: "Em có nhớ đến câu nói 'Đang tính toán lại tuyến đường' của bản đồ GPS không?",
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Khi gặp thất bại / điểm kém',
+          prompt: "Không phải 'Game Over' hay dấu chấm hết dán nhãn bản thân kém cỏi.",
+          sample_keywords:
+            "Không phải 'Game Over' hay dấu chấm hết dán nhãn bản thân kém cỏi.",
+        },
+        {
+          category: 'Bản chất của lỗi sai',
+          prompt:
+            "Là 'tín hiệu dữ liệu' giống như GPS báo: 'Đang tính toán lại tuyến đường!'",
+          sample_keywords:
+            "Là 'tín hiệu dữ liệu' giống như GPS báo: 'Đang tính toán lại tuyến đường!'",
+        },
+        {
+          category: 'Hành động thông minh',
+          prompt:
+            "Dừng dằn vặt vô ích — lập tức cầm 'khăn lau bàn' để điều chỉnh chiến lược mới.",
+          sample_keywords:
+            "Dừng dằn vặt vô ích — lập tức cầm 'khăn lau bàn' để điều chỉnh chiến lược mới.",
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Thất bại không định nghĩa giá trị con người em.',
+          'Điểm số chưa tốt là tín hiệu dữ liệu chỉ ra lỗ hổng phương pháp để sửa chữa.',
+          'Sửa sai nhẹ nhàng và thực tế như việc lấy khăn lau cốc nước bị đổ.',
+        ],
+        two_surprises: [
+          'Ứng dụng GPS không bao giờ chê con người ngốc, nó chỉ tính lại lộ trình mới.',
+          'Tự trách bản thân chỉ làm hao tổn pin năng lượng của bộ não mà không làm bài toán đúng lên được.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            "Mỗi khi làm bài sai, em sẽ mỉm cười như chiếc máy GPS: 'Đang tính lại chiến lược mới!' rồi bắt tay vào sửa ngay.",
+        },
+      },
+      takeaway_sentence:
+        'Thất bại không định nghĩa con người em. Nó không phải là dấu chấm hết, mà là tín hiệu dữ liệu báo hiệu chiếc bản đồ GPS đang giúp em điều chỉnh chiến lược để chạm tới thành công!',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
