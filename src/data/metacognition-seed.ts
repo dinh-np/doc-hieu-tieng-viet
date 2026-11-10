@@ -986,6 +986,201 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // BÀI NỀN TẢNG 7: CỞI BỎ NHÃN DÁN VÀ TẬP TRUNG VÀO QUÁ TRÌNH
+  // ===========================================================================
+  {
+    id: 'mindset-coi-bo-nhan-dan',
+    slug: 'mindset-coi-bo-nhan-dan',
+    article_type: 'metacognition',
+    category: 'metacognition',
+    subject: 'Kỹ năng sống',
+    grade: 7,
+    title: 'Mindset – Bài 7: Cởi Bỏ Nhãn Dán Và Tập Trung Vào Quá Trình',
+    subtitle:
+      'Nhận diện chiếc bẫy tâm lý của các "nhãn dán" (dù khen hay chê), rèn luyện sự tự tin bền vững qua Quá trình (Process Praise) và nhìn nhận bản thân như một cái cây đang lớn mỗi ngày.',
+    target_time_minutes: 25,
+    planning: {
+      active_recall_question:
+        "Em có thích được người khác khen 'Con thông minh quá' không? Em có từng sợ rằng nếu lần sau mình làm bài sai thì sẽ bị mọi người coi là hết thông minh không?",
+      prediction_prompt:
+        "Em thử nghĩ xem tại sao việc tập trung vào 'sự nỗ lực và quá trình học hỏi' lại giúp ta tự tin, vững vàng hơn rất nhiều so với việc chỉ bám víu vào lời khen tài năng bẩm sinh?",
+    },
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: 'Chặng 1: Bẫy tâm lý của các nhãn dán',
+        original_text:
+          "Khi em bị **dán nhãn** — dù là nhãn xấu ('dở toán', 'vụng về') hay nhãn tốt ('thông minh', 'thiên tài') — em đều rất dễ bị **mắc kẹt**. Nhãn xấu làm em tự ti không dám thử sức. Nhãn tốt lại tạo ra áp lực vô hình, khiến em sợ làm sai sẽ đánh mất đi danh hiệu 'thông minh' trong mắt người khác.",
+        han_viet_Popup: [
+          {
+            term: 'Dán nhãn',
+            formula: 'Dán (gắn chặt) + Nhãn (mác đánh dấu)',
+            meaning:
+              'Hành động vội vàng gán ghép cho bản thân hoặc người khác một tên gọi cố định, biến đặc điểm tạm thời thành tính chất vĩnh viễn.',
+            english_anchor: 'Labeling',
+          },
+          {
+            term: 'Mắc kẹt',
+            formula: 'Từ ghép tượng hình/tâm lý',
+            meaning:
+              'Rơi vào tình thế bị giam hãm tâm lý, không dám hành động hoặc không tìm thấy lối thoát để phát triển bản thân.',
+            english_anchor: 'Trapped / Stuck',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Được khen thông minh mà cũng có nguy cơ bị mắc kẹt sao Ba?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Nhãn dán 'Thông minh' giống hệt như một chiếc mũ bảo hiểm làm bằng pha lê quý giá vậy con! Lúc nào con cũng nơm nớp sợ mũ bị vỡ, nên con chẳng dám chạy nhảy, đá bóng hay leo núi khám phá thế giới xung quanh. Khen thông minh dễ làm con nghĩ mình không cần cố gắng nữa, hoặc làm con sợ bài khó vì sợ lộ ra mình không hoàn hảo!",
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Khi đọc đoạn này, ba gắn ký hiệu [!] (Bất ngờ) và [?] (Cảnh báo): Chiếc nhãn 'thông minh' tưởng là phần thưởng, hóa ra lại có thể biến thành chiếc lồng giam hãm sự dũng cảm bước vào thử thách!",
+        },
+        student_reflection: {
+          selected_symbols: ['!', '?'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: 'Chặng 2: Tập trung vào Quá trình (Process Praise)',
+        original_text:
+          'Giá trị thực sự và niềm tự hào **bền vững** không đến từ nhãn dán, mà đến từ **Quá trình**: sự kiên trì, các chiến lược thông minh em đã thử và sự tiến bộ từng ngày của em. Khen ngợi quá trình (**Process Praise**) giúp em luôn chủ động và không sợ thử thách.',
+        han_viet_Popup: [
+          {
+            term: 'Quá trình',
+            formula: 'Quá (đi qua) + Trình (chặng đường, thứ tự)',
+            meaning:
+              'Toàn bộ chuỗi hành động nỗ lực, phương pháp và các bước đi thực tế để đạt tới kết quả.',
+            english_anchor: 'Process',
+          },
+          {
+            term: 'Bền vững',
+            formula: 'Bền (lâu dài, dẻo dai) + Vững (chắc chắn, không lung lay)',
+            meaning:
+              'Giá trị có nội lực thực sự bên trong, tồn tại lâu dài và không dễ bị sụp đổ trước biến động bên ngoài.',
+            english_anchor: 'Sustainable / Resilient',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Vậy từ nay Ba nên khen con như thế nào mới đúng?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Hãy tự hào về chiếc xe đạp do chính chân con đạp và những vết xước dũng cảm khi tập xe, chứ đừng chỉ tự hào vì chiếc cúp nhựa mua ngoài tiệm! Ba sẽ không khen 'Con thông minh quá' nữa, mà Ba sẽ tự hào bảo: 'Ba rất khâm phục vì con đã kiên trì ngồi thử tới 3 cách giải khác nhau cho bài toán hóc búa này!'.",
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [*] (Cốt lõi) và [C] (Kết nối): Đổi mục tiêu từ 'chứng minh mình giỏi' sang 'tận hưởng quá trình học hỏi và sửa sai'!",
+        },
+        student_reflection: {
+          selected_symbols: ['*', 'C'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title: 'Chặng 3: Em là cái cây đang lớn, không phải chiếc hộp đóng tem',
+        original_text:
+          'Đừng bao giờ để bất kỳ ai hay bất kỳ điểm số nào dán nhãn **định nghĩa** con người em. Em không phải là một đồ vật cố định mang tem nhãn. Em là một **sinh thể sống**, một cái cây đang không ngừng vươn lên ra lá và lớn lên mỗi ngày nhờ nước ngọt của sự học hỏi.',
+        han_viet_Popup: [
+          {
+            term: 'Sinh thể sống',
+            formula: 'Sinh (sống, sinh sôi) + Thể (bản thể, cơ thể)',
+            meaning:
+              'Một cơ thể sống tự nhiên có khả năng thích nghi, tự tái tạo, học hỏi và không ngừng phát triển.',
+            english_anchor: 'Living Organism',
+          },
+          {
+            term: 'Định nghĩa',
+            formula: 'Định (chốt lại, xác định) + Nghĩa (ý nghĩa, giá trị)',
+            meaning:
+              'Áp đặt một giới hạn hoặc phán quyết cố định về giá trị bản chất của một con người.',
+            english_anchor: 'Define / Limit',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Nghĩa là con sẽ tự do lớn lên theo cách của con đúng không Ba?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Đúng vậy con yêu! Chiếc hộp carton nhựa cứng mới cần người ta dán chiếc tem 'Hàng dễ vỡ'. Còn con là một cây cổ thụ non; hôm nay có thể thân còn mảnh mai, nhưng cứ được bón phân tưới nước (nỗ lực học tập và rút kinh nghiệm) thì chắc chắn sẽ vươn tán rợp bóng mát! Hãy cởi bỏ mọi nhãn dán và tự tin lớn lên!",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ký hiệu [KL] (Kết luận): Con người là một quá trình liên tục tiến hóa (Growing organism). Không có điểm số hay lời phán xét nào có thể đóng khung tiềm năng của con!',
+        },
+        student_reflection: {
+          selected_symbols: ['KL'],
+          thought_note: '',
+        },
+      },
+    ],
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Trực tiếp',
+          question:
+            "Theo lời giải thích Feynman trong bài đọc, nhãn dán 'Thông minh' được so sánh với đồ vật bằng thủy tinh/pha lê nào?",
+          hint: 'Đọc lại Chặng 1, câu Ba ví von về chiếc mũ bảo hiểm.',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Suy ngẫm & Ghép nối',
+          question:
+            'Tại sao việc khen ngợi quá trình và sự nỗ lực (Process Praise) lại giúp học sinh tự tin và vững vàng hơn là chỉ khen ngợi tài năng bẩm sinh?',
+          hint: "Kết nối Chặng 1 và Chặng 2: Sự khác biệt giữa 'chiếc mũ pha lê sợ vỡ' và 'chiếc xe tự đạp có vết xước dũng cảm'.",
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Liên hệ bản thân',
+          question:
+            "Nếu trong lớp hoặc ở nhà có ai đó vô tình dán nhãn em là 'không có năng khiếu môn X', em sẽ tự nhủ với bản thân điều gì và chứng minh ngược lại bằng cách nào?",
+          hint: "Em có nhớ hình ảnh 'cái cây đang lớn' cần được tưới nước học hỏi mỗi ngày ở Chặng 3 không?",
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Bẫy của nhãn dán',
+          prompt:
+            'Chiếc mũ pha lê sợ vỡ: Nhãn xấu gây tự ti, nhãn tốt tạo áp lực sợ làm sai mất danh hiệu.',
+          sample_keywords:
+            'Chiếc mũ pha lê sợ vỡ: Nhãn xấu gây tự ti, nhãn tốt tạo áp lực sợ làm sai mất danh hiệu.',
+        },
+        {
+          category: 'Tập trung vào Quá trình',
+          prompt:
+            'Tự hào về sự kiên trì, các chiến lược đã thử và những bước tiến bộ thực tế mỗi ngày.',
+          sample_keywords:
+            'Tự hào về sự kiên trì, các chiến lược đã thử và những bước tiến bộ thực tế mỗi ngày.',
+        },
+        {
+          category: 'Hình ảnh bản thân',
+          prompt:
+            'Là cái cây đang lớn không ngừng vươn tán — không phải chiếc hộp nhựa đóng tem cứng nhắc.',
+          sample_keywords:
+            'Là cái cây đang lớn không ngừng vươn tán — không phải chiếc hộp nhựa đóng tem cứng nhắc.',
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Nhãn dán (dù khen hay chê) đều có thể biến thành chiếc bẫy làm ta mắc kẹt.',
+          'Khen ngợi quá trình và chiến lược giúp xây dựng sự tự tin bền vững.',
+          'Em là một sinh thể sống đang lớn lên, không ai có quyền dán nhãn định nghĩa em.',
+        ],
+        two_surprises: [
+          "Được khen 'thông minh' đôi khi lại làm mình sợ thử sức với bài toán khó.",
+          'Chiếc xe tự đạp và vết xẹo dũng cảm đáng tự hào hơn nhiều so với chiếc cúp nhựa mua ngoài tiệm.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            'Chủ động cởi bỏ mọi nhãn dán, tập trung tự hào về từng bước nỗ lực và kiên trì học hỏi mỗi ngày.',
+        },
+      },
+      takeaway_sentence:
+        'Đừng để nhãn dán định nghĩa em — Hãy để sự kiên trì và học hỏi vẽ nên tương lai của em!',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
