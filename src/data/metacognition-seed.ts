@@ -217,6 +217,184 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // BÀI NỀN TẢNG 2: SỨC MẠNH CỦA TƯ DUY — NÃO BỘ GIỐNG NHƯ CƠ BẮP
+  // ===========================================================================
+  {
+    id: 'mindset-nao-bo-la-co-bap',
+    slug: 'mindset-nao-bo-la-co-bap',
+    article_type: 'metacognition',
+    category: 'metacognition',
+    subject: 'Kỹ năng sống',
+    grade: 7,
+    title: 'Sức Mạnh Của Tư Duy: Não Bộ Giống Như Cơ Bắp — Khả Năng Không Bị Đóng Khung',
+    subtitle:
+      'Khám phá cơ chế thần kinh học đằng sau Tư duy phát triển (Growth Mindset): vì sao mỗi bài tập khó chính là một lần não bộ "nâng tạ" để mọc thêm nhánh liên kết neuron mới.',
+    target_time_minutes: 25,
+    planning: {
+      active_recall_question:
+        'Khi gặp một bài toán khó hoặc bài tập vượt ngoài khả năng hiện tại, suy nghĩ đầu tiên xuất hiện trong đầu em là gì?',
+      prediction_prompt:
+        "Theo em, một người sinh ra thông minh là do gen bẩm sinh quy định 100%, hay do bộ não được 'tập tạ' rèn luyện mỗi ngày?",
+    },
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: 'Chặng 1: Trí óc con người không hề bị đóng khung sẵn',
+        original_text:
+          'Có bao giờ em nghĩ rằng ai sinh ra thông minh thì sẽ luôn giỏi, còn ai kém hơn thì đành chịu? Sự thật khoa học không phải vậy! Trí óc của bạn giống như một **khối cơ bắp**. Khi gặp bài toán khó hay thử thách mới, đó không phải là lúc bạn bị **phán xét** xem mình kém đến đâu, mà là lúc não bộ đang được rèn luyện để ngày càng mạnh mẽ và thông minh hơn.',
+        han_viet_Popup: [
+          {
+            term: 'Phán xét',
+            formula: 'Phán (đoán định) + Xét (soi xét, đánh giá)',
+            meaning: 'Đưa ra lời chê bai hay đánh giá năng lực của người khác.',
+            english_anchor: 'Judge / Judgment',
+          },
+          {
+            term: 'Đóng khung',
+            formula: 'Đóng + Khung (giới hạn cứng nhắc)',
+            meaning:
+              'Tin rằng năng lực là cố định, sinh ra thế nào thì mãi mãi như vậy không đổi được.',
+            english_anchor: 'Fixed / Boxed-in',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question: '🤔 Hỏi xoáy: Ủa não bộ mà cũng giống bắp tay được sao Ba?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Y hệt con ạ! Tưởng tượng trí não em y hệt bắp tay vậy. Nếu không tập tạ, bắp tay không thể tự to lên. Mỗi lần con 'vò đầu bứt tai' giải bài khó là các kết nối thần kinh trong não đang gồng lên nâng tạ để to khỏe hơn đấy!",
+          metacognition_modeling:
+            "🧠 Ba làm mẫu (Think-Aloud): Khi đọc thấy cụm từ 'khối cơ bắp', ba gắn ngay ký hiệu [C] (Kết nối): Ba liên tưởng ngay đến việc tập gym. Não cũng cần tạ nặng (bài khó) thì mới nở nang được!",
+        },
+        student_reflection: {
+          selected_symbols: ['C', '*'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: 'Chặng 2: Mạng lưới thần kinh tự tạo liên kết mới',
+        original_text:
+          'Các nhà khoa học thần kinh đã chứng minh: Mỗi lần bạn học một kỹ năng mới, nỗ lực suy nghĩ và sửa sai, các tế bào thần kinh (**neuron**) trong não sẽ mọc thêm các nhánh **liên kết** mới. Càng luyện tập nhiều, con đường truyền tín hiệu trong não càng rộng lớn và chạy nhanh hơn.',
+        han_viet_Popup: [
+          {
+            term: 'Neuron',
+            formula: 'Thuật ngữ sinh học thần kinh',
+            meaning: 'Tế bào thần kinh chuyên tiếp nhận và dẫn truyền tín hiệu trong não bộ.',
+            english_anchor: 'Neuron',
+          },
+          {
+            term: 'Liên kết',
+            formula: 'Liên (nối liền) + Kết (buộc lại)',
+            meaning: 'Sự kết nối, truyền dẫn thông tin giữa các tế bào não với nhau.',
+            english_anchor: 'Synapse / Connection',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Vậy nghĩa là mình học kém môn nào là do mình chưa mở đường thôi đúng không Ba?',
+          dialogue_answer:
+            '💡 Giải thích giản đơn: Chính xác! Giống như việc mở một con đường trong rừng rậm vậy. Lần đầu đi qua em phải vạch từng bụi cây rất khó khăn. Nhưng đi lại 100 lần, con đường mòn đó sẽ trở thành đường nhựa phẳng lì! Không ai dở bẩm sinh, chỉ là con đường trong não con đối với môn đó chưa được đi lại nhiều lần thôi.',
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ba dùng ký hiệu [*] (Cốt lõi) ở câu này: Bản chất việc học giỏi lên là do tế bào não mọc thêm nhánh nối, chứ không phải do phép thuật!',
+        },
+        student_reflection: {
+          selected_symbols: ['*'],
+          thought_note: '',
+        },
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title: 'Chặng 3: Thử thách là cơ hội để não bộ lớn lên',
+        original_text:
+          'Bài tập dễ dàng chỉ giúp bạn ôn lại những gì đã biết, nhưng bài tập khó mới là thứ làm não bạn thực sự phát triển. Nhận ra khó khăn không phải là bằng chứng của sự kém cỏi, mà là dấu hiệu cho thấy bạn đang tiến vào **vùng phát triển** mới.',
+        han_viet_Popup: [
+          {
+            term: 'Vùng phát triển',
+            formula: 'Vùng + Phát (mở rộng) + Triển (vươn xa)',
+            meaning:
+              'Khoảng kiến thức hoặc kỹ năng mới vượt ra ngoài vùng an toàn quen thuộc, nơi ta cần nỗ lực mới chinh phục được.',
+            english_anchor: 'Growth Zone',
+          },
+        ],
+        feynman_explanation: {
+          dialogue_question:
+            '🤔 Hỏi xoáy: Vậy từ nay thấy bài khó là con nên mừng hay nên sợ?',
+          dialogue_answer:
+            "💡 Giải thích giản đơn: Nên mừng chứ! Đi tập gym về bị mỏi cơ không phải vì bị bệnh, mà vì cơ bắp đang vỡ ra để mọc lại to hơn. Cảm giác nhức đầu khi giải bài khó cũng đúng là cảm giác não đang 'nâng tạ' đấy!",
+          metacognition_modeling:
+            '🧠 Ba làm mẫu (Think-Aloud): Ba đánh dấu [!] (Bất ngờ / Thú vị) và [KL] (Kết luận): Đổi góc nhìn hoàn toàn — thấy bài khó nghĩa là cơ hội nâng cấp não đã tới!',
+        },
+        student_reflection: {
+          selected_symbols: ['!', 'KL'],
+          thought_note: '',
+        },
+      },
+    ],
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Trực tiếp',
+          question:
+            'Theo bài đọc, trí óc của con người được so sánh với bộ phận nào trên cơ thể?',
+          hint: 'Đọc lại Chặng 1, câu so sánh trực tiếp ngay đoạn đầu.',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Suy ngẫm & Ghép nối',
+          question:
+            'Khi gặp một bài toán khó và nỗ lực sửa sai, điều gì thực sự đang xảy ra bên trong các tế bào thần kinh của não bộ?',
+          hint: 'Nhìn vào Chặng 2: các tế bào neuron mọc thêm cái gì và con đường tín hiệu thay đổi ra sao?',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Liên hệ bản thân',
+          question:
+            'Tuần này có môn học hay bài tập nào em cảm thấy khó? Em sẽ thay đổi góc nhìn về độ khó đó như thế nào dựa vào bài học này?',
+          hint: "Em có xem đó là lúc não đang được 'nâng tạ' không?",
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Trí óc con người',
+          prompt: 'Giống như khối cơ bắp — cần nâng tạ để thông minh hơn',
+          sample_keywords: 'Giống như khối cơ bắp — cần nâng tạ để thông minh hơn',
+        },
+        {
+          category: 'Mỗi khi nỗ lực suy nghĩ',
+          prompt: 'Các tế bào thần kinh (neuron) mọc thêm nhánh liên kết mới',
+          sample_keywords: 'Các tế bào thần kinh (neuron) mọc thêm nhánh liên kết mới',
+        },
+        {
+          category: 'Khi gặp bài tập khó',
+          prompt: 'Không phải kém cỏi, mà là dấu hiệu não tiến vào vùng phát triển mới',
+          sample_keywords: 'Không phải kém cỏi, mà là dấu hiệu não tiến vào vùng phát triển mới',
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Trí óc giống như cơ bắp, không bị đóng khung bẩm sinh.',
+          'Não mọc thêm liên kết mới và mở đường rộng hơn khi ta nỗ lực.',
+          'Bài toán khó chính là phòng tập gym cho não bộ.',
+        ],
+        two_surprises: [
+          'Khó khăn không phải là phán xét sự kém cỏi, mà là dấu hiệu não đang lớn lên.',
+          'Càng luyện tập nhiều, con đường truyền tín hiệu trong não càng biến thành đường nhựa phẳng lì.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            'Mỗi khi thấy nhức đầu khi giải bài khó, em sẽ mỉm cười vì biết não mình đang mạnh lên.',
+        },
+      },
+      takeaway_sentence:
+        'Trí óc con người giống như khối cơ bắp — càng thử thách, càng rèn luyện, em sẽ càng thông minh!',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {

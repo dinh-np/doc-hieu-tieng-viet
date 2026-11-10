@@ -84,6 +84,7 @@ export interface ChunkData {
   title: string;
   original_text: string; // Hỗ trợ định dạng HTML/Markdown (in đậm từ khóa, bẻ khóa từ Hán-Việt)
   han_viet_Popup?: HanVietPopItem[];
+  han_viet_popups?: HanVietPopItem[];
   feynman_explanation: {
     dialogue_question: string; // Cặp câu hỏi kích hoạt tò mò
     dialogue_answer: string;   // Lời giải thích Feynman dí dỏm, kéo về đời sống
@@ -99,6 +100,7 @@ export interface MetacognitionArticle {
   id: string;
   slug?: string;
   article_type?: 'metacognition' | 'one_page';
+  category?: string;
   subject: string; // 'Kỹ năng sống' | 'Lịch sử' | 'Địa lí' | 'Ngữ văn'
   grade: number;   // 7
   title: string;
