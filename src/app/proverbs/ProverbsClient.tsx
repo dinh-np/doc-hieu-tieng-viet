@@ -37,7 +37,19 @@ const QUICK_KEYWORDS = [
   'làm việc nhóm',
   'trách nhiệm',
   'kỹ năng',
+  'tự lập',
+  'tình thân',
 ];
+
+const SUB_CATEGORY_LABELS: Record<string, string> = {
+  perseverance: 'Kiên trì & Tích tiểu thành đại',
+  responsibility: 'Tinh thần Tự lập & Trách nhiệm',
+  financial_discipline: 'Kỷ luật Tài chính & Chữ tín',
+  family: 'Tình cảm Gia đình & Anh em',
+  practicality: 'Tư duy Thực tế & Tận dụng công cụ',
+  honor_integrity: 'Danh dự & Phẩm giá trong sạch',
+  human_value: 'Giá trị Sinh mệnh & Con người',
+};
 
 export function ProverbsClient({ initialProverbs }: ProverbsClientProps) {
   const [selectedPillar, setSelectedPillar] = useState<PillarFilter>('all');
@@ -372,7 +384,7 @@ export function ProverbsClient({ initialProverbs }: ProverbsClientProps) {
                               {pillarMeta.emoji} {pillarMeta.label}
                             </span>
                             <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
-                              {item.sub_category}
+                              {SUB_CATEGORY_LABELS[item.sub_category] || item.sub_category}
                             </span>
                           </div>
 

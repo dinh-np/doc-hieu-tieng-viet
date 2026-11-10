@@ -438,6 +438,181 @@ const RAW_PROVERBS_SEED_DATA: ProverbItem[] = [
     keywords: ['yêu nước', 'đoàn kết', 'lịch sử', 'tự chủ', 'cảnh giác'],
     is_featured: true,
   },
+
+  // ===========================================================================
+  // 16. KIẾN THA LÂU CŨNG ĐẦY TỔ (nature_labor)
+  // ===========================================================================
+  {
+    id: 'proverb-16-kien-tha-lau-cung-day-to',
+    proverb: 'Kiến tha lâu cũng đầy tổ',
+    pillar: 'nature_labor',
+    sub_category: 'perseverance',
+    literal_meaning:
+      'Kiến là giống vật nhỏ tí, trong khi cái tổ thì to sù và ở tận trên cành cây cao vót. Việc tha từng mồi nhỏ từ dưới đất bò lên tổ cao là một công việc gian nan, vất vả vô cùng. So sức kiến với cái tổ thì tưởng chừng không bao giờ tha cho đầy được, thế mà tổ kiến có lúc đầy ắp mồi nhờ kiến chịu khó tha lâu, bền bỉ không nản chí.',
+    figurative_meaning:
+      'Khuyên người đời phải có lòng kiên gan, vững chí, chịu khó tích lũy từng chút một; công việc dẫu to lớn, khó khăn đến đâu nếu bền bỉ làm mãi không ngừng thì cuối cùng ắt có ngày thành công.',
+    life_skill_note:
+      'Trong học tập, không cần học dồn dập trước kỳ thi; mỗi ngày chỉ cần đều đặn học thêm vài từ vựng và giải vài bài tập nhỏ, sau một học kỳ sẽ tích lũy được một lượng kiến thức khổng lồ.',
+    dialectical_view:
+      'Đúng đắn khi ca ngợi sự kiên trì, tích tiểu thành đại. Tuy nhiên, cần tránh áp dụng máy móc theo kiểu làm việc cần cù thụ động, lặp đi lặp lại phương pháp cũ kém hiệu quả mà không chịu cải tiến tư duy hay tìm cách tối ưu hóa.',
+    essay_evidence_usage:
+      'Rất phù hợp trong bài văn nghị luận xã hội về đức tính kiên trì, lòng nhẫn nại, ý chí vượt khó hoặc tinh thần tích lũy tri thức; nên đặt ở phần Thân bài làm luận cứ chứng minh sức mạnh của hành động nhỏ bền bỉ.',
+    sample_sentence:
+      "Cổ nhân từng dạy 'Kiến tha lâu cũng đầy tổ' để nhắc nhở rằng mọi thành tựu vĩ đại trên đời đều không đến sau một đêm, mà được đắp bồi từ những nỗ lực thầm lặng và kiên gan mỗi ngày.",
+    english_anchor: 'Perseverance & Diligence',
+    keywords: ['kiên trì', 'nhẫn nại', 'tích tiểu thành đại', 'chịu khó'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 17. RUỘNG AI THÌ NẤY ĐẮP BỜ (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-17-ruong-ai-thi-nay-dap-bo',
+    proverb: 'Ruộng ai thì nấy đắp bờ',
+    pillar: 'skills_conduct',
+    sub_category: 'responsibility',
+    literal_meaning:
+      'Ruộng của ai thì người nấy tự lo liệu đi đắp bờ giữ nước, giữ đất; chuyện đồng áng nhà ai người nấy tự chăm nom lấy, không ai đắp bờ hộ ruộng người khác.',
+    figurative_meaning:
+      "Mượn việc làm ruộng để nói lẽ đời: cha mẹ ai người nấy phụng dưỡng, con cái ai người nấy bù trì chăm bẵm, sự nghiệp của ai thì người nấy tự xây dựng, không ai làm thay việc riêng của mình. Ngoài ra câu này còn có nghĩa là mình được nhờ vả, hưởng lợi từ ai thì phải có trách nhiệm giữ gìn, bênh vực cho người ấy (gần nghĩa với 'ăn cây nào rào cây nấy').",
+    life_skill_note:
+      'Nhắc nhở học sinh phải tự chịu trách nhiệm về bổn phận của bản thân: bài vở của mình phải tự làm, đồ dùng của mình phải tự sắp xếp, không được ỷ lại hay trông chờ người khác làm thay.',
+    dialectical_view:
+      "Đúng khi đề cao tinh thần tự lập và ý thức trách nhiệm cá nhân đối với phận sự của mình. Nhưng cần tránh hiểu cực đoan thành lối sống ích kỷ, bo bo giữ mình 'đèn nhà ai nhà nấy rạng', thờ ơ vô cảm trước khó khăn của tập thể.",
+    essay_evidence_usage:
+      'Phù hợp với các đề nghị luận về tính tự lập, tinh thần trách nhiệm hoặc phê phán thói ỷ lại, dựa dẫm; đặt thích hợp nhất ở Luận điểm phân tích sự cần thiết của việc tự làm chủ cuộc đời.',
+    sample_sentence:
+      "Câu tục ngữ 'Ruộng ai thì nấy đắp bờ' là bài học sâu sắc về tinh thần tự chủ: trước khi mong chờ sự giúp đỡ từ người khác, mỗi cá nhân phải tự mình nỗ lực gánh vác và vun vén cho tương lai của chính mình.",
+    english_anchor: 'Personal Responsibility',
+    keywords: ['tự lập', 'trách nhiệm', 'bổn phận', 'tự chủ'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 18. SẠCH NỢ LÀM GIÀU (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-18-sach-no-lam-giau',
+    proverb: 'Sạch nợ làm giàu',
+    pillar: 'skills_conduct',
+    sub_category: 'financial_discipline',
+    literal_meaning:
+      "'Sạch nợ' là trang trải, chi trả hết mọi món nợ nần không còn thiếu thốn ai. 'Làm giàu' là bắt đầu tích lũy của cải để thành giàu có. Hễ trả dứt công nợ thì công sức làm ra mới thực sự thuộc về mình để tích tụ của cải.",
+    figurative_meaning:
+      'Khi đã trả hết nợ tức là đời sống đã đủ ăn đủ tiêu và thoát khỏi cảnh vay mượn thiếu thốn; sự thanh thản và độc lập tài chính ấy chính là điểm khởi đầu vững chắc nhất để xây dựng cơ nghiệp và làm giàu.',
+    life_skill_note:
+      'Giúp học sinh rèn luyện thói quen giữ chữ tín và quản lý việc mượn - trả sòng phẳng: mượn đồ dùng học tập hay tiền bạc của ai thì phải ghi nhớ trả dứt điểm, không để nợ nần dây dưa làm mất lòng tin của bạn bè.',
+    dialectical_view:
+      'Đúng với quy tắc tài chính căn bản về an toàn, bền vững và sự nhẹ nhõm trong tâm hồn. Tuy nhiên, trong kinh tế hiện đại, việc sử dụng các nguồn vốn vay (đòn bẩy tài chính) một cách khoa học, kiểm soát được rủi ro vẫn là một chiến lược phát triển cần thiết chứ không nên quá ác cảm với tín dụng.',
+    essay_evidence_usage:
+      'Dùng trong bài nghị luận về kỹ năng quản lý tài chính, lối sống có kỷ luật, giữ chữ tín hoặc bàn về sự giàu có bền vững; nên đặt ở Luận điểm bàn về nền tảng nội lực trước khi mở rộng quy mô.',
+    sample_sentence:
+      "Hiểu được lời căn dặn 'Sạch nợ làm giàu', ta nhận ra rằng một tương lai vững vàng chỉ có thể được tạo dựng khi ta giải phóng bản thân khỏi những gánh nặng nợ nần và làm chủ được đời sống của chính mình.",
+    english_anchor: 'Debt-free Independence',
+    keywords: ['sạch nợ', 'chữ tín', 'tài chính', 'làm giàu'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 19. ANH EM NHƯ CHÂN NHƯ TAY (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-19-anh-em-nhu-chan-nhu-tay',
+    proverb: 'Anh em như chân như tay',
+    pillar: 'morality_society',
+    sub_category: 'family',
+    literal_meaning:
+      'Anh em ruột thịt ví như chân và tay trên cùng một thân thể con người. Chân tay là phần tự nhiên liền khối, không ai có thể thay đổi hay lựa chọn; một chiếc chân hay chiếc tay đau thì cả người đau đớn, chân tay què gãy thì cả người sẽ yếu ớt, tật nguyền.',
+    figurative_meaning:
+      'Khuyên người đời phải biết trân quý, gắn bó và che chở cho anh chị em trong nhà như chính thân thể mình; khi hoạn nạn phải cùng lo lắng, đùm bọc, tuyệt đối không được vì của cải hay mâu thuẫn bên ngoài mà chia lìa, làm tổn thương tình cốt nhục.',
+    life_skill_note:
+      'Nhắc nhở học sinh luôn yêu thương, nhường nhịn và đồng hành cùng anh chị em trong gia đình; không tranh giành đồ chơi, không ghen tị vặt vãnh mà luôn biết bảo vệ nhau cả ở nhà lẫn ở trường.',
+    dialectical_view:
+      'Đúng đắn và thiêng liêng khi ca ngợi tình cảm máu mủ gia đình. Song cần tỉnh táo tránh biến thành sự bao che mù quáng, dung túng cho cái xấu hoặc thói gia đình trị vi phạm đạo đức và pháp luật.',
+    essay_evidence_usage:
+      'Rất đắc địa trong các bài văn nghị luận về tình cảm gia đình, tình anh em ruột thịt hoặc tinh thần đoàn kết tương thân tương ái; có thể đặt mở đầu bài viết để tạo cảm xúc hoặc làm luận điểm trọng tâm trong Thân bài.',
+    sample_sentence:
+      "Lời ví von mộc mạc 'Anh em như chân như tay' từ ngàn xưa vẫn vẹn nguyên giá trị, khẳng định rằng tình ruột thịt là điểm tựa ấm áp và vững chãi nhất của mỗi con người trước sóng gió cuộc đời.",
+    english_anchor: 'Sibling Solidarity',
+    keywords: ['anh em', 'tình thân', 'ruột thịt', 'đoàn kết'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 20. BẮC CẦU MÀ NOI, AI BẮC CẦU MÀ LỘI (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-20-bac-cau-ma-noi-ai-bac-cau-ma-loi',
+    proverb: 'Bắc cầu mà noi, ai bắc cầu mà lội',
+    pillar: 'skills_conduct',
+    sub_category: 'practicality',
+    literal_meaning:
+      "'Noi' nghĩa là noi theo con đường, đi theo lối cầu có sẵn. Đã nhọc công bắc cầu gỗ, cầu tre thuận tiện thì người ta cứ theo trên mặt cầu mà bước sang, không ai lại cất công bắc xong cầu rồi lại nhảy xuống sông lội bùn, lội nước cho ướt át, nhọc nhằn.",
+    figurative_meaning:
+      'Theo giải thích của từ điển cổ, câu này ý nói: có của cải, phương tiện thuận lợi thì phải biết sử dụng và thụ hưởng cho hợp lý, không nên hà tiện quá đáng mà làm khổ thân mình; rộng ra là khuyên con người phải biết tận dụng những điều kiện thuận lợi và kinh nghiệm đã được mở sẵn thay vì tự làm khó mình.',
+    life_skill_note:
+      'Khuyên học sinh biết sử dụng công cụ học tập thông minh và lắng nghe kinh nghiệm hướng dẫn từ thầy cô, cha mẹ để giải quyết vấn đề hiệu quả, không nên cố chấp làm việc một cách thủ công, máy móc tự làm mình kiệt sức.',
+    dialectical_view:
+      'Đúng khi khuyên con người biết sống thực tế, tận dụng thành quả và phương tiện văn minh. Tuy nhiên, tránh lạm dụng thành thói ỷ lại, ngại khó ngại khổ, không dám bước ra khỏi lối mòn để dấn thân khám phá những con đường mới chưa có cầu sẵn.',
+    essay_evidence_usage:
+      'Phù hợp cho các bài văn bàn về phương pháp học tập khoa học, lối sống thực tế, biết tận dụng cơ hội và phương tiện, hoặc phê phán thói bủn xỉn, bảo thủ; thích hợp đặt ở phần Thân bài.',
+    sample_sentence:
+      "Một người có tư duy tiến bộ là người thấu suốt bài học 'Bắc cầu mà noi, ai bắc cầu mà lội', luôn biết đứng trên vai những người đi trước và tận dụng thành tựu sẵn có để tối ưu hóa năng lực bản thân.",
+    english_anchor: 'Pragmatism & Utilization',
+    keywords: ['thực tế', 'tận dụng', 'không hà tiện', 'kinh nghiệm'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 21. TỐT DANH HƠN LÀNH ÁO (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-21-tot-danh-hon-lanh-ao',
+    proverb: 'Tốt danh hơn lành áo',
+    pillar: 'morality_society',
+    sub_category: 'honor_integrity',
+    literal_meaning:
+      "'Tốt danh' là có danh thơm, tiếng tốt, nhân cách được mọi người tôn kính. 'Lành áo' là có áo quần nguyên vẹn, đẹp đẽ. Nếu đem manh áo lành và danh dự tốt lên bàn cân thì danh thơm bao giờ cũng nặng hơn; danh thơm có thể che mờ cả áo rách vá, còn manh áo tốt lành không bao giờ tạo nên được nhân phẩm cao quý.",
+    figurative_meaning:
+      'Khuyên con người phải coi trọng danh dự, phẩm giá, thanh danh và sự trong sạch của tâm hồn hơn là vẻ hào nhoáng, giàu sang hay sự tươm tất của áo quần, của cải vật chất bề ngoài.',
+    life_skill_note:
+      'Nhắc nhở học sinh giữ gìn tính trung thực trong học tập và đối nhân xử thế; danh dự của một người học sinh tử tế, được bạn bè nể trọng quý giá hơn nhiều việc đua đòi áo quần hàng hiệu hay vẻ ngoài đắt tiền.',
+    dialectical_view:
+      'Đúng đắn sâu sắc khi khẳng định đạo đức và phẩm hạnh là giá trị cốt lõi cao nhất. Dù vậy, không nên rơi vào thái cực xem thường việc ăn mặc tươm tất, vệ sinh và lịch sự tối thiểu, hoặc sa vào căn bệnh chuộng danh hão, sĩ diện mù quáng.',
+    essay_evidence_usage:
+      'Dùng rất đắc địa trong bài văn nghị luận về lòng tự trọng, phẩm giá con người, lối sống trung thực, hoặc đề văn so sánh giữa giá trị vật chất và giá trị tinh thần; nên đặt ở Luận điểm chính khẳng định giá trị cốt lõi hoặc phần Kết bài.',
+    sample_sentence:
+      "Lời răn 'Tốt danh hơn lành áo' của tiền nhân như chiếc la bàn đạo đức nhắc nhở chúng ta rằng, sự giàu có lộng lẫy nhất của một con người chính là một nhân cách thanh sạch và một tâm hồn không tì vết.",
+    english_anchor: 'Honor & Integrity',
+    keywords: ['danh dự', 'phẩm giá', 'tự trọng', 'trong sạch'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 22. NGƯỜI SỐNG ĐỐNG VÀNG (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-22-nguoi-song-dong-vang',
+    proverb: 'Người sống đống vàng',
+    pillar: 'morality_society',
+    sub_category: 'human_value',
+    literal_meaning:
+      'Người ốm đau cốt thuốc thang chữa chạy cho sống được là may, dù tốn kém bao nhiêu tiền của cũng không nên tiếc. Người còn là của còn, người chết là của hết, vì chính con người làm nên của cải. Hễ cứu được người sống, khỏe mạnh thì tự nhiên sẽ làm ra cả đống vàng.',
+    figurative_meaning:
+      'Khẳng định sinh mệnh, sức khỏe và giá trị lao động sáng tạo của con người là vốn quý vô giá nhất trần đời, vượt lên trên mọi thứ vàng ngọc của cải; khuyên người ta không nên vì tham tiền bạc, hà tiện của cải mà coi nhẹ sức khỏe và tính mạng.',
+    life_skill_note:
+      'Giúp học sinh hiểu rằng sức khỏe, tính mạng và sự an toàn của bản thân cùng người xung quanh là trên hết; không bao giờ liều lĩnh tham gia các trò chơi nguy hiểm để bảo vệ vốn quý nhất của chính mình.',
+    dialectical_view:
+      "Đúng tuyệt đối về giá trị nhân văn và tinh thần tôn trọng sinh mệnh con người. Tuy nhiên, tránh suy diễn lười biếng thành tư tưởng ỷ lại rằng 'mình là vàng' nên tự cho phép bản thân lêu lổng, không chịu học tập, lao động để tạo ra giá trị thiết thực.",
+    essay_evidence_usage:
+      'Sử dụng hiệu quả trong các đề văn về quyền con người, tinh thần nhân đạo, bảo vệ sức khỏe, an toàn tính mạng hoặc phê phán lối sống tham lam coi tiền bạc hơn mạng người; thích hợp đặt ở Luận điểm nhấn mạnh giá trị trung tâm của con người.',
+    sample_sentence:
+      "Triết lý 'Người sống đống vàng' rạng rỡ tinh thần nhân bản của dân tộc Việt, khẳng định rằng con người với sức lao động và trí tuệ bất tận chính là cội nguồn sáng tạo ra mọi giá trị phồn vinh của nhân loại.",
+    english_anchor: 'Value of Human Life',
+    keywords: ['giá trị con người', 'sinh mệnh', 'sức khỏe', 'nhân đạo'],
+    is_featured: true,
+  },
 ];
 
 export const PROVERBS_SEED_DATA: ProverbItem[] = deepNormalizeVietnamese(RAW_PROVERBS_SEED_DATA);
