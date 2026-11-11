@@ -813,6 +813,306 @@ const RAW_PROVERBS_SEED_DATA: ProverbItem[] = [
     keywords: ['khiêm tốn', 'tự mãn', 'ếch ngồi đáy giếng', 'giòn'],
     is_featured: true,
   },
+
+  // ===========================================================================
+  // 31. MỘT NONG TẰM BẰNG BA NONG LÚA (nature_labor)
+  // ===========================================================================
+  {
+    id: 'proverb-31-mot-nong-tam-bang-ba-nong-lua',
+    proverb: 'Một nong tằm bằng ba nong lúa',
+    pillar: 'nature_labor',
+    sub_category: 'agricultural_efficiency',
+    literal_meaning:
+      'Nong là đồ đan bằng tre to và phẳng dùng để nuôi tằm hoặc phơi nông sản. Nuôi một nong tằm cho kén, kéo sợi tơ bán được giá trị kinh tế cao, tính ra tiền của thu được bằng hoặc gấp ba lần năng suất thu hoạch từ một nong lúa gặt ngoài ruộng.',
+    figurative_meaning:
+      'Kinh nghiệm kinh tế nông nghiệp của tiền nhân: so sánh hiệu quả kinh tế giữa nghề trồng trọt ngũ cốc cơ bản và nghề chăn tằm ươm tơ; khuyên người nông dân nên biết kết hợp làm thêm nghề phụ thủ công để tăng thu nhập, nâng cao giá trị thặng dư.',
+    life_skill_note:
+      'Giúp học sinh 12 tuổi hiểu khái niệm về hiệu quả và giá trị gia tăng: bên cạnh việc hoàn thành bài tập cơ bản trên lớp (như làm ruộng), nếu biết rèn thêm kỹ năng chuyên sâu như tin học, ngoại ngữ (như nghề tằm) thì cơ hội và năng lực cá nhân sẽ vượt trội hơn rất nhiều.',
+    dialectical_view:
+      "Đúng khi khuyến khích chuyển dịch cơ cấu ngành nghề và tạo ra giá trị cao. Tuy nhiên, nghề tằm đòi hỏi kỹ thuật tỉ mỉ, thức khuya dậy sớm ('chăn tằm ăn cơm đứng') và phụ thuộc thời tiết; nếu bỏ bê nông nghiệp căn bản mà chạy theo nghề phụ bấp bênh khi chưa đủ kinh nghiệm thì dễ gánh chịu rủi ro lớn.",
+    essay_evidence_usage:
+      'Phù hợp đưa vào bài nghị luận về việc đa dạng hóa kỹ năng, tư duy tối ưu hóa hiệu suất học tập và lao động; nên đặt ở Luận điểm bàn về cách tạo ra bước đột phá từ năng lực chuyên môn.',
+    sample_sentence:
+      "Người xưa đã sớm nhận ra bài toán giá trị qua câu tục ngữ 'Một nong tằm bằng ba nong lúa', nhắc nhở chúng ta rằng sự chuyên sâu và sáng tạo luôn mang lại những thành quả vượt bậc so với lao động thuần túy rập khuôn.",
+    english_anchor: 'High Value-Added Skill',
+    keywords: ['kinh tế', 'chăn tằm', 'trồng lúa', 'năng suất', 'giá trị'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 32. MỘT MẶT NGƯỜI MƯỜI MẶT CỦA (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-32-mot-mat-nguoi-muoi-mat-cua',
+    proverb: 'Một mặt người mười mặt của',
+    pillar: 'morality_society',
+    sub_category: 'human_value',
+    literal_meaning:
+      "Cụ Lê Văn Hòe giải thích: 'Mặt' ở đây là đơn vị chỉ người hoặc chỉ của cải quý giá. Một mặt người quý gấp mười (hoặc bằng mười) mặt của, ý nói của cải không bao giờ quý bằng sinh mệnh con người, bởi vì 'người làm nên của, chứ của không làm nên người'.",
+    figurative_meaning:
+      'Tôn vinh sinh mệnh, nhân phẩm và trí tuệ sáng tạo của con người là vốn quý vô giá nhất trong vũ trụ; phê phán thái độ xem trọng đồng tiền, ham mê của cải vật chất mà coi rẻ tình người và sức khỏe con người.',
+    life_skill_note:
+      'Nhắc nhở học sinh luôn đặt sự an toàn, sức khỏe của bản thân và bạn bè lên trên hết; khi lỡ làm mất đồ dùng học tập hay điện thoại đắt tiền thì không nên quá hoảng loạn, sợ hãi dằn vặt bản thân vì con người mới là cội nguồn tạo ra mọi thứ.',
+    dialectical_view:
+      'Đúng tuyệt đối về giá trị nhân bản và quyền con người. Song không nên vin vào câu này để cổ xúy thói lãng phí, phá tán của cải hoặc lối sống vô kỷ luật, cẩu thả không biết nâng niu tài sản công sức cha mẹ làm ra.',
+    essay_evidence_usage:
+      'Rất đắc địa trong đề văn nghị luận về lòng nhân ái, bảo vệ sức khỏe và an toàn sinh mệnh, hoặc phê phán lối sống tôn thờ vật chất thực dụng; thích hợp đặt ở Mở bài hoặc Luận điểm trung tâm khẳng định phẩm giá con người.',
+    sample_sentence:
+      "Câu tục ngữ 'Một mặt người mười mặt của' như một lời tuyên ngôn nhân bản sâu sắc của ông cha, khẳng định rằng con người với trí tuệ và tình yêu thương chính là thước đo giá trị cao nhất của mọi thời đại.",
+    english_anchor: 'Value of Human Life',
+    keywords: ['con người', 'nhân phẩm', 'sinh mệnh', 'của cải', 'nhân văn'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 33. THÁNG HAI TRỒNG CÀ, THÁNG BA TRỒNG ĐỖ (nature_labor)
+  // ===========================================================================
+  {
+    id: 'proverb-33-thang-hai-trong-ca-thang-ba-trong-do',
+    proverb: 'Tháng Hai trồng cà, tháng Ba trồng đỗ',
+    pillar: 'nature_labor',
+    sub_category: 'seasonal_timing',
+    literal_meaning:
+      'Vào tháng Hai âm lịch tiết trời mưa phùn ẩm ướt là thời điểm thích hợp nhất để tra hạt ươm cây cà; sang tháng Ba âm lịch thời tiết ấm dần lên là thời vụ vàng để gieo hạt các giống đỗ (đậu).',
+    figurative_meaning:
+      'Đúc kết kinh nghiệm nông vụ lâu đời: lao động sản xuất và gieo trồng phải tuân thủ nghiêm ngặt lịch nông lịch, thời tiết và quy luật của tự nhiên thì cây trái mới phát triển tươi tốt, đạt năng suất cao.',
+    life_skill_note:
+      "Rèn luyện cho học sinh tính kế hoạch và đúng giờ: việc học tập cũng có 'thời vụ' (ôn thi, nộp bài, đọc sách); biết phân chia thời gian hợp lý và học đúng lúc sẽ đỡ tốn sức mà kết quả lại cao hơn việc nước đến chân mới nhảy.",
+    dialectical_view:
+      'Đúng với quy luật thích ứng tự nhiên của phương thức canh tác truyền thống. Tuy nhiên trong thời đại nông nghiệp công nghệ cao hiện nay, con người có thể làm chủ nhà kính, điều chỉnh nhiệt độ để trồng trái vụ mà vẫn đạt hiệu quả kinh tế.',
+    essay_evidence_usage:
+      'Dùng trong bài văn nghị luận về tầm quan trọng của việc lập kế hoạch, sống có kỷ luật và biết nắm bắt thời cơ; nên đặt ở Luận điểm bàn về hành động đúng thời điểm.',
+    sample_sentence:
+      "Hiểu được quy luật tự nhiên từ lời dạy 'Tháng Hai trồng cà, tháng Ba trồng đỗ', người trẻ càng cần ý thức rõ giá trị của thời gian để gieo trồng những hạt mầm tri thức đúng vào những năm tháng thanh xuân quý báu nhất.",
+    english_anchor: 'Right Timing & Planning',
+    keywords: ['thời vụ', 'kế hoạch', 'thời gian', 'nông nghiệp', 'thời cơ'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 34. VĂN ÔN VÕ LUYỆN (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-34-van-on-vo-luyen',
+    proverb: 'Văn ôn võ luyện',
+    pillar: 'morality_society',
+    sub_category: 'growth_mindset',
+    literal_meaning:
+      'Theo cụ Lê Văn Hòe: Học văn chương thì phải siêng năng ôn tập, xem đi ngẫm lại nhiều lần; học võ nghệ thì phải thường xuyên luyện tập cơ bắp, đường nét chiêu thức. Không ôn thì văn quên ý, không luyện thì võ lụt nghề.',
+    figurative_meaning:
+      'Khẳng định bản chất của tư duy và tài năng: mọi năng lực trí tuệ hay kỹ năng thao tác đều không phải là khối đá cố định sinh ra đã có, mà là kết quả của quá trình kiên trì tôi luyện, lặp đi lặp lại và mài giũa liên tục.',
+    life_skill_note:
+      "Dạy học sinh lớp 7 tư duy phát triển (Growth Mindset): không có ai 'sinh ra đã dốt Toán' hay 'kém Văn bẩm sinh'; chỉ cần kiên nhẫn làm bài tập và ôn luyện hàng ngày, não bộ sẽ tự động hình thành phản xạ và tiến bộ vượt bậc.",
+    dialectical_view:
+      "Đúng đắn về nguyên lý rèn luyện để thuần thục kỹ năng. Song việc 'luyện' phải đi đôi với phương pháp học thông minh và tự phản tư (Metacognition); tránh nhồi nhét học vẹt thụ động dẫn đến mệt mỏi mà không phát triển tư duy sáng tạo.",
+    essay_evidence_usage:
+      'Rất phù hợp cho các đề văn về tinh thần tự học, phương pháp rèn luyện, tư duy vượt khó hoặc bác bỏ quan niệm tự ti về năng khiếu; thích hợp đặt ở Luận cứ then chốt của Thân bài.',
+    sample_sentence:
+      "Lời răn 'Văn ôn võ luyện' của người xưa là minh chứng bất hủ cho quy luật của sự tiến bộ: năng khiếu bẩm sinh chỉ là điểm khởi đầu, còn chính sự tôi luyện bền bỉ mỗi ngày mới là chìa khóa mở cánh cửa tài năng.",
+    english_anchor: 'Growth Mindset & Practice',
+    keywords: ['rèn luyện', 'tư duy phát triển', 'kiên trì', 'học tập', 'thực hành'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 35. CÓ CÔNG MÀI SẮT, CÓ NGÀY NÊN KIM (nature_labor)
+  // ===========================================================================
+  {
+    id: 'proverb-35-co-cong-mai-sat-co-ngay-nen-kim',
+    proverb: 'Có công mài sắt, có ngày nên kim',
+    pillar: 'nature_labor',
+    sub_category: 'perseverance',
+    literal_meaning:
+      'Cụ Lê Văn Hòe dẫn giải: Thanh sắt to lớn, thô ráp và cứng rắn phi thường, nhưng nếu một người bền gan, chịu khó dốc sức mài giũa nó vào phiến đá qua ngày này tháng khác thì cuối cùng thanh sắt to ấy cũng sẽ nhỏ dần thành chiếc kim may tinh xảo.',
+    figurative_meaning:
+      'Ca ngợi ý chí kiên định, lòng nhẫn nại và sự bền bỉ của con người; dẫu công việc có gian nan, cách trở đến đâu nếu không nản chí thì cuối cùng ắt sẽ gặt hái được thành công vang dội.',
+    life_skill_note:
+      'Giúp học sinh không sợ hãi trước những mục tiêu lớn như học một môn ngoại ngữ mới hay luyện chữ viết đẹp; mỗi ngày chỉ cần mài giũa một chút nỗ lực nhỏ, tích lũy dần sẽ tạo nên bước nhảy vọt.',
+    dialectical_view:
+      "Đúng khi cổ vũ tinh thần không ngại khó, kiên gan vượt khó. Tuy nhiên trong thực tế hiện đại, cần phải chọn lọc mục tiêu thông minh; không nên cố chấp 'mài sắt' khi mục tiêu phi lý hoặc lặp lại phương pháp sai lầm dẫn đến lãng phí thời gian và sức lực vô ích.",
+    essay_evidence_usage:
+      'Rất phổ biến và đắc địa trong mọi đề bài về ý chí, nghị lực sống, tính kiên trì vượt khó; có thể dùng làm câu dẫn nhập ở Mở bài hoặc làm dẫn chứng mẫu mực ở phần Thân bài.',
+    sample_sentence:
+      "Triết lý giản dị từ câu tục ngữ 'Có công mài sắt, có ngày nên kim' nhắc nhở thế hệ trẻ rằng, không có con đường tắt nào dẫn đến vinh quang ngoại trừ con đường được lát bằng sự kiên nhẫn và mồ hôi công sức.",
+    english_anchor: 'Perseverance & Grit',
+    keywords: ['kiên trì', 'bền bỉ', 'nghị lực', 'thành công', 'mài sắt'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 36. DAO CÓ MÀI MỚI SẮC, NGƯỜI CÓ HỌC MỚI KHÔN (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-36-dao-co-mai-moi-sac-nguoi-co-hoc-moi-khon',
+    proverb: 'Dao có mài mới sắc, người có học mới khôn',
+    pillar: 'morality_society',
+    sub_category: 'intellectual_cultivation',
+    literal_meaning:
+      'Trong sách của cụ Lê Văn Hòe ghi nhận: Dao dù đúc bằng thứ thép tốt đến đâu mà không mài thì cũng cùn mòn gỉ sét không dùng được; con người dù có tư chất thông minh đĩnh ngộ đến mấy mà không chịu khó học hỏi thì tư chất ấy cũng không phát triển được, không thể trở nên khôn ngoan.',
+    figurative_meaning:
+      'Mượn hình ảnh con dao và hòn mài để khẳng định vai trò cốt tử của giáo dục và sự học: tri thức và sự hiểu biết đạo lý chỉ có được thông qua quá trình học tập nghiêm túc chứ không tự nhiên mà đến.',
+    life_skill_note:
+      'Nhắc nhở học sinh không được tự mãn khi thấy mình tiếp thu nhanh hơn các bạn; nếu ỷ lại vào trí thông minh mà lười làm bài tập, bỏ bê việc đọc sách thì trí óc sẽ dần trì trệ và tụt hậu.',
+    dialectical_view:
+      "Đúng đắn khi nhấn mạnh việc học là con đường khai phóng nhận thức duy nhất. Dù vậy, 'học' ở đây phải là học sâu hiểu rộng, học đi đôi với hành, chứ không phải lối học thuộc lòng vẹt vờ nhằm đối phó với thi cử.",
+    essay_evidence_usage:
+      'Phù hợp với các đề văn bàn về vai trò của việc học, thái độ học tập đúng đắn hoặc phê phán thói kiêu ngạo, ỷ lại vào tư chất; đặt thích hợp nhất ở Luận điểm giải thích vai trò của học tập đối với sự hình thành nhân cách.',
+    sample_sentence:
+      "Lời khẳng định 'Dao có mài mới sắc, người có học mới khôn' là bài học nhập môn về sự tu dưỡng, nhắc ta nhớ rằng tư chất thông minh chỉ là viên ngọc thô, chỉ có ngọn lửa của sự học mới mài giũa nó thành ánh sáng tỏa rạng.",
+    english_anchor: 'Education & Enlightenment',
+    keywords: ['học vấn', 'rèn luyện', 'thông minh', 'khôn ngoan', 'tri thức'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 37. TRĂM HAY CHẲNG TÀY TAY QUEN (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-37-tram-hay-chang-tay-tay-quen',
+    proverb: 'Trăm hay chẳng tày tay quen',
+    pillar: 'skills_conduct',
+    sub_category: 'practical_experience',
+    literal_meaning:
+      "Cụ Lê Văn Hòe giải thích: 'Trăm hay' là tài giỏi trăm phần, học rộng biết nhiều về mặt lý thuyết; 'chẳng tày' là không bằng; 'tay quen' là bàn tay đã thao tác nhiều lần đến mức quen việc, thành thạo. Biết trăm điều trên sách vở không bằng bàn tay quen làm việc thực tế.",
+    figurative_meaning:
+      'Đề cao giá trị của kinh nghiệm thực tiễn và kỹ năng thao tác thực tế; phê phán những kẻ chỉ giỏi nói suông, hiểu biết lý thuyết viển vông nhưng khi bắt tay vào làm việc thực tế thì lúng túng, vụng về.',
+    life_skill_note:
+      'Khuyên học sinh lớp 7 không nên chỉ học thuộc lý thuyết môn Khoa học hay Tin học trong sách giáo khoa, mà phải tích cực làm thí nghiệm, gõ bàn phím và tự tay giải bài tập nhiều lần để kiến thức biến thành kỹ năng phản xạ tự nhiên.',
+    dialectical_view:
+      'Đúng khi đề cao thực hành và sự tôi luyện kinh nghiệm. Tuy nhiên, không nên tuyệt đối hóa kinh nghiệm thực tế mà xem thường lý thuyết khoa học nền tảng, bởi lý thuyết đúng đắn chính là chiếc la bàn soi sáng giúp kỹ năng phát triển nhanh hơn.',
+    essay_evidence_usage:
+      "Rất thích hợp trong bài văn bàn về phương châm 'Học đi đôi với hành', mối quan hệ giữa lý thuyết và thực tiễn; nên đặt ở Luận điểm phân tích tầm quan trọng của việc cọ xát thực tế.",
+    sample_sentence:
+      "Thấu hiểu chân lý 'Trăm hay chẳng tày tay quen', ta nhận ra rằng một người học giả uyên bác trên trang giấy sẽ mãi là người khuyết thiếu nếu không đưa tri thức hòa nhập vào dòng chảy của lao động thực tiễn.",
+    english_anchor: 'Practice Makes Perfect',
+    keywords: ['thực hành', 'kinh nghiệm', 'lý thuyết', 'quen tay', 'thao tác'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 38. CƯỜI BA THÁNG, AI CƯỜI BA NĂM (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-38-cuoi-ba-thang-ai-cuoi-ba-nam',
+    proverb: 'Cười ba tháng, ai cười ba năm',
+    pillar: 'skills_conduct',
+    sub_category: 'courage_social_pressure',
+    literal_meaning:
+      'Theo cụ Lê Văn Hòe: Ở đời nếu ai làm điều gì kỳ lạ, khác thường hoặc lỡ phạm điều sơ suất thì thường bị miệng đời chê cười. Nhưng dư luận chỉ xôn xao cười cợt trong ba tháng là chán rồi quên lãng, chứ không ai rảnh rỗi để chê cười mãi đến ba năm.',
+    figurative_meaning:
+      'Lời động viên bản lĩnh đối diện với dư luận xã hội: khuyên con người không nên quá sợ hãi những lời đàm tiếu, phán xét tạm thời của người đời mà từ bỏ chí hướng đúng đắn; cũng là lời an ủi những ai trót lầm lỡ biết dũng cảm đứng lên sửa sai.',
+    life_skill_note:
+      'Giúp học sinh 12 tuổi giải tỏa nỗi sợ bị bạn bè chê cười khi phát biểu sai trên lớp, khi mặc bộ quần áo chưa đẹp hay khi thử sức một môn thể thao mới; dư luận rồi sẽ qua đi rất nhanh, quan trọng là em dám thử và vượt qua sự ngượng ngùng.',
+    dialectical_view:
+      "Cụ Lê Văn Hòe lưu ý góc nhìn biện chứng sâu sắc: Câu này vốn là lời khuyên vượt qua định kiến, nhưng cũng có nguy cơ bị kẻ làm càn mượn cớ để 'làm liều', bất chấp đạo lý xã hội rồi tự an ủi rằng người ta cười chán thì thôi. Do đó, chỉ áp dụng câu này khi ta làm điều đúng đắn, chính đáng.",
+    essay_evidence_usage:
+      'Dùng trong các bài văn nghị luận về bản lĩnh sống độc lập, vượt qua áp lực dư luận (peer pressure), lòng tự tin hoặc sự khoan dung với sai lầm; nên đặt ở Luận điểm rèn luyện sự kiên định nội tâm.',
+    sample_sentence:
+      "Nhắc nhở bản thân bằng lời dạy 'Cười ba tháng, ai cười ba năm' là cách người trẻ tạo dựng tấm khiên tinh thần vững chắc, dám vượt lên những tiếng xì xào của dư luận để kiên định với lẽ phải và mục tiêu của đời mình.",
+    english_anchor: 'Overcoming Social Judgment',
+    keywords: ['dư luận', 'chê cười', 'bản lĩnh', 'tự tin', 'vượt qua phán xét'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 39. HÒN ĐẤT NÉM ĐI, HÒN CHÌ NÉM LẠI (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-39-hon-dat-nem-di-hon-chi-nem-lai',
+    proverb: 'Hòn đất ném đi, hòn chì ném lại',
+    pillar: 'skills_conduct',
+    sub_category: 'communication_conflict',
+    literal_meaning:
+      "Cụ Lê Văn Hòe giải nghĩa: 'Hòn đất' thì xốp nhẹ và dễ vỡ; 'hòn chì' thì bằng kim loại nặng và rắn chắc hơn nhiều. Người kia mới quăng hòn đất nhẹ sang thì kẻ nọ đã ném trả lại bằng hòn chì nặng chịch; người này nói một lời nhẹ mà kẻ kia đáp lại một câu nặng nề, từ đó làm bùng phát chuyện cãi vã, bất hòa to tát.",
+    figurative_meaning:
+      "Mô tả quy luật leo thang của xung đột trong giao tiếp: sự đối kháng gay gắt, thói ăn miếng trả miếng, 'kẻ đấm một đấm, người đá một đá' chỉ khiến mâu thuẫn thêm trầm trọng và biến chuyện bé xé ra to.",
+    life_skill_note:
+      'Bài học kiểm soát cảm xúc cho tuổi học trò: khi bạn trót nói một câu trêu chọc hay làm phiền mình (hòn đất), nếu mình đáp trả bằng lời lẽ gay gắt hơn (hòn chì) thì xích mích sẽ bùng nổ thành đánh nhau; biết im lặng hoặc nói lời hòa nhã sẽ dập tắt cơn giận.',
+    dialectical_view:
+      'Đúng khi cảnh báo về hậu quả của sự hiếu thắng và thái độ trả đũa cực đoan. Tuy nhiên, không trả đũa không có nghĩa là nhu nhược, cam chịu trước sự bất công hay bắt nạt học đường; cần biết lên tiếng bảo vệ bản thân đúng lúc bằng sự bình tĩnh và văn minh.',
+    essay_evidence_usage:
+      'Rất hiệu quả trong bài văn nghị luận về văn hóa ứng xử, bạo lực học đường, nghệ thuật hòa giải hoặc tinh thần dĩ hòa vi quý; thích hợp đặt ở Luận điểm phê phán thói hiếu thắng trong giao tiếp.',
+    sample_sentence:
+      "Cảnh báo sâu sắc về xung đột từ câu tục ngữ 'Hòn đất ném đi, hòn chì ném lại' nhắc ta rằng, bạo lực và sự hơn thua không bao giờ có thể dập tắt hận thù, chỉ có sự điềm đạm và đối thoại mới cứu vãn được các mối quan hệ.",
+    english_anchor: 'Escalation of Conflict',
+    keywords: ['xung đột', 'trả đũa', 'lời nói', 'hòn chì', 'hòn đất'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 40. MỘT SỰ NHỊN, CHÍN SỰ LÀNH (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-40-mot-su-nhin-chin-su-lanh',
+    proverb: 'Một sự nhịn, chín sự lành',
+    pillar: 'skills_conduct',
+    sub_category: 'forbearance_peace',
+    literal_meaning:
+      "Theo cụ Lê Văn Hòe: 'Nhịn' là nhẫn nhịn, kiềm chế cơn nóng giận. 'Chín sự lành' ở đây không phải đếm đúng số chín, mà số chín tượng trưng cho rất nhiều điều tốt lành, êm ấm. Nhịn được một điều tức giận bồng bột thì giữ được muôn vàn sự yên ổn, bình an.",
+    figurative_meaning:
+      "Khuyên con người phải biết lấy chữ 'Nhẫn' làm trọng, biết kiềm chế cái tôi và sự giận dữ nhất thời để bảo toàn hòa khí, tránh được những tai họa khôn lường do xốc nổi gây ra.",
+    life_skill_note:
+      "Dạy học sinh kỹ năng 'dừng lại 5 giây' khi cảm thấy bực tức với bạn bè: lùi một bước để nhìn nhận lại sự việc, tránh vì một lời cãi vã vặt vãnh mà đánh mất tình bạn đẹp đẽ bấy lâu.",
+    dialectical_view:
+      "Đúng đắn trong nghệ thuật giữ gìn hòa khí và đối nhân xử thế hàng ngày. Nhưng cần phân biệt rạch ròi giữa 'nhẫn nhịn khôn ngoan' với sự 'nhẫn nhục mù quáng', thỏa hiệp hèn nhát trước cái ác, cái xấu hoặc hành vi chèn ép, bạo lực bất công.",
+    essay_evidence_usage:
+      'Rất đắc địa trong các bài văn nghị luận về đức tính nhẫn nại, lòng khoan dung, nghệ thuật hóa giải mâu thuẫn hoặc văn hóa sống hòa nhập; thích hợp đặt ở Luận điểm nhấn mạnh giá trị của sự điềm tĩnh.',
+    sample_sentence:
+      "Lời răn 'Một sự nhịn, chín sự lành' là kết tinh của trí tuệ phương Đông về chữ Nhẫn, khuyên ta biết thu hẹp cái tôi vị kỷ để mở rộng không gian cho sự hòa hợp và bình yên nội tại.",
+    english_anchor: 'Forbearance & Patience',
+    keywords: ['nhẫn nhịn', 'kiềm chế', 'hòa khí', 'chữ nhẫn', 'bình an'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 41. TRÁNH VOI CHẲNG XẤU MẶT NÀO (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-41-tranh-voi-chang-xau-mat-nao',
+    proverb: 'Tránh voi chẳng xấu mặt nào',
+    pillar: 'skills_conduct',
+    sub_category: 'tactical_prudence',
+    literal_meaning:
+      'Cụ Lê Văn Hòe phân tích: Con voi là giống vật to lớn, khỏe mạnh và hung hãn bậc nhất chốn muông thú; nếu người ta có phải lùi bước tránh né nó trên đường đi thì cũng chẳng có gì phải hổ thẹn hay xấu mặt cả, vì đó là lẽ tự nhiên.',
+    figurative_meaning:
+      'Khuyên người ta nên biết nhún nhường, tạm thời tránh đối đầu trực diện với những kẻ quyền thế hung bạo, những thế lực độc dữ hoặc những đối tượng nguy hiểm; đó là biểu hiện của sự khôn ngoan, mưu trí chứ không phải là hèn nhát.',
+    life_skill_note:
+      "Rèn luyện kỹ năng tự bảo vệ an toàn cho học sinh 12 tuổi: khi gặp kẻ say xỉn, đối tượng hung hãn mang hung khí hoặc nhóm bạn xấu đang gây gổ, em hãy lập tức né tránh và báo cho người lớn can thiệp, tuyệt đối không xông vào thể hiện 'anh hùng rơm'.",
+    dialectical_view:
+      "Đúng đắn về mặt chiến thuật tự vệ và bảo toàn lực lượng. Tuy nhiên, không nên biến việc 'tránh voi' thành cớ để thờ ơ vô cảm, sống hèn nhát 'mũ ni che tai' thấy kẻ yếu bị ức hiếp mà không dám tìm cách tương trợ chính nghĩa.",
+    essay_evidence_usage:
+      'Thích hợp cho các bài nghị luận về kỹ năng sống, lòng dũng cảm đi đôi với trí tuệ, nghệ thuật ứng biến linh hoạt trong hoàn cảnh nguy hiểm; nên đặt ở Luận điểm phân biệt giữa liều lĩnh mù quáng và mưu trí tự vệ.',
+    sample_sentence:
+      "Câu tục ngữ 'Tránh voi chẳng xấu mặt nào' dạy cho chúng ta bài học sâu sắc về sự khôn ngoan thực tế: biết lùi một bước để giữ an toàn cho bản thân chính là tiền đề để tiến ba bước vững chắc trên hành trình phía trước.",
+    english_anchor: 'Prudence & Tactical Retreat',
+    keywords: ['nhún nhường', 'khôn ngoan', 'tự vệ', 'tránh đối đầu', 'mưu trí'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 42. CHÓ SỦA MẶC CHÓ, ĐƯỜNG TA TA CỨ ĐI (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-42-cho-sua-mac-cho-duong-ta-ta-cu-di',
+    proverb: 'Chó sủa mặc chó, đường ta ta cứ đi',
+    pillar: 'skills_conduct',
+    sub_category: 'unwavering_focus',
+    literal_meaning:
+      'Người bộ hành đi đường thẳng thắn thì cứ vững bước tiến về phía trước; hai bên đường lũ chó nhà có thể xông ra sủa inh ỏi vì lạ mặt, nhưng người đi đường không dừng chân ném đá, đôi co với chó làm gì mà cứ đàng hoàng bước tiếp.',
+    figurative_meaning:
+      'Khuyên con người khi đã xác định được mục tiêu đúng đắn, chính nghĩa thì phải kiên định vững bước; không để những lời gièm pha, đố kỵ, dèm pha hay bàn tán ác ý của kẻ tiểu nhân làm lung lạc ý chí của mình.',
+    life_skill_note:
+      'Giúp học sinh rèn bản lĩnh không sợ hãi trước những lời trêu chọc, bàn tán ác ý sau lưng của một vài bạn xấu: hãy tập trung toàn bộ năng lượng vào việc học tập và rèn luyện của chính mình, sự tiến bộ của em sẽ là câu trả lời đanh thép nhất.',
+    dialectical_view:
+      "Đúng đắn khi bảo vệ lập trường kiên định trước những thị phi vô căn cứ. Song cần tỉnh táo lắng nghe những lời góp ý chân thành, mang tính xây dựng từ thầy cô, cha mẹ và bạn tốt để kịp thời sửa chữa khuyết điểm, tránh sa vào thói bảo thủ, cố chấp xem mọi lời khuyên đều là 'tiếng chó sủa'.",
+    essay_evidence_usage:
+      'Rất sắc sảo trong các bài văn nghị luận về sự kiên định, bản lĩnh giữ vững ước mơ, vượt qua định kiến xã hội hoặc phê phán thói đố kỵ gièm pha; thích hợp đặt làm điểm nhấn ấn tượng ở Luận điểm phản biện.',
+    sample_sentence:
+      "Tư thế đĩnh đạc từ câu ngạn ngữ 'Chó sủa mặc chó, đường ta ta cứ đi' khẳng định phẩm chất cốt lõi của người có chí lớn: không bao giờ để những âm thanh hỗn tạp bên lề làm chệch hướng bánh xe của khát vọng.",
+    english_anchor: 'Unwavering Determination',
+    keywords: ['kiên định', 'bản lĩnh', 'thị phi', 'mục tiêu', 'vững bước'],
+    is_featured: true,
+  },
 ];
 
 export const PROVERBS_SEED_DATA: ProverbItem[] = deepNormalizeVietnamese(RAW_PROVERBS_SEED_DATA);

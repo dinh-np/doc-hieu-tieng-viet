@@ -57,6 +57,16 @@ const SUB_CATEGORY_LABELS: Record<string, string> = {
   communication_empathy: 'Sức mạnh Lời khen & Lòng bao dung',
   contentment_greed: 'Biết đủ (Tri túc) & Tránh tham lam vô độ',
   humility_openmindedness: 'Đức tính Khiêm tốn & Mở rộng tầm nhìn',
+  agricultural_efficiency: 'Hiệu quả Kinh tế & Giá trị gia tăng',
+  seasonal_timing: 'Kế hoạch Thời vụ & Nắm bắt thời cơ',
+  growth_mindset: 'Tư duy Phát triển & Rèn luyện bền bỉ',
+  intellectual_cultivation: 'Tu dưỡng Tri thức & Rèn giũa tư chất',
+  practical_experience: 'Thực hành & Kinh nghiệm thực tiễn',
+  courage_social_pressure: 'Bản lĩnh Vượt qua Định kiến & Dư luận',
+  communication_conflict: 'Kiểm soát Xung đột & Hóa giải bất hòa',
+  forbearance_peace: 'Đức tính Nhẫn nhịn & Giữ gìn hòa khí',
+  tactical_prudence: 'Mưu trí Tự vệ & Nhún nhường đúng lúc',
+  unwavering_focus: 'Kiên định Mục tiêu & Vượt qua thị phi',
 };
 
 export function ProverbsClient({ initialProverbs }: ProverbsClientProps) {
