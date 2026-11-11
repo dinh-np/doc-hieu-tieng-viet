@@ -1113,6 +1113,231 @@ const RAW_PROVERBS_SEED_DATA: ProverbItem[] = [
     keywords: ['kiên định', 'bản lĩnh', 'thị phi', 'mục tiêu', 'vững bước'],
     is_featured: true,
   },
+
+  // ===========================================================================
+  // 43. LỬA THỬ VÀNG, GIAN NAN THỬ SỨC (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-43-lua-thu-vang-gian-nan-thu-suc',
+    proverb: 'Lửa thử vàng, gian nan thử sức',
+    pillar: 'morality_society',
+    sub_category: 'resilience',
+    literal_meaning:
+      'Vàng ròng cần đưa vào ngọn lửa nhiệt độ cao nung nấu mới phân biệt được với kim loại tạp chất; con người phải đặt vào hoàn cảnh gian nan, hiểm nghèo mới đo lường và phát lộ rõ sức lực, ý chí và nghị lực thực sự.',
+    figurative_meaning:
+      'Nghịch cảnh và thử thách không phải là sự trừng phạt hay phán xét kém cỏi, mà chính là môi trường tôi luyện cốt lõi để con người tôi rèn bản lĩnh, phát huy tiềm năng và trưởng thành vững vàng.',
+    life_skill_note:
+      'Khi gặp bài tập khó hoặc thử thách mới trong học tập, đừng vội nản lòng hay sợ hãi; hãy coi đó là bài tập tăng cơ bắp cho não bộ, giúp bản thân trở nên mạnh mẽ và thông minh hơn.',
+    dialectical_view:
+      'Đúng khi khuyên con người đối diện thử thách với tư duy phát triển. Tuy nhiên, kiên trì phải đi liền với phương pháp thông minh và lượng sức; nếu gặp thử thách quá tầm mà cố chấp mù quáng không chịu học hỏi hay điều chỉnh chiến lược thì chỉ dẫn đến kiệt quệ tâm lý.',
+    essay_evidence_usage:
+      'Rất đắc địa trong các bài văn nghị luận về ý chí vượt khó, nghị lực sống, tư duy phát triển (growth mindset); thích hợp đặt ở Mở bài hoặc Luận điểm trung tâm khẳng định giá trị của nghịch cảnh.',
+    sample_sentence:
+      "Cổ nhân từng dạy 'Lửa thử vàng, gian nan thử sức' để khẳng định rằng những bước ngoặt chông gai nhất của cuộc đời chính là chiếc khuôn đúc nên những nhân cách kiên cường và tài năng xuất chúng.",
+    english_anchor: 'Resilience & Adversity',
+    keywords: ['nghị lực', 'thử thách', 'tôi luyện', 'vượt khó', 'bản lĩnh'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 44. NGỌC BẤT TRÁC BẤT THÀNH KHÍ, NHÂN BẤT HỌC BẤT TRI ĐẠO (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-44-ngoc-bat-trac-bat-thanh-khi',
+    proverb: 'Ngọc bất trác bất thành khí, nhân bất học bất tri đạo',
+    pillar: 'morality_society',
+    sub_category: 'intellectual_cultivation',
+    literal_meaning:
+      "Câu chữ Hán: 'Trác' là gọt giũa, đục đẽo; 'khí' là đồ dùng, đồ vật quý báu; 'đạo' là đạo lý làm người. Viên ngọc thô nếu không được mài giũa, chạm khắc cẩn thận thì không thể thành đồ trang sức hay bảo vật; con người nếu không chịu học hành thì không thể hiểu biết đạo lý làm người.",
+    figurative_meaning:
+      'Khẳng định con người dù sinh ra có tư chất tốt đẹp như ngọc quý nhưng nếu không qua giáo dục, rèn giũa và học tập nghiêm túc thì cũng không thể trở thành người có ích, có nhân cách cao đẹp.',
+    life_skill_note:
+      'Nhắc nhở học sinh không nên ỷ lại vào sự thông minh sẵn có; chỉ có sự chăm chỉ học tập, rèn luyện nề nếp mỗi ngày mới giúp em mài sáng tài năng và hoàn thiện bản thân.',
+    dialectical_view:
+      "Đúng khi nhấn mạnh sự học và rèn luyện là con đường bắt buộc để thành nhân. Tuy nhiên, việc 'gọt giũa' giáo dục cần tôn trọng cá tính và năng khiếu tự nhiên của trẻ, tránh đục đẽo áp đặt một cách máy móc, cứng nhắc làm thui chột tính sáng tạo.",
+    essay_evidence_usage:
+      'Phù hợp cho các đề bài về vai trò của học tập, sự tu dưỡng đạo đức, phương pháp giáo dục; nên đặt ở Luận điểm bàn về quá trình rèn luyện để hoàn thiện nhân cách.',
+    sample_sentence:
+      "Triết lý 'Ngọc bất trác bất thành khí, nhân bất học bất tri đạo' từ ngàn xưa vẫn vẹn nguyên giá trị cảnh tỉnh: tài năng bẩm sinh chỉ là viên đá thô, chỉ có ngọn lửa của sự học và ý thức tự rèn mới biến nó thành viên ngọc tỏa sáng.",
+    english_anchor: 'Education & Self-Cultivation',
+    keywords: ['học vấn', 'mài giũa', 'đạo lý', 'tu dưỡng', 'ngọc quý'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 45. THẤT BẠI LÀ MẸ THÀNH CÔNG (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-45-that-bai-la-me-thanh-cong',
+    proverb: 'Thất bại là mẹ thành công',
+    pillar: 'morality_society',
+    sub_category: 'growth_mindset',
+    literal_meaning:
+      'Mượn quan hệ sinh thành trong gia đình (mẹ sinh ra con) để ví von: Mỗi lần thất bại, vấp ngã chính là cội nguồn sinh ra và nuôi dưỡng thành công sau này.',
+    figurative_meaning:
+      'Thất bại không phải là dấu chấm hết mà là người thầy cung cấp cho ta những dữ liệu quý giá, những bài học kinh nghiệm sâu sắc để sửa chữa sai lầm, từ đó tiến gần hơn đến đích thành công.',
+    life_skill_note:
+      'Giúp học sinh đối diện tích cực với những lần bị điểm kém hay thi trượt: hãy phân tích xem mình làm sai ở đâu để sửa đổi, bởi mỗi lỗi sai chính là một bậc thang đưa em đến sự tiến bộ.',
+    dialectical_view:
+      "Đúng khi nhìn nhận sai sót là cơ hội phản tư và học tập. Song thất bại chỉ trở thành 'mẹ thành công' khi ta thực sự rút ra bài học và đổi mới phương pháp; nếu thất bại lặp đi lặp lại do cẩu thả, vô kỷ luật mà không tự sửa mình thì thất bại ấy chỉ dẫn đến sự thụt lùi.",
+    essay_evidence_usage:
+      'Rất phổ biến trong đề văn nghị luận về thái độ trước vấp ngã, tinh thần bền bỉ theo đuổi ước mơ; thích hợp đặt ở Luận điểm bàn về quy luật của sự thành bại trong cuộc đời.',
+    sample_sentence:
+      "Lời đúc kết 'Thất bại là mẹ thành công' nhắc nhở chúng ta rằng người chiến thắng không phải là người không bao giờ ngã, mà là người biết biến từng vết sẹo vấp ngã thành bài học đắt giá để đứng dậy kiên cường hơn.",
+    english_anchor: 'Failure as a Stepping Stone',
+    keywords: ['thất bại', 'thành công', 'bài học', 'tư duy phát triển', 'đứng dậy'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 46. CÁI KHÓ LÓ CÁI KHÔN (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-46-cai-kho-lo-cai-khon',
+    proverb: 'Cái khó ló cái khôn',
+    pillar: 'skills_conduct',
+    sub_category: 'adaptability',
+    literal_meaning:
+      "Trong sách cụ Lê Văn Hòe phân tích đối chiếu với câu 'Cái khó bó cái khôn'. 'Ló' là nhú ra, ló rạng ra. Khi rơi vào hoàn cảnh gian khó, túng quẫn, tình thế bế tắc lại thúc bách trí óc con người phải suy nghĩ, xoay xở và nảy sinh ra những sáng kiến, mưu lược khôn khéo phi thường.",
+    figurative_meaning:
+      'Nghịch cảnh và hoàn cảnh ngặt nghèo là động lực đánh thức tiềm năng sáng tạo, thúc đẩy con người tìm ra những giải pháp đột phá mà lúc bình thường no đủ không bao giờ nghĩ tới.',
+    life_skill_note:
+      'Rèn luyện cho học sinh tính tự lập và khả năng giải quyết vấn đề: khi gặp tình huống thiếu đồ dùng học tập hay gặp bài toán lạ, hãy bình tĩnh suy nghĩ tìm cách thay thế hoặc thử hướng tiếp cận mới thay vì buông xuôi chờ đợi.',
+    dialectical_view:
+      "Cụ Lê Văn Hòe lưu ý tư duy biện chứng sâu sắc: 'Cái khó ló cái khôn' chỉ xảy ra với người có ý chí, giàu nghị lực và biết suy nghĩ sáng suốt. Đối với kẻ yếu đuối, lười biếng hoặc thiếu phương tiện cơ bản thì lại rơi vào tình cảnh 'Cái khó bó cái khôn', tức sự nghèo đói trói buộc khiến trí lực bị cùn mòn.",
+    essay_evidence_usage:
+      'Thích hợp cho các đề văn về năng lực sáng tạo, khả năng thích ứng linh hoạt, tinh thần vượt khó; nên đặt ở Luận điểm phân tích sức mạnh của tư duy đổi mới trước trở ngại.',
+    sample_sentence:
+      "Hiểu được lẽ đời 'Cái khó ló cái khôn', ta nhận thấy hoàn cảnh khắc nghiệt chưa hẳn là rào cản, mà có thể trở thành đòn bẩy kích hoạt những sáng kiến vượt bậc của trí tuệ con người.",
+    english_anchor: 'Necessity is the Mother of Invention',
+    keywords: ['sáng tạo', 'thích nghi', 'nghịch cảnh', 'khôn ngoan', 'giải pháp'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 47. CHỚ THẤY SÓNG CẢ MÀ NGÃ TAY CHÈO (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-47-cho-thay-song-ca-ma-nga-tay-cheo',
+    proverb: 'Chớ thấy sóng cả mà ngã tay chèo',
+    pillar: 'morality_society',
+    sub_category: 'perseverance',
+    literal_meaning:
+      "Cụ Lê Văn Hòe phân tích trong tập 3: 'Sóng cả' là ngọn sóng lớn trên sông biển lúc giông bão; 'ngã tay chèo' là tay chèo bị ngả nghiêng, lơi lỏng, không quả quyết ráo riết giữ chặt lấy mái chèo mà muốn buông xuôi. Thấy sóng to mà nới tay chèo thì thuyền ắt chìm; phải vững vàng tay chèo để lướt qua cơn sóng dữ.",
+    figurative_meaning:
+      'Khuyên con người trước những khó khăn to lớn, những biến cố dữ dội của cuộc đời không được nản lòng, thối chí hay dao động buông xuôi; phải giữ vững ý chí ban đầu để chèo lái con thuyền số phận vượt qua giông bão.',
+    life_skill_note:
+      'Nhắc nhở học sinh giữ vững tinh thần khi bước vào giai đoạn ôn thi áp lực hoặc gặp những trở ngại lớn trong cuộc sống: càng khó khăn càng cần bình tĩnh, quyết tâm và giữ vững mục tiêu đã đề ra.',
+    dialectical_view:
+      'Đúng khi khuyên giữ vững dũng khí và lòng kiên định. Tuy nhiên, giữ vững tay chèo không có nghĩa là liều lĩnh đâm thẳng vào mắt bão một cách tự sát; khi hiểm họa quá lớn, người cầm lái khôn ngoan phải biết lượn theo chiều sóng gió, tạm neo đậu an toàn để bảo toàn sinh mệnh rồi mới tiếp tục hành trình.',
+    essay_evidence_usage:
+      'Rất đắc địa trong các bài văn nghị luận về lòng can đảm, ý chí kiên định, bản lĩnh đương đầu với thử thách; thích hợp làm câu mở đầu tạo cảm xúc hoặc làm luận cứ then chốt ở phần Thân bài.',
+    sample_sentence:
+      "Lời căn dặn 'Chớ thấy sóng cả mà ngã tay chèo' như một lời hiệu triệu của tinh thần bất khuất, nhắc nhở ta rằng sự kiên định nơi tâm bão mới chính là phẩm chất phân định người bản lĩnh với kẻ tầm thường.",
+    english_anchor: 'Courage Amidst Storms',
+    keywords: ['kiên định', 'bản lĩnh', 'sóng cả', 'vững tay chèo', 'không nản chí'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 48. NGƯỜI TA ĐI MÃI CŨNG THÀNH ĐƯỜNG (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-48-nguoi-ta-di-mai-cung-thanh-duong',
+    proverb: 'Người ta đi mãi cũng thành đường',
+    pillar: 'skills_conduct',
+    sub_category: 'growth_mindset',
+    literal_meaning:
+      'Đúc kết từ quy luật thực tế: Ban đầu mặt đất chỉ là rừng rậm hoang vu hoặc bụi rậm cỏ gai chưa có lối; nhưng khi có người bước qua nhiều lần, giẫm đạp lên cỏ đá thì đất bằng phẳng lại và tự khắc mở ra một con đường quang đãng, dễ đi.',
+    figurative_meaning:
+      'Mọi kỹ năng thành thạo, thói quen tốt đẹp và con đường sự nghiệp vĩ đại đều bắt đầu từ những bước chân mò mẫm đầu tiên; chỉ cần con người kiên trì hành động và lặp lại liên tục thì con đường khai phóng sẽ mở ra.',
+    life_skill_note:
+      "Khớp với cơ chế hình thành đường dẫn thần kinh trong não bộ: khi học một kỹ năng mới khó khăn, đừng nản vì não bộ chưa kịp tạo liên kết; chỉ cần luyện tập đều đặn mỗi ngày, 'lối mòn' tư duy sẽ mở rộng và biến việc khó thành phản xạ tự nhiên.",
+    dialectical_view:
+      "Đúng khi khẳng định sức mạnh của hành động kiên trì và tiên phong. Nhưng cần lưu ý: con đường mở ra phải đi đúng hướng mục tiêu; nếu đi mãi một con đường sai lầm hoặc lặp lại thói quen xấu thì cũng sẽ 'đổ bê tông' cho một lối mòn tai hại rất khó xóa bỏ.",
+    essay_evidence_usage:
+      'Phù hợp đưa vào bài văn nghị luận về tinh thần dấn thân, bản lĩnh khai mở con đường mới, phương pháp tự học và tư duy phát triển; nên đặt ở Luận điểm bàn về sự khởi đầu và kiên trì.',
+    sample_sentence:
+      "Đúng như chân lý 'Người ta đi mãi cũng thành đường', ranh giới giữa những điều bất khả thi và hiện thực đôi khi chỉ cách nhau bằng lòng dũng cảm đặt xuống những bước chân tiên phong đầu tiên.",
+    english_anchor: 'Path-making through Persistence',
+    keywords: ['mở đường', 'thói quen', 'dấn thân', 'kiên trì', 'phản xạ'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 49. CÓ ĐI MỚI ĐẾN, CÓ HỌC MỚI HAY (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-49-co-di-moi-den-co-hoc-moi-hay',
+    proverb: 'Có đi mới đến, có học mới hay',
+    pillar: 'skills_conduct',
+    sub_category: 'learning_action',
+    literal_meaning:
+      "Cụ Lê Văn Hòe giải nghĩa ở tập 2: 'Có đi mới đến' nghĩa là muốn tới được nơi nào thì phải bước chân mà đi, cứ ngồi yên một chỗ thì dù nơi định đến có gần gang tấc cũng không bao giờ tới; 'có học mới hay' là có chịu khó học hỏi mới biết điều hiểu đạo, không học thì điều rất xoàng, rất dễ cũng không bao giờ biết được.",
+    figurative_meaning:
+      'Khuyên con người phải biết gắn liền nhận thức với hành động thực tế; muốn hiểu biết sâu rộng và đạt được thành tựu trong cuộc đời thì bắt buộc phải chủ động dấn thân, học tập và rèn luyện chứ không thể trông chờ vào phép màu.',
+    life_skill_note:
+      'Nhắc học sinh không nên chỉ ngồi một chỗ ước mơ đạt điểm tốt hay giỏi giang mà lười mở sách ra học; hãy bắt tay vào làm bài tập ngay từ hôm nay, vì hành động là cây cầu duy nhất biến ước mơ thành hiện thực.',
+    dialectical_view:
+      "Đúng đắn khi ca ngợi hành động thực tiễn và tinh thần hiếu học. Tuy nhiên, 'đi' phải có định hướng và la bàn chỉ đường, 'học' phải có phương pháp khoa học và tư duy phản biện; nếu đi mù quáng và học vẹt thụ động thì vừa hao công tốn sức vừa không đạt được kết quả.",
+    essay_evidence_usage:
+      'Thích hợp cho các bài văn nghị luận về mối quan hệ giữa học và hành, tinh thần chủ động trong cuộc sống, bài học về sự dấn thân; nên đặt ở phần Thân bài làm luận điểm thúc đẩy hành động.',
+    sample_sentence:
+      "Thấm nhuần lời răn 'Có đi mới đến, có học mới hay', người trẻ cần hiểu rằng tri thức và tương lai tươi sáng không bao giờ tự gõ cửa nếu đôi chân ta còn chần chừ và tâm trí ta còn ngại ngùng học hỏi.",
+    english_anchor: 'Action & Learning',
+    keywords: ['hành động', 'học tập', 'chủ động', 'dấn thân', 'thực tiễn'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 50. ĐI MỘT NGÀY ĐÀNG, HỌC MỘT SÀNG KHÔN (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-50-di-mot-ngay-dang-hoc-mot-sang-khon',
+    proverb: 'Đi một ngày đàng, học một sàng khôn',
+    pillar: 'morality_society',
+    sub_category: 'experiential_learning',
+    literal_meaning:
+      "Cụ Lê Văn Hòe phân tích ở tập 2: 'Đàng' là đường; đi đường suốt một ngày (tức đi xa khỏi xóm làng quen thuộc) thì thu lượm được một sàng đầy những điều khôn ngoan, hiểu biết mới lạ về phong tục, cảnh vật và lề lối làm ăn của thiên hạ.",
+    figurative_meaning:
+      "Khuyên con người nên bước chân ra thế giới bên ngoài để trải nghiệm, giao lưu và mở rộng tầm mắt; phê phán lối sống quẩn quanh xó nhà, tự mãn với sự hiểu biết nhỏ hẹp 'ở nhà với mẹ biết ngày nào khôn'.",
+    life_skill_note:
+      'Khuyến khích học sinh tích cực tham gia các hoạt động ngoại khóa, dã ngoại, đọc sách và kết bạn mới để bồi đắp vốn sống thực tế, giúp bản thân trở nên tự tin, cởi mở và linh hoạt hơn.',
+    dialectical_view:
+      "Đúng khi đề cao việc học hỏi từ trải nghiệm thực tế. Song việc 'đi' ra ngoài xã hội cần có bản lĩnh sàng lọc và nền tảng đạo đức vững vàng; nếu đi ra ngoài mà không biết chọn bạn, a dua học đòi thói hư tật xấu thì 'sàng khôn' sẽ biến thành 'sàng dại'.",
+    essay_evidence_usage:
+      'Rất đắc địa trong các bài văn về ý nghĩa của việc trải nghiệm thực tế, tinh thần tự học từ cuộc đời, mở rộng thế giới quan; thích hợp đặt ở Luận điểm bàn về cách bồi dưỡng tri thức đa chiều.',
+    sample_sentence:
+      "Lời đúc kết 'Đi một ngày đàng, học một sàng khôn' là lời cổ vũ bất hủ cho tinh thần học hỏi từ trường đời, nhắc ta biết vượt thoát khỏi ao làng chật hẹp để đón nhận những chân trời văn hóa mới mẻ.",
+    english_anchor: 'Experiential Learning & Travel',
+    keywords: ['trải nghiệm', 'đi một ngày đàng', 'sàng khôn', 'mở rộng tầm mắt', 'thế giới quan'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 51. TRĂM HAY KHÔNG BẰNG TAY QUEN (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-51-tram-hay-khong-bang-tay-quen',
+    proverb: 'Trăm hay không bằng tay quen',
+    pillar: 'skills_conduct',
+    sub_category: 'practical_experience',
+    literal_meaning:
+      "Trong sách cụ Lê Văn Hòe ghi nhận biến thể 'Trăm hay chẳng tày tay quen'. 'Trăm hay' là sự hiểu biết lý thuyết rộng lớn, tinh thông trăm điều trên sách vở; 'chẳng tày' là chẳng bằng; 'tay quen' là đôi bàn tay đã thao tác nhiều lần đến mức thành thạo, điêu luyện. Biết trăm điều sách vở không bằng bàn tay quen làm việc thực tế.",
+    figurative_meaning:
+      'Đề cao giá trị của kỹ năng thực hành và kinh nghiệm cọ xát thực tế; phê phán những người chỉ giỏi lý thuyết suông nhưng khi bắt tay vào việc thực tế thì vụng về, lúng túng.',
+    life_skill_note:
+      'Nhắc nhở học sinh lớp 7 khi học các môn kỹ năng (Toán, Ngoại ngữ, Tin học, Nhạc cụ...) thì đừng chỉ đọc thuộc công thức trong sách, mà phải luyện tập gõ phím, giải bài, tập nói hàng ngày để tạo thành phản xạ tự nhiên của cơ thể.',
+    dialectical_view:
+      'Đúng khi nhấn mạnh sự thuần thục kỹ năng thông qua thực hành. Tuy nhiên, không nên tuyệt đối hóa kinh nghiệm thuần túy mà xem nhẹ lý thuyết nền tảng; một đôi bàn tay quen việc khi được dẫn dắt bởi một bộ óc tinh thông lý thuyết khoa học sẽ tạo ra năng suất và sáng tạo vượt bậc.',
+    essay_evidence_usage:
+      "Phù hợp cho các đề văn bàn về phương châm 'Học đi đôi với hành', tầm quan trọng của thực hành, rèn luyện kỹ năng sống; nên đặt ở Luận điểm phân tích sự kết hợp giữa tri thức và hành động.",
+    sample_sentence:
+      "Chân lý 'Trăm hay không bằng tay quen' nhắc nhở chúng ta rằng mọi kiến thức uyên bác trên trang giấy sẽ chỉ là lý thuyết chết nếu không được tôi luyện qua sự nhẫn nại của đôi bàn tay thực hành mỗi ngày.",
+    english_anchor: 'Practice Makes Perfect',
+    keywords: ['thực hành', 'kỹ năng', 'quen tay', 'kinh nghiệm', 'rèn luyện'],
+    is_featured: true,
+  },
 ];
 
 export const PROVERBS_SEED_DATA: ProverbItem[] = deepNormalizeVietnamese(RAW_PROVERBS_SEED_DATA);

@@ -67,6 +67,10 @@ const SUB_CATEGORY_LABELS: Record<string, string> = {
   forbearance_peace: 'Đức tính Nhẫn nhịn & Giữ gìn hòa khí',
   tactical_prudence: 'Mưu trí Tự vệ & Nhún nhường đúng lúc',
   unwavering_focus: 'Kiên định Mục tiêu & Vượt qua thị phi',
+  resilience: 'Nghị lực Vượt khó & Bản lĩnh trong nghịch cảnh',
+  adaptability: 'Sáng tạo & Thích ứng linh hoạt',
+  learning_action: 'Học đi đôi với Hành & Chủ động dấn thân',
+  experiential_learning: 'Trải nghiệm Thực tế & Mở rộng tầm mắt',
 };
 
 export function ProverbsClient({ initialProverbs }: ProverbsClientProps) {
