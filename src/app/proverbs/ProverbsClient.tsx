@@ -71,6 +71,8 @@ const SUB_CATEGORY_LABELS: Record<string, string> = {
   adaptability: 'Sáng tạo & Thích ứng linh hoạt',
   learning_action: 'Học đi đôi với Hành & Chủ động dấn thân',
   experiential_learning: 'Trải nghiệm Thực tế & Mở rộng tầm mắt',
+  social_adaptability: 'Bản lĩnh Cọ xát & Bước ra vùng an toàn',
+  intellectual_composure: 'Bản lĩnh Điềm tĩnh & Ứng đối trước áp lực',
 };
 
 export function ProverbsClient({ initialProverbs }: ProverbsClientProps) {

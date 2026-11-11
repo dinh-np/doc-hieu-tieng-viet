@@ -1338,6 +1338,81 @@ const RAW_PROVERBS_SEED_DATA: ProverbItem[] = [
     keywords: ['thực hành', 'kỹ năng', 'quen tay', 'kinh nghiệm', 'rèn luyện'],
     is_featured: true,
   },
+
+  // ===========================================================================
+  // 52. KHÔN NHÀ DẠI CHỢ (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-52-khon-nha-dai-cho',
+    proverb: 'Khôn nhà dại chợ',
+    pillar: 'skills_conduct',
+    sub_category: 'social_adaptability',
+    literal_meaning:
+      'Cụ Lê Văn Hòe giải nghĩa trong tập 2: Ở nhà thì khôn ngoan, lấn lướt, đi chợ thì ngơ ngác, khờ dại. Hay nói cách khác: ở trong xó nhà thì tỏ ra khôn khéo, tài giỏi, nhưng đến chỗ kẻ chợ (chốn đô hội đông đúc, thương trường va chạm) thì hành động lại vụng về, khờ dại.',
+    figurative_meaning:
+      'Phê phán và châm biếm hạng người chỉ biết tự đắc, làm bộ tài giỏi trong phạm vi gia đình hoặc môi trường quen thuộc dung túng; khi bước chân ra xã hội rộng lớn đòi hỏi bản lĩnh thật sự thì lại nhút nhát, lúng túng và dễ bị thua thiệt.',
+    life_skill_note:
+      "Cảnh báo học sinh 12 tuổi tránh cái bẫy 'tự mãn trong vùng an toàn': chỉ làm những bài tập dễ quen thuộc để tỏ ra giỏi giang trước mặt bố mẹ sẽ khiến em bỡ ngỡ, lúng túng khi bước vào các kỳ thi lớn hoặc môi trường mới đòi hỏi tư duy giải quyết vấn đề thực tế.",
+    dialectical_view:
+      "Đúng đắn khi phê phán thói tự mãn xó nhà và thúc đẩy con người bước ra cọ xát thực tế. Tuy nhiên, sự bỡ ngỡ, 'dại' khi mới bước vào môi trường mới là quy luật thích ứng tự nhiên của bất kỳ ai; người có tư duy phát triển không sợ bị chê là dại lúc đầu mà xem đó là học phí cần thiết để từng bước khôn lớn.",
+    essay_evidence_usage:
+      'Rất sắc bén trong bài văn nghị luận về bản lĩnh sống, vượt thoát khỏi vùng an toàn, tư duy cố định (Fixed Mindset) hoặc phê phán lối sống ỷ lại được bao bọc; thích hợp đặt ở Luận điểm phản biện, phê phán biểu hiện tiêu cực.',
+    sample_sentence:
+      "Hiện tượng 'Khôn nhà dại chợ' là lời cảnh tỉnh đắt giá cho những ai mải mê gặm nhấm sự an toàn giả tạo trong tổ kén bọc điều, để rồi đánh mất hoàn toàn sức đề kháng trước những phong ba của trường đời.",
+    english_anchor: 'Safe Zone Complacency',
+    keywords: ['vùng an toàn', 'khôn nhà', 'dại chợ', 'bản lĩnh', 'thực tế'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 53. ẾCH NGỒI ĐÁY GIẾNG (morality_society)
+  // ===========================================================================
+  {
+    id: 'proverb-53-ech-ngoi-day-gieng',
+    proverb: 'Ếch ngồi đáy giếng',
+    pillar: 'morality_society',
+    sub_category: 'humility_openmindedness',
+    literal_meaning:
+      'Con ếch sống quanh năm suốt tháng dưới đáy cái giếng sâu tăm tối, ngước mắt nhìn lên chỉ thấy vòm trời tròn nhỏ hẹp bằng chiếc vung nồi. Vì thế nó ngỡ rằng cả vũ trụ bao la chỉ nhỏ bé chừng ấy và tiếng kêu ồm ộp của nó làm rung chuyển cả thế giới.',
+    figurative_meaning:
+      'Châm biếm sâu cay những kẻ có tầm nhìn hạn hẹp, kiến thức nông cạn nhưng lại mắc bệnh tự cao tự đại, huênh hoang coi thường thiên hạ vì không chịu mở rộng tầm mắt nhìn ra thế giới rộng lớn ngoài kia.',
+    life_skill_note:
+      'Dạy học sinh lớp 7 đức tính khiêm tốn và tinh thần học hỏi suốt đời: dù đạt điểm cao nhất lớp hay đứng đầu một môn học, em vẫn cần nhận thức biển học là vô bờ để luôn mở lòng lắng nghe và học hỏi thêm từ thầy cô, bạn bè xung quanh.',
+    dialectical_view:
+      'Đúng đắn khi nhắc nhở con người phải mở rộng nhãn quan và tránh kiêu ngạo. Dù vậy, không nên vì tự ti về tầm hiểu biết của mình mà hoang mang, đánh mất lập trường cá nhân; quan trọng là vừa giữ sự tự tin đúng mực vừa có thái độ cầu thị, sẵn sàng tiếp nhận tri thức mới.',
+    essay_evidence_usage:
+      'Đặc biệt đắc địa trong các bài văn nghị luận về đức tính khiêm tốn, tác hại của sự tự phụ, tinh thần tự học và mở rộng thế giới quan; thích hợp đặt làm dẫn chứng nổi bật ở Luận điểm phân tích nguyên nhân của sự tụt hậu.',
+    sample_sentence:
+      "Căn bệnh tự mãn của kẻ 'Ếch ngồi đáy giếng' không chỉ trói buộc nhận thức của cá nhân trong chiếc lồng chật hẹp, mà còn là rào cản lớn nhất ngăn con người chạm tay vào đại dương tri thức mênh mông của nhân loại.",
+    english_anchor: 'Narrow-mindedness & Parochialism',
+    keywords: ['khiêm tốn', 'hạn hẹp', 'đáy giếng', 'tầm nhìn', 'cầu thị'],
+    is_featured: true,
+  },
+
+  // ===========================================================================
+  // 54. KHÔN NGOAN ĐẾN CỬA QUAN MỚI BIẾT (skills_conduct)
+  // ===========================================================================
+  {
+    id: 'proverb-54-khon-ngoan-den-cua-quan-moi-biet',
+    proverb: 'Khôn ngoan đến cửa quan mới biết',
+    pillar: 'skills_conduct',
+    sub_category: 'intellectual_composure',
+    literal_meaning:
+      "Trong sách cụ Lê Văn Hòe tập 2 ghi nhận câu trọn vẹn: 'Khôn ngoan đến cửa quan mới biết, giàu nghèo ba mươi Tết mới hay'. Cửa quan là chốn công đường nghiêm mật, quyền uy; người ta khi đến cửa quan thường sợ hãi, cuống trí, nói năng không ra hơi. Chỉ khi đứng trước cửa quan, phải ứng đối đúng mực, biện bạch rõ ràng lý lẽ để bảo vệ công lý và khỏi bị tội thì mới đo lường được ai thực sự là người khôn ngoan sáng suốt.",
+    figurative_meaning:
+      'Khuyên ta muốn đánh giá tài năng, trí tuệ và sự khôn khéo thực chất của một người thì phải xem xét cách họ ứng xử, đối đáp trong những hoàn cảnh căng thẳng, ngặt nghèo và thử thách cân não, chứ không thể chỉ tin vào những lời ba hoa, khoe khoang trong lúc bình yên.',
+    life_skill_note:
+      'Rèn luyện cho học sinh bản lĩnh giữ bình tĩnh và khả năng diễn đạt lưu loát: khi bước vào phòng thi vấn đáp, khi đứng trước hội đồng giám khảo hay lúc cần trình bày quan điểm trước đám đông, sự tự chủ và khả năng lập luận gãy gọn mới là bằng chứng rõ nhất cho thực lực của em.',
+    dialectical_view:
+      'Đúng đắn khi lấy thử thách áp lực làm thước đo năng lực ứng biến và bản lĩnh thực chất. Song không nên hiểu theo nghĩa tiêu cực là dạy người ta cách luồn cúi, xảo biện nơi chốn quyền môn để chạy tội; sự khôn ngoan chân chính phải luôn dựa trên nền tảng của sự thật, lẽ phải và đạo lý.',
+    essay_evidence_usage:
+      'Thích hợp cho các bài văn nghị luận về năng lực thực chất, bản lĩnh trong thử thách áp lực, nghệ thuật tranh biện hoặc phương pháp đánh giá con người qua hành động thực tiễn; nên đặt ở Luận điểm bàn về thước đo của trí tuệ.',
+    sample_sentence:
+      "Bài học từ câu tục ngữ 'Khôn ngoan đến cửa quan mới biết' khẳng định rằng giá trị thật của trí tuệ không nằm ở những lời ba hoa nơi bàn tiệc, mà phát lộ rực rỡ nhất khi con người giữ được sự điềm đạm và tư duy sắc bén trước thử thách khốc liệt.",
+    english_anchor: 'Poise & Composure under Pressure',
+    keywords: ['cửa quan', 'bản lĩnh', 'khôn ngoan', 'thử thách', 'điềm tĩnh'],
+    is_featured: true,
+  },
 ];
 
 export const PROVERBS_SEED_DATA: ProverbItem[] = deepNormalizeVietnamese(RAW_PROVERBS_SEED_DATA);
