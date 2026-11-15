@@ -19,6 +19,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   'khoa-hoc': '🔬 Khoa Học',
   'lich-su': '📜 Lịch Sử',
   'dia-ly': '🌏 Địa Lý',
+  ngu_van_7: '📖 Ngữ Văn 7',
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
@@ -27,6 +28,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   'khoa-hoc': 'from-emerald-600 to-teal-700',
   'lich-su': 'from-amber-600 to-orange-700',
   'dia-ly': 'from-violet-600 to-purple-700',
+  ngu_van_7: 'from-rose-600 to-pink-700',
 };
 
 export default async function ReadPagesPage() {
