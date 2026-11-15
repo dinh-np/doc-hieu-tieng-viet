@@ -2,6 +2,9 @@
 
 When implementing components in `src/components/reading-engine/`, follow these UI and logic rules:
 
+### Step 0: Book Immersion & Prediction (`Step0BookImmersion.tsx`)
+* Render dynamic `prediction_prompt` per article (priority: `article.prediction_prompt` ➔ `structured_data.step_0_immersion.prediction_prompt` ➔ `structured_data.prediction_prompt` ➔ `structured_data.step_1_think_aloud.prediction_prompt` ➔ title-based fallback) — never hardcode article-specific prompts.
+
 ### Step 1: Think-Aloud
 * Decompose passage content into an array of identifiable sentence blocks (`id`).
 * **Child Screen:** The active paragraph has a subtle focus border; inactive paragraphs remain slightly dimmed (`opacity-60`) to prevent skimming ahead.
