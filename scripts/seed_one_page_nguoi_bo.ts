@@ -65,7 +65,7 @@ const articlePayload = nfcDeep({
       hero_image_url:
         'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?auto=format&fit=crop&q=80&w=1600',
       prediction_prompt:
-        'Từ nhan đề "Phân tích nhân vật Người Bố — Tác phẩm \'Vừa nhắm mắt vừa mở cửa sổ\'", con dự đoán người bố trong bài sẽ thể hiện tình yêu thương và cách dạy con đặc biệt như thế nào?',
+        "Dựa vào nhan đề 'Phân tích nhân vật Người Bố — Tác phẩm Vừa nhắm mắt vừa mở cửa sổ', con hãy dự đoán: Người bố sẽ dạy con cảm nhận thế giới bằng cách đặc biệt nào và thể hiện tấm lòng nhân hậu qua hành động gì?",
     },
     step_1_think_aloud: {
       paragraphs: [

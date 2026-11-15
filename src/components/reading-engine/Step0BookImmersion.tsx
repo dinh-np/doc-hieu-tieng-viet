@@ -31,6 +31,19 @@ export function Step0BookImmersion({ article, onComplete }: Step0Props) {
     ? rawParagraphs 
     : structuredParagraphs;
 
+  const structuredAny = article.structured_data as (ReadingArticle['structured_data'] & {
+    prediction_prompt?: string;
+    step_0_immersion?: { prediction_prompt?: string };
+    step_1_think_aloud?: { prediction_prompt?: string };
+  }) | undefined;
+
+  const predictionPrompt =
+    (article as ReadingArticle & { prediction_prompt?: string }).prediction_prompt ||
+    structuredAny?.step_0_immersion?.prediction_prompt ||
+    structuredAny?.prediction_prompt ||
+    structuredAny?.step_1_think_aloud?.prediction_prompt ||
+    `Dựa vào nhan đề "${article.title}", con hãy dự đoán nội dung chính hoặc thông điệp quan trọng nhất mà bài viết muốn truyền tải là gì?`;
+
   return (
     <div className="max-w-3xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-20">
       {/* Scroll Progress Indicator */}
@@ -86,7 +99,7 @@ export function Step0BookImmersion({ article, onComplete }: Step0Props) {
         </div>
         
         <p className="text-slate-700 mb-4">
-          Dựa vào nhan đề và bức ảnh chụp từ trên cao, con hãy dự đoán: Vì sao giữa một cơn bão dữ dội lại xuất hiện vùng 'mắt bão' tĩnh lặng và quang đãng?
+          {predictionPrompt}
         </p>
         
         <textarea
