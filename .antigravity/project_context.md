@@ -50,10 +50,12 @@
 * **Dynamic Supabase Rendering on PWA:**
   * `/dictionary` (`src/app/dictionary/page.tsx` & `DictionaryClient.tsx`), `/dictionary/[slug]`, and `/games` (`src/app/games/page.tsx` & `GamesClient.tsx`) dynamically query `han_viet_compounds`, `compound_root_links`, `han_viet_roots`, and `thuan_viet_dictionary` from Supabase (`force-dynamic`).
 * **Normalized Relational Schema in Supabase (`supabase/migrations/create_thuan_viet_dictionary.sql`):**
-  * `han_viet_roots` (**305+** root morphemes: `id`, `hanzi`, `reading_vi`, `root_meaning`, `created_at`).
-  * `han_viet_compounds` (**287+** compounds: `id`, `word`, `slug`, `full_meaning`, `english_equivalent`, `example_sentence`, `math_formula`, `subject_tag`, `grade_level`, `quiz_data`, `created_at`).
-  * `compound_root_links` (**548+** N-N links: `id`, `compound_id`, `root_id`, `position_order` 1 or 2, `related_words`).
-  * `thuan_viet_dictionary` (**274+** entries: `id`, `word`, `word_type`, `simple_meaning`, `mental_image`, `context_clue`, `english_equivalent`, `example_sentence`, `synonyms`, `grade_level`, `subject_tag`, `quiz_data`, `created_at`).
+  * `han_viet_roots` (**353+** root morphemes: `id`, `hanzi`, `reading_vi`, `root_meaning`, `created_at`).
+  * `han_viet_compounds` (**382+** compounds: `id`, `word`, `slug`, `full_meaning`, `english_equivalent`, `example_sentence`, `math_formula`, `subject_tag`, `grade_level`, `quiz_data`, `created_at`).
+  * `compound_root_links` (**738+** N-N links: `id`, `compound_id`, `root_id`, `position_order` 1 or 2, `related_words`).
+  * `thuan_viet_dictionary` (**331+** entries: `id`, `word`, `word_type`, `simple_meaning`, `mental_image`, `context_clue`, `english_equivalent`, `example_sentence`, `synonyms`, `grade_level`, `subject_tag`, `quiz_data`, `created_at`).
+* **Unified Cross-Dictionary Search (`src/app/dictionary/DictionaryClient.tsx`):**
+  * Searches simultaneously across both `han_viet_compounds` and `thuan_viet_dictionary` whenever the search query is non-empty (`.normalize('NFC')`), displaying `📘 Hán - Việt` / `✨ Thuần Việt` badges, dynamic match counts on tabs (`Xem tất cả kết quả`, `Từ điển Hán - Việt`, `Từ điển Thuần Việt`), and an `X` quick-clear button.
 * **Automated Seeding, Scraping & Expansion Pipeline:**
   * `scripts/seed_han_viet.ts` (`npm run seed:hanviet`): Seeds core textbook compounds, roots, links, and interactive quizzes into Supabase.
   * `src/lib/agents/han_viet_scraper.ts` & `scripts/extract_han_viet.ts`: Gemini-powered agent that extracts new Sino-Vietnamese compounds (including `english_equivalent`) from passages.
@@ -96,13 +98,23 @@
   * **🎮 Mini-Game "Tục Ngữ Ứng Chiến":** Situational multiple-choice quiz testing real-life application of proverbs with instant explanation, score counter, and confetti.
 * **Schema & Seed Pipeline:**
   * Table `public.proverbs` (`supabase/migrations/create_proverbs_table.sql`) with public `SELECT` RLS.
-  * Seeded with **30 curated proverbs** via `src/data/proverbs-seed.ts` and `scripts/seed_proverbs.ts` (`npm run seed:proverbs`).
+  * Seeded with **54 curated proverbs** via `src/data/proverbs-seed.ts` and `scripts/seed_proverbs.ts` (`npm run seed:proverbs`).
 
 ## 9. Responsive Mobile Navigation & Multi-Platform PWA Installer (`Header.tsx` & `InstallAppButton.tsx`)
 * **2-Row Mobile Navbar (`src/components/shared/Header.tsx`):**
   * **Row 1 (Mobile) / Left & Right (Desktop):** Logo + "Đọc Hiểu Tiếng Việt" on the left; **Hộ chiếu** (`/passport`) + **Cài App** (`<InstallAppButton />`) on the right. No offline/sync badge clutter.
-  * **Row 2 (Mobile) / Center (Desktop):** 8 navigation items (`Trang chủ`, `Bài ngắn`, `1 Trang`, `Siêu Nhận Thức`, `Từ điển`, `Tục Ngữ`, `Cấu trúc câu`, `Đấu trường`) evenly distributed with active route highlighting and zero horizontal overflow (`overflow-x: hidden` on `html, body`).
+  * **Row 2 (Mobile) / Center (Desktop):** 9 navigation items (`Trang chủ` with `compactOnLg`, `Bài ngắn`, `1 Trang`, `Siêu Nhận Thức`, `Từ điển`, `Tục Ngữ`, `Cấu trúc câu`, `Đấu trường`, and highlighted **`🦉 Hỏi - Đáp`** `/ask`) evenly distributed within `max-w-7xl` (`lg:overflow-visible`) with active route highlighting and zero horizontal overflow (`overflow-x: hidden` on `html, body`).
 * **Smart PWA Install Button (`src/components/InstallAppButton.tsx`):**
   * Automatically hides (`return null`) when running in installed standalone mode (`display-mode: standalone` or `navigator.standalone`).
   * Triggers native `beforeinstallprompt` on Chrome / Edge / Android, and opens device-specific 2-step installation modals on iPhone/iPad (Safari Share `⬆️` ➔ Add to Home Screen `➕`), Android, and Windows/Mac desktop browsers.
+
+## 10. 5-Source Hybrid RAG Deep Dive Q&A (`🦉 Hỏi - Đáp` & `/ask`)
+* **Unified `pgvector` Knowledge Base (`supabase/migrations/create_knowledge_rag.sql`):**
+  * `public.knowledge_embeddings` (`vector(768)` with HNSW cosine index and `UNIQUE(source_type, source_id)`) + RPC `match_knowledge_chunks(query_embedding, match_threshold, match_count, priority_article_id)`.
+  * **Embedding & Sync (`src/lib/rag/embedding.ts`, `scripts/sync_knowledge_embeddings.ts`, `npm run sync:rag`):** Uses `gemini-embedding-001` (`outputDimensionality: 768`, fallback `text-embedding-004`) to index **805 chunks** from all 5 sources (`reading_articles`, `one_page`, `metacognition`, `han_viet_compounds`, `thuan_viet_dictionary`, `proverbs`).
+* **RAG API (`src/app/api/qa-rag/route.ts`):** `POST /api/qa-rag` embeds the student's question, retrieves priority-boosted chunks via `match_knowledge_chunks`, and generates Feynman-style answers via Gemini (`gemini-3.1-flash-lite` with fallback) returning `{ answer, sources }`.
+* **Frontend UI (`DeepDiveChatPanel.tsx`, `DeepDiveDrawer.tsx`, `/ask`):**
+  * `src/components/rag/DeepDiveChatPanel.tsx`: Cú Đôi Feynman chat panel with context banner, 4 prompt pills, expandable citations (`sources`), and `sessionStorage` persistence per article.
+  * `src/components/rag/DeepDiveDrawer.tsx`: Floating **`🦉 Hỏi - Đáp`** button (`no-print print:hidden`) opening a Slide-over Drawer (Desktop) / Bottom Sheet (Mobile), embedded in `read/[id]/page.tsx`, `read-pages/[id]/page.tsx`, and `metacognition-read/[id]/MetacognitionReaderClient.tsx` (plus **`🦉 Hỏi - Đáp`** button on the text-selection Marking Text toolbar).
+  * `src/app/ask/page.tsx` & `src/app/ask/AskClient.tsx`: Standalone `/ask` Q&A page (`force-dynamic`, `revalidate = 0`) with article-scope filter.
 ```

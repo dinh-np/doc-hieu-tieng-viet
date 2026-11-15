@@ -39,3 +39,6 @@ When implementing components in `src/components/reading-engine/`, follow these U
 * **Curated Seed Articles (`src/data/metacognition-seed.ts` & `npm run seed:metacognition`):**
   * 6 Growth Mindset lessons (`Mindset - Bài 1, Bài 2, Bài 3, Bài 4, Bài 6, Bài 7`) + 2 Grade 7 Textbook lessons (`Lịch sử 7 - Bài 6`, `Địa lí 7 - Bài 5`), all normalized to Unicode NFC via `cleanVietnameseText` and stored in `public.one_page_articles` with `article_type = 'metacognition'` and `category = 'metacognition'`.
 * **Print & Export:** Supports both `@media print` 2-column A4 worksheet and `.doc` Word export.
+* **Cú Đôi Feynman Deep Dive Q&A (`DeepDiveDrawer` & `/ask`):**
+  * `/read/[id]`, `/read-pages/[id]`, and `/metacognition-read/[id]` embed `<DeepDiveDrawer />` (`no-print print:hidden`, floating **`🦉 Hỏi - Đáp`** button) connected to `POST /api/qa-rag` (`pgvector` 5-source RAG).
+  * `MetacognitionReaderClient.tsx` includes a **`🦉 Hỏi - Đáp`** quick button directly on the text-selection Marking Text toolbar to send highlighted excerpts to Cú Đôi.

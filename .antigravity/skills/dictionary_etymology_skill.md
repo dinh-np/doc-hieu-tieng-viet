@@ -23,7 +23,7 @@ When developing `/dictionary` routes, `<HanVietTooltip />`, and dictionary data 
   3. `compound_root_links` (`id`, `compound_id`, `root_id`, `position_order` 1 or 2, `related_words` text[]).
   4. `thuan_viet_dictionary` (`id`, `word` unique, `word_type`, `simple_meaning`, `mental_image`, `context_clue`, `english_equivalent`, `example_sentence`, `synonyms` text[], `grade_level`, `subject_tag`, `quiz_data` jsonb, `created_at`).
 * **Cognitive Anchor (`🇬🇧 english_equivalent`):** Display the concise English equivalent badge on both Hán-Việt and Thuần Việt cards to leverage the student's existing Grade 7 English vocabulary.
-* **Dynamic PWA Fetching:** `/dictionary`, `/dictionary/[slug]`, and `/games` must query Supabase directly (`export const dynamic = 'force-dynamic'; export const revalidate = 0;`) with graceful fallback to `src/lib/supabase/thuan-viet-seed.ts`.
+* **Dynamic PWA Fetching & Unified Search:** `/dictionary`, `/dictionary/[slug]`, and `/games` must query Supabase directly (`export const dynamic = 'force-dynamic'; export const revalidate = 0;`) with graceful fallback to `src/lib/supabase/thuan-viet-seed.ts`. `DictionaryClient.tsx` supports **Unified Cross-Dictionary Search** (`.normalize('NFC')`), searching both `han_viet_compounds` and `thuan_viet_dictionary` simultaneously when a query is present, with `📘 Hán - Việt` / `✨ Thuần Việt` badges, dynamic match counts, and `X` quick-clear.
 * **Gamification Arena (`/games`):** Maintain 3 distinct modes in `src/app/games/GamesClient.tsx`:
   - Mode 1: 🧩 *Thợ Rèn Hình Vị* (combining 2 `han_viet_roots` to forge a compound).
   - Mode 2: 🎨 *Bức Họa Ngôn Từ* (guessing `thuan_viet_dictionary` words from `mental_image` or cloze `example_sentence`).
@@ -32,9 +32,10 @@ When developing `/dictionary` routes, `<HanVietTooltip />`, and dictionary data 
   - `npm run seed:hanviet` (`tsx scripts/seed_han_viet.ts`)
   - `npm run expand:hanviet` (`tsx scripts/expand_han_viet.ts --count=30` or targeted `npx tsx scripts/expand_han_viet.ts --words="phán xét, liên kết, mật độ, phân bố, lục địa, bồi tụ"`) — Scans academic THCS vocabulary, social life, science journalism, and **Root Morpheme Genealogy ("Gia phả hình vị")** from `han_viet_roots`.
   - `npm run expand:thuanviet` (`tsx scripts/expand_thuan_viet.ts --count=30` or targeted `npx tsx scripts/expand_thuan_viet.ts --words="đóng khung, đóng, khung"`) — Scans vivid pure Vietnamese sensory, psychological, literary, and daily communication vocabulary.
-  - `npm run seed:proverbs` (`tsx scripts/seed_proverbs.ts`) — Upserts 30+ curated Vietnamese proverbs (`src/data/proverbs-seed.ts`) into `public.proverbs`.
+  - `npm run seed:proverbs` (`tsx scripts/seed_proverbs.ts`) — Upserts **54 curated Vietnamese proverbs** (`src/data/proverbs-seed.ts`) into `public.proverbs`.
   - `npm run seed:grammar` (`tsx scripts/seed_grammar.ts`)
   - `npm run seed:metacognition` (`tsx scripts/seed_metacognition.ts`)
+  - `npm run sync:rag` (`tsx scripts/sync_knowledge_embeddings.ts`) — Re-indexes all 5 knowledge sources (**805 chunks**) into `public.knowledge_embeddings` (`pgvector` 768-dim) after seeding or expanding content.
 
 ### 4. Interactive Sentence Anatomy (`/grammar`)
 * **4-Level Cognitive Progression (`public.grammar_exercises` & `src/data/grammar-seed.ts`):**
