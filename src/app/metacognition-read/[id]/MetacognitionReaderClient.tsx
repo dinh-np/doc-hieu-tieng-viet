@@ -795,9 +795,9 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                                   setIsDeepDiveOpen(true);
                                 }}
                                 className="px-3 py-1 rounded-lg text-xs font-black bg-[#0066ab] text-white border border-blue-400 hover:bg-blue-700 transition-transform hover:scale-105 inline-flex items-center gap-1"
-                                title="Hỏi sâu Cú Đôi về đoạn chữ vừa bôi đen"
+                                title="Hỏi - Đáp cùng Cú Đôi về đoạn chữ vừa bôi đen"
                               >
-                                🦉 Hỏi sâu
+                                🦉 Hỏi - Đáp
                               </button>
                             </div>
                           </div>
