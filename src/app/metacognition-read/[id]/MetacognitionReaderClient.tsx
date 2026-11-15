@@ -25,6 +25,7 @@ import {
   Eye,
 } from 'lucide-react';
 import { Header } from '@/components/shared/Header';
+import { DeepDiveDrawer } from '@/components/rag/DeepDiveDrawer';
 import {
   MARKING_SYMBOLS_META,
   type MarkingSymbol,
@@ -89,6 +90,10 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
     chunkId: string;
     text: string;
   } | null>(null);
+
+  // State cho Cú Đôi Feynman (Deep Dive Q&A Drawer)
+  const [isDeepDiveOpen, setIsDeepDiveOpen] = useState(false);
+  const [deepDiveSelectedText, setDeepDiveSelectedText] = useState('');
 
   // Từ Hán-Việt đang mở Pop-up giải nghĩa
   const [activeHanVietPopup, setActiveHanVietPopup] = useState<{
@@ -782,6 +787,18 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                                   </button>
                                 );
                               })}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setDeepDiveSelectedText(pendingSelection.text);
+                                  setPendingSelection(null);
+                                  setIsDeepDiveOpen(true);
+                                }}
+                                className="px-3 py-1 rounded-lg text-xs font-black bg-[#0066ab] text-white border border-blue-400 hover:bg-blue-700 transition-transform hover:scale-105 inline-flex items-center gap-1"
+                                title="Hỏi sâu Cú Đôi về đoạn chữ vừa bôi đen"
+                              >
+                                🦉 Hỏi sâu
+                              </button>
                             </div>
                           </div>
                         )}
@@ -1459,6 +1476,16 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
           </p>
         </div>
       </div>
+
+      {/* Nút nổi + Slide-over Drawer Hỏi Cú Đôi Feynman (ẩn khi in A4) */}
+      <DeepDiveDrawer
+        currentArticleId={article.slug || article.id}
+        articleTitle={article.title}
+        isOpen={isDeepDiveOpen}
+        onOpenChange={setIsDeepDiveOpen}
+        selectedText={deepDiveSelectedText}
+        onClearSelectedText={() => setDeepDiveSelectedText('')}
+      />
     </div>
   );
 }

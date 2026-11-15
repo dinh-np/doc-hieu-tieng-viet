@@ -165,6 +165,7 @@ NGUYÊN TẮC SƯ PHẠM BẮT BUỘC:
       source_label: SOURCE_TYPE_LABELS[chunk.source_type] || chunk.source_type,
       source_id: chunk.source_id,
       title: chunk.title,
+      content_chunk: chunk.content_chunk,
       similarity: Number(chunk.similarity.toFixed(3)),
       metadata: chunk.metadata,
     }));

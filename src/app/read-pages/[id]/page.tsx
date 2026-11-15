@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { QrCode, X, CheckCircle2, Users } from 'lucide-react';
 import { Header } from '@/components/shared/Header';
+import { DeepDiveDrawer } from '@/components/rag/DeepDiveDrawer';
 import { Step0BookImmersion } from '@/components/reading-engine/Step0BookImmersion';
 import { Step1ThinkAloud } from '@/components/reading-engine/Step1ThinkAloud';
 import { Step2GraphicOrganizer } from '@/components/reading-engine/Step2GraphicOrganizer';
@@ -36,6 +37,7 @@ export default function ReadArticlePage({ params }: { params: Promise<{ id: stri
   } = useReadingSession();
 
   const [showQR, setShowQR] = useState(false);
+  const [isDeepDiveOpen, setIsDeepDiveOpen] = useState(false);
   const [article, setArticleState] = useState<ReadingArticle | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -295,6 +297,14 @@ export default function ReadArticlePage({ params }: { params: Promise<{ id: stri
           </div>
         </div>
       )}
+
+      <DeepDiveDrawer
+        currentArticleId={article?.slug || article?.id}
+        articleTitle={article?.title}
+        isOpen={isDeepDiveOpen}
+        onOpenChange={setIsDeepDiveOpen}
+        buttonPositionClass="bottom-20 right-6"
+      />
     </div>
   );
 }

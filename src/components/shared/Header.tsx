@@ -100,6 +100,12 @@ export function Header() {
             icon={<Gamepad2 className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#0066ab] shrink-0" />}
             label="Đấu trường"
           />
+          <NavLink
+            href="/ask"
+            active={pathname?.startsWith('/ask')}
+            icon={<span className="text-sm sm:text-xs leading-none shrink-0">🦉</span>}
+            label="Hỏi đáp"
+          />
         </nav>
       </div>
     </header>
