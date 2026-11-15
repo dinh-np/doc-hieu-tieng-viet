@@ -53,6 +53,7 @@ export function Header() {
             active={pathname === '/'}
             icon={<Home className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" />}
             label="Trang chủ"
+            compactOnLg
           />
           <NavLink
             href="/read"
@@ -105,7 +106,7 @@ export function Header() {
             active={pathname?.startsWith('/ask')}
             highlight
             icon={<span className="text-sm sm:text-xs leading-none shrink-0">🦉</span>}
-            label="Hỏi đáp"
+            label="Hỏi - Đáp"
           />
         </nav>
       </div>
@@ -119,12 +120,14 @@ function NavLink({
   label,
   active,
   highlight,
+  compactOnLg,
 }: {
   href: string;
   icon: React.ReactNode;
   label: string;
   active?: boolean;
   highlight?: boolean;
+  compactOnLg?: boolean;
 }) {
   const stateClass = highlight
     ? active
@@ -142,7 +145,13 @@ function NavLink({
       className={`flex-1 sm:flex-initial flex items-center justify-center gap-1 xl:gap-1.5 px-2 lg:px-2.5 py-1.5 rounded-lg transition-all text-xs lg:text-[13px] font-medium shrink-0 ${stateClass}`}
     >
       {icon}
-      <span className="hidden md:inline whitespace-nowrap">{label}</span>
+      <span
+        className={`whitespace-nowrap ${
+          compactOnLg ? 'hidden md:inline lg:hidden xl:inline' : 'hidden md:inline'
+        }`}
+      >
+        {label}
+      </span>
     </Link>
   );
 }

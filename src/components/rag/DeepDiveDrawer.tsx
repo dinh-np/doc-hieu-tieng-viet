@@ -32,7 +32,7 @@ export function DeepDiveDrawer({
         title="Mở Cú Đôi Feynman để hỏi sâu kiến thức"
       >
         <span className="text-base leading-none">🦉</span>
-        <span>Hỏi Cú Đôi</span>
+        <span>Hỏi - Đáp</span>
       </button>
 
       {/* Slide-over Drawer (Desktop) & Bottom Sheet (Mobile) */}
