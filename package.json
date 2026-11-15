@@ -13,7 +13,8 @@
     "expand:thuanviet": "tsx scripts/expand_thuan_viet.ts --count=30",
     "seed:grammar": "tsx scripts/seed_grammar.ts",
     "seed:metacognition": "tsx scripts/seed_metacognition.ts",
-    "seed:proverbs": "tsx scripts/seed_proverbs.ts"
+    "seed:proverbs": "tsx scripts/seed_proverbs.ts",
+    "sync:rag": "tsx scripts/sync_knowledge_embeddings.ts"
   },
   "dependencies": {
     "@google/genai": "^2.32.0",
