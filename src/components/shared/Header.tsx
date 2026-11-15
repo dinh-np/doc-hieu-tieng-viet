@@ -12,20 +12,20 @@ export function Header() {
 
   return (
     <header className="no-print sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200 w-full">
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-2 lg:py-0 lg:h-14 flex flex-wrap lg:flex-nowrap items-center justify-between gap-x-2 gap-y-2">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 lg:py-0 lg:h-14 flex flex-wrap lg:flex-nowrap items-center justify-between gap-x-2 gap-y-2">
         {/* HÀNG 1 (Trái): Logo + Tên ứng dụng */}
-        <Link href="/" className="order-1 flex items-center gap-2 sm:gap-2.5 group shrink-0">
+        <Link href="/" className="order-1 flex items-center gap-2 group shrink-0">
           <div className="w-8 h-8 rounded-lg bg-[#0066ab] flex items-center justify-center shadow-sm shrink-0">
             <BookOpen className="w-4 h-4 text-white" />
           </div>
           <span className="font-bold text-sm tracking-tight flex flex-col sm:flex-row sm:items-center leading-tight">
             <span className="text-[#0066ab] whitespace-nowrap">Đọc Hiểu</span>
-            <span className="text-slate-600 sm:ml-1 whitespace-nowrap">Tiếng Việt</span>
+            <span className="text-slate-600 sm:ml-1 lg:hidden xl:inline whitespace-nowrap">Tiếng Việt</span>
           </span>
         </Link>
 
         {/* HÀNG 1 (Phải trên Mobile / Cuối trên Desktop): Nút Hộ chiếu + Nút Cài App (PWA) */}
-        <div className="order-2 lg:order-3 flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <div className="order-2 lg:order-3 flex items-center gap-1.5 shrink-0">
           <Link
             href="/passport"
             title="Hộ chiếu đọc hiểu"
@@ -46,7 +46,7 @@ export function Header() {
         {/* HÀNG 2 trên Mobile / Giữa trên Desktop: Dải icon điều hướng chính */}
         <nav
           aria-label="Điều hướng chính"
-          className="order-3 lg:order-2 w-full lg:w-auto flex items-center justify-between sm:justify-center gap-1 overflow-x-auto no-scrollbar border-t border-gray-100 pt-1.5 lg:border-t-0 lg:pt-0"
+          className="order-3 lg:order-2 w-full lg:w-auto flex items-center justify-between lg:justify-center gap-1 xl:gap-1.5 overflow-x-auto lg:overflow-visible no-scrollbar border-t border-gray-100 pt-1.5 lg:border-t-0 lg:pt-0"
         >
           <NavLink
             href="/"
@@ -103,6 +103,7 @@ export function Header() {
           <NavLink
             href="/ask"
             active={pathname?.startsWith('/ask')}
+            highlight
             icon={<span className="text-sm sm:text-xs leading-none shrink-0">🦉</span>}
             label="Hỏi đáp"
           />
@@ -117,22 +118,28 @@ function NavLink({
   icon,
   label,
   active,
+  highlight,
 }: {
   href: string;
   icon: React.ReactNode;
   label: string;
   active?: boolean;
+  highlight?: boolean;
 }) {
+  const stateClass = highlight
+    ? active
+      ? 'bg-amber-100 text-amber-900 border border-amber-300 font-bold shadow-2xs'
+      : 'bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100/80 font-semibold'
+    : active
+      ? 'bg-blue-50 text-[#0066ab] border border-blue-200/80 font-semibold'
+      : 'text-slate-600 hover:text-slate-800 hover:bg-gray-50 border border-transparent';
+
   return (
     <Link
       href={href}
       title={label}
       aria-label={label}
-      className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg transition-all text-xs font-medium shrink-0 ${
-        active
-          ? 'bg-blue-50 text-[#0066ab] border border-blue-200/80 font-semibold'
-          : 'text-slate-600 hover:text-slate-800 hover:bg-gray-50 border border-transparent'
-      }`}
+      className={`flex-1 sm:flex-initial flex items-center justify-center gap-1 xl:gap-1.5 px-2 lg:px-2.5 py-1.5 rounded-lg transition-all text-xs lg:text-[13px] font-medium shrink-0 ${stateClass}`}
     >
       {icon}
       <span className="hidden md:inline whitespace-nowrap">{label}</span>
