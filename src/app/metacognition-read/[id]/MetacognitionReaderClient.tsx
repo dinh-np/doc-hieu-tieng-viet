@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import confetti from 'canvas-confetti';
 import { cleanVietnameseText, deepNormalizeVietnamese } from '@/lib/utils/vietnamese-text';
@@ -96,11 +97,86 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
   const [isDeepDiveOpen, setIsDeepDiveOpen] = useState(false);
   const [deepDiveSelectedText, setDeepDiveSelectedText] = useState('');
 
-  // Từ Hán-Việt đang mở Pop-up giải nghĩa
+  // Từ Hán-Việt đang mở Pop-up giải nghĩa (định vị thông minh Auto-Flip + Portal)
   const [activeHanVietPopup, setActiveHanVietPopup] = useState<{
     chunkId: string;
     item: HanVietPopItem;
+    placement: 'top' | 'bottom';
+    left: number;
+    width: number;
+    top?: number;
+    bottom?: number;
   } | null>(null);
+
+  const openHanVietPopup = useCallback(
+    (
+      chunkId: string,
+      item: HanVietPopItem,
+      targetEl: HTMLElement,
+      toggle = false
+    ) => {
+      if (typeof window === 'undefined') return;
+      const isSame =
+        activeHanVietPopup?.chunkId === chunkId &&
+        cleanVietnameseText(activeHanVietPopup.item.term).toLowerCase() ===
+          cleanVietnameseText(item.term).toLowerCase();
+
+      if (toggle && isSame) {
+        setActiveHanVietPopup(null);
+        return;
+      }
+
+      const rect = targetEl.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const popupWidth = Math.min(viewportWidth >= 640 ? 320 : 288, viewportWidth - 24);
+      const clampedLeft = Math.max(
+        12,
+        Math.min(rect.left, viewportWidth - popupWidth - 12)
+      );
+      const placement: 'top' | 'bottom' = rect.top < 220 ? 'bottom' : 'top';
+
+      setActiveHanVietPopup({
+        chunkId,
+        item,
+        placement,
+        left: clampedLeft,
+        width: popupWidth,
+        top: placement === 'bottom' ? rect.bottom + 8 : undefined,
+        bottom: placement === 'top' ? window.innerHeight - rect.top + 8 : undefined,
+      });
+    },
+    [activeHanVietPopup]
+  );
+
+  // Tự động đóng Pop-up Hán-Việt khi bấm ra ngoài hoặc cuộn/đổi kích thước màn hình
+  useEffect(() => {
+    if (!activeHanVietPopup) return;
+
+    const handlePointerDown = (e: PointerEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (
+        target?.closest('[data-hanviet-popup="true"]') ||
+        target?.closest('[data-hanviet-trigger="true"]')
+      ) {
+        return;
+      }
+      setActiveHanVietPopup(null);
+    };
+
+    const handleViewportChange = () => {
+      setActiveHanVietPopup(null);
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    window.addEventListener('scroll', handleViewportChange, { passive: true });
+    window.addEventListener('resize', handleViewportChange);
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      window.removeEventListener('scroll', handleViewportChange);
+      window.removeEventListener('resize', handleViewportChange);
+    };
+  }, [activeHanVietPopup]);
 
   // State cho Pha 3: Evaluating
   const [qarAnswers, setQarAnswers] = useState<Record<number, string>>({});
@@ -435,13 +511,13 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
             <span key={idx} className="relative inline-block">
               <button
                 type="button"
-                onClick={() =>
-                  setActiveHanVietPopup(
-                    isOpen ? null : { chunkId: chunk.chunk_id, item: hvItem }
-                  )
+                data-hanviet-trigger="true"
+                aria-expanded={isOpen}
+                onClick={(e) =>
+                  openHanVietPopup(chunk.chunk_id, hvItem, e.currentTarget, true)
                 }
-                onMouseEnter={() =>
-                  setActiveHanVietPopup({ chunkId: chunk.chunk_id, item: hvItem })
+                onMouseEnter={(e) =>
+                  openHanVietPopup(chunk.chunk_id, hvItem, e.currentTarget, false)
                 }
                 className="font-extrabold text-[#0066ab] bg-blue-50 hover:bg-blue-100 px-1.5 py-0.5 rounded-md underline decoration-dashed decoration-[#0066ab] underline-offset-4 cursor-pointer transition-colors whitespace-nowrap"
                 title="Chạm để bẻ khóa từ Hán-Việt"
@@ -449,37 +525,6 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                 {innerText.normalize('NFC')}
                 <span className="ml-1 text-[10px] font-black text-amber-600 align-top">🔑</span>
               </button>
-
-              {isOpen && (
-                <span className="no-print absolute left-0 bottom-full mb-2 w-72 sm:w-80 p-3.5 rounded-2xl bg-slate-900 text-white shadow-xl border border-slate-700 z-50 text-left block space-y-1.5 font-sans">
-                  <span className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-black uppercase tracking-wider text-amber-400">
-                      🔑 Bẻ khóa Hán - Việt: {hvItem.term.normalize('NFC')}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveHanVietPopup(null);
-                      }}
-                      className="text-xs text-slate-400 hover:text-white"
-                    >
-                      ✕
-                    </button>
-                  </span>
-                  <span className="block text-xs font-extrabold text-emerald-300 bg-slate-800 px-2.5 py-1.5 rounded-lg">
-                    📐 {hvItem.formula.normalize('NFC')}
-                  </span>
-                  <span className="block text-xs text-slate-200 leading-relaxed">
-                    {hvItem.meaning.normalize('NFC')}
-                  </span>
-                  {hvItem.english_anchor && (
-                    <span className="inline-block text-[11px] font-bold text-sky-300 bg-sky-950/80 px-2 py-0.5 rounded border border-sky-700">
-                      🇬🇧 {hvItem.english_anchor.normalize('NFC')}
-                    </span>
-                  )}
-                </span>
-              )}
             </span>
           );
         }
@@ -714,10 +759,10 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
               return (
                 <div
                   key={chunk.chunk_id}
-                  className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden"
+                  className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-visible"
                 >
                   {/* Tiêu đề Chặng */}
-                  <div className="px-6 py-3.5 bg-slate-900 text-white flex flex-wrap items-center justify-between gap-2">
+                  <div className="px-6 py-3.5 bg-slate-900 text-white rounded-t-3xl flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2.5">
                       <span className="w-7 h-7 rounded-lg bg-[#0066ab] text-white font-black text-xs flex items-center justify-center">
                         #{chunk.order}
@@ -827,11 +872,9 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                               <button
                                 key={hv.term}
                                 type="button"
-                                onClick={() =>
-                                  setActiveHanVietPopup({
-                                    chunkId: chunk.chunk_id,
-                                    item: hv,
-                                  })
+                                data-hanviet-trigger="true"
+                                onClick={(e) =>
+                                  openHanVietPopup(chunk.chunk_id, hv, e.currentTarget, true)
                                 }
                                 className="px-3 py-1.5 rounded-xl bg-blue-50/80 hover:bg-blue-100 border border-blue-200 text-xs font-bold text-[#0066ab] transition-all flex items-center gap-1.5"
                               >
@@ -1457,6 +1500,61 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
         selectedText={deepDiveSelectedText}
         onClearSelectedText={() => setDeepDiveSelectedText('')}
       />
+
+      {/* Portal Pop-up Bẻ khóa Hán-Việt (Auto-Flip Top/Bottom & chống tràn mép) */}
+      {typeof document !== 'undefined' &&
+        activeHanVietPopup &&
+        createPortal(
+          <div
+            data-hanviet-popup="true"
+            role="dialog"
+            aria-label={`Bẻ khóa Hán - Việt: ${activeHanVietPopup.item.term.normalize('NFC')}`}
+            style={{
+              position: 'fixed',
+              left: `${activeHanVietPopup.left}px`,
+              width: `${activeHanVietPopup.width}px`,
+              top:
+                activeHanVietPopup.top !== undefined
+                  ? `${activeHanVietPopup.top}px`
+                  : undefined,
+              bottom:
+                activeHanVietPopup.bottom !== undefined
+                  ? `${activeHanVietPopup.bottom}px`
+                  : undefined,
+            }}
+            className="no-print print:hidden z-50 p-3.5 rounded-2xl bg-slate-900 text-white shadow-2xl border border-slate-700 text-left space-y-1.5 font-sans animate-fade-in-up"
+          >
+            <div className="flex items-start justify-between gap-2">
+              <span className="text-xs font-black uppercase tracking-wider text-amber-400 leading-snug">
+                🔑 Bẻ khóa Hán - Việt: {activeHanVietPopup.item.term.normalize('NFC')}
+              </span>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveHanVietPopup(null);
+                }}
+                className="text-xs font-bold text-slate-400 hover:text-white px-1.5 py-0.5 rounded hover:bg-slate-800 transition-colors shrink-0"
+                aria-label="Đóng pop-up từ khóa"
+                title="Đóng"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="text-xs font-extrabold text-emerald-300 bg-slate-800 px-2.5 py-1.5 rounded-lg">
+              📐 {activeHanVietPopup.item.formula.normalize('NFC')}
+            </div>
+            <div className="text-xs text-slate-200 leading-relaxed">
+              {activeHanVietPopup.item.meaning.normalize('NFC')}
+            </div>
+            {activeHanVietPopup.item.english_anchor && (
+              <div className="inline-block text-[11px] font-bold text-sky-300 bg-sky-950/80 px-2 py-0.5 rounded border border-sky-700">
+                🇬🇧 {activeHanVietPopup.item.english_anchor.normalize('NFC')}
+              </div>
+            )}
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
