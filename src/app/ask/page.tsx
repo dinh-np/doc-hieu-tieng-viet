@@ -8,7 +8,7 @@ export const revalidate = 0;
 export const metadata: Metadata = {
   title: 'Hỏi Đáp Đào Sâu Kiến Thức | Đọc Hiểu Tiếng Việt',
   description:
-    'Hỏi đáp cùng Cú Đôi Feynman kết nối toàn bộ kho Bài đọc, Từ điển Hán-Việt, Thuần Việt và Tục ngữ Việt Nam.',
+    'Hỏi đáp cùng Thầy Cú Feynman kết nối toàn bộ kho Bài đọc, Từ điển Hán-Việt, Thuần Việt và Tục ngữ Việt Nam.',
 };
 
 export default async function AskPage() {

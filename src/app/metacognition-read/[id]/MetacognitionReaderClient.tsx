@@ -92,7 +92,7 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
     text: string;
   } | null>(null);
 
-  // State cho Cú Đôi Feynman (Deep Dive Q&A Drawer)
+  // State cho Thầy Cú Feynman (Deep Dive Q&A Drawer)
   const [isDeepDiveOpen, setIsDeepDiveOpen] = useState(false);
   const [deepDiveSelectedText, setDeepDiveSelectedText] = useState('');
 
@@ -1448,7 +1448,7 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
         </div>
       </div>
 
-      {/* Nút nổi + Slide-over Drawer Hỏi Cú Đôi Feynman (ẩn khi in A4) */}
+      {/* Nút nổi + Slide-over Drawer Hỏi Thầy Cú Feynman (ẩn khi in A4) */}
       <DeepDiveDrawer
         currentArticleId={article.slug || article.id}
         articleTitle={article.title}

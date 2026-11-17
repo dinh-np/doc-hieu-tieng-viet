@@ -29,7 +29,7 @@ export function DeepDiveDrawer({
         type="button"
         onClick={() => onOpenChange(true)}
         className={`no-print print:hidden fixed ${buttonPositionClass} z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-[#0066ab] text-white text-xs sm:text-sm font-extrabold shadow-xl hover:scale-105 active:scale-95 transition-all border border-white/20`}
-        title="Mở Cú Đôi Feynman để hỏi sâu kiến thức"
+        title="Mở Thầy Cú Feynman để hỏi sâu kiến thức"
       >
         <span className="text-base leading-none">🦉</span>
         <span>Hỏi - Đáp</span>

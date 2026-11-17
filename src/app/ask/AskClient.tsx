@@ -38,7 +38,7 @@ export default function AskClient({ articles }: AskClientProps) {
               <span>Kiến Thức</span>
             </h1>
             <p className="text-xs sm:text-sm text-slate-600">
-              Trò chuyện cùng Cú Đôi Feynman — kết nối thông minh từ Bài đọc, Từ điển Hán-Việt/Thuần Việt &amp; Tục ngữ Việt Nam
+              Trò chuyện cùng Thầy Cú Feynman — kết nối thông minh từ Bài đọc, Từ điển Hán-Việt/Thuần Việt &amp; Tục ngữ Việt Nam
             </p>
           </div>
 

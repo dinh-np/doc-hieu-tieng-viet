@@ -63,7 +63,7 @@ export function TextSelectionToolbar({
           type="button"
           onClick={() => onAskDeepDive(selectedText)}
           className="px-3 py-1 rounded-lg text-xs font-black bg-[#0066ab] text-white border border-blue-400 hover:bg-blue-700 transition-transform hover:scale-105 inline-flex items-center gap-1"
-          title="Hỏi - Đáp cùng Cú Đôi về đoạn chữ vừa bôi đen"
+          title="Hỏi - Đáp cùng Thầy Cú về đoạn chữ vừa bôi đen"
         >
           🦉 Hỏi - Đáp
         </button>
@@ -243,7 +243,7 @@ export function MarkedHighlightsList({
                     type="button"
                     onClick={() => onAskDeepDive(hl.text)}
                     className="px-2 py-1 rounded-lg bg-[#0066ab]/10 text-[#0066ab] hover:bg-[#0066ab]/20 font-bold text-[11px] transition-colors"
-                    title="Hỏi - Đáp cùng Cú Đôi về đoạn này"
+                    title="Hỏi - Đáp cùng Thầy Cú về đoạn này"
                   >
                     🦉 Hỏi - Đáp
                   </button>
