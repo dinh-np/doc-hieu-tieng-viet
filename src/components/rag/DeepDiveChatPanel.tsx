@@ -6,7 +6,6 @@ import {
   Sparkles,
   X,
   BookOpen,
-  Scissors,
   RotateCcw,
   ChevronDown,
   ChevronUp,
@@ -237,6 +236,7 @@ export function DeepDiveChatPanel({
   const handleResetChat = () => {
     setMessages([]);
     setErrorMsg(null);
+    onClearSelectedText?.();
     try {
       sessionStorage.removeItem(storageKey);
     } catch {
@@ -279,49 +279,52 @@ export function DeepDiveChatPanel({
         )}
       </div>
 
+      {/* Thanh ghim cố định: Đoạn văn đang phân tích (hiển thị xuyên suốt hội thoại) */}
+      {initialSelectedText && (
+        <div className="bg-amber-50/95 border-b border-amber-200 px-3.5 py-2.5 shrink-0 space-y-1.5">
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-[11px] font-black uppercase tracking-wider text-amber-800">
+              ✂️ ĐOẠN VĂN ĐANG PHÂN TÍCH:
+            </span>
+            {onClearSelectedText && (
+              <button
+                type="button"
+                onClick={onClearSelectedText}
+                className="inline-flex items-center gap-0.5 text-[11px] font-bold text-amber-700 hover:text-amber-950 px-1.5 py-0.5 rounded hover:bg-amber-200/50 transition-colors shrink-0"
+                title="Bỏ chọn đoạn văn đang phân tích"
+              >
+                × Bỏ chọn
+              </button>
+            )}
+          </div>
+          <div className="max-h-28 overflow-y-auto pr-1 text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed whitespace-pre-wrap break-words">
+            &ldquo;{cleanVietnameseText(initialSelectedText)}&rdquo;
+          </div>
+        </div>
+      )}
+
       {/* Vùng hiển thị tin nhắn */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50/40">
         {messages.length === 0 ? (
           <div className="space-y-4 py-2">
-            <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50/70 border border-blue-200/80 p-4 space-y-2.5">
+            <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50/70 border border-blue-200/80 p-4 space-y-2">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#0066ab] shrink-0" />
                 <span className="text-xs font-black uppercase tracking-wider text-[#0066ab]">
-                  CHÀO CON! THẦY CÚ SẴN SÀNG GIẢI MÃ
+                  THẦY CÚ SẴN SÀNG GIẢI MÃ
                 </span>
               </div>
-              {initialSelectedText ? (
-                <div className="space-y-2">
-                  <div className="flex items-start justify-between gap-2 rounded-xl bg-white/85 border border-blue-200/90 px-3 py-2 shadow-2xs">
-                    <p className="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed">
-                      ✂️ Đoạn con đang đánh dấu:{' '}
-                      <span className="font-bold text-[#0066ab]">
-                        &ldquo;{cleanVietnameseText(initialSelectedText)}&rdquo;
-                      </span>
-                    </p>
-                    {onClearSelectedText && (
-                      <button
-                        type="button"
-                        onClick={onClearSelectedText}
-                        className="text-slate-400 hover:text-slate-700 p-0.5 shrink-0"
-                        title="Bỏ đoạn đang đánh dấu"
-                        aria-label="Bỏ đoạn đang đánh dấu"
-                      >
-                        <X className="w-3.5 h-3.5" />
-                      </button>
-                    )}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                    Chọn một gợi ý bên dưới hoặc gõ câu hỏi để Thầy Cú giải mã ngay nhé!
-                  </p>
-                </div>
-              ) : (
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
-                  Hãy hỏi bất cứ điều gì con đang thắc mắc! Thầy Cú sẽ lục tìm trong{' '}
-                  <strong>Bài đọc</strong>, <strong>Từ điển Hán-Việt / Thuần Việt</strong> và{' '}
-                  <strong>Kho Tục ngữ</strong> để giải thích cực dễ hiểu nhé.
-                </p>
-              )}
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                {initialSelectedText ? (
+                  'Con hãy chọn một gợi ý bên dưới hoặc gõ câu hỏi về đoạn văn đã đánh dấu ở trên nhé!'
+                ) : (
+                  <>
+                    Hãy hỏi bất cứ điều gì con đang thắc mắc! Thầy Cú sẽ lục tìm trong{' '}
+                    <strong>Bài đọc</strong>, <strong>Từ điển Hán-Việt / Thuần Việt</strong> và{' '}
+                    <strong>Kho Tục ngữ</strong> để giải thích cực dễ hiểu nhé.
+                  </>
+                )}
+              </p>
             </div>
 
             <div className="space-y-2">
@@ -458,34 +461,10 @@ export function DeepDiveChatPanel({
 
       {/* Banner ngữ cảnh & Khung nhập liệu */}
       <div className="border-t border-gray-200 bg-white p-3 space-y-2 shrink-0">
-        {(articleTitle || initialSelectedText) && (
-          <div className="space-y-1.5">
-            {articleTitle && (
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50/80 border border-blue-200/70 text-[11px] text-[#0066ab] font-semibold">
-                <BookOpen className="w-3 h-3 shrink-0" />
-                <span className="truncate">Đang thảo luận bài: {articleTitle}</span>
-              </div>
-            )}
-            {initialSelectedText && (
-              <div className="flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-[11px] text-amber-900">
-                <div className="flex items-center gap-1.5 min-w-0">
-                  <Scissors className="w-3 h-3 text-amber-700 shrink-0" />
-                  <span className="truncate font-semibold">
-                    Đoạn đang bôi đen: &ldquo;{initialSelectedText}&rdquo;
-                  </span>
-                </div>
-                {onClearSelectedText && (
-                  <button
-                    type="button"
-                    onClick={onClearSelectedText}
-                    className="text-amber-700 hover:text-amber-950 p-0.5 shrink-0"
-                    title="Bỏ đoạn đang bôi đen"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                )}
-              </div>
-            )}
+        {articleTitle && (
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50/80 border border-blue-200/70 text-[11px] text-[#0066ab] font-semibold">
+            <BookOpen className="w-3 h-3 shrink-0" />
+            <span className="truncate">Đang thảo luận bài: {articleTitle}</span>
           </div>
         )}
 
