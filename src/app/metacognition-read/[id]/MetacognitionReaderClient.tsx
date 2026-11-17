@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { Header } from '@/components/shared/Header';
 import { DeepDiveDrawer } from '@/components/rag/DeepDiveDrawer';
+import { TextSelectionToolbar } from '@/components/reading/TextSelectionToolbar';
 import {
   MARKING_SYMBOLS_META,
   type MarkingSymbol,
@@ -760,47 +761,17 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
 
                         {/* Thanh công cụ nổi khi học sinh bôi đen một cụm từ */}
                         {isSelectionInThisChunk && pendingSelection && (
-                          <div className="p-3.5 rounded-2xl bg-slate-900 text-white space-y-2 shadow-lg animate-fade-in-up">
-                            <div className="flex items-center justify-between gap-2">
-                              <span className="text-xs font-bold text-amber-300 truncate">
-                                🖍️ Gắn ký hiệu cho đoạn: &ldquo;{pendingSelection.text}&rdquo;
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => setPendingSelection(null)}
-                                className="text-xs text-slate-400 hover:text-white"
-                              >
-                                Đóng ✕
-                              </button>
-                            </div>
-                            <div className="flex flex-wrap gap-1.5">
-                              {ALL_SYMBOLS.map((sym) => {
-                                const meta = MARKING_SYMBOLS_META[sym];
-                                return (
-                                  <button
-                                    key={sym}
-                                    type="button"
-                                    onClick={() => handleAttachSymbolToSelection(sym)}
-                                    className={`px-2.5 py-1 rounded-lg text-xs font-black border transition-transform hover:scale-105 ${meta.badgeClass}`}
-                                  >
-                                    {meta.shortDesc}
-                                  </button>
-                                );
-                              })}
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setDeepDiveSelectedText(pendingSelection.text);
-                                  setPendingSelection(null);
-                                  setIsDeepDiveOpen(true);
-                                }}
-                                className="px-3 py-1 rounded-lg text-xs font-black bg-[#0066ab] text-white border border-blue-400 hover:bg-blue-700 transition-transform hover:scale-105 inline-flex items-center gap-1"
-                                title="Hỏi - Đáp cùng Cú Đôi về đoạn chữ vừa bôi đen"
-                              >
-                                🦉 Hỏi - Đáp
-                              </button>
-                            </div>
-                          </div>
+                          <TextSelectionToolbar
+                            variant="inline"
+                            selectedText={pendingSelection.text}
+                            onSelectSymbol={handleAttachSymbolToSelection}
+                            onAskDeepDive={(text) => {
+                              setDeepDiveSelectedText(text);
+                              setPendingSelection(null);
+                              setIsDeepDiveOpen(true);
+                            }}
+                            onClose={() => setPendingSelection(null)}
+                          />
                         )}
 
                         {/* Danh sách các cụm từ con đã bôi đen đánh dấu trong chặng */}

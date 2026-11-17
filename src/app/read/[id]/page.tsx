@@ -1,11 +1,16 @@
 'use client';
 
 
-import { useState, useEffect, useCallback, use } from 'react';
+import { useState, useEffect, useCallback, useRef, use } from 'react';
 import { useRouter } from 'next/navigation';
 import { QrCode, X, CheckCircle2, Users } from 'lucide-react';
 import { Header } from '@/components/shared/Header';
 import { DeepDiveDrawer } from '@/components/rag/DeepDiveDrawer';
+import {
+  TextSelectionToolbar,
+  useReadingTextSelection,
+  MarkedHighlightsList,
+} from '@/components/reading/TextSelectionToolbar';
 import { Step0BookImmersion } from '@/components/reading-engine/Step0BookImmersion';
 import { Step1ThinkAloud } from '@/components/reading-engine/Step1ThinkAloud';
 import { Step2GraphicOrganizer } from '@/components/reading-engine/Step2GraphicOrganizer';
@@ -38,8 +43,22 @@ export default function ReadArticlePage({ params }: { params: Promise<{ id: stri
 
   const [showQR, setShowQR] = useState(false);
   const [isDeepDiveOpen, setIsDeepDiveOpen] = useState(false);
+  const [deepDiveSelectedText, setDeepDiveSelectedText] = useState<string | undefined>(undefined);
   const [article, setArticleState] = useState<ReadingArticle | null>(null);
   const [loading, setLoading] = useState(true);
+  const readingAreaRef = useRef<HTMLDivElement>(null);
+
+  const {
+    selectedText,
+    highlights,
+    readSelectionIfInside,
+    clearSelection,
+    addHighlight,
+    removeHighlight,
+  } = useReadingTextSelection({
+    articleId: article?.slug || article?.id || id,
+    containerRef: readingAreaRef,
+  });
 
   useEffect(() => {
     async function fetchArticle() {
@@ -204,7 +223,12 @@ export default function ReadArticlePage({ params }: { params: Promise<{ id: stri
         </div>
 
         {/* Step content */}
-        <div className="card rounded-2xl p-6">
+        <div
+          ref={readingAreaRef}
+          onMouseUp={readSelectionIfInside}
+          onTouchEnd={readSelectionIfInside}
+          className="card rounded-2xl p-6 select-text"
+        >
           {activeStep === 0 && (
             <Step0BookImmersion
               article={article}
@@ -246,7 +270,30 @@ export default function ReadArticlePage({ params }: { params: Promise<{ id: stri
             />
           )}
         </div>
+
+        <MarkedHighlightsList
+          highlights={highlights}
+          onRemove={removeHighlight}
+          onAskDeepDive={(text) => {
+            setDeepDiveSelectedText(text);
+            setIsDeepDiveOpen(true);
+          }}
+        />
       </main>
+
+      {selectedText && (
+        <TextSelectionToolbar
+          variant="floating"
+          selectedText={selectedText}
+          onSelectSymbol={addHighlight}
+          onAskDeepDive={(text) => {
+            setDeepDiveSelectedText(text);
+            clearSelection();
+            setIsDeepDiveOpen(true);
+          }}
+          onClose={clearSelection}
+        />
+      )}
 
       {/* Floating QR button */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
@@ -303,6 +350,8 @@ export default function ReadArticlePage({ params }: { params: Promise<{ id: stri
         articleTitle={article?.title}
         isOpen={isDeepDiveOpen}
         onOpenChange={setIsDeepDiveOpen}
+        selectedText={deepDiveSelectedText}
+        onClearSelectedText={() => setDeepDiveSelectedText(undefined)}
         buttonPositionClass="bottom-20 right-6"
       />
     </div>
