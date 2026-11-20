@@ -10,6 +10,9 @@ import {
   ChevronDown,
   ChevronUp,
   Loader2,
+  Copy,
+  Check,
+  Network,
 } from 'lucide-react';
 import { cleanVietnameseText } from '@/lib/utils/vietnamese-text';
 
@@ -29,6 +32,7 @@ export interface RagChatMessage {
   role: 'user' | 'assistant';
   content: string;
   sources?: RagSourceItem[];
+  isMindmap?: boolean;
 }
 
 interface DeepDiveChatPanelProps {
@@ -37,6 +41,8 @@ interface DeepDiveChatPanelProps {
   initialSelectedText?: string;
   onClearSelectedText?: () => void;
   mode?: 'drawer' | 'page';
+  fullArticleContent?: string;
+  showMindmapAction?: boolean;
 }
 
 const QUICK_PROMPTS = [
@@ -121,15 +127,69 @@ function RichMessageContent({ text }: { text: string }) {
         if (!trimmed) {
           return <div key={idx} className="h-1" />;
         }
-        if (/^[-*•]\s+/.test(trimmed)) {
-          const content = trimmed.replace(/^[-*•]\s+/, '');
+
+        // Gốc Mindmap: # 🎯 ...
+        if (/^#\s+/.test(trimmed)) {
+          const headingText = trimmed.replace(/^#\s+/, '');
           return (
-            <div key={idx} className="flex items-start gap-2 pl-1">
-              <span className="text-[#0066ab] font-bold mt-0.5">•</span>
-              <div className="flex-1">{renderFormattedLine(content, `li-${idx}`)}</div>
+            <div
+              key={idx}
+              className="rounded-xl bg-amber-50 border border-amber-200 px-3 py-2 text-sm font-black text-amber-950 shadow-2xs"
+            >
+              {renderFormattedLine(headingText, `h1-${idx}`)}
             </div>
           );
         }
+
+        // Nhánh chính Cấp 1: ## 📌 ...
+        if (/^##\s+/.test(trimmed)) {
+          const branchText = trimmed.replace(/^##\s+/, '');
+          return (
+            <div
+              key={idx}
+              className="mt-2.5 pt-2 border-t border-slate-100 text-xs sm:text-sm font-extrabold text-[#0066ab]"
+            >
+              {renderFormattedLine(branchText, `h2-${idx}`)}
+            </div>
+          );
+        }
+
+        // Nhánh phụ Cấp 2, 3, 4 (hỗ trợ thụt lề 2–4 khoảng trắng với vạch dẫn hướng dọc)
+        const bulletMatch = line.match(/^(\s*)[-*•]\s+(.*)$/);
+        if (bulletMatch) {
+          const leadingSpaces = bulletMatch[1].replace(/\t/g, '  ').length;
+          const level = Math.min(4, Math.floor(leadingSpaces / 2));
+          const content = bulletMatch[2].trim();
+
+          if (level === 0) {
+            return (
+              <div key={idx} className="flex items-start gap-2 pl-1">
+                <span className="text-[#0066ab] font-bold mt-0.5">•</span>
+                <div className="flex-1">{renderFormattedLine(content, `li-${idx}`)}</div>
+              </div>
+            );
+          }
+
+          const indentMargin =
+            level === 1
+              ? 'ml-3'
+              : level === 2
+                ? 'ml-6'
+                : level === 3
+                  ? 'ml-9'
+                  : 'ml-12';
+
+          return (
+            <div
+              key={idx}
+              className={`${indentMargin} border-l-2 border-amber-200 pl-3 py-0.5 flex items-start gap-2 text-xs sm:text-[13px]`}
+            >
+              <span className="text-amber-600 font-bold mt-0.5">◦</span>
+              <div className="flex-1">{renderFormattedLine(content, `li-sub-${idx}`)}</div>
+            </div>
+          );
+        }
+
         return <p key={idx}>{renderFormattedLine(trimmed, `p-${idx}`)}</p>;
       })}
     </div>
@@ -142,6 +202,8 @@ export function DeepDiveChatPanel({
   initialSelectedText,
   onClearSelectedText,
   mode = 'drawer',
+  fullArticleContent,
+  showMindmapAction = false,
 }: DeepDiveChatPanelProps) {
   const storageKey = `deepdive_rag_chat_${currentArticleId || 'global'}`;
   const [messages, setMessages] = useState<RagChatMessage[]>([]);
@@ -149,6 +211,7 @@ export function DeepDiveChatPanel({
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [expandedSourceKey, setExpandedSourceKey] = useState<string | null>(null);
+  const [copiedMsgId, setCopiedMsgId] = useState<string | null>(null);
   const scrollBottomRef = useRef<HTMLDivElement | null>(null);
 
   // Tải lại lịch sử chat tạm thời theo bài học từ sessionStorage
@@ -181,7 +244,10 @@ export function DeepDiveChatPanel({
     scrollBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
-  const handleSend = async (customQuestion?: string) => {
+  const handleSend = async (
+    customQuestion?: string,
+    requestMode: 'default' | 'mindmap' = 'default'
+  ) => {
     const qText = cleanVietnameseText(customQuestion ?? input).trim();
     if (!qText || loading) return;
 
@@ -205,6 +271,8 @@ export function DeepDiveChatPanel({
           question: qText,
           currentArticleId: currentArticleId || undefined,
           selectedText: initialSelectedText || undefined,
+          fullArticleContent: fullArticleContent || undefined,
+          mode: requestMode,
           chatHistory: messages.slice(-6).map((m) => ({
             role: m.role,
             content: m.content,
@@ -217,11 +285,19 @@ export function DeepDiveChatPanel({
         throw new Error(data.error || 'Không thể kết nối Thầy Cú Feynman lúc này.');
       }
 
+      const answerContent = cleanVietnameseText(data.answer || '');
+      const isMindmapResponse =
+        requestMode === 'mindmap' ||
+        data.mode === 'mindmap' ||
+        answerContent.includes('# 🎯') ||
+        answerContent.includes('## 📌');
+
       const aiMsg: RagChatMessage = {
         id: `a-${Date.now()}`,
         role: 'assistant',
-        content: cleanVietnameseText(data.answer || ''),
+        content: answerContent,
         sources: Array.isArray(data.sources) ? data.sources : [],
+        isMindmap: isMindmapResponse,
       };
       setMessages((prev) => [...prev, aiMsg]);
     } catch (err) {
@@ -230,6 +306,18 @@ export function DeepDiveChatPanel({
       );
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleCopyMindmap = async (msg: RagChatMessage) => {
+    try {
+      await navigator.clipboard.writeText(cleanVietnameseText(msg.content));
+      setCopiedMsgId(msg.id);
+      setTimeout(() => {
+        setCopiedMsgId((prev) => (prev === msg.id ? null : prev));
+      }, 2000);
+    } catch {
+      // ignore clipboard errors
     }
   };
 
@@ -278,6 +366,27 @@ export function DeepDiveChatPanel({
           </button>
         )}
       </div>
+
+      {/* Nút cố định tạo Sơ đồ tư duy dạng thụt lề (hiển thị khi bật showMindmapAction) */}
+      {showMindmapAction && (
+        <div className="px-3.5 py-2 bg-gradient-to-r from-amber-50 via-yellow-50/90 to-amber-50 border-b border-amber-200/80 shrink-0">
+          <button
+            type="button"
+            disabled={loading}
+            onClick={() =>
+              handleSend(
+                'Tóm tắt bài đọc thành sơ đồ tư duy dạng thụt lề',
+                'mindmap'
+              )
+            }
+            className="w-full flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-white text-xs sm:text-[13px] font-extrabold shadow-xs transition-all cursor-pointer"
+            title="Tạo sơ đồ tư duy dạng thụt lề để đối chiếu với bản tóm tắt tay trên giấy"
+          >
+            <Network className="w-4 h-4 shrink-0" />
+            <span>🌳 Tóm tắt bài đọc thành sơ đồ tư duy dạng thụt lề</span>
+          </button>
+        </div>
+      )}
 
       {/* Thanh ghim cố định: Đoạn văn đang phân tích (hiển thị xuyên suốt hội thoại) */}
       {initialSelectedText && (
@@ -346,99 +455,134 @@ export function DeepDiveChatPanel({
             </div>
           </div>
         ) : (
-          messages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`flex flex-col ${
-                msg.role === 'user' ? 'items-end' : 'items-start'
-              }`}
-            >
-              {msg.role === 'user' ? (
-                <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-[#0066ab] text-white px-4 py-2.5 text-sm leading-relaxed shadow-xs">
-                  {cleanVietnameseText(msg.content)}
-                </div>
-              ) : (
-                <div className="max-w-[95%] w-full space-y-2">
-                  <div className="rounded-2xl rounded-bl-sm bg-white border border-gray-200 px-4 py-3 shadow-2xs">
-                    <div className="flex items-center gap-1.5 mb-1.5">
-                      <span className="text-sm">🦉</span>
-                      <span className="text-[11px] font-black uppercase tracking-wider text-[#0066ab]">
-                        THẦY CÚ FEYNMAN
-                      </span>
-                    </div>
-                    <RichMessageContent text={msg.content} />
-                  </div>
+          messages.map((msg) => {
+            const isMindmapMsg =
+              msg.isMindmap ||
+              msg.content.includes('# 🎯') ||
+              msg.content.includes('## 📌');
 
-                  {/* Nguồn tham chiếu (Sources) */}
-                  {msg.sources && msg.sources.length > 0 && (
-                    <div className="pl-1 space-y-1.5">
-                      <p className="text-[11px] font-bold text-slate-400">
-                        📚 Nguồn tri thức đã kết nối ({msg.sources.length}):
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
+            return (
+              <div
+                key={msg.id}
+                className={`flex flex-col ${
+                  msg.role === 'user' ? 'items-end' : 'items-start'
+                }`}
+              >
+                {msg.role === 'user' ? (
+                  <div className="max-w-[85%] rounded-2xl rounded-br-sm bg-[#0066ab] text-white px-4 py-2.5 text-sm leading-relaxed shadow-xs">
+                    {cleanVietnameseText(msg.content)}
+                  </div>
+                ) : (
+                  <div className="max-w-[96%] w-full space-y-2">
+                    <div className="rounded-2xl rounded-bl-sm bg-white border border-gray-200 px-4 py-3 shadow-2xs">
+                      <div className="flex items-center justify-between gap-2 mb-1.5">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-sm">🦉</span>
+                          <span className="text-[11px] font-black uppercase tracking-wider text-[#0066ab]">
+                            THẦY CÚ FEYNMAN
+                          </span>
+                          {isMindmapMsg && (
+                            <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200 text-[10px] font-extrabold">
+                              🌳 Mindmap thụt lề
+                            </span>
+                          )}
+                        </div>
+
+                        {isMindmapMsg && (
+                          <button
+                            type="button"
+                            onClick={() => handleCopyMindmap(msg)}
+                            className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 text-[11px] font-bold transition-colors"
+                            title="Sao chép sơ đồ tư duy dạng thụt lề"
+                          >
+                            {copiedMsgId === msg.id ? (
+                              <>
+                                <Check className="w-3 h-3 text-emerald-600" />
+                                <span>Đã copy</span>
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="w-3 h-3" />
+                                <span>📋 Copy Mindmap</span>
+                              </>
+                            )}
+                          </button>
+                        )}
+                      </div>
+                      <RichMessageContent text={msg.content} />
+                    </div>
+
+                    {/* Nguồn tham chiếu (Sources) */}
+                    {msg.sources && msg.sources.length > 0 && (
+                      <div className="pl-1 space-y-1.5">
+                        <p className="text-[11px] font-bold text-slate-400">
+                          📚 Nguồn tri thức đã kết nối ({msg.sources.length}):
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {msg.sources.map((src, sIdx) => {
+                            const style = SOURCE_BADGE_STYLES[src.source_type] || {
+                              icon: '📎',
+                              badgeClass: 'bg-slate-100 text-slate-700 border-slate-200',
+                            };
+                            const sKey = `${msg.id}-${src.id}-${sIdx}`;
+                            const isExpanded = expandedSourceKey === sKey;
+                            return (
+                              <button
+                                key={sKey}
+                                type="button"
+                                onClick={() =>
+                                  setExpandedSourceKey(isExpanded ? null : sKey)
+                                }
+                                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold border transition-all hover:opacity-90 ${style.badgeClass}`}
+                                title="Bấm để xem đoạn trích nguồn"
+                              >
+                                <span>{style.icon}</span>
+                                <span className="truncate max-w-[180px]">
+                                  {src.source_label}: {src.title}
+                                </span>
+                                {src.content_chunk &&
+                                  (isExpanded ? (
+                                    <ChevronUp className="w-3 h-3 shrink-0" />
+                                  ) : (
+                                    <ChevronDown className="w-3 h-3 shrink-0" />
+                                  ))}
+                              </button>
+                            );
+                          })}
+                        </div>
+
+                        {/* Trích đoạn gốc khi bấm vào nguồn */}
                         {msg.sources.map((src, sIdx) => {
-                          const style = SOURCE_BADGE_STYLES[src.source_type] || {
-                            icon: '📎',
-                            badgeClass: 'bg-slate-100 text-slate-700 border-slate-200',
-                          };
                           const sKey = `${msg.id}-${src.id}-${sIdx}`;
-                          const isExpanded = expandedSourceKey === sKey;
+                          if (expandedSourceKey !== sKey || !src.content_chunk) return null;
                           return (
-                            <button
-                              key={sKey}
-                              type="button"
-                              onClick={() =>
-                                setExpandedSourceKey(isExpanded ? null : sKey)
-                              }
-                              className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold border transition-all hover:opacity-90 ${style.badgeClass}`}
-                              title="Bấm để xem đoạn trích nguồn"
+                            <div
+                              key={`${sKey}-detail`}
+                              className="p-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 leading-relaxed whitespace-pre-line shadow-2xs"
                             >
-                              <span>{style.icon}</span>
-                              <span className="truncate max-w-[180px]">
-                                {src.source_label}: {src.title}
-                              </span>
-                              {src.content_chunk &&
-                                (isExpanded ? (
-                                  <ChevronUp className="w-3 h-3 shrink-0" />
-                                ) : (
-                                  <ChevronDown className="w-3 h-3 shrink-0" />
-                                ))}
-                            </button>
+                              <div className="flex items-center justify-between gap-2 mb-1">
+                                <span className="font-bold text-slate-800">
+                                  {src.title} ({Math.round(src.similarity * 100)}% khớp)
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => setExpandedSourceKey(null)}
+                                  className="text-slate-400 hover:text-slate-700"
+                                >
+                                  <X className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                              {cleanVietnameseText(src.content_chunk)}
+                            </div>
                           );
                         })}
                       </div>
-
-                      {/* Trích đoạn gốc khi bấm vào nguồn */}
-                      {msg.sources.map((src, sIdx) => {
-                        const sKey = `${msg.id}-${src.id}-${sIdx}`;
-                        if (expandedSourceKey !== sKey || !src.content_chunk) return null;
-                        return (
-                          <div
-                            key={`${sKey}-detail`}
-                            className="p-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-600 leading-relaxed whitespace-pre-line shadow-2xs"
-                          >
-                            <div className="flex items-center justify-between gap-2 mb-1">
-                              <span className="font-bold text-slate-800">
-                                {src.title} ({Math.round(src.similarity * 100)}% khớp)
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() => setExpandedSourceKey(null)}
-                                className="text-slate-400 hover:text-slate-700"
-                              >
-                                <X className="w-3.5 h-3.5" />
-                              </button>
-                            </div>
-                            {cleanVietnameseText(src.content_chunk)}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          ))
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })
         )}
 
         {loading && (
@@ -501,4 +645,3 @@ export function DeepDiveChatPanel({
     </div>
   );
 }
-

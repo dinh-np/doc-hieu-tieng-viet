@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, Search, Home, Bookmark, Gamepad2, Dna, Brain, ScrollText } from 'lucide-react';
+import { BookOpen, Search, Home, Bookmark, Gamepad2, Dna, Brain, ScrollText, Library } from 'lucide-react';
 import { InstallAppButton } from '@/components/InstallAppButton';
 
 export function Header() {
@@ -78,6 +78,12 @@ export function Header() {
             label="Siêu Nhận Thức"
           />
           <NavLink
+            href="/long-read"
+            active={pathname?.startsWith('/long-read')}
+            icon={<Library className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#0066ab] shrink-0" />}
+            label="Đọc dài"
+          />
+          <NavLink
             href="/dictionary"
             active={pathname?.startsWith('/dictionary')}
             icon={<Search className="w-4 h-4 sm:w-3.5 sm:h-3.5 shrink-0" />}
@@ -142,7 +148,7 @@ function NavLink({
       href={href}
       title={label}
       aria-label={label}
-      className={`flex-1 sm:flex-initial flex items-center justify-center gap-1 xl:gap-1.5 px-2 lg:px-2.5 py-1.5 rounded-lg transition-all text-xs lg:text-[13px] font-medium shrink-0 ${stateClass}`}
+      className={`flex-1 sm:flex-initial flex items-center justify-center gap-1 xl:gap-1.5 px-1.5 lg:px-2 xl:px-2.5 py-1.5 rounded-lg transition-all text-xs lg:text-[12.5px] xl:text-[13px] font-medium shrink-0 ${stateClass}`}
     >
       {icon}
       <span
