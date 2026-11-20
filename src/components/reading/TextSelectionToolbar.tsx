@@ -39,6 +39,7 @@ export function TextSelectionToolbar({
         </span>
         <button
           type="button"
+          onMouseDown={(e) => e.preventDefault()}
           onClick={onClose}
           className="text-xs text-slate-400 hover:text-white shrink-0"
         >
@@ -52,6 +53,7 @@ export function TextSelectionToolbar({
             <button
               key={sym}
               type="button"
+              onMouseDown={(e) => e.preventDefault()}
               onClick={() => onSelectSymbol(sym)}
               className={`px-2.5 py-1 rounded-lg text-xs font-black border transition-transform hover:scale-105 ${meta.badgeClass}`}
             >
@@ -61,6 +63,7 @@ export function TextSelectionToolbar({
         })}
         <button
           type="button"
+          onMouseDown={(e) => e.preventDefault()}
           onClick={() => onAskDeepDive(selectedText)}
           className="px-3 py-1 rounded-lg text-xs font-black bg-[#0066ab] text-white border border-blue-400 hover:bg-blue-700 transition-transform hover:scale-105 inline-flex items-center gap-1"
           title="Hỏi - Đáp cùng Thầy Cú về đoạn chữ vừa bôi đen"
@@ -75,11 +78,15 @@ export function TextSelectionToolbar({
 interface UseReadingTextSelectionOptions {
   articleId?: string;
   containerRef: RefObject<HTMLElement | null>;
+  extraContainerRefs?: RefObject<HTMLElement | null>[];
+  allowContentEditable?: boolean;
 }
 
 export function useReadingTextSelection({
   articleId,
   containerRef,
+  extraContainerRefs,
+  allowContentEditable = false,
 }: UseReadingTextSelectionOptions) {
   const [selectedText, setSelectedText] = useState<string | null>(null);
   const [highlights, setHighlights] = useState<TextHighlightAnnotation[]>([]);
@@ -116,35 +123,45 @@ export function useReadingTextSelection({
 
   const readSelectionIfInside = useCallback(() => {
     if (typeof window === 'undefined') return;
-    const container = containerRef.current;
-    if (!container) return;
+    const containers = [
+      containerRef.current,
+      ...(extraContainerRefs || []).map((r) => r.current),
+    ].filter((el): el is HTMLElement => Boolean(el));
+
+    if (containers.length === 0) return;
 
     const sel = window.getSelection();
     if (!sel || sel.isCollapsed) return;
 
     const anchorNode = sel.anchorNode;
     const focusNode = sel.focusNode;
-    if (
-      !anchorNode ||
-      !focusNode ||
-      !container.contains(anchorNode) ||
-      !container.contains(focusNode)
-    ) {
-      return;
-    }
+    if (!anchorNode || !focusNode) return;
 
-    // Không kích hoạt khi đang bôi đen bên trong textarea/input
+    const isInsideAny = containers.some(
+      (c) => c.contains(anchorNode) && c.contains(focusNode)
+    );
+    if (!isInsideAny) return;
+
+    // Không kích hoạt khi đang bôi đen bên trong textarea, input hoặc thanh toolbar soạn thảo
     const anchorEl =
       anchorNode.nodeType === Node.ELEMENT_NODE
         ? (anchorNode as Element)
         : anchorNode.parentElement;
-    if (anchorEl?.closest('textarea, input')) return;
+    if (!anchorEl) return;
+
+    if (anchorEl.closest('textarea, input, [data-editor-toolbar="true"]')) {
+      return;
+    }
+
+    if (!allowContentEditable && anchorEl.closest('[contenteditable="true"]')) {
+      return;
+    }
 
     const text = sel.toString().trim();
     if (text.length >= 2 && text.length <= 220) {
       setSelectedText(text);
     }
-  }, [containerRef]);
+  }, [containerRef, extraContainerRefs, allowContentEditable]);
 
   // Hỗ trợ tốt cả thao tác kéo chọn chữ trên Mobile/iPad thông qua selectionchange (debounced)
   useEffect(() => {

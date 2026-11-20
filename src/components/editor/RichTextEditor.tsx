@@ -129,7 +129,10 @@ export function RichTextEditor({
       className={`rounded-2xl border border-gray-300 bg-white overflow-hidden focus-within:border-[#0066ab] focus-within:ring-2 focus-within:ring-[#0066ab]/10 ${className}`}
     >
       {/* THANH CÔNG CỤ ĐỊNH DẠNG (Ẩn khi in A4) */}
-      <div className="rte-toolbar no-print print:hidden bg-slate-50 border-b border-gray-200 px-2.5 py-2 flex flex-wrap items-center gap-1 text-slate-700">
+      <div
+        data-editor-toolbar="true"
+        className="rte-toolbar no-print print:hidden bg-slate-50 border-b border-gray-200 px-2.5 py-2 flex flex-wrap items-center gap-1 text-slate-700"
+      >
         {/* Lịch sử: Undo / Redo */}
         <ToolbarButton
           onClick={() => runCommand('undo')}
@@ -353,7 +356,7 @@ export function RichTextEditor({
         onKeyUp={saveSelectionRange}
         onMouseUp={saveSelectionRange}
         onKeyDown={handleKeyDown}
-        className={`rich-text-content ${minHeightClass} ${maxHeightClass} overflow-y-auto p-4 text-sm sm:text-base text-slate-800 leading-relaxed focus:outline-none print:max-h-none print:overflow-visible print:p-0`}
+        className={`rich-text-content select-text ${minHeightClass} ${maxHeightClass} overflow-y-auto p-4 text-sm sm:text-base text-slate-800 leading-relaxed focus:outline-none print:max-h-none print:overflow-visible print:p-0`}
       />
     </div>
   );

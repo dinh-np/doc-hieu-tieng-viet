@@ -50,6 +50,7 @@ export function LongReadClient({ article }: LongReadClientProps) {
   const [copiedMindmap, setCopiedMindmap] = useState<boolean>(false);
 
   const readingAreaRef = useRef<HTMLDivElement>(null);
+  const mindmapAreaRef = useRef<HTMLDivElement>(null);
 
   const {
     selectedText,
@@ -61,6 +62,8 @@ export function LongReadClient({ article }: LongReadClientProps) {
   } = useReadingTextSelection({
     articleId: article.slug || article.id,
     containerRef: readingAreaRef,
+    extraContainerRefs: [mindmapAreaRef],
+    allowContentEditable: true,
   });
 
   // Nội dung HTML sạch (tương thích ngược với bài lưu dạng plain text có \n)
@@ -340,8 +343,8 @@ export function LongReadClient({ article }: LongReadClientProps) {
                       🌳 Sơ đồ tư duy dạng thụt lề
                     </h2>
                     <p className="text-xs text-slate-500">
-                      Con có thể chỉnh sửa, tô sáng, đổi màu chữ hoặc thêm ghi chú trực tiếp
-                      vào sơ đồ bên dưới
+                      Con có thể chỉnh sửa, tô màu hoặc bôi đen bất kỳ nhánh ý nào để gắn ký
+                      hiệu Marking Text &amp; bấm <strong>🦉 Hỏi - Đáp</strong> cùng Thầy Cú
                     </p>
                   </div>
                 </div>
@@ -410,15 +413,21 @@ export function LongReadClient({ article }: LongReadClientProps) {
                 </h1>
               </div>
 
-              {/* Trình soạn thảo RichTextEditor cho phép biên tập trực tiếp Sơ đồ tư duy */}
-              <RichTextEditor
-                value={mindmapHtml}
-                onChange={setMindmapHtml}
-                placeholder="Nội dung sơ đồ tư duy dạng thụt lề..."
-                minHeightClass="min-h-[320px]"
-                maxHeightClass="max-h-[72vh]"
-                className="print:border-0"
-              />
+              {/* Trình soạn thảo RichTextEditor cho phép biên tập & bôi đen hỏi sâu trực tiếp Sơ đồ tư duy */}
+              <div
+                ref={mindmapAreaRef}
+                onMouseUp={readSelectionIfInside}
+                onTouchEnd={readSelectionIfInside}
+              >
+                <RichTextEditor
+                  value={mindmapHtml}
+                  onChange={setMindmapHtml}
+                  placeholder="Nội dung sơ đồ tư duy dạng thụt lề..."
+                  minHeightClass="min-h-[320px]"
+                  maxHeightClass="max-h-[72vh]"
+                  className="print:border-0"
+                />
+              </div>
             </div>
           )}
         </section>
