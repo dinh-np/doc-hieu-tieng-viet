@@ -28,7 +28,7 @@ export function TextSelectionToolbar({
 }: TextSelectionToolbarProps) {
   const containerClass =
     variant === 'floating'
-      ? 'no-print print:hidden fixed bottom-5 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-2xl z-40 p-3.5 rounded-2xl bg-slate-900/95 backdrop-blur-md text-white space-y-2 shadow-2xl border border-slate-700/80 animate-fade-in-up'
+      ? 'no-print print:hidden fixed bottom-5 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-2xl z-50 p-3.5 rounded-2xl bg-slate-900/95 backdrop-blur-md text-white space-y-2 shadow-2xl border border-slate-700/80 animate-fade-in-up'
       : 'no-print print:hidden p-3.5 rounded-2xl bg-slate-900 text-white space-y-2 shadow-lg animate-fade-in-up';
 
   return (

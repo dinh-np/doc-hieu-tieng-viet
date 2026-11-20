@@ -133,7 +133,7 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
         12,
         Math.min(rect.left, viewportWidth - popupWidth - 12)
       );
-      const placement: 'top' | 'bottom' = rect.top < 220 ? 'bottom' : 'top';
+      const placement: 'top' | 'bottom' = rect.top < 245 ? 'bottom' : 'top';
 
       setActiveHanVietPopup({
         chunkId,
@@ -549,7 +549,7 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
       <Header />
 
       {/* ── BANNER CỐ ĐỊNH TRA CỨU NHANH 6 KÝ HIỆU MARKING TEXT (STICKY LEGEND BAR) ── */}
-      <div className="no-print sticky top-14 z-40 bg-white/95 backdrop-blur border-b border-gray-200 shadow-2xs">
+      <div className="no-print print:hidden sticky top-[86px] lg:top-14 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-2xs">
         <div className="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-1.5 text-xs font-extrabold text-slate-700">
             <Highlighter className="w-3.5 h-3.5 text-[#0066ab]" />

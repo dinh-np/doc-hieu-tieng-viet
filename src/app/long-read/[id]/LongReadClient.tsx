@@ -190,8 +190,8 @@ export function LongReadClient({ article }: LongReadClientProps) {
       <main className="max-w-4xl mx-auto px-3 sm:px-4 py-8 space-y-6">
         {/* ==================== PHẦN 1: BÀI ĐỌC GỐC ==================== */}
         <section className="print-article-section space-y-5">
-          {/* Thanh công cụ bài đọc (Ẩn khi in A4) */}
-          <div className="no-print print:hidden card rounded-2xl p-4 bg-white border border-gray-200 flex flex-wrap items-center justify-between gap-3 shadow-2xs">
+          {/* Thanh công cụ bài đọc (Bám dính nhẹ dưới Header khi cuộn, ẩn khi in A4) */}
+          <div className="no-print print:hidden sticky top-[88px] lg:top-16 z-30 card rounded-2xl p-3.5 sm:p-4 bg-white/95 backdrop-blur-md border border-gray-200 flex flex-wrap items-center justify-between gap-3 shadow-2xs">
             <div className="flex items-center gap-2.5 flex-wrap">
               <Link
                 href="/long-read"

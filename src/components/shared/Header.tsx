@@ -11,7 +11,7 @@ export function Header() {
   const isPassportActive = pathname?.startsWith('/passport');
 
   return (
-    <header className="no-print sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200 w-full">
+    <header className="no-print print:hidden sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs w-full">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 lg:py-0 lg:h-14 flex flex-wrap lg:flex-nowrap items-center justify-between gap-x-2 gap-y-2">
         {/* HÀNG 1 (Trái): Logo + Tên ứng dụng */}
         <Link href="/" className="order-1 flex items-center gap-2 group shrink-0">
