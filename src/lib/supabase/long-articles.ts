@@ -1,5 +1,6 @@
 import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 import { cleanVietnameseText } from '@/lib/utils/vietnamese-text';
+import { countRichTextWords, normalizeArticleHtml } from '@/lib/utils/rich-text';
 
 export function getExpectedAdminPin(): string {
   return (process.env.LONG_READ_ADMIN_PIN || '2026').trim();
@@ -33,8 +34,8 @@ export function slugifyVietnamese(input: string): string {
   return `${base || 'bai-doc'}-${suffix}`;
 }
 
-export function countVietnameseWords(text: string): number {
-  const trimmed = cleanVietnameseText(text).trim();
-  if (!trimmed) return 0;
-  return trimmed.split(/\s+/).filter(Boolean).length;
+export function countVietnameseWords(textOrHtml: string): number {
+  return countRichTextWords(textOrHtml);
 }
+
+export { normalizeArticleHtml };

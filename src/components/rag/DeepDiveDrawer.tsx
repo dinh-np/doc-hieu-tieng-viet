@@ -6,6 +6,7 @@ import { DeepDiveChatPanel } from './DeepDiveChatPanel';
 interface DeepDiveDrawerProps {
   currentArticleId?: string;
   articleTitle?: string;
+  fullArticleContent?: string;
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   selectedText?: string;
@@ -16,6 +17,7 @@ interface DeepDiveDrawerProps {
 export function DeepDiveDrawer({
   currentArticleId,
   articleTitle,
+  fullArticleContent,
   isOpen,
   onOpenChange,
   selectedText,
@@ -70,6 +72,8 @@ export function DeepDiveDrawer({
                 mode="drawer"
                 currentArticleId={currentArticleId}
                 articleTitle={articleTitle}
+                fullArticleContent={fullArticleContent}
+                showMindmapAction={false}
                 initialSelectedText={selectedText}
                 onClearSelectedText={onClearSelectedText}
               />

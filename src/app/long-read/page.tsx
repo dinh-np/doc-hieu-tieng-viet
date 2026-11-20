@@ -19,11 +19,17 @@ import {
   Calendar,
 } from 'lucide-react';
 import { Header } from '@/components/shared/Header';
+import { RichTextEditor } from '@/components/editor/RichTextEditor';
 import {
   LONG_ARTICLE_SUBJECTS,
   type LongArticle,
 } from '@/types/long-article';
 import { cleanVietnameseText } from '@/lib/utils/vietnamese-text';
+import {
+  countRichTextWords,
+  normalizeArticleHtml,
+  stripHtmlToPlainText,
+} from '@/lib/utils/rich-text';
 
 const PIN_STORAGE_KEY = 'long_read_admin_pin_v1';
 
@@ -36,10 +42,8 @@ const SUBJECT_BADGE_CLASSES: Record<string, string> = {
   'Tự do': 'bg-slate-100 text-slate-700 border-slate-200',
 };
 
-function countWordsRealtime(text: string): number {
-  const trimmed = text.trim();
-  if (!trimmed) return 0;
-  return trimmed.split(/\s+/).filter(Boolean).length;
+function countWordsRealtime(textOrHtml: string): number {
+  return countRichTextWords(textOrHtml);
 }
 
 export default function LongReadListPage() {
@@ -183,7 +187,7 @@ export default function LongReadListPage() {
     setTitleInput(article.title);
     setSubjectInput(article.subject || 'Tự do');
     setGradeInput(article.grade || 7);
-    setContentInput(article.content);
+    setContentInput(normalizeArticleHtml(article.content));
     setEditorError(null);
     setIsEditorOpen(true);
   };
@@ -193,9 +197,10 @@ export default function LongReadListPage() {
     if (!adminPin || savingArticle) return;
 
     const cleanTitle = cleanVietnameseText(titleInput).trim();
-    const cleanContent = cleanVietnameseText(contentInput).trim();
+    const cleanContent = normalizeArticleHtml(contentInput);
+    const wordCount = countRichTextWords(cleanContent);
 
-    if (!cleanTitle || !cleanContent) {
+    if (!cleanTitle || wordCount === 0) {
       setEditorError('Vui lòng nhập đầy đủ tiêu đề và nội dung văn bản.');
       return;
     }
@@ -481,8 +486,10 @@ export default function LongReadListPage() {
                     </Link>
 
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
-                      {article.content.slice(0, 220)}
-                      {article.content.length > 220 ? '...' : ''}
+                      {(() => {
+                        const plain = stripHtmlToPlainText(article.content);
+                        return `${plain.slice(0, 220)}${plain.length > 220 ? '...' : ''}`;
+                      })()}
                     </p>
                   </div>
 
@@ -654,13 +661,12 @@ export default function LongReadListPage() {
                     Bộ đếm realtime: {liveWordCount.toLocaleString('vi-VN')} từ
                   </span>
                 </div>
-                <textarea
-                  rows={12}
-                  required
+                <RichTextEditor
                   value={contentInput}
-                  onChange={(e) => setContentInput(e.target.value)}
-                  placeholder="Dán toàn bộ văn bản bài đọc vào đây (hỗ trợ bài dài hàng nghìn từ, tự động chuẩn hóa tiếng Việt Unicode NFC)..."
-                  className="w-full rounded-2xl border border-gray-300 p-3.5 text-sm text-slate-800 leading-relaxed focus:outline-none focus:border-[#0066ab] focus:ring-2 focus:ring-[#0066ab]/10 max-h-[52vh] overflow-y-auto"
+                  onChange={setContentInput}
+                  placeholder="Dán hoặc soạn toàn bộ văn bản bài đọc vào đây (hỗ trợ in đậm, tô màu, tiêu đề, danh sách thụt lề, không giới hạn độ dài)..."
+                  minHeightClass="min-h-[260px]"
+                  maxHeightClass="max-h-[48vh]"
                 />
               </div>
 

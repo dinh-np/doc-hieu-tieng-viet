@@ -4,6 +4,7 @@ import {
   createLongArticlesSupabase,
   isValidAdminPin,
   countVietnameseWords,
+  normalizeArticleHtml,
 } from '@/lib/supabase/long-articles';
 
 export async function GET(
@@ -63,16 +64,16 @@ export async function PATCH(
     const title = cleanVietnameseText(body.title || '').trim();
     const subject = cleanVietnameseText(body.subject || 'Tự do').trim() || 'Tự do';
     const grade = Number(body.grade) || 7;
-    const content = cleanVietnameseText(body.content || '').trim();
+    const content = normalizeArticleHtml(body.content || '');
+    const word_count = countVietnameseWords(content);
 
-    if (!title || !content) {
+    if (!title || word_count === 0) {
       return NextResponse.json(
         { error: 'Vui lòng nhập đầy đủ tiêu đề và nội dung bài đọc.' },
         { status: 400 }
       );
     }
 
-    const word_count = countVietnameseWords(content);
     const supabase = createLongArticlesSupabase();
 
     const { data, error } = await supabase
