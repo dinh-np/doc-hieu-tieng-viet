@@ -74,18 +74,21 @@
 
 ## 7. 3-Phase Metacognition Reading Module (`/metacognition-read`)
 * **Pedagogical Framework:** Independent 3-Phase Metacognition reader (`Planning – Monitoring – Evaluating`) combining **Simple Explanations (`💡 Giải thích giản đơn:` in bold)**, **Parent Think-Aloud Modeling (Ba làm mẫu)**, and **6-Symbol Marking Text** (`[?]`, `[!]`, `[*]`, `[C]`, `[P]`, `[KL]`):
-  * **Phase 1 (Planning):** Active Recall question + Prediction prompt + Sticky 6-Symbol Marking Text Legend Bar.
-  * **Phase 2 (Monitoring):** 2-column split screen (60% Original Text with interactive Han-Viet etymology pop-ups & text-selection Marking Text highlighter — 40% **`💡 Giải thích giản đơn:`** in bold, Parent Think-Aloud modeling, and Student 5-word reflection journal). Supports both `han_viet_Popup` and `han_viet_popups` field conventions via `getChunkPopups(chunk)`.
+  * **Phase 1 (Planning):** Active Recall question + Prediction prompt (supporting text-selection Marking Text & **`🦉 Hỏi - Đáp`** via `data-selection-chunk-id="planning"`, excluding `<textarea>`/`<input>`) + Sticky 6-Symbol Marking Text Legend Bar (`sticky top-[86px] lg:top-14 z-30`).
+  * **Phase 2 (Monitoring):** 2-column split screen (60% Original Text with interactive Han-Viet etymology pop-ups — 40% **`💡 Giải thích giản đơn:`** in bold, Parent Think-Aloud modeling, and Student 5-word reflection journal). Both columns support text-selection Marking Text & **`🦉 Hỏi - Đáp`** via `<TextSelectionToolbar variant="floating" />` (`z-50`, `data-selection-chunk-id={chunk.chunk_id}`) and both `han_viet_Popup` / `han_viet_popups` field conventions with substring keyword matching.
   * **Phase 3 (Evaluating):** 3-level QAR challenge (with Parent/Teacher hints), Interactive Mindmap Matrix Table, 3-2-1 Reflection + Traffic Light (`🟢🟡🔴`), and Golden Takeaway box.
-* **Curated Articles (8 Articles in Seed & Supabase):**
+* **Curated Articles (11 Articles in Seed & Supabase):**
   1. `"Mindset - Bài 1 - Sức mạnh của Tư duy - Growth Mindset"` (`id: "growth-mindset-suc-manh-tu-duy"`, `subject: "Kỹ năng sống"`, 4 chunks).
   2. `'Mindset - Bài 2: Não bộ cần phải được tập "Gym" để không bị đóng khung'` (`id: "mindset-nao-bo-la-co-bap"`, `subject: "Kỹ năng sống"`, 3 chunks).
   3. `"Mindset - Bài 3: Nhận Diện Hai Kiểu Tư Duy — Tư duy Cố Định và Tư duy Phát Triển"` (`id: "mindset-hai-kieu-tu-duy"`, `subject: "Kỹ năng sống"`, 3 chunks).
   4. `"Mindset - Bài 4: Thất Bại Là 'Dấu Chấm Hết' Hay 'Tín Hiệu Để Nhìn Lại Mình'?"` (`id: "mindset-giai-ma-that-bai"`, `subject: "Kỹ năng sống"`, 3 chunks).
   5. `"Mindset – Bài 6: Sức Mạnh Kỳ Diệu Của Chữ 'CHƯA'"` (`id: "mindset-suc-manh-chu-chua"`, `subject: "Kỹ năng sống"`, 3 chunks).
   6. `"Mindset – Bài 7: Cởi Bỏ Nhãn Dán Và Tập Trung Vào Quá Trình"` (`id: "mindset-coi-bo-nhan-dan"`, `subject: "Kỹ năng sống"`, 3 chunks).
-  7. `"Lịch sử 7 - Bài 6: Sự hình thành và phát triển của các vương quốc phong kiến ở Đông Nam Á (Thế kỉ VII – X)"` (`id: "lich-su-7-bai-6-dong-nam-a"`, `subject: "Lịch sử"`, 3 chunks).
-  8. `"Địa lí 7 - Bài 5: Vị trí địa lí, đặc điểm tự nhiên châu Á — Bức tranh thiên nhiên kỳ vĩ và phân hóa đa dạng"` (`id: "dia-li-7-bai-5-thien-nhien-chau-a"`, `subject: "Địa lý"`, 3 chunks).
+  7. `"Mindset – Bài 8: Cái Tôi Của Bạn — Bức Tượng Thạch Cao Hay Người Đi Thám Hiểm?"` (`id: "mindset-cai-toi-buc-tuong-hay-tham-hiem"`, `subject: "Kỹ năng sống"`, 3 chunks).
+  8. `"Critical Thinking - 1: Tư Duy 'Bọt Biển' Hay Tư Duy 'Đãi Vàng'?"` (`id: "critical-thinking-1-bot-bien-hay-dai-vang"`, `subject: "Tư duy phản biện"`, 3 chunks).
+  9. `"Critical Thinking - 2: Phân Biệt Sự Thật (Fact) Và Ý Kiến (Opinion)"` (`id: "critical-thinking-2-su-that-va-y-kien"`, `subject: "Tư duy phản biện"`, 3 chunks).
+  10. `"Lịch sử 7 - Bài 6: Sự hình thành và phát triển của các vương quốc phong kiến ở Đông Nam Á (Thế kỉ VII – X)"` (`id: "lich-su-7-bai-6-dong-nam-a"`, `subject: "Lịch sử"`, 3 chunks).
+  11. `"Địa lí 7 - Bài 5: Vị trí địa lí, đặc điểm tự nhiên châu Á — Bức tranh thiên nhiên kỳ vĩ và phân hóa đa dạng"` (`id: "dia-li-7-bai-5-thien-nhien-chau-a"`, `subject: "Địa lý"`, 3 chunks).
 * **Print & Export:** Built-in **🖨️ Xuất bản in A4** (`@media print` 2-column worksheet) and **📄 Tải file Word (`.doc`)** generator.
 * **Data & Sync:** Defined in `src/types/metacognition.ts`, seeded via `src/data/metacognition-seed.ts`, `supabase_1page_articles.sql`, and `scripts/seed_metacognition.ts` (`npm run seed:metacognition`) into `public.one_page_articles` with `article_type = 'metacognition'` (`category = 'metacognition'`).
 
