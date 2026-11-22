@@ -1665,6 +1665,249 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // CRITICAL THINKING - 2: PHÂN BIỆT SỰ THẬT (FACT) VÀ Ý KIẾN (OPINION)
+  // ===========================================================================
+  {
+    id: 'critical-thinking-2-su-that-va-y-kien',
+    slug: 'critical-thinking-2-su-that-va-y-kien',
+    subject: 'Tư duy phản biện',
+    grade: 7,
+    title: 'Critical Thinking - 2: Phân Biệt Sự Thật (Fact) Và Ý Kiến (Opinion)',
+    subtitle:
+      'Bài học 2: Nhận diện ranh giới giữa dữ liệu đo lường khách quan (Fact) và cảm nhận chủ quan (Opinion), cảnh giác trước "Ý kiến đội lốt sự thật" trên mạng xã hội.',
+    target_time_minutes: 25,
+    article_type: 'metacognition',
+    category: 'metacognition',
+
+    // PHA 1: PLANNING
+    planning: {
+      active_recall_question:
+        "Theo con, câu nói 'Hôm nay trời nóng 38 độ C' và câu 'Hôm nay thời tiết thật khó chịu' có gì khác nhau?",
+      prediction_prompt:
+        "Đã bao giờ con nghe một người bạn chê một bộ phim hay trò chơi là 'dở tệ' và con tin ngay, nhưng khi tự mình trải nghiệm thì thấy rất thú vị chưa? Vì sao lại như vậy?",
+    },
+
+    // PHA 2: MONITORING (3 Chặng đọc)
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title:
+          'Chặng 1: Sự thật (Fact) — Những viên gạch đo lường và chứng minh được',
+        original_text:
+          "**Sự thật (Fact)** là những thông tin miêu tả hiện thực **khách quan** về thế giới xung quanh. Điều kỳ diệu của sự thật là nó không hề phụ thuộc vào cảm xúc, tâm trạng hay ý muốn của bất kỳ ai. Ví dụ: 'Nước sôi ở 100 độ C ở áp suất tiêu chuẩn', 'Trái Đất quay quanh Mặt Trời', 'Bạn An cao 1 mét 52'. Bất kể con đang vui hay buồn, người nói là ai, chỉ cần dùng dụng cụ đo lường đúng chuẩn hoặc đối chiếu tài liệu khoa học chuẩn mực, mọi người trên thế giới đều thu được cùng một kết quả như nhau. Sự thật là nền móng vững chắc của mọi tri thức khi được **kiểm chứng**.",
+        feynman_explanation: {
+          dialogue_question:
+            'Vì sao Sự thật không thay đổi dù tâm trạng người nói thế nào?',
+          dialogue_answer:
+            'Sự thật giống như chiếc thước kẻ bằng gỗ để trong ba lô của con! Dù con thích hay ghét môn toán, vạch 15 centimet trên cây thước vẫn mãi mãi là 15 centimet, không bao giờ tự ngắn lại hay dài ra.',
+          metacognition_modeling:
+            "Ba: 'Khi đọc bất kỳ bài báo nào, việc đầu tiên là tìm xem đâu là con số và dữ liệu thực tế đã được kiểm chứng.' — Con: 'Dạ, dữ liệu đo được bằng đồng hồ hay thước đo thì không cãi nhau được, đó chính là Sự Thật ba nhỉ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Khách quan',
+            formula:
+              'Khách (bên ngoài, không thiên vị) + Quan (nhìn ngắm, xem xét)',
+            meaning:
+              'Tồn tại độc lập bên ngoài, không bị ảnh hưởng bởi ý kiến, sở thích hay cảm xúc cá nhân.',
+            english_anchor: 'Objective',
+          },
+          {
+            term: 'Kiểm chứng',
+            formula: 'Kiểm (xem xét, đối chiếu) + Chứng (chứng cứ, xác thực)',
+            meaning:
+              'Dùng bằng chứng, số liệu và đo lường thực tế để chứng minh tính đúng sai của một thông tin.',
+            english_anchor: 'Verify',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Khách quan',
+            formula:
+              'Khách (bên ngoài, không thiên vị) + Quan (nhìn ngắm, xem xét)',
+            meaning:
+              'Tồn tại độc lập bên ngoài, không bị ảnh hưởng bởi ý kiến, sở thích hay cảm xúc cá nhân.',
+            english_anchor: 'Objective',
+          },
+          {
+            term: 'Kiểm chứng',
+            formula: 'Kiểm (xem xét, đối chiếu) + Chứng (chứng cứ, xác thực)',
+            meaning:
+              'Dùng bằng chứng, số liệu và đo lường thực tế để chứng minh tính đúng sai của một thông tin.',
+            english_anchor: 'Verify',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: 'Chặng 2: Ý kiến (Opinion) — Chiếc kính màu của cảm nhận cá nhân',
+        original_text:
+          "Trái ngược với sự thật, **Ý kiến (Opinion)** là **phán đoán**, niềm tin, sở thích hoặc cảm xúc **chủ quan** của một cá nhân về một sự việc. Ví dụ: 'Món phở gà ngon hơn phở bò', 'Môn Lịch sử nhàm chán hơn môn Toán', 'Chiếc áo này trông thật lỗi thời'. Không có chiếc máy nào đo được món phở nào 'ngon nhất', bởi vì ngon hay dở phụ thuộc hoàn toàn vào khẩu vị của từng người. Một người có thể nói ý kiến của mình rất to, rất tự tin và hùng hồn, nhưng điều đó vẫn không thể biến cảm nhận của họ thành sự thật cho tất cả mọi người.",
+        feynman_explanation: {
+          dialogue_question:
+            'Tại sao nói to và tự tin vẫn chưa biến Ý kiến thành Sự thật?',
+          dialogue_answer:
+            'Ý kiến giống như chiếc kính râm con đeo! Con đeo kính màu tím thì nhìn vườn hoa thấy tím ngắt; bạn con đeo kính màu vàng thì thấy rực rỡ màu vàng. Cả hai bạn chỉ đang kể về màu của chiếc kính mình đeo, chứ không phải màu thật của bông hoa.',
+          metacognition_modeling:
+            "Ba: 'Nếu bạn con bảo: Trò chơi này dở tệ nhất quả đất, con sẽ nghĩ gì?' — Con: 'Con sẽ hiểu đó chỉ là chiếc kính màu của bạn ấy thôi! Bạn ấy chơi không hợp, chứ không có nghĩa trò chơi đó dở đối với con!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Chủ quan',
+            formula: 'Chủ (bản thân, chính mình) + Quan (góc nhìn, quan sát)',
+            meaning:
+              'Bắt nguồn từ cảm xúc, suy nghĩ, sở thích và góc nhìn riêng của từng cá nhân.',
+            english_anchor: 'Subjective',
+          },
+          {
+            term: 'Phán đoán',
+            formula: 'Phán (quyết định, đánh giá) + Đoán (suy xét, nhận định)',
+            meaning:
+              'Kết luận đưa ra dựa trên cảm nhận cá nhân chứ không phải thước đo chuẩn mực.',
+            english_anchor: 'Judgment',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Chủ quan',
+            formula: 'Chủ (bản thân, chính mình) + Quan (góc nhìn, quan sát)',
+            meaning:
+              'Bắt nguồn từ cảm xúc, suy nghĩ, sở thích và góc nhìn riêng của từng cá nhân.',
+            english_anchor: 'Subjective',
+          },
+          {
+            term: 'Phán đoán',
+            formula: 'Phán (quyết định, đánh giá) + Đoán (suy xét, nhận định)',
+            meaning:
+              'Kết luận đưa ra dựa trên cảm nhận cá nhân chứ không phải thước đo chuẩn mực.',
+            english_anchor: 'Judgment',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title:
+          "Chặng 3: Cảnh giác với 'Ý kiến đội lốt sự thật' trên mạng xã hội",
+        original_text:
+          "Nguy hiểm nhất trong thời đại số là khi người ta khéo léo bọc một 'Ý kiến cá nhân' trong chiếc vỏ 'Sự thật hiển nhiên' để thao túng người đọc. Họ thường dùng những từ ngữ **tuyệt đối hóa** như: 'Chắc chắn 100%', 'Ai cũng biết rằng', 'Sự thật chấn động được phơi bày'. Ví dụ: 'Học sinh lứa tuổi này lười biếng hơn ngày xưa rất nhiều' — câu này nghe như một sự thật, nhưng thực chất chỉ là một ý kiến chủ quan đầy định kiến vì người nói không hề có số liệu thống kê khoa học nào. Người có tư duy phản biện luôn biết cầm bút **bóc tách dữ liệu**: phần nào là dữ liệu thật (Fact), và phần nào chỉ là lời suy diễn thêm thắt (Opinion).",
+        feynman_explanation: {
+          dialogue_question:
+            'Làm sao nhận ra một câu tưởng là sự thật nhưng hóa ra chỉ là ý kiến?',
+          dialogue_answer:
+            'Giống như quả dừa xiêm: lớp vỏ xơ bên ngoài rất dày nhưng nước ngọt thực sự ở tận sâu bên trong! Đừng chỉ nhìn lớp vỏ chữ nghĩa hào nhoáng bên ngoài mà tưởng đó là nước dừa nguyên chất.',
+          metacognition_modeling:
+            "Ba: 'Khi lướt mạng, con thử lấy chiếc rây lọc xem tác giả có đưa ra nguồn tin uy tín và số liệu rõ ràng không nhé.' — Con: 'Dạ, nếu chỉ toàn lời khẳng định suông mà không có số liệu, con sẽ xếp ngay vào ngăn Ý Kiến cá nhân ạ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Tuyệt đối hóa',
+            formula: 'Tuyệt đối (trọn vẹn, không ngoại lệ) + Hóa (biến thành)',
+            meaning:
+              "Dùng các từ 'luôn luôn', 'chắc chắn', 'tất cả' để biến ý kiến hẹp thành chân lý tuyệt đối.",
+            english_anchor: 'Overgeneralization / Absolutizing',
+          },
+          {
+            term: 'Bóc tách dữ liệu',
+            formula:
+              'Bóc tách (tách rời từng lớp) + Dữ liệu (thông tin, số liệu)',
+            meaning:
+              'Tách riêng số liệu đo lường, bằng chứng kiểm chứng được ra khỏi lời bình luận hay suy diễn.',
+            english_anchor: 'Data Extraction / Separation',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Tuyệt đối hóa',
+            formula: 'Tuyệt đối (trọn vẹn, không ngoại lệ) + Hóa (biến thành)',
+            meaning:
+              "Dùng các từ 'luôn luôn', 'chắc chắn', 'tất cả' để biến ý kiến hẹp thành chân lý tuyệt đối.",
+            english_anchor: 'Overgeneralization / Absolutizing',
+          },
+          {
+            term: 'Bóc tách dữ liệu',
+            formula:
+              'Bóc tách (tách rời từng lớp) + Dữ liệu (thông tin, số liệu)',
+            meaning:
+              'Tách riêng số liệu đo lường, bằng chứng kiểm chứng được ra khỏi lời bình luận hay suy diễn.',
+            english_anchor: 'Data Extraction / Separation',
+          },
+        ],
+      },
+    ],
+
+    // PHA 3: EVALUATING
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Nấc 1 — Trực tiếp trong bài',
+          question:
+            'Nêu 2 đặc điểm nhận biết của Sự thật (Fact) và 2 đặc điểm nhận biết của Ý kiến (Opinion).',
+          hint: 'Xem lại Chặng 1 (khách quan, đo lường/kiểm chứng được) và Chặng 2 (chủ quan, phán đoán/sở thích cá nhân).',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Nấc 2 — Suy ngẫm & Liên kết',
+          question:
+            "Tại sao những người làm video câu view lại rất thích dùng các từ ngữ tuyệt đối ('chắc chắn 100%', 'sự thật chấn động')?",
+          hint: 'Để bọc ý kiến hoặc suy diễn trong vỏ bọc chắc nịch nhằm thu hút sự chú ý và khiến người đọc dễ tin mà không kiểm chứng.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Nấc 3 — Liên hệ thực tế & Hành động',
+          question:
+            'Hãy viết ra một câu Sự thật về ngày hôm nay của con và một câu Ý kiến cá nhân của con về cùng một sự việc đó.',
+          hint: 'Ví dụ: Sự thật là hôm nay con làm xong 2 bài đọc; Ý kiến là con thấy bài về sự thật và ý kiến rất dễ nhớ.',
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Sự thật (Fact)',
+          prompt:
+            'Khách quan, đo lường và kiểm chứng được — giống chiếc thước kẻ cố định 15cm.',
+          sample_keywords:
+            'Khách quan, đo lường và kiểm chứng được — giống chiếc thước kẻ cố định 15cm.',
+        },
+        {
+          category: 'Ý kiến (Opinion)',
+          prompt:
+            'Chủ quan, cảm nhận và phán đoán cá nhân — giống chiếc kính màu tùy người đeo.',
+          sample_keywords:
+            'Chủ quan, cảm nhận và phán đoán cá nhân — giống chiếc kính màu tùy người đeo.',
+        },
+        {
+          category: 'Ý kiến đội lốt sự thật',
+          prompt:
+            "Dùng từ tuyệt đối hóa ('100%', 'chấn động') thiếu số liệu — cần bóc tách lớp vỏ để tìm dữ liệu thật.",
+          sample_keywords:
+            "Dùng từ tuyệt đối hóa ('100%', 'chấn động') thiếu số liệu — cần bóc tách lớp vỏ để tìm dữ liệu thật.",
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Sự thật (Fact) là thông tin khách quan, kiểm chứng được; Ý kiến (Opinion) là cảm nhận, phán đoán chủ quan.',
+          'Nói to hay tự tin không làm một ý kiến chủ quan trở thành sự thật khách quan.',
+          'Cần bóc tách dữ liệu thật khỏi các từ ngữ tuyệt đối hóa và suy diễn trên mạng xã hội.',
+        ],
+        two_surprises: [
+          'Một câu nghe rất chắc nịch trên mạng xã hội vẫn có thể chỉ là ý kiến chủ quan thiếu số liệu thống kê.',
+          'Hai người nhìn cùng một sự việc qua hai chiếc kính màu khác nhau sẽ thấy hai màu khác nhau.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            'Khi đọc tin tức hoặc nghe nhận xét, em sẽ tách riêng phần dữ liệu kiểm chứng được và phần cảm nhận cá nhân.',
+        },
+      },
+      takeaway_sentence:
+        'Tôn trọng sự thật khách quan và lắng nghe đa dạng ý kiến, nhưng không bao giờ để những ý kiến ồn ào đánh lừa đôi mắt tìm kiếm sự thật của con.',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
