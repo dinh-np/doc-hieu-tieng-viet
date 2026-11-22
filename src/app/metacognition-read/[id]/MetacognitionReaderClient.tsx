@@ -269,15 +269,72 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
     });
   };
 
-  // ── Bắt sự kiện học sinh bôi đen văn bản trong Chặng để gắn thẻ Marking Text ──
-  const handleTextSelectionInChunk = (chunkId: string) => {
+  // ── Bắt sự kiện học sinh bôi đen văn bản ở Pha 1 (Planning) & Pha 2 (Cột trái + Cột phải Feynman) ──
+  const handleTextSelectionInChunk = useCallback((explicitChunkId?: string) => {
     if (typeof window === 'undefined') return;
     const sel = window.getSelection();
-    const selectedText = sel ? sel.toString().trim() : '';
-    if (selectedText && selectedText.length >= 2 && selectedText.length <= 220) {
-      setPendingSelection({ chunkId, text: selectedText });
+    if (!sel || sel.isCollapsed) return;
+
+    const anchorNode = sel.anchorNode;
+    const focusNode = sel.focusNode;
+    if (!anchorNode || !focusNode) return;
+
+    const anchorEl =
+      anchorNode.nodeType === Node.ELEMENT_NODE
+        ? (anchorNode as Element)
+        : anchorNode.parentElement;
+    const focusEl =
+      focusNode.nodeType === Node.ELEMENT_NODE
+        ? (focusNode as Element)
+        : focusNode.parentElement;
+    if (!anchorEl || !focusEl) return;
+
+    // Loại trừ tuyệt đối khi đang gõ hoặc bôi đen trong textarea, input hoặc thanh công cụ
+    if (
+      anchorEl.closest(
+        'textarea, input, [role="toolbar"], [data-editor-toolbar="true"]'
+      ) ||
+      focusEl.closest(
+        'textarea, input, [role="toolbar"], [data-editor-toolbar="true"]'
+      )
+    ) {
+      return;
     }
-  };
+
+    const scopeEl = anchorEl.closest('[data-selection-chunk-id]');
+    const focusScopeEl = focusEl.closest('[data-selection-chunk-id]');
+    const domChunkId =
+      scopeEl && (!focusScopeEl || scopeEl === focusScopeEl)
+        ? scopeEl.getAttribute('data-selection-chunk-id') || undefined
+        : undefined;
+
+    const resolvedChunkId = domChunkId || explicitChunkId;
+    if (!resolvedChunkId) return;
+
+    const selectedText = sel.toString().trim();
+    if (selectedText && selectedText.length >= 2 && selectedText.length <= 260) {
+      setPendingSelection({ chunkId: resolvedChunkId, text: selectedText });
+    }
+  }, []);
+
+  // Lắng nghe thêm selectionchange (debounced) để hỗ trợ kéo chọn chữ mượt mà trên Mobile/iPad
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+
+    const onSelectionChange = () => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        handleTextSelectionInChunk();
+      }, 220);
+    };
+
+    document.addEventListener('selectionchange', onSelectionChange);
+    return () => {
+      if (timer) clearTimeout(timer);
+      document.removeEventListener('selectionchange', onSelectionChange);
+    };
+  }, [handleTextSelectionInChunk]);
 
   const handleAttachSymbolToSelection = (sym: MarkingSymbol) => {
     if (!pendingSelection) return;
@@ -293,11 +350,13 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
       [chunkId]: [...(prev[chunkId] || []), newAnnotation],
     }));
 
-    // Đồng thời bật luôn ký hiệu đó trong "Góc của con"
-    setChunkSymbols((prev) => {
-      const cur = prev[chunkId] || [];
-      return cur.includes(sym) ? prev : { ...prev, [chunkId]: [...cur, sym] };
-    });
+    // Nếu thuộc một chặng đọc cụ thể thì bật luôn ký hiệu đó trong "Góc của con"
+    if (chunkId !== 'planning') {
+      setChunkSymbols((prev) => {
+        const cur = prev[chunkId] || [];
+        return cur.includes(sym) ? prev : { ...prev, [chunkId]: [...cur, sym] };
+      });
+    }
 
     setPendingSelection(null);
     if (typeof window !== 'undefined') {
@@ -683,60 +742,106 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
           </button>
 
           {planningOpen && (
-            <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* Card 1: Active Recall */}
-              <div className="rounded-2xl bg-blue-50/50 border border-blue-200 p-5 space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="p-2 rounded-xl bg-blue-600 text-white">
-                    <Sparkles className="w-4 h-4" />
-                  </span>
-                  <div>
-                    <span className="text-[11px] font-black uppercase tracking-wider text-blue-700">
-                      BƯỚC 1.1 • ACTIVE RECALL
+            <div className="p-6 space-y-4">
+              <div
+                data-selection-chunk-id="planning"
+                onMouseUp={() => handleTextSelectionInChunk('planning')}
+                onTouchEnd={() => handleTextSelectionInChunk('planning')}
+                className="grid grid-cols-1 md:grid-cols-2 gap-5 select-text"
+              >
+                {/* Card 1: Active Recall */}
+                <div className="rounded-2xl bg-blue-50/50 border border-blue-200 p-5 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="p-2 rounded-xl bg-blue-600 text-white">
+                      <Sparkles className="w-4 h-4" />
                     </span>
-                    <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
-                      Khởi động não bộ (Gợi nhớ kiến thức cũ)
-                    </h3>
+                    <div>
+                      <span className="text-[11px] font-black uppercase tracking-wider text-blue-700">
+                        BƯỚC 1.1 • ACTIVE RECALL
+                      </span>
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        Khởi động não bộ (Gợi nhớ kiến thức cũ)
+                      </h3>
+                    </div>
                   </div>
+                  <p className="text-sm font-semibold text-slate-700 leading-relaxed select-text">
+                    {article.planning.active_recall_question}
+                  </p>
+                  <textarea
+                    rows={3}
+                    value={activeRecallAnswer}
+                    onChange={(e) => setActiveRecallAnswer(e.target.value)}
+                    placeholder="Con gõ nhanh những gì con nhớ được vào đây nhé..."
+                    className="w-full rounded-xl bg-white border border-blue-200 p-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0066ab]"
+                  />
                 </div>
-                <p className="text-sm font-semibold text-slate-700 leading-relaxed">
-                  {article.planning.active_recall_question}
-                </p>
-                <textarea
-                  rows={3}
-                  value={activeRecallAnswer}
-                  onChange={(e) => setActiveRecallAnswer(e.target.value)}
-                  placeholder="Con gõ nhanh những gì con nhớ được vào đây nhé..."
-                  className="w-full rounded-xl bg-white border border-blue-200 p-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0066ab]"
-                />
+
+                {/* Card 2: Prediction */}
+                <div className="rounded-2xl bg-purple-50/50 border border-purple-200 p-5 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="p-2 rounded-xl bg-purple-600 text-white">
+                      <Lightbulb className="w-4 h-4" />
+                    </span>
+                    <div>
+                      <span className="text-[11px] font-black uppercase tracking-wider text-purple-700">
+                        BƯỚC 1.2 • PREDICTION
+                      </span>
+                      <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
+                        Dự đoán trước khi đọc (Định hướng mục tiêu)
+                      </h3>
+                    </div>
+                  </div>
+                  <p className="text-sm font-semibold text-slate-700 leading-relaxed select-text">
+                    {article.planning.prediction_prompt}
+                  </p>
+                  <textarea
+                    rows={3}
+                    value={predictionAnswer}
+                    onChange={(e) => setPredictionAnswer(e.target.value)}
+                    placeholder="Con thử đoán trước câu trả lời xem lát nữa đọc bài có đúng không nhé..."
+                    className="w-full rounded-xl bg-white border border-purple-200 p-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  />
+                </div>
               </div>
 
-              {/* Card 2: Prediction */}
-              <div className="rounded-2xl bg-purple-50/50 border border-purple-200 p-5 space-y-3">
-                <div className="flex items-center gap-2">
-                  <span className="p-2 rounded-xl bg-purple-600 text-white">
-                    <Lightbulb className="w-4 h-4" />
-                  </span>
-                  <div>
-                    <span className="text-[11px] font-black uppercase tracking-wider text-purple-700">
-                      BƯỚC 1.2 • PREDICTION
-                    </span>
-                    <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
-                      Dự đoán trước khi đọc (Định hướng mục tiêu)
-                    </h3>
+              {/* Danh sách các cụm từ con đã đánh dấu ở Pha 1 (nếu có) */}
+              {(chunkHighlights['planning'] || []).length > 0 && (
+                <div className="space-y-2 pt-1">
+                  <p className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
+                    📌 Các chi tiết con đã đánh dấu ở Pha 1 ({(chunkHighlights['planning'] || []).length}):
+                  </p>
+                  <div className="space-y-1.5">
+                    {(chunkHighlights['planning'] || []).map((hl) => {
+                      const meta = MARKING_SYMBOLS_META[hl.symbol];
+                      return (
+                        <div
+                          key={hl.id}
+                          className="flex items-center justify-between gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-gray-200 text-xs"
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span
+                              className={`px-2 py-0.5 rounded font-black border shrink-0 ${meta.badgeClass}`}
+                            >
+                              [{hl.symbol}] {meta.label}
+                            </span>
+                            <span className="font-semibold text-slate-800 truncate">
+                              &ldquo;{hl.text}&rdquo;
+                            </span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveHighlight('planning', hl.id)}
+                            className="text-slate-400 hover:text-rose-600 p-1"
+                            title="Xóa đánh dấu"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-                <p className="text-sm font-semibold text-slate-700 leading-relaxed">
-                  {article.planning.prediction_prompt}
-                </p>
-                <textarea
-                  rows={3}
-                  value={predictionAnswer}
-                  onChange={(e) => setPredictionAnswer(e.target.value)}
-                  placeholder="Con thử đoán trước câu trả lời xem lát nữa đọc bài có đúng không nhé..."
-                  className="w-full rounded-xl bg-white border border-purple-200 p-3 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                />
-              </div>
+              )}
             </div>
           )}
         </section>
@@ -808,27 +913,13 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
 
                         {/* Đoạn văn bản chính */}
                         <div
+                          data-selection-chunk-id={chunk.chunk_id}
                           onMouseUp={() => handleTextSelectionInChunk(chunk.chunk_id)}
                           onTouchEnd={() => handleTextSelectionInChunk(chunk.chunk_id)}
                           className="text-base sm:text-lg leading-[1.85] text-slate-800 font-reading select-text bg-slate-50/70 p-5 rounded-2xl border border-slate-200/90"
                         >
                           {renderFormattedChunkText(chunk)}
                         </div>
-
-                        {/* Thanh công cụ nổi khi học sinh bôi đen một cụm từ */}
-                        {isSelectionInThisChunk && pendingSelection && (
-                          <TextSelectionToolbar
-                            variant="inline"
-                            selectedText={pendingSelection.text}
-                            onSelectSymbol={handleAttachSymbolToSelection}
-                            onAskDeepDive={(text) => {
-                              setDeepDiveSelectedText(text);
-                              setPendingSelection(null);
-                              setIsDeepDiveOpen(true);
-                            }}
-                            onClose={() => setPendingSelection(null)}
-                          />
-                        )}
 
                         {/* Danh sách các cụm từ con đã bôi đen đánh dấu trong chặng */}
                         {highlights.length > 0 && (
@@ -902,8 +993,13 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
 
                     {/* ── CỘT PHẢI (40% - LỜI GIẢNG FEYNMAN & GÓC CỦA CON) ── */}
                     <div className="lg:col-span-5 p-6 bg-slate-50/60 space-y-5 flex flex-col justify-between">
-                      {/* Khối 1: Lời giảng Feynman & Ba làm mẫu */}
-                      <div className="rounded-2xl bg-white border border-blue-200 p-4 sm:p-5 space-y-3 shadow-2xs">
+                      {/* Khối 1: Lời giảng Feynman & Ba làm mẫu (Hỗ trợ bôi đen gắn thẻ & hỏi sâu) */}
+                      <div
+                        data-selection-chunk-id={chunk.chunk_id}
+                        onMouseUp={() => handleTextSelectionInChunk(chunk.chunk_id)}
+                        onTouchEnd={() => handleTextSelectionInChunk(chunk.chunk_id)}
+                        className="rounded-2xl bg-white border border-blue-200 p-4 sm:p-5 space-y-3 shadow-2xs select-text"
+                      >
                         <div className="flex items-center gap-2">
                           <span className="p-1.5 rounded-lg bg-blue-100 text-[#0066ab]">
                             <MessageSquareQuote className="w-4 h-4" />
@@ -1501,6 +1597,29 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
           </p>
         </div>
       </div>
+
+      {/* Thanh công cụ nổi khi học sinh bôi đen văn bản ở Pha 1 (Planning) hoặc Pha 2 (Cột trái + Cột phải Feynman) */}
+      {pendingSelection && (
+        <TextSelectionToolbar
+          variant="floating"
+          selectedText={pendingSelection.text}
+          onSelectSymbol={handleAttachSymbolToSelection}
+          onAskDeepDive={(text) => {
+            setDeepDiveSelectedText(text);
+            setPendingSelection(null);
+            if (typeof window !== 'undefined') {
+              window.getSelection()?.removeAllRanges();
+            }
+            setIsDeepDiveOpen(true);
+          }}
+          onClose={() => {
+            setPendingSelection(null);
+            if (typeof window !== 'undefined') {
+              window.getSelection()?.removeAllRanges();
+            }
+          }}
+        />
+      )}
 
       {/* Nút nổi + Slide-over Drawer Hỏi Thầy Cú Feynman (ẩn khi in A4) */}
       <DeepDiveDrawer
