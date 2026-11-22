@@ -153,6 +153,8 @@ export default async function MetacognitionListPage() {
               const subjectColor =
                 article.subject === 'Kỹ năng sống'
                   ? 'bg-purple-100 text-purple-800 border-purple-300'
+                  : article.subject === 'Tư duy phản biện'
+                  ? 'bg-rose-100 text-rose-800 border-rose-300'
                   : article.subject === 'Lịch sử'
                   ? 'bg-amber-100 text-amber-800 border-amber-300'
                   : article.subject === 'Địa lí'

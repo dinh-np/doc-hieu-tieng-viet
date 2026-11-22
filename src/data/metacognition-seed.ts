@@ -1423,6 +1423,248 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // CRITICAL THINKING - 1: TƯ DUY 'BỌT BIỂN' HAY TƯ DUY 'ĐÃI VÀNG'?
+  // ===========================================================================
+  {
+    id: 'critical-thinking-1-bot-bien-hay-dai-vang',
+    slug: 'critical-thinking-1-bot-bien-hay-dai-vang',
+    subject: 'Tư duy phản biện',
+    grade: 7,
+    title: "Critical Thinking - 1: Tư Duy 'Bọt Biển' Hay Tư Duy 'Đãi Vàng'?",
+    subtitle:
+      'Bài học 1: Rèn luyện thói quen sàng lọc tri thức, chủ động đối thoại cùng thông tin và thực hành phản biện mạnh mẽ (Strong-Sense Critical Thinking).',
+    target_time_minutes: 25,
+    article_type: 'metacognition',
+    category: 'metacognition',
+
+    // PHA 1: PLANNING
+    planning: {
+      active_recall_question:
+        "Khi lướt mạng xã hội hay nghe ai đó kể một câu chuyện ly kỳ, con thường tin ngay hay dừng lại tự hỏi: 'Điều này có thật không, tại sao họ lại nói thế?'",
+      prediction_prompt:
+        'Theo con, giữa một người nhớ được mọi điều trong sách và một người biết chọn ra điều đúng đắn, có ích nhất để tin, ai mới là người thực sự thông thái?',
+    },
+
+    // PHA 2: MONITORING (3 Chặng đọc)
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: 'Chặng 1: Miếng bọt biển hút nước và cái bẫy của sự thụ động',
+        original_text:
+          'Hãy tưởng tượng con thả một miếng bọt biển khô vào chậu nước. Nó sẽ hút lấy nước cực kỳ nhanh mà chẳng tốn chút sức lực nào. Nhưng miếng bọt biển không biết chọn lựa: nước trong hay nước bẩn, nước thơm hay nước bùn nó đều hút trọn vẹn. Nhiều người đọc sách hay lướt mạng cũng giống như miếng bọt biển: ai nói gì cũng gật đầu tin ngay, cố học thuộc lòng từng câu từng chữ mà không hề tự hỏi xem điều đó đúng hay sai. Sự **thụ động** này rất nguy hiểm: nếu chỉ làm miếng bọt biển, con sẽ luôn tin vào người nói sau cùng và để người khác suy nghĩ thay cho chính mình.',
+        feynman_explanation: {
+          dialogue_question:
+            'Vì sao làm miếng bọt biển hút nước lại nguy hiểm khi đọc và nghe thông tin?',
+          dialogue_answer:
+            'Giống hệt như khi con ăn một con cá rán thơm phức! Nếu con nuốt chửng cả con cá như một cái máy hút bụi, con sẽ bị hóc xương ngay. Người khôn ngoan luôn biết nhằn xương cá ra đĩa và chỉ ăn phần thịt ngon lành. Đọc thông tin trên mạng cũng vậy: phải nhằn bỏ tin đồn, tin rác!',
+          metacognition_modeling:
+            "Ba: 'Hồi bằng tuổi con, thấy quảng cáo nào trên tivi ba cũng tin là thật. Mãi sau này ba mới hiểu người ta nói để bán được hàng.' — Con: 'Dạ, giờ trên TikTok với YouTube có nhiều video cắt ghép để câu view lắm ba, lơ đễnh một chút là bị lừa ngay ạ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Thụ động',
+            formula: 'Thụ (nhận lấy, chịu đựng) + Động (chuyển động, hành động)',
+            meaning:
+              'Để sự việc diễn ra mà không chủ động suy nghĩ, phản ứng hay chọn lựa.',
+            english_anchor: 'Passive',
+          },
+          {
+            term: 'Hấp thụ mù quáng',
+            formula:
+              'Hấp thụ (hút vào, tiếp nhận) + Mù quáng (không phân biệt đúng sai)',
+            meaning:
+              'Đưa mọi thông tin vào đầu mà không kiểm tra độ đúng sai hay bằng chứng.',
+            english_anchor: 'Unquestioning Absorption',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Thụ động',
+            formula: 'Thụ (nhận lấy, chịu đựng) + Động (chuyển động, hành động)',
+            meaning:
+              'Để sự việc diễn ra mà không chủ động suy nghĩ, phản ứng hay chọn lựa.',
+            english_anchor: 'Passive',
+          },
+          {
+            term: 'Hấp thụ mù quáng',
+            formula:
+              'Hấp thụ (hút vào, tiếp nhận) + Mù quáng (không phân biệt đúng sai)',
+            meaning:
+              'Đưa mọi thông tin vào đầu mà không kiểm tra độ đúng sai hay bằng chứng.',
+            english_anchor: 'Unquestioning Absorption',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: 'Chặng 2: Người đãi vàng bên bờ suối — Đặt câu hỏi để tìm chân lý',
+        original_text:
+          "Ngược lại với miếng bọt biển, người **đãi vàng** bước xuống dòng suối với một chiếc rây trên tay. Họ xúc cát sỏi dưới lòng suối lên và lắc mạnh liên tục dưới dòng nước chảy xiết. Cát mịn, sỏi vụn và bùn đất nhẹ sẽ bị nước cuốn trôi đi, chỉ còn lại những hạt vàng lấp lánh, nặng và quý giá đọng lại dưới đáy rây. Người có tư duy phản biện đọc sách và nghe tin tức giống hệt như người đãi vàng: họ liên tục đặt câu hỏi: 'Tại sao tác giả lại khẳng định như vậy?', 'Lý lẽ của họ có vững chắc không?', 'Họ có đưa ra bằng chứng thực tế nào không?'. Nhờ chiếc rây câu hỏi này, họ lọc sạch những điều xàm xí, thiên vị và giữ lại tri thức đích thực.",
+        feynman_explanation: {
+          dialogue_question: 'Người đãi vàng sàng lọc thông tin bằng cách nào?',
+          dialogue_answer:
+            "Con hãy tưởng tượng mình là một thám tử cầm chiếc kính lúp đi phá án! Thám tử không bao giờ nghe nghi phạm bảo 'tôi vô tội' là tin ngay. Thám tử sẽ soi từng dấu chân, vết vân tay để xem lời nói đó có bằng chứng hay không.",
+          metacognition_modeling:
+            "Ba: 'Đọc một bài viết không phải là ngồi im nghe tác giả ra lệnh, mà là con đang ngồi uống trà và đối thoại sòng phẳng cùng họ.' — Con: 'Nghĩa là nếu tác giả nói chỗ nào con thấy vô lý, con hoàn toàn có quyền nghi ngờ và đặt câu hỏi lại đúng không ba?'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Đãi vàng',
+            formula: 'Đãi (lọc bằng nước và rây) + Vàng (giá trị quý báu)',
+            meaning:
+              'Phương pháp chủ động sàng lọc, chất vấn thông tin để tìm ra sự thật có giá trị.',
+            english_anchor: 'Panning for Gold',
+          },
+          {
+            term: 'Tương tác',
+            formula: 'Tương (qua lại, lẫn nhau) + Tác (tác động, làm)',
+            meaning:
+              'Cuộc đối thoại hai chiều giữa người đọc và trang sách / nguồn thông tin.',
+            english_anchor: 'Interactive',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Đãi vàng',
+            formula: 'Đãi (lọc bằng nước và rây) + Vàng (giá trị quý báu)',
+            meaning:
+              'Phương pháp chủ động sàng lọc, chất vấn thông tin để tìm ra sự thật có giá trị.',
+            english_anchor: 'Panning for Gold',
+          },
+          {
+            term: 'Tương tác',
+            formula: 'Tương (qua lại, lẫn nhau) + Tác (tác động, làm)',
+            meaning:
+              'Cuộc đối thoại hai chiều giữa người đọc và trang sách / nguồn thông tin.',
+            english_anchor: 'Interactive',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title: 'Chặng 3: Phản biện mạnh mẽ — Đãi vàng với chính suy nghĩ của mình',
+        original_text:
+          "Trong cuốn sách Asking the Right Questions, các tác giả chỉ ra rằng có hai cấp độ phản biện: Phản biện yếu (Weak-Sense) và **Phản biện mạnh mẽ** (Strong-Sense). Phản biện yếu là khi con chỉ dùng câu hỏi để soi mói lỗi của người khác, cãi thắng bạn bè hoặc bảo vệ cứng đầu ý kiến ban đầu của mình. Đó chỉ là cái tôi đang ghen tị hoặc tự ái. Phản biện mạnh mẽ đòi hỏi sự dũng cảm cao hơn nhiều: con dùng câu hỏi để soi chiếu lại chính niềm tin của mình: 'Liệu điều mình đang tin có chỗ nào chưa đúng?', 'Mình có đang bị thiên vị hay không?'. Sẵn sàng thay đổi suy nghĩ khi thấy bằng chứng mới mẻ chính là đỉnh cao của sự trưởng thành và tinh thần **tự do tư tưởng**.",
+        feynman_explanation: {
+          dialogue_question:
+            'Phản biện mạnh mẽ khác gì so với việc cố cãi thắng người khác?',
+          dialogue_answer:
+            'Giống như một bác sĩ giỏi: không chỉ khám bệnh và kê đơn cho bệnh nhân, bác sĩ còn tự kiểm tra sức khỏe và đo nhịp tim của chính mình mỗi ngày để đảm bảo bản thân luôn tỉnh táo và khỏe mạnh!',
+          metacognition_modeling:
+            "Ba: 'Người thông minh nhất không phải là người không bao giờ sai, mà là người vui vẻ nói: Chỗ này tớ đã nhầm, cảm ơn bạn đã chỉ cho tớ bằng chứng mới!' — Con: 'Dạ, con sẽ không cố cãi bướng để bảo vệ cái tôi nữa, con muốn làm một người đãi vàng dũng cảm ạ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Phản biện mạnh mẽ',
+            formula:
+              'Phản biện (chất vấn, lập luận) + Mạnh mẽ (vững vàng, tự soi chiếu)',
+            meaning:
+              'Dám chất vấn và kiểm tra lại chính niềm tin, sự thiên vị của bản thân trước bằng chứng mới.',
+            english_anchor: 'Strong-Sense Critical Thinking',
+          },
+          {
+            term: 'Tự do tư tưởng',
+            formula:
+              'Tự do (không bị ràng buộc) + Tư tưởng (suy nghĩ, nhận thức)',
+            meaning:
+              'Không bị trói buộc bởi định kiến, tin đồn hay nỗi sợ sai khi tìm kiếm sự thật.',
+            english_anchor: 'Intellectual Autonomy',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Phản biện mạnh mẽ',
+            formula:
+              'Phản biện (chất vấn, lập luận) + Mạnh mẽ (vững vàng, tự soi chiếu)',
+            meaning:
+              'Dám chất vấn và kiểm tra lại chính niềm tin, sự thiên vị của bản thân trước bằng chứng mới.',
+            english_anchor: 'Strong-Sense Critical Thinking',
+          },
+          {
+            term: 'Tự do tư tưởng',
+            formula:
+              'Tự do (không bị ràng buộc) + Tư tưởng (suy nghĩ, nhận thức)',
+            meaning:
+              'Không bị trói buộc bởi định kiến, tin đồn hay nỗi sợ sai khi tìm kiếm sự thật.',
+            english_anchor: 'Intellectual Autonomy',
+          },
+        ],
+      },
+    ],
+
+    // PHA 3: EVALUATING
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Nấc 1 — Trực tiếp trong bài',
+          question:
+            'Người có tư duy bọt biển và người có tư duy đãi vàng khác nhau ở điểm cốt lõi nào khi tiếp nhận một thông tin mới?',
+          hint: 'Xem lại Chặng 1 (hút trọn không chọn lọc) và Chặng 2 (dùng rây câu hỏi lọc cát sỏi, giữ hạt vàng bằng chứng).',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Nấc 2 — Suy ngẫm & Liên kết',
+          question:
+            'Tại sao các tác giả lại cho rằng nếu con chỉ đọc và nghe như một miếng bọt biển thì con sẽ luôn tin vào người nói sau cùng?',
+          hint: 'Vì thiếu bộ lọc đặt câu hỏi kiểm tra lý lẽ và bằng chứng nên dễ bị cuốn theo lời khẳng định mới nhất.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Nấc 3 — Liên hệ thực tế & Hành động',
+          question:
+            "Lần tới khi xem một video ngắn trên mạng khẳng định một 'mẹo học siêu tốc', con sẽ đặt ra câu hỏi đãi vàng nào trước khi làm theo?",
+          hint: 'Ví dụ: Có bằng chứng nào chứng minh hiệu quả không? Hay chỉ là câu view?',
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Tư duy bọt biển (Thụ động)',
+          prompt:
+            'Hút trọn cả nước sạch lẫn nước bùn, nhằn cá không nhả xương — dễ tin người nói sau cùng.',
+          sample_keywords:
+            'Hút trọn cả nước sạch lẫn nước bùn, nhằn cá không nhả xương — dễ tin người nói sau cùng.',
+        },
+        {
+          category: 'Người đãi vàng (Chủ động)',
+          prompt:
+            'Dùng rây câu hỏi tìm lý lẽ và bằng chứng — giữ lại hạt vàng chân lý, loại cát sỏi tin đồn.',
+          sample_keywords:
+            'Dùng rây câu hỏi tìm lý lẽ và bằng chứng — giữ lại hạt vàng chân lý, loại cát sỏi tin đồn.',
+        },
+        {
+          category: 'Phản biện mạnh mẽ (Strong-Sense)',
+          prompt:
+            'Biết tự soi lại niềm tin và sự thiên vị của chính mình — sẵn sàng sửa khi có bằng chứng mới.',
+          sample_keywords:
+            'Biết tự soi lại niềm tin và sự thiên vị của chính mình — sẵn sàng sửa khi có bằng chứng mới.',
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Tư duy bọt biển hút thụ động dễ bị cuốn theo tin rác; tư duy đãi vàng sàng lọc bằng câu hỏi và bằng chứng.',
+          'Phản biện yếu chỉ lo cãi thắng hoặc soi lỗi người khác; phản biện mạnh mẽ dám tự kiểm tra chính niềm tin của mình.',
+          'Sẵn sàng đổi suy nghĩ khi có bằng chứng mới là dấu hiệu của sự trưởng thành và tự do tư tưởng.',
+        ],
+        two_surprises: [
+          'Đọc sách hay lướt mạng mà không đặt câu hỏi dễ khiến ta luôn tin vào người nói sau cùng.',
+          "Người thông minh dám nói 'Chỗ này tớ đã nhầm' khi thấy bằng chứng mới có sức mạnh hơn người chỉ cố bảo vệ cái tôi.",
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            "Mỗi khi gặp thông tin mới hoặc mẹo học trên mạng, em sẽ bật chế độ 'đãi vàng' đặt câu hỏi trước khi tin.",
+        },
+      },
+      takeaway_sentence:
+        'Tâm trí con là một khu vườn quý giá, không phải bãi rác để ai muốn vứt gì vào cũng được. Hãy luôn cầm chiếc rây đãi vàng trên tay, nhặt lấy sự thật và tự tin làm chủ suy nghĩ của chính mình.',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
