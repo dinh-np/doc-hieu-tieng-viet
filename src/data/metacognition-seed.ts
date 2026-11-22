@@ -1189,7 +1189,7 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
     subject: 'Kỹ năng sống',
     grade: 7,
     title:
-      'Sức Mạnh Của Tư Duy: Cái Tôi Của Bạn — Bức Tượng Thạch Cao Hay Người Đi Thám Hiểm?',
+      'Mindset – Bài 8: Cái Tôi Của Bạn — Bức Tượng Thạch Cao Hay Người Đi Thám Hiểm?',
     subtitle:
       'Bài học cầu nối: Nhận diện cái tôi lành mạnh (Growth Ego), biết tách rời "Ý kiến của con" (mô hình Lego trên bàn) khỏi "Giá trị con người con" để sẵn sàng bước vào Tư duy phản biện (Critical Thinking).',
     target_time_minutes: 25,
