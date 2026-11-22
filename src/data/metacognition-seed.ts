@@ -1181,6 +1181,248 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // BÀI NỀN TẢNG 8: CÁI TÔI CỦA BẠN — BỨC TƯỢNG THẠCH CAO HAY NGƯỜI ĐI THÁM HIỂM?
+  // ===========================================================================
+  {
+    id: 'mindset-cai-toi-buc-tuong-hay-tham-hiem',
+    slug: 'mindset-cai-toi-buc-tuong-hay-tham-hiem',
+    subject: 'Kỹ năng sống',
+    grade: 7,
+    title:
+      'Sức Mạnh Của Tư Duy: Cái Tôi Của Bạn — Bức Tượng Thạch Cao Hay Người Đi Thám Hiểm?',
+    subtitle:
+      'Bài học cầu nối: Nhận diện cái tôi lành mạnh (Growth Ego), biết tách rời "Ý kiến của con" (mô hình Lego trên bàn) khỏi "Giá trị con người con" để sẵn sàng bước vào Tư duy phản biện (Critical Thinking).',
+    target_time_minutes: 25,
+    article_type: 'metacognition',
+    category: 'metacognition',
+
+    // PHA 1: PLANNING
+    planning: {
+      active_recall_question:
+        'Khi một người bạn hay thầy cô chỉ ra điểm chưa đúng trong bài làm của con, cảm xúc đầu tiên thoáng qua trong đầu con là gì: hơi tự ái, muốn biện minh giải thích ngay lập tức, hay cảm thấy tò mò muốn biết mình sai ở đâu?',
+      prediction_prompt:
+        "Giữa một người lúc nào cũng cố tỏ ra mình 'luôn đúng' và một người sẵn sàng thốt lên 'Ồ, chỗ này mình chưa biết, cảm ơn bạn đã chỉ ra!', con cảm thấy nể phục ai hơn và vì sao?",
+    },
+
+    // PHA 2: MONITORING (3 Chặng đọc)
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: 'Chặng 1: Bức tượng thạch cao và nỗi sợ nứt vỡ',
+        original_text:
+          "Hãy tưởng tượng một bức tượng làm bằng thạch cao trắng muốt được đặt trên bục cao. Ai đi qua cũng trầm trồ khen ngợi: 'Bức tượng này đẹp quá, hoàn hảo quá!'. Thế nhưng, sâu bên trong, bức tượng luôn sống trong một nỗi kinh hoàng thầm kín: nó sợ mọi va chạm. Bởi vì nó làm bằng thạch cao giòn xốp, chỉ cần một cú va quệt nhẹ, một cơn gió mạnh làm lung lay hay một hòn sỏi vô tình ném trúng, lớp vỏ bóng bẩy ấy sẽ nứt toác và vỡ vụn. Trong tâm lý học, đây chính là hình ảnh ẩn dụ cho **'Cái tôi cố định' (Fixed Ego)**. Khi một người bị ám ảnh bởi danh nhãn 'mình là người thông minh, mình là học sinh giỏi', họ sẽ coi giá trị con người mình giống như bức tượng thạch cao ấy. Họ không dám thử sức với những bài toán lạ, không dám giơ tay phát biểu khi chưa chắc chắn 100%, và cực kỳ sợ bị người khác chê. Họ luôn phải gồng mình **phòng thủ tâm lý** và diễn vai 'người hoàn hảo', bởi vì đối với họ, mỗi lỗi sai không phải là bài học, mà là một vết nứt làm sụp đổ danh dự của bản thân.",
+        feynman_explanation: {
+          dialogue_question:
+            'Bức tượng thạch cao sợ nhất điều gì xảy ra với mình vậy Ba?',
+          dialogue_answer:
+            'Giống hệt như một chiếc ly pha lê đắt tiền nhưng mỏng tang vậy con! Trông sang chảnh thật đấy, nhưng ai lỡ chạm nhẹ một cái là sợ vỡ toang. Suốt ngày phải nơm nớp lo che giấu chỗ mẻ thì làm sao mà vui vẻ chơi đùa được!',
+          metacognition_modeling:
+            "Mỏ neo đối thoại Ba - Con: 'Hồi bằng tuổi con, có lần ba làm sai một bài văn bị điểm thấp, ba xấu hổ giấu nhẹm đi vì sợ các bạn chê mình dở. Lúc đó ba chính là bức tượng thạch cao đấy! Giờ nghĩ lại, giấu dốt chỉ làm mình đứng yên một chỗ thôi con ạ.'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Cái tôi',
+            formula: 'Danh từ chỉ nhận thức bản thân (Ego)',
+            meaning:
+              'Nhận thức của con về bản thân, phẩm giá và vị trí của mình trong mắt người khác.',
+            english_anchor: 'Ego / Self-concept',
+          },
+          {
+            term: 'Phòng thủ tâm lý',
+            formula: 'Phòng (giữ gìn, đề phòng) + Thủ (giữ vững) + Tâm lý',
+            meaning:
+              'Phản ứng tự vệ (tức giận, cãi cùn, đổ lỗi) khi cảm thấy bản thân bị chê bai hoặc đe dọa.',
+            english_anchor: 'Psychological Defensiveness',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Cái tôi',
+            formula: 'Danh từ chỉ nhận thức bản thân (Ego)',
+            meaning:
+              'Nhận thức của con về bản thân, phẩm giá và vị trí của mình trong mắt người khác.',
+            english_anchor: 'Ego / Self-concept',
+          },
+          {
+            term: 'Phòng thủ tâm lý',
+            formula: 'Phòng (giữ gìn, đề phòng) + Thủ (giữ vững) + Tâm lý',
+            meaning:
+              'Phản ứng tự vệ (tức giận, cãi cùn, đổ lỗi) khi cảm thấy bản thân bị chê bai hoặc đe dọa.',
+            english_anchor: 'Psychological Defensiveness',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: 'Chặng 2: Người đi thám hiểm và đôi giày lấm bùn',
+        original_text:
+          "Ngược lại hoàn toàn với bức tượng thạch cao thụ động, hãy nhìn một **'Người đi thám hiểm'**. Họ không đứng yên trên bục để người khác chiêm ngưỡng. Họ khoác ba lô, xỏ đôi giày leo núi bền bỉ và bước vào khu rừng rậm của tri thức. Đôi giày của họ có thể dính đầy bùn đất, đầu gối họ có thể trầy xước vì vấp phải rễ cây, nhưng trên khuôn mặt họ luôn rạng rỡ sự tò mò và phấn khích. Người thám hiểm đại diện cho **'Cái tôi phát triển' (Growth Ego)**. Họ không cần chứng minh mình biết hết mọi thứ. Họ tự hào về đôi giày lấm bùn, vì đó là minh chứng cho thấy họ đang **dấn thân** hành động. Khi gặp một con đường cụt hay một cái bẫy sình lầy (tương tự như một bài kiểm tra điểm kém hay một lần thất bại), họ không ngồi sụp xuống khóc lóc rằng 'mình là kẻ vô dụng'. Họ rút sổ tay ra, đánh dấu vào bản đồ: 'Đường này không đi được, cần đổi hướng!'. Đối với người thám hiểm, sự thật và tri thức mới quan trọng hơn nhiều so với việc giữ cho bộ quần áo trắng tinh tươm.",
+        feynman_explanation: {
+          dialogue_question:
+            'Người đi thám hiểm tự hào về điều gì trên đôi giày leo núi của họ?',
+          dialogue_answer:
+            'Một đôi giày chạy bộ càng cũ và lấm bùn thì chứng tỏ chủ nhân của nó là một tay chạy cự phách! Chẳng có ai đi chấm điểm vận động viên leo núi bằng việc đôi giày của họ có trắng tinh như lúc mới mua hay không cả.',
+          metacognition_modeling:
+            "Mỏ neo đối thoại Ba - Con: 'Mỗi lần con gặp bài toán khó mà dám nháp thử 3 cách khác nhau, dù chưa ra kết quả, con chính là người thám hiểm mang đôi giày dính bùn đấy. Ba tự hào vì sự dũng cảm bước đi của con hơn là điểm số tròn trĩnh mà không cần suy nghĩ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Dấn thân',
+            formula: 'Dấn (tiến tới, bước tới) + Thân (thân thể, bản thân)',
+            meaning:
+              'Sẵn sàng bước vào thử thách khó khăn để trải nghiệm, không sợ vất vả hay lấm lem.',
+            english_anchor: 'Step Up / Venture In',
+          },
+          {
+            term: 'Dẻo dai',
+            formula: 'Tính từ chỉ sức bền bỉ',
+            meaning:
+              'Năng lực đứng dậy, hồi phục và tìm hướng đi mới sau khi gặp thất bại (Resilience).',
+            english_anchor: 'Resilience',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Dấn thân',
+            formula: 'Dấn (tiến tới, bước tới) + Thân (thân thể, bản thân)',
+            meaning:
+              'Sẵn sàng bước vào thử thách khó khăn để trải nghiệm, không sợ vất vả hay lấm lem.',
+            english_anchor: 'Step Up / Venture In',
+          },
+          {
+            term: 'Dẻo dai',
+            formula: 'Tính từ chỉ sức bền bỉ',
+            meaning:
+              'Năng lực đứng dậy, hồi phục và tìm hướng đi mới sau khi gặp thất bại (Resilience).',
+            english_anchor: 'Resilience',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title: "Chặng 3: Tách rời 'Ý kiến' khỏi 'Bản thân con'",
+        original_text:
+          "Đây chính là bí mật quan trọng nhất để con chuẩn bị bước sang rèn luyện **Tư duy phản biện**: Hãy học cách tách rời 'Ý kiến của con' ra khỏi 'Giá trị con người con'. Khi con phát biểu trong lớp, viết một đoạn văn, hay giải thích một hiện tượng, hãy tưởng tượng con vừa đặt một **'mô hình Lego'** lên bàn. Khối Lego đó là sản phẩm suy nghĩ của con ở thời điểm hiện tại. Nếu một người bạn hay thầy cô bước tới và nói: 'Chỗ này lắp ngược rồi, bánh xe này chưa khớp với trục', họ đang nói về khối Lego trên bàn, chứ họ hoàn toàn KHÔNG xúc phạm hay chê bai con người con! Người mang cái tôi bức tượng sẽ ôm chặt khối Lego, tự ái và hét lên: 'Bạn ghét mình đúng không?'. Nhưng người thám hiểm thông thái sẽ vui vẻ nói: 'Ồ, góc nhìn của bạn thú vị đấy! Để mình thử tháo mảnh ghép này ra lắp lại xem sao'. Đừng bao giờ làm người lính canh gác ngớ ngẩn dùng cả đời để bảo vệ một ý kiến sai chỉ vì sợ mất mặt. Biết lắng nghe, biết buông bỏ ý kiến chưa đúng để đón nhận sự thật mới chính là phong thái **khách quan** của một người có tư duy phản biện đỉnh cao.",
+        feynman_explanation: {
+          dialogue_question:
+            "Vì sao nên xem 'Ý kiến của mình' giống như 'mô hình Lego đặt trên bàn'?",
+          dialogue_answer:
+            'Ý kiến của con giống như chiếc áo khoác con đang mặc. Nếu chiếc áo bị lấm một vết mực, con chỉ cần đem giặt hoặc đổi chiếc áo sạch hơn. Vết mực trên áo không bao giờ có thể biến con người con thành xấu xí hay vô dụng được!',
+          metacognition_modeling:
+            "Mỏ neo đối thoại Ba - Con: 'Từ hôm nay, khi ba và con tranh luận về một vấn đề, chúng mình hãy nhớ đến khối Lego trên bàn nhé. Ba con mình cùng nhau mổ xẻ khối Lego để tìm ra sự thật, chứ không ai phán xét ai cả!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Tư duy phản biện',
+            formula:
+              'Tư duy + Phản (quay lại, đối chiếu) + Biện (phân biệt, lập luận)',
+            meaning:
+              'Khả năng đặt câu hỏi, xem xét đa chiều và đối chiếu bằng chứng trước khi tin hoặc khẳng định.',
+            english_anchor: 'Critical Thinking',
+          },
+          {
+            term: 'Khách quan',
+            formula:
+              'Khách (bên ngoài, không thiên vị) + Quan (nhìn ngắm, xem xét)',
+            meaning:
+              'Khả năng nhìn nhận sự việc đúng như bản chất của nó, không để cảm xúc hay sự tự ái làm méo mó sự thật.',
+            english_anchor: 'Objective',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Tư duy phản biện',
+            formula:
+              'Tư duy + Phản (quay lại, đối chiếu) + Biện (phân biệt, lập luận)',
+            meaning:
+              'Khả năng đặt câu hỏi, xem xét đa chiều và đối chiếu bằng chứng trước khi tin hoặc khẳng định.',
+            english_anchor: 'Critical Thinking',
+          },
+          {
+            term: 'Khách quan',
+            formula:
+              'Khách (bên ngoài, không thiên vị) + Quan (nhìn ngắm, xem xét)',
+            meaning:
+              'Khả năng nhìn nhận sự việc đúng như bản chất của nó, không để cảm xúc hay sự tự ái làm méo mó sự thật.',
+            english_anchor: 'Objective',
+          },
+        ],
+      },
+    ],
+
+    // PHA 3: EVALUATING
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Trực tiếp trong bài (Right There)',
+          question:
+            'Bức tượng thạch cao sợ nhất điều gì xảy ra với mình? Ngược lại, người đi thám hiểm tự hào về điều gì trên đôi giày leo núi của họ?',
+          hint: 'Xem lại Chặng 1 (lớp vỏ giòn xốp dễ nứt vỡ) và Chặng 2 (đôi giày lấm bùn minh chứng dấn thân).',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Suy ngẫm & Liên kết (Think & Search)',
+          question:
+            "Vì sao bài đọc khuyên chúng ta nên xem 'Ý kiến của mình' giống như 'mô hình Lego đặt trên bàn'? Việc tách rời này giúp con cảm thấy thế nào khi người khác chỉ ra chỗ chưa đúng?",
+          hint: 'Sửa khối Lego không phải là chê bai bản thân, giúp ta bớt tự ái và sẵn sàng lắp lại cho đúng hơn.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Liên hệ bản thân (On My Own)',
+          question:
+            "Trong tuần vừa qua, có khoảnh khắc nào con cảm thấy mình giống như 'bức tượng thạch cao' chưa? Nếu ngày mai có một bạn trong lớp không đồng ý với quan điểm của con, con sẽ nhắc nhở bản thân câu thần chú gì?",
+          hint: 'Gắn với trải nghiệm thật của con và cách giữ thái độ cởi mở khi trao đổi ý kiến.',
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Cái tôi cố định (Bức tượng thạch cao)',
+          prompt:
+            'Giòn xốp, sợ nứt vỡ/chê bai, phòng thủ tâm lý, không dám dấn thân.',
+          sample_keywords:
+            'Giòn xốp, sợ nứt vỡ/chê bai, phòng thủ tâm lý, không dám dấn thân.',
+        },
+        {
+          category: 'Cái tôi phát triển (Người đi thám hiểm)',
+          prompt:
+            'Dám dấn thân, tự hào đôi giày lấm bùn, dẻo dai đổi hướng khi gặp thử thách.',
+          sample_keywords:
+            'Dám dấn thân, tự hào đôi giày lấm bùn, dẻo dai đổi hướng khi gặp thử thách.',
+        },
+        {
+          category: 'Tách rời Ý kiến & Bản thân',
+          prompt:
+            'Ý kiến là mô hình Lego trên bàn — sửa mảnh ghép không làm giảm giá trị con người.',
+          sample_keywords:
+            'Ý kiến là mô hình Lego trên bàn — sửa mảnh ghép không làm giảm giá trị con người.',
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Cái tôi cố định (bức tượng thạch cao) sợ va chạm và phòng thủ; cái tôi phát triển (người đi thám hiểm) dám dấn thân học hỏi.',
+          'Đôi giày lấm bùn và sự dẻo dai tìm hướng mới giá trị hơn việc giữ vẻ ngoài hoàn hảo thụ động.',
+          'Tách rời ý kiến (mô hình Lego) khỏi giá trị bản thân giúp đón nhận góp ý khách quan và chuẩn bị cho tư duy phản biện.',
+        ],
+        two_surprises: [
+          'Giữ hình ảnh hoàn hảo quá mức có thể khiến ta sợ sai và đứng yên một chỗ.',
+          'Góp ý sửa một ý kiến chưa đúng chỉ là đang cùng chỉnh lại khối Lego, không phải chê bai con người mình.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            'Khi có người phản biện ý kiến, em sẽ coi đó là cơ hội cùng lắp lại mô hình Lego để tìm ra sự thật.',
+        },
+      },
+      takeaway_sentence:
+        'Con không cần phải là một bức tượng thạch cao bất động để người khác chiêm ngưỡng. Hãy là một người thám hiểm dũng cảm với đôi giày lấm bùn! Khi ý kiến của con bị người khác phản biện, họ đang cùng con sửa lại khối Lego trên bàn để tìm ra chân lý, chứ không ai có thể làm giảm đi giá trị tuyệt vời bên trong con người con.',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {

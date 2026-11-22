@@ -482,7 +482,8 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
   // ── Render đoạn văn bản gốc có in đậm từ khóa `**...**` và chạm mở Pop-up Hán-Việt ──
   const renderFormattedChunkText = (chunk: ChunkData) => {
     const glossaryMap = new Map<string, HanVietPopItem>();
-    (chunk.han_viet_Popup || []).forEach((item) => {
+    const chunkPopups = chunk.han_viet_Popup || chunk.han_viet_popups || [];
+    chunkPopups.forEach((item) => {
       const normalizedKey = cleanVietnameseText(item.term).toLowerCase();
       glossaryMap.set(normalizedKey, {
         ...item,
@@ -499,13 +500,23 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
     return parts.map((part, idx) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         const innerText = cleanVietnameseText(part.slice(2, -2));
-        const hvItem = glossaryMap.get(innerText.toLowerCase());
+        const lowerInner = innerText.toLowerCase();
+        let hvItem = glossaryMap.get(lowerInner);
+        if (!hvItem) {
+          for (const [k, v] of glossaryMap.entries()) {
+            if (lowerInner.includes(k)) {
+              hvItem = v;
+              break;
+            }
+          }
+        }
 
         if (hvItem) {
+          const matchedItem = hvItem;
           const isOpen =
             activeHanVietPopup?.chunkId === chunk.chunk_id &&
             cleanVietnameseText(activeHanVietPopup?.item.term).toLowerCase() ===
-              innerText.toLowerCase();
+              cleanVietnameseText(matchedItem.term).toLowerCase();
 
           return (
             <span key={idx} className="relative inline-block">
@@ -514,10 +525,10 @@ export function MetacognitionReaderClient({ article: rawArticle }: Metacognition
                 data-hanviet-trigger="true"
                 aria-expanded={isOpen}
                 onClick={(e) =>
-                  openHanVietPopup(chunk.chunk_id, hvItem, e.currentTarget, true)
+                  openHanVietPopup(chunk.chunk_id, matchedItem, e.currentTarget, true)
                 }
                 onMouseEnter={(e) =>
-                  openHanVietPopup(chunk.chunk_id, hvItem, e.currentTarget, false)
+                  openHanVietPopup(chunk.chunk_id, matchedItem, e.currentTarget, false)
                 }
                 className="font-extrabold text-[#0066ab] bg-blue-50 hover:bg-blue-100 px-1.5 py-0.5 rounded-md underline decoration-dashed decoration-[#0066ab] underline-offset-4 cursor-pointer transition-colors whitespace-nowrap"
                 title="Chạm để bẻ khóa từ Hán-Việt"
