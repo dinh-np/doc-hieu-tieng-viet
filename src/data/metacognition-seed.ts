@@ -2152,6 +2152,251 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // CRITICAL THINKING - 4: ỨNG XỬ VỚI AI — 'TRỢ LÝ GỢI Ý' CHỨ KHÔNG PHẢI 'BÁCH KHOA TOÀN THƯ LUÔN ĐÚNG'
+  // ===========================================================================
+  {
+    id: 'critical-thinking-4-ung-xu-voi-ai',
+    slug: 'critical-thinking-4-ung-xu-voi-ai',
+    subject: 'Tư duy phản biện',
+    grade: 7,
+    title:
+      "Critical Thinking - 4: Ứng Xử Với AI — 'Trợ Lý Gợi Ý' Chứ Không Phải 'Bách Khoa Toàn Thư Luôn Đúng'",
+    subtitle:
+      'Bài học 4: Làm chủ công nghệ trí tuệ nhân tạo bằng tư duy độc lập, nhận diện "Ảo giác AI" (AI Hallucination) và bảo vệ tiếng nói độc bản của chính mình.',
+    target_time_minutes: 25,
+    article_type: 'metacognition',
+    category: 'metacognition',
+
+    // PHA 1: PLANNING
+    planning: {
+      active_recall_question:
+        'Con đã từng nhờ các công cụ AI hỗ trợ tìm kiếm ý tưởng hay giải thích bài tập bao giờ chưa? Con cảm thấy nó tiện lợi ở điểm nào?',
+      prediction_prompt:
+        'Nếu có một người bạn ngày nào cũng làm hộ bài tập về nhà cho con, theo con sau một năm năng lực học tập thực sự của con sẽ tiến bộ hay thụt lùi?',
+    },
+
+    // PHA 2: MONITORING (3 Chặng đọc)
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title:
+          "Chặng 1: Bản chất của AI — 'Máy dự đoán từ ngữ' chứ không có ý thức",
+        original_text:
+          "**Trí tuệ nhân tạo (AI)** học từ hàng triệu trang sách báo trên Internet và dùng các thuật toán toán học cực mạnh để **dự đoán từ ngữ**: từ ngữ nào nên xuất hiện tiếp theo để câu trả lời nghe trôi chảy và hợp lý nhất. Tuy nhiên, AI không có trái tim, không có ý thức và không thực sự 'hiểu' thế giới như một con người. AI giống như một chiếc gương phản chiếu lại kho dữ liệu khổng lồ của nhân loại: trong kho dữ liệu đó có tri thức khoa học rực rỡ, nhưng cũng chứa đầy những thông tin sai lệch, định kiến và cả những điều vô căn cứ. AI chỉ nhặt và ghép từ lại, chứ không thể chịu trách nhiệm cho sự thật.",
+        feynman_explanation: {
+          dialogue_question:
+            'Tại sao AI trả lời câu nào cũng mượt mà nhưng không thể chịu trách nhiệm cho sự thật?',
+          dialogue_answer:
+            'AI giống hệt như một chú vẹt thông minh nhất hành tinh! Chú vẹt có thể học thuộc lòng hàng nghìn câu nói của các giáo sư và hót lại vanh vách bằng giọng điệu rất trịnh trọng, nhưng chú vẹt không hiểu gì về bản chất của bài toán.',
+          metacognition_modeling:
+            "Ba: 'Nhiều bạn học sinh thấy AI trả lời câu nào cũng dài và mượt nên tưởng AI là ông Bụt biết tuốt mọi sự thật con nhỉ.' — Con: 'Dạ, giờ con biết AI chỉ là cỗ máy ghép chữ siêu nhanh thôi, con không bao giờ tin mù quáng vào nó nữa ạ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Trí tuệ nhân tạo',
+            formula:
+              'Trí tuệ (khả năng nhận thức, hiểu biết) + Nhân tạo (do con người tạo ra)',
+            meaning:
+              'Hệ thống máy tính mô phỏng các quá trình xử lý ngôn ngữ, nhận diện mẫu và tính toán của con người.',
+            english_anchor: 'Artificial Intelligence (AI)',
+          },
+          {
+            term: 'Dự đoán từ ngữ',
+            formula: 'Dự đoán (đoán trước) + Từ ngữ',
+            meaning:
+              'Cơ chế xâu chuỗi các từ có xác suất xuất hiện nối tiếp nhau cao nhất dựa trên dữ liệu đã học.',
+            english_anchor: 'Next-Token Prediction',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Trí tuệ nhân tạo',
+            formula:
+              'Trí tuệ (khả năng nhận thức, hiểu biết) + Nhân tạo (do con người tạo ra)',
+            meaning:
+              'Hệ thống máy tính mô phỏng các quá trình xử lý ngôn ngữ, nhận diện mẫu và tính toán của con người.',
+            english_anchor: 'Artificial Intelligence (AI)',
+          },
+          {
+            term: 'Dự đoán từ ngữ',
+            formula: 'Dự đoán (đoán trước) + Từ ngữ',
+            meaning:
+              'Cơ chế xâu chuỗi các từ có xác suất xuất hiện nối tiếp nhau cao nhất dựa trên dữ liệu đã học.',
+            english_anchor: 'Next-Token Prediction',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title:
+          "Chặng 2: Căn bệnh 'ảo giác' của AI — Bịa chuyện với gương mặt tỉnh bơ",
+        original_text:
+          "Các nhà khoa học phát hiện ra một hiện tượng rất đặc biệt ở AI gọi là **'Ảo giác AI' (AI Hallucination)**. Đó là khi AI không tìm thấy câu trả lời chính xác, thay vì nói 'tôi không biết', nó sẽ tự động bịa ra một câu trả lời hoàn toàn hư cấu nhưng trình bày với giọng điệu cực kỳ tự tin, đĩnh đạc như thật! AI có thể bịa ra một cuốn sách chưa từng tồn tại, một danh nhân lịch sử không có thật, hoặc giải sai hoàn toàn một bài toán nhưng vẫn khẳng định mình đúng 100%. Nếu con lười biếng bê nguyên văn câu trả lời của AI vào bài nộp cho thầy cô, con không chỉ bị điểm kém mà còn đánh mất **uy tín cá nhân** của mình.",
+        feynman_explanation: {
+          dialogue_question:
+            "Hiện tượng 'Ảo giác AI' khiến câu trả lời của AI dễ đánh lừa người đọc ở chỗ nào?",
+          dialogue_answer:
+            "AI giống như một người phụ tá siêu chăm chỉ, việc gì giao cũng nhận lời làm ngay tắp lự. Nhưng thỉnh thoảng anh chàng này lại đãng trí và thích 'chém gió' bịa chuyện để không bị chê là kém cỏi!",
+          metacognition_modeling:
+            "Ba: 'Nếu phụ tá hay chém gió như vậy thì người làm sếp phải xử lý thế nào con?' — Con: 'Người sếp phải cầm bút đỏ kiểm tra lại từng số liệu, đối chiếu lại với sách giáo khoa trước khi ký duyệt ba ạ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Ảo giác AI',
+            formula: 'Ảo giác (nhận thức sai lệch, không có thật) + AI',
+            meaning:
+              'Hiện tượng AI tự bịa đặt số liệu, nguồn dẫn hoặc sự kiện sai sự thật nhưng viết bằng giọng điệu rất thuyết phục.',
+            english_anchor: 'AI Hallucination',
+          },
+          {
+            term: 'Uy tín cá nhân',
+            formula: 'Uy tín (lòng tin và sự tín nhiệm) + Cá nhân',
+            meaning:
+              'Lòng tin của thầy cô, gia đình và bạn bè đối với sự trung thực, trách nhiệm và năng lực thật của con.',
+            english_anchor: 'Personal Credibility',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Ảo giác AI',
+            formula: 'Ảo giác (nhận thức sai lệch, không có thật) + AI',
+            meaning:
+              'Hiện tượng AI tự bịa đặt số liệu, nguồn dẫn hoặc sự kiện sai sự thật nhưng viết bằng giọng điệu rất thuyết phục.',
+            english_anchor: 'AI Hallucination',
+          },
+          {
+            term: 'Uy tín cá nhân',
+            formula: 'Uy tín (lòng tin và sự tín nhiệm) + Cá nhân',
+            meaning:
+              'Lòng tin của thầy cô, gia đình và bạn bè đối với sự trung thực, trách nhiệm và năng lực thật của con.',
+            english_anchor: 'Personal Credibility',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title:
+          'Chặng 3: Con là người sếp, AI là thư ký — Bảo vệ tiếng nói độc bản',
+        original_text:
+          'Trong thời đại AI, điều quý giá nhất của con người không phải là tốc độ gõ phím hay khả năng tra cứu, mà là: Năng lực tư duy độc lập, Lòng trắc ẩn và **Tiếng nói độc bản** của chính con. Hãy dùng AI như một người thư ký mẫn cán: nhờ AI gợi ý 3 ý tưởng mở bài, tóm tắt một bài đọc dài, hoặc giải thích một khái niệm khó hiểu bằng cách nói đơn giản hơn. Sau đó, chính con phải tự suy ngẫm, chọn lọc ý hay, kiểm tra lại dữ liệu và tự tay viết lại bằng phong cách riêng của mình. Nhờ người khác nâng tạ hộ thì cơ bắp mình không bao giờ khỏe lên được nhờ **nỗ lực tự thân**!',
+        feynman_explanation: {
+          dialogue_question:
+            'Vì sao không nên để AI viết hộ bài văn hoặc làm hộ bài tập?',
+          dialogue_answer:
+            'Con là vị Đạo diễn tài ba của bộ phim cuộc đời mình, còn AI chỉ là người phụ trách đạo cụ sân khấu. Đạo cụ có lộng lẫy đến mấy thì kịch bản và linh hồn của bộ phim vẫn phải do chính đạo diễn sáng tạo ra!',
+          metacognition_modeling:
+            "Ba: 'Nếu con để AI viết hộ bài văn thì bài văn đó là của máy tính, tâm hồn con chẳng thu nhận được gì.' — Con: 'Dạ, con sẽ dùng AI để tìm gợi ý thôi, còn từng câu chữ con sẽ tự suy nghĩ và viết bằng chính cảm xúc của con!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Tiếng nói độc bản',
+            formula:
+              'Tiếng nói (cách diễn đạt, tiếng lòng) + Độc bản (duy nhất, không sao chép)',
+            meaning:
+              'Văn phong, cảm xúc và cách tư duy chân thật, mang dấu ấn riêng của chính con.',
+            english_anchor: 'Authentic Voice',
+          },
+          {
+            term: 'Nỗ lực tự thân',
+            formula: 'Nỗ lực (cố gắng) + Tự thân (chính bản thân mình tự làm)',
+            meaning:
+              'Quá trình não bộ tự suy nghĩ, thử nghiệm và vượt qua thử thách để thực sự trưởng thành.',
+            english_anchor: 'Self-Reliant Effort',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Tiếng nói độc bản',
+            formula:
+              'Tiếng nói (cách diễn đạt, tiếng lòng) + Độc bản (duy nhất, không sao chép)',
+            meaning:
+              'Văn phong, cảm xúc và cách tư duy chân thật, mang dấu ấn riêng của chính con.',
+            english_anchor: 'Authentic Voice',
+          },
+          {
+            term: 'Nỗ lực tự thân',
+            formula: 'Nỗ lực (cố gắng) + Tự thân (chính bản thân mình tự làm)',
+            meaning:
+              'Quá trình não bộ tự suy nghĩ, thử nghiệm và vượt qua thử thách để thực sự trưởng thành.',
+            english_anchor: 'Self-Reliant Effort',
+          },
+        ],
+      },
+    ],
+
+    // PHA 3: EVALUATING
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Nấc 1 — Trực tiếp trong bài',
+          question:
+            "Hiện tượng 'Ảo giác của AI' (AI Hallucination) là gì và tại sao nó lại nguy hiểm?",
+          hint: 'Xem lại Chặng 2: AI tự bịa ra thông tin hư cấu với giọng điệu tự tin như thật, dễ làm người đọc tin sai hoặc mất uy tín nếu bê nguyên văn.',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Nấc 2 — Suy ngẫm & Liên kết',
+          question:
+            "Tại sao tác giả lại so sánh việc nhờ AI làm hộ bài tập với việc 'nhờ người khác tập gym hộ mình'?",
+          hint: 'Kết nối Chặng 3 với tư duy cơ bắp não bộ: người khác nâng tạ hộ thì cơ bắp và trí tuệ của chính mình không được rèn luyện.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Nấc 3 — Liên hệ thực tế & Hành động',
+          question:
+            'Hãy nêu 2 cách con có thể sử dụng AI để giúp mình học giỏi hơn mà không biến bản thân thành kẻ phụ thuộc vào máy móc.',
+          hint: 'Ví dụ: nhờ gợi ý ý tưởng hoặc giải thích dễ hiểu hơn, rồi tự kiểm chứng dữ liệu và tự tay viết bằng ngôn ngữ của mình.',
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Bản chất của AI',
+          prompt:
+            'Máy dự đoán từ ngữ dựa trên dữ liệu, không có ý thức hay chịu trách nhiệm cho sự thật — giống chú vẹt ghép chữ.',
+          sample_keywords:
+            'Máy dự đoán từ ngữ dựa trên dữ liệu, không có ý thức hay chịu trách nhiệm cho sự thật — giống chú vẹt ghép chữ.',
+        },
+        {
+          category: 'Ảo giác AI (Hallucination)',
+          prompt:
+            'Tự tin bịa chuyện hư cấu khi thiếu dữ liệu — người sếp phải kiểm tra chéo lại trước khi tin/dùng.',
+          sample_keywords:
+            'Tự tin bịa chuyện hư cấu khi thiếu dữ liệu — người sếp phải kiểm tra chéo lại trước khi tin/dùng.',
+        },
+        {
+          category: 'Làm chủ tư duy độc lập',
+          prompt:
+            'Con là đạo diễn / người sếp, AI là thư ký gợi ý — giữ tiếng nói độc bản và nỗ lực tự thân.',
+          sample_keywords:
+            'Con là đạo diễn / người sếp, AI là thư ký gợi ý — giữ tiếng nói độc bản và nỗ lực tự thân.',
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'AI dự đoán từ ngữ từ dữ liệu có sẵn, không có ý thức và không thay thế được việc kiểm chứng sự thật.',
+          'Ảo giác AI (AI Hallucination) khiến máy có thể bịa thông tin sai nhưng nói rất tự tin.',
+          'Con giữ vai trò người chỉ huy/đạo diễn, dùng AI làm trợ lý gợi ý và bảo vệ tiếng nói độc bản của mình.',
+        ],
+        two_surprises: [
+          'AI không có ý thức hay sự thấu hiểu như con người mà chỉ xâu chuỗi từ ngữ theo xác suất và dữ liệu.',
+          'Bê nguyên văn câu trả lời chưa kiểm chứng của AI có thể khiến ta mắc lỗi sai hoặc mất uy tín cá nhân.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            'Khi dùng AI hỗ trợ học tập, em sẽ luôn kiểm tra chéo lại thông tin và tự tay suy nghĩ, viết bài bằng chính mình.',
+        },
+      },
+      takeaway_sentence:
+        'AI là một người trợ lý đắc lực, nhưng con mới là thuyền trưởng nắm giữ bánh lái tư duy. Đừng bao giờ giao chìa khóa trí tuệ của con cho máy móc suy nghĩ hộ.',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
