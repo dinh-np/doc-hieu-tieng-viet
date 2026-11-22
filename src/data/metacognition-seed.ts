@@ -1908,6 +1908,250 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // CRITICAL THINKING - 3: BA CÂU HỎI 'BẢO VỆ' TRƯỚC MỌI THÔNG TIN
+  // ===========================================================================
+  {
+    id: 'critical-thinking-3-ba-cau-hoi-bao-ve',
+    slug: 'critical-thinking-3-ba-cau-hoi-bao-ve',
+    subject: 'Tư duy phản biện',
+    grade: 7,
+    title: "Critical Thinking - 3: Ba Câu Hỏi 'Bảo Vệ' Trước Mọi Thông Tin",
+    subtitle:
+      'Bài học 3: Thiết lập cổng kiểm soát an ninh cho tâm trí trước biển thông tin mạng xã hội (Ai nói? Bằng chứng ở đâu? Mục đích là gì?).',
+    target_time_minutes: 25,
+    article_type: 'metacognition',
+    category: 'metacognition',
+
+    // PHA 1: PLANNING
+    planning: {
+      active_recall_question:
+        'Trước khi mở cửa cho một người lạ bước vào nhà, con và gia đình thường làm những bước nào để đảm bảo an toàn?',
+      prediction_prompt:
+        'Có khi nào con tin sái cổ vào một lời khuyên trên mạng chỉ vì video đó có hàng trăm nghìn lượt bấm thích (like) chưa? Theo con, số lượt thích có đảm bảo thông tin đó đúng không?',
+    },
+
+    // PHA 2: MONITORING (3 Chặng đọc)
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title:
+          "Chặng 1: Câu hỏi 1 — 'Ai là người nói điều này?' (Kiểm tra chuyên môn)",
+        original_text:
+          "Trên mạng xã hội, một ca sĩ nổi tiếng, một game thủ hay một TikToker triệu view có thể có lượng người theo dõi khổng lồ. Nhưng điều đó không có nghĩa họ biết tất cả mọi thứ trên đời. Khi một người nổi tiếng khuyên con uống một loại thực phẩm chức năng hay áp dụng một cách học kỳ lạ, con phải dừng lại hỏi: 'Họ có **chuyên môn** trong lĩnh vực này không?'. Sách Asking the Right Questions gọi lỗi tư duy này là **'Viện dẫn uy tín đáng ngờ'** (Appeal to Questionable Authority). Uy tín trong việc chơi game không thể biến một người thành chuyên gia y tế hay nhà khoa học.",
+        feynman_explanation: {
+          dialogue_question:
+            'Vì sao người nổi tiếng hoặc nhiều người theo dõi vẫn có thể đưa lời khuyên sai lệch?',
+          dialogue_answer:
+            'Giống như khi xích xe đạp của con bị tuột và bánh bị cong! Con sẽ mang xe đến gặp bác thợ sửa xe đạp chứ không bao giờ nhờ một đầu bếp làm bánh pizza sửa giúp, dù bác đầu bếp đó có nổi tiếng nhất thế giới.',
+          metacognition_modeling:
+            "Ba: 'Nhiều công ty thuê người nổi tiếng mặc áo blouse trắng để quay video quảng cáo thuốc đấy con.' — Con: 'Dạ, giờ con biết nhìn kỹ xem họ là bác sĩ thật ở bệnh viện nào hay chỉ là diễn viên đóng kịch rồi ba!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Chuyên môn',
+            formula:
+              'Chuyên (tập trung sâu vào một ngành) + Môn (môn học, lĩnh vực)',
+            meaning:
+              'Kiến thức sâu sắc được đào tạo và kiểm chứng qua thực tế nghiên cứu trong một lĩnh vực cụ thể.',
+            english_anchor: 'Expertise / Domain Authority',
+          },
+          {
+            term: 'Viện dẫn uy tín đáng ngờ',
+            formula: 'Viện dẫn (dẫn ra, làm căn cứ) + Uy tín đáng ngờ',
+            meaning:
+              'Tin vào lời khuyên của người nổi tiếng trong một lĩnh vực mà họ không hề có chuyên môn thực sự.',
+            english_anchor: 'Appeal to Questionable Authority',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Chuyên môn',
+            formula:
+              'Chuyên (tập trung sâu vào một ngành) + Môn (môn học, lĩnh vực)',
+            meaning:
+              'Kiến thức sâu sắc được đào tạo và kiểm chứng qua thực tế nghiên cứu trong một lĩnh vực cụ thể.',
+            english_anchor: 'Expertise / Domain Authority',
+          },
+          {
+            term: 'Viện dẫn uy tín đáng ngờ',
+            formula: 'Viện dẫn (dẫn ra, làm căn cứ) + Uy tín đáng ngờ',
+            meaning:
+              'Tin vào lời khuyên của người nổi tiếng trong một lĩnh vực mà họ không hề có chuyên môn thực sự.',
+            english_anchor: 'Appeal to Questionable Authority',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title:
+          "Chặng 2: Câu hỏi 2 — 'Bằng chứng xác thực ở đâu?' (Đòi hỏi dữ liệu thay vì nói suông)",
+        original_text:
+          "Một lời khẳng định dù nghe xuôi tai đến đâu cũng chỉ là một 'tuyên bố rỗng' nếu không có bằng chứng đi kèm. Nếu một người nói: 'Phương pháp này giúp tăng trí nhớ gấp 10 lần', câu hỏi phản xạ đầu tiên của con phải là: '**Bằng chứng xác thực** ở đâu?'. Một bằng chứng đáng tin cậy không phải là lời kể mơ hồ của một vài người (**'lời chứng cá nhân'** kiểu 'tôi dùng và thấy tốt'), mà phải là số liệu nghiên cứu khoa học rõ ràng, được thực hiện trên số đông và được các cơ quan uy tín thẩm định. Lời khẳng định càng phi thường thì càng đòi hỏi bằng chứng vững chắc phi thường tương ứng.",
+        feynman_explanation: {
+          dialogue_question:
+            "Vì sao chỉ nghe một vài người kể 'tôi dùng thấy tốt' thì chưa đủ tin?",
+          dialogue_answer:
+            "Giống như chú cảnh sát điều tra phá án! Nghi phạm nói 'tôi ở nhà xem tivi' thì chú cảnh sát không tin ngay. Chú phải kiểm tra camera giám sát, vé xe buýt hoặc lịch sử điện thoại để xem có chứng cứ thật không.",
+          metacognition_modeling:
+            "Ba: 'Nếu ai đó khoe một thành tích kỳ diệu mà chỉ đưa ra mấy bức ảnh chụp màn hình mờ ảo, con thấy sao?' — Con: 'Ảnh chụp màn hình có thể làm giả trong 30 giây bằng phần mềm ba nhỉ, con phải tìm bài báo khoa học chính thống!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Bằng chứng xác thực',
+            formula:
+              'Bằng chứng (chứng cứ) + Xác thực (đúng sự thật, kiểm chứng được)',
+            meaning:
+              'Dữ liệu, số liệu và thí nghiệm thực tế rõ ràng, khách quan có thể đối chiếu kiểm tra.',
+            english_anchor: 'Dependable Evidence',
+          },
+          {
+            term: 'Lời chứng cá nhân',
+            formula: 'Lời chứng (sự làm chứng, kể lại) + Cá nhân',
+            meaning:
+              'Lời kể trải nghiệm của một vài người riêng lẻ, rất dễ bị thổi phồng hoặc trả tiền quảng cáo.',
+            english_anchor: 'Testimonial',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Bằng chứng xác thực',
+            formula:
+              'Bằng chứng (chứng cứ) + Xác thực (đúng sự thật, kiểm chứng được)',
+            meaning:
+              'Dữ liệu, số liệu và thí nghiệm thực tế rõ ràng, khách quan có thể đối chiếu kiểm tra.',
+            english_anchor: 'Dependable Evidence',
+          },
+          {
+            term: 'Lời chứng cá nhân',
+            formula: 'Lời chứng (sự làm chứng, kể lại) + Cá nhân',
+            meaning:
+              'Lời kể trải nghiệm của một vài người riêng lẻ, rất dễ bị thổi phồng hoặc trả tiền quảng cáo.',
+            english_anchor: 'Testimonial',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title:
+          "Chặng 3: Câu hỏi 3 — 'Họ nói điều này nhằm mục đích gì?' (Nhìn thấu động cơ)",
+        original_text:
+          'Trong thế giới truyền thông số, hầu như không có thông tin nào được đưa lên mà không có một mục đích cụ thể đằng sau. Người làm nội dung có thể muốn chia sẻ kiến thức hữu ích, nhưng rất nhiều khi mục đích thực sự là: bán hàng để kiếm lời, giật tít để tăng lượt xem (view) kiếm tiền quảng cáo, hoặc gieo rắc nỗi sợ hãi để lôi kéo đám đông. Khi con hiểu được mục đích thực sự của người nói, con sẽ không bao giờ bị cuốn theo những cảm xúc sợ hãi hay háo hức mù quáng. Con giữ được sự bình tĩnh và quyền tự chủ đối với quyết định của mình.',
+        feynman_explanation: {
+          dialogue_question:
+            'Nhận ra mục đích đằng sau thông tin giúp tâm trí con an toàn thế nào?',
+          dialogue_answer:
+            'Giống như người phát kẹo miễn phí trước cửa một khu vui chơi đắt đỏ! Họ cho con chiếc kẹo nhỏ là để kéo con bước vào bên trong mua những món đồ chơi rất đắt tiền, chứ không chỉ vì lòng tốt vô tư.',
+          metacognition_modeling:
+            "Ba: 'Mỗi khi thấy một video làm con hoảng sợ tột độ hoặc hứa hẹn giàu nhanh, con hãy dừng lại 3 giây nhé.' — Con: 'Dạ, con sẽ tự hỏi: Video này đang kích hoạt nỗi sợ để ép mình mua đồ hay để bấm nút theo dõi họ vậy?'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Động cơ ẩn',
+            formula: 'Động cơ (mục đích thúc đẩy) + Ẩn (giấu kín bên trong)',
+            meaning:
+              'Mục đích thực sự giấu kín phía sau lời nói bề ngoài hay nội dung đăng tải.',
+            english_anchor: 'Hidden Agenda',
+          },
+          {
+            term: 'Thao túng cảm xúc',
+            formula: 'Thao túng (điều khiển, chi phối) + Cảm xúc',
+            meaning:
+              'Dùng sự sợ hãi, lo lắng hoặc lòng tham để chi phối suy nghĩ và ép người khác làm theo.',
+            english_anchor: 'Emotional Manipulation',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Động cơ ẩn',
+            formula: 'Động cơ (mục đích thúc đẩy) + Ẩn (giấu kín bên trong)',
+            meaning:
+              'Mục đích thực sự giấu kín phía sau lời nói bề ngoài hay nội dung đăng tải.',
+            english_anchor: 'Hidden Agenda',
+          },
+          {
+            term: 'Thao túng cảm xúc',
+            formula: 'Thao túng (điều khiển, chi phối) + Cảm xúc',
+            meaning:
+              'Dùng sự sợ hãi, lo lắng hoặc lòng tham để chi phối suy nghĩ và ép người khác làm theo.',
+            english_anchor: 'Emotional Manipulation',
+          },
+        ],
+      },
+    ],
+
+    // PHA 3: EVALUATING
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Nấc 1 — Trực tiếp trong bài',
+          question:
+            'Kể tên 3 câu hỏi cốt lõi để kiểm tra độ tin cậy của một thông tin trước khi tin theo.',
+          hint: '1) Ai là người nói điều này? 2) Bằng chứng xác thực ở đâu? 3) Họ nói điều này nhằm mục đích gì?',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Nấc 2 — Suy ngẫm & Liên kết',
+          question:
+            "Tại sao một lời chứng cá nhân kiểu 'Tôi đã dùng và thấy rất tốt' lại không được coi là bằng chứng khoa học vững chắc?",
+          hint: 'Vì lời kể riêng lẻ của một vài người dễ bị thổi phồng, trả tiền quảng cáo hoặc thiếu nghiên cứu trên số đông có kiểm chứng.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Nấc 3 — Liên hệ thực tế & Hành động',
+          question:
+            'Hãy thử áp dụng 3 câu hỏi này vào một đoạn video quảng cáo khóa học hoặc đồ chơi con từng thấy trên YouTube.',
+          hint: 'Kiểm tra ai nói (có chuyên môn không?), bằng chứng ở đâu (số liệu thật hay ảnh ghép?), mục đích gì (bán hàng/câu view?).',
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: '1. Ai là người nói?',
+          prompt:
+            "Kiểm tra chuyên môn thật sự — tránh lỗi 'Viện dẫn uy tín đáng ngờ' (nhờ thợ sửa xe, không nhờ đầu bếp sửa xích xe).",
+          sample_keywords:
+            "Kiểm tra chuyên môn thật sự — tránh lỗi 'Viện dẫn uy tín đáng ngờ' (nhờ thợ sửa xe, không nhờ đầu bếp sửa xích xe).",
+        },
+        {
+          category: '2. Bằng chứng xác thực ở đâu?',
+          prompt:
+            'Đòi hỏi số liệu/nghiên cứu đáng tin cậy — không tin mù quáng lời chứng cá nhân hay ảnh chụp màn hình thiếu kiểm chứng.',
+          sample_keywords:
+            'Đòi hỏi số liệu/nghiên cứu đáng tin cậy — không tin mù quáng lời chứng cá nhân hay ảnh chụp màn hình thiếu kiểm chứng.',
+        },
+        {
+          category: '3. Mục đích đằng sau là gì?',
+          prompt:
+            'Nhìn thấu động cơ ẩn (bán hàng, câu view, thao túng cảm xúc) như chiếc kẹo miễn phí trước cửa khu vui chơi đắt đỏ.',
+          sample_keywords:
+            'Nhìn thấu động cơ ẩn (bán hàng, câu view, thao túng cảm xúc) như chiếc kẹo miễn phí trước cửa khu vui chơi đắt đỏ.',
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          '3 câu hỏi bảo vệ: Ai là người nói? Bằng chứng xác thực ở đâu? Họ nói nhằm mục đích gì?',
+          'Người nổi tiếng hay nhiều like không đồng nghĩa với chuyên môn đúng lĩnh vực hoặc bằng chứng khoa học vững chắc.',
+          'Nhận diện động cơ ẩn và sự thao túng cảm xúc giúp giữ tâm trí bình tĩnh và làm chủ quyết định.',
+        ],
+        two_surprises: [
+          'Một lời chứng cá nhân nghe rất thuyết phục vẫn có thể bị thổi phồng hoặc trả tiền quảng cáo.',
+          'Chiếc kẹo miễn phí ngoài cửa đôi khi là cách dẫn dụ vào khu trò chơi đắt tiền, tương tự chiêu trò câu view/bán hàng trên mạng.',
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            'Trước khi tin hoặc làm theo thông tin trên mạng, em sẽ quét qua 3 câu hỏi bảo vệ như đi qua cổng an ninh.',
+        },
+      },
+      takeaway_sentence:
+        'Ba câu hỏi bảo vệ giống như cánh cổng an ninh quét hành lý trước khi lên máy bay. Hãy kiểm tra thật kỹ trước khi cho bất kỳ thông tin nào bước vào tâm trí con.',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
