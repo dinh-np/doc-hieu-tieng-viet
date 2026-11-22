@@ -2397,6 +2397,249 @@ const RAW_METACOGNITION_ARTICLES_SEED: MetacognitionArticle[] = [
   },
 
   // ===========================================================================
+  // CRITICAL THINKING - 5: 'CÒN GÓC NHÌN NÀO KHÁC KHÔNG?' — THOÁT KHỎI BẪY THIÊN VỊ
+  // ===========================================================================
+  {
+    id: 'critical-thinking-5-con-goc-nhin-nao-khac',
+    slug: 'critical-thinking-5-con-goc-nhin-nao-khac',
+    subject: 'Tư duy phản biện',
+    grade: 7,
+    title:
+      "Critical Thinking - 5: 'Còn Góc Nhìn Nào Khác Không?' — Thoát Khỏi Bẫy Thiên Vị",
+    subtitle:
+      'Bài học 5: Mở rộng tầm nhìn đa chiều, phá vỡ bẫy tư duy nhị nguyên trắng - đen (Dichotomous Thinking), vượt qua bẫy thiên vị xác nhận và thực hành mệnh đề "NẾU... THÌ...".',
+    target_time_minutes: 25,
+    article_type: 'metacognition',
+    category: 'metacognition',
+
+    // PHA 1: PLANNING
+    planning: {
+      active_recall_question:
+        "Con đã từng nghe câu chuyện ngụ ngôn 'Thầy bói xem voi' chưa? Tại sao mỗi ông thầy bói lại miêu tả con voi một cách hoàn toàn trái ngược nhau?",
+      prediction_prompt:
+        'Khi con và một người bạn tranh cãi về một vấn đề ở trường, liệu có khi nào cả hai bạn đều có phần đúng ở góc nhìn của riêng mình không?',
+    },
+
+    // PHA 2: MONITORING (3 Chặng đọc)
+    chunks: [
+      {
+        chunk_id: 'chunk-1',
+        order: 1,
+        title: 'Chặng 1: Chiếc bẫy tư duy trắng - đen (Tư duy nhị nguyên)',
+        original_text:
+          'Trong cuộc sống hàng ngày, tâm trí chúng ta rất thích lối suy nghĩ **nhị nguyên** (Dichotomous Thinking): chỉ có Đúng hoặc Sai, Tốt hoặc Xấu, Tuyệt vời hoặc Tệ hại. Lối nghĩ trắng - đen này giống như một công tắc đèn: chỉ có Bật hoặc Tắt. Nhưng thế giới thực tế hiếm khi đơn giản như vậy. Cuộc sống chứa đầy những dải màu sắc phong phú ở giữa hai cực trắng đen. Nếu chỉ nhìn đời qua hai màu đối lập, con sẽ rất dễ vội vàng phán xét người khác, bỏ lỡ những giải pháp sáng tạo và tự giam mình trong sự hẹp hòi của tư duy cố định, thiếu góc nhìn **đa chiều**.',
+        feynman_explanation: {
+          dialogue_question:
+            'Lối suy nghĩ trắng - đen giống vật gì quen thuộc và vì sao ta không nên áp dụng cứng nhắc cho mọi việc?',
+          dialogue_answer:
+            'Công tắc đèn phòng học chỉ có Bật hoặc Tắt. Nhưng chiếc nút vặn âm lượng trên tai nghe của con thì có thể chỉnh từ mức 1 đến mức 100! Đừng bắt cuộc sống phải là công tắc Bật/Tắt, hãy học cách điều chỉnh như nút vặn âm lượng.',
+          metacognition_modeling:
+            "Ba: 'Khi có ai đó ép con phải chọn: Một là nghe theo tớ, hai là cậu không phải bạn tớ, con thấy sao?' — Con: 'Dạ, đó là cái bẫy ép buộc trắng đen! Con sẽ bảo: Tớ vẫn là bạn tốt của cậu, nhưng việc này tớ có góc nhìn khác!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Tư duy nhị nguyên',
+            formula: 'Nhị (hai) + Nguyên (gốc, bản chất) + Tư duy',
+            meaning:
+              'Lối suy nghĩ cực đoan coi mọi vấn đề chỉ có hai thái cực đối đầu nhau (đúng/sai, tốt/xấu) mà bỏ qua sắc thái trung gian.',
+            english_anchor: 'Dichotomous Thinking / Black-and-White Thinking',
+          },
+          {
+            term: 'Đa chiều',
+            formula: 'Đa (nhiều) + Chiều (khía cạnh, góc độ)',
+            meaning:
+              'Khả năng nhìn một sự việc dưới nhiều góc độ, sắc thái và hoàn cảnh khác nhau.',
+            english_anchor: 'Multidimensional / Multi-perspective',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Tư duy nhị nguyên',
+            formula: 'Nhị (hai) + Nguyên (gốc, bản chất) + Tư duy',
+            meaning:
+              'Lối suy nghĩ cực đoan coi mọi vấn đề chỉ có hai thái cực đối đầu nhau (đúng/sai, tốt/xấu) mà bỏ qua sắc thái trung gian.',
+            english_anchor: 'Dichotomous Thinking / Black-and-White Thinking',
+          },
+          {
+            term: 'Đa chiều',
+            formula: 'Đa (nhiều) + Chiều (khía cạnh, góc độ)',
+            meaning:
+              'Khả năng nhìn một sự việc dưới nhiều góc độ, sắc thái và hoàn cảnh khác nhau.',
+            english_anchor: 'Multidimensional / Multi-perspective',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-2',
+        order: 2,
+        title: "Chặng 2: Bài học 'Thầy bói xem voi' và bẫy thiên vị xác nhận",
+        original_text:
+          'Trong câu chuyện ngụ ngôn nổi tiếng, ông thầy bói sờ vòi voi thì khẳng định voi giống con đỉa; ông sờ tai voi thì cãi voi giống chiếc quạt nan; ông sờ chân voi lại quả quyết voi giống chiếc cột đình. Mỗi ông thầy bói đều đúng với phần trải nghiệm nhỏ bé của mình, nhưng họ đều sai lầm nghiêm trọng khi tưởng rằng phần nhỏ đó là **toàn diện** cả con voi! Các nhà tâm lý học gọi đây là **Bẫy thiên vị xác nhận** (Confirmation Bias): chúng ta chỉ chăm chăm tìm kiếm những gì củng cố cho niềm tin có sẵn của mình và phớt lờ phần còn lại. Muốn nhìn thấy toàn bộ con voi, con phải dũng cảm bước sang phía người khác để lắng nghe.',
+        feynman_explanation: {
+          dialogue_question:
+            'Làm sao để nhìn thấy bức tranh rộng lớn hơn thay vì chỉ thấy một mảnh nhỏ?',
+          dialogue_answer:
+            'Nếu con đứng ở cửa sổ phòng ngủ, con chỉ nhìn thấy khoảnh sân sau nhà. Muốn nhìn thấy con đường lớn và dòng xe cộ phía trước, con phải mở cửa và chạy ra ban công phòng khách!',
+          metacognition_modeling:
+            "Ba: 'Khi gặp người không đồng ý với mình, con cảm thấy thế nào?' — Con: 'Trước đây con hay bực mình, nhưng giờ con thấy tò mò muốn biết: Ồ, họ đang đứng ở góc nào mà lại nhìn thấy điều đó nhỉ!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Thiên vị xác nhận',
+            formula:
+              'Thiên vị (nghiêng về một phía) + Xác nhận (khẳng định thêm)',
+            meaning:
+              'Thói quen chỉ chú ý và tin vào những thông tin hợp với ý mình, đồng thời bỏ qua bằng chứng ngược lại.',
+            english_anchor: 'Confirmation Bias',
+          },
+          {
+            term: 'Toàn diện',
+            formula: 'Toàn (đầy đủ, trọn vẹn) + Diện (mặt, khía cạnh)',
+            meaning:
+              'Nhìn thấy bức tranh lớn bao gồm đầy đủ các mặt, các yếu tố liên quan chứ không chỉ một phần nhỏ.',
+            english_anchor: 'Comprehensive / Holistic',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Thiên vị xác nhận',
+            formula:
+              'Thiên vị (nghiêng về một phía) + Xác nhận (khẳng định thêm)',
+            meaning:
+              'Thói quen chỉ chú ý và tin vào những thông tin hợp với ý mình, đồng thời bỏ qua bằng chứng ngược lại.',
+            english_anchor: 'Confirmation Bias',
+          },
+          {
+            term: 'Toàn diện',
+            formula: 'Toàn (đầy đủ, trọn vẹn) + Diện (mặt, khía cạnh)',
+            meaning:
+              'Nhìn thấy bức tranh lớn bao gồm đầy đủ các mặt, các yếu tố liên quan chứ không chỉ một phần nhỏ.',
+            english_anchor: 'Comprehensive / Holistic',
+          },
+        ],
+      },
+      {
+        chunk_id: 'chunk-3',
+        order: 3,
+        title:
+          "Chặng 3: Mệnh đề 'Nếu... Thì...' và chiếc chìa khóa mở rộng góc nhìn",
+        original_text:
+          "Trong Chương 13 cuốn sách Asking the Right Questions, các tác giả khuyên chúng ta nên sử dụng **mệnh đề điều kiện** 'NẾU... THÌ...' để giải phóng tư duy. Thay vì tranh cãi gay gắt xem một việc là 'Tốt' hay 'Xấu', hãy hỏi: 'Điều này tốt trong trường hợp nào, và chưa tốt trong hoàn cảnh nào?'. Ví dụ: 'Nếu xét về mặt tiện lợi thì đi xe máy nhanh hơn, nhưng nếu xét về an toàn và bảo vệ môi trường thì xe buýt lại tốt hơn rất nhiều'. Biết tự hỏi: 'Còn góc nhìn nào khác không?' sẽ biến con thành một người vừa có tư duy phản biện sắc bén, vừa có trái tim **thấu cảm**, biết lắng nghe và đồng cảm với mọi người.",
+        feynman_explanation: {
+          dialogue_question:
+            "Mệnh đề 'NẾU... THÌ...' giúp gì khi hai người có ý kiến trái ngược nhau?",
+          dialogue_answer:
+            'Đó là chiếc chìa khóa vạn năng: Thay vì nhảy vào cuộc cãi cọ xem ai thắng ai thua, con chỉ cần thử xỏ chân vào đôi giày của bạn mình và bước đi vài bước!',
+          metacognition_modeling:
+            "Ba: 'Khi con biết dùng từ NẾU... THÌ..., con sẽ thấy mọi cuộc tranh luận đều trở nên nhẹ nhàng và văn minh hơn.' — Con: 'Dạ, con không cần phải thắng thua nữa, con và bạn cùng nhau tìm ra giải pháp tốt nhất cho cả hai!'",
+        },
+        han_viet_popups: [
+          {
+            term: 'Mệnh đề điều kiện',
+            formula:
+              "Mệnh đề (cụm ý có chủ-vị trong câu) + Điều kiện ('Nếu... thì...')",
+            meaning:
+              'Cách lập luận linh hoạt gắn liền với từng hoàn cảnh và bối cảnh cụ thể thay vì phán xét tuyệt đối.',
+            english_anchor: 'Conditional Clause (If... Then...)',
+          },
+          {
+            term: 'Thấu cảm',
+            formula: 'Thấu (hiểu sâu, xuyên qua) + Cảm (cảm nhận, đồng cảm)',
+            meaning:
+              'Khả năng đặt mình vào vị trí, hoàn cảnh của người khác để cảm nhận và thấu hiểu.',
+            english_anchor: 'Empathy',
+          },
+        ],
+        han_viet_Popup: [
+          {
+            term: 'Mệnh đề điều kiện',
+            formula:
+              "Mệnh đề (cụm ý có chủ-vị trong câu) + Điều kiện ('Nếu... thì...')",
+            meaning:
+              'Cách lập luận linh hoạt gắn liền với từng hoàn cảnh và bối cảnh cụ thể thay vì phán xét tuyệt đối.',
+            english_anchor: 'Conditional Clause (If... Then...)',
+          },
+          {
+            term: 'Thấu cảm',
+            formula: 'Thấu (hiểu sâu, xuyên qua) + Cảm (cảm nhận, đồng cảm)',
+            meaning:
+              'Khả năng đặt mình vào vị trí, hoàn cảnh của người khác để cảm nhận và thấu hiểu.',
+            english_anchor: 'Empathy',
+          },
+        ],
+      },
+    ],
+
+    // PHA 3: EVALUATING
+    evaluating: {
+      qar_questions: [
+        {
+          type: 'right_there',
+          level_label: 'Nấc 1 — Trực tiếp trong bài',
+          question:
+            'Tư duy nhị nguyên trắng - đen là gì và tại sao nó lại hạn chế khả năng giải quyết vấn đề?',
+          hint: 'Xem lại Chặng 1: chỉ nhìn hai thái cực đối lập như công tắc Bật/Tắt nên dễ phán xét vội vàng và bỏ lỡ giải pháp sáng tạo.',
+        },
+        {
+          type: 'think_search',
+          level_label: 'Nấc 2 — Suy ngẫm & Liên kết',
+          question:
+            "Tại sao việc đặt câu hỏi 'Trong trường hợp nào thì điều này đúng?' lại giúp ta tránh được tranh cãi vô bổ?",
+          hint: 'Kết nối Chặng 2 và Chặng 3: giúp nhận ra mỗi người có thể đang đúng trong một hoàn cảnh riêng, chuyển từ thắng/thua sang tìm giải pháp phù hợp.',
+        },
+        {
+          type: 'author_and_me',
+          level_label: 'Nấc 3 — Liên hệ thực tế & Hành động',
+          question:
+            'Hãy nghĩ về một vấn đề trong lớp học (như việc xếp chỗ ngồi hay chọn trò chơi giờ ra chơi) và nêu ra 2 góc nhìn khác nhau của các bạn.',
+          hint: "Thử dùng cấu trúc 'Nếu xét về... thì..., còn nếu xét về... thì...' để mô tả hai góc nhìn một cách công bằng.",
+        },
+      ],
+      mindmap_matrix: [
+        {
+          category: 'Tư duy nhị nguyên trắng - đen',
+          prompt:
+            'Chỉ có Đúng/Sai hoặc Bật/Tắt như công tắc đèn — dễ phán xét cực đoan và bỏ lỡ giải pháp ở khoảng giữa.',
+          sample_keywords:
+            'Chỉ có Đúng/Sai hoặc Bật/Tắt như công tắc đèn — dễ phán xét cực đoan và bỏ lỡ giải pháp ở khoảng giữa.',
+        },
+        {
+          category: 'Bẫy thiên vị xác nhận',
+          prompt:
+            "Giống 'Thầy bói xem voi' — chỉ thấy một phần nhỏ rồi tưởng là toàn bộ; cần sang ban công nhìn góc rộng hơn.",
+          sample_keywords:
+            "Giống 'Thầy bói xem voi' — chỉ thấy một phần nhỏ rồi tưởng là toàn bộ; cần sang ban công nhìn góc rộng hơn.",
+        },
+        {
+          category: "Mệnh đề 'NẾU... THÌ...' & Thấu cảm",
+          prompt:
+            "Gắn nhận định với hoàn cảnh cụ thể, hỏi 'Còn góc nhìn nào khác không?' để lắng nghe và tìm giải pháp chung.",
+          sample_keywords:
+            "Gắn nhận định với hoàn cảnh cụ thể, hỏi 'Còn góc nhìn nào khác không?' để lắng nghe và tìm giải pháp chung.",
+        },
+      ],
+      reflection_321: {
+        three_learned: [
+          'Tư duy nhị nguyên trắng - đen làm hẹp tầm nhìn; cuộc sống có nhiều sắc độ và góc nhìn đa chiều.',
+          "Bẫy thiên vị xác nhận khiến ta chỉ nhìn một phần như 'Thầy bói xem voi' nếu không chủ động lắng nghe góc khác.",
+          "Dùng mệnh đề 'NẾU... THÌ...' và hỏi 'Còn góc nhìn nào khác không?' giúp lập luận linh hoạt và thấu cảm hơn.",
+        ],
+        two_surprises: [
+          'Mỗi ông thầy bói đều có phần đúng theo trải nghiệm riêng của mình nhưng lại sai khi coi đó là toàn bộ con voi.',
+          "Thay vì tranh cãi thắng thua, dùng 'NẾU... THÌ...' giúp xác định rõ điều gì đúng trong hoàn cảnh nào.",
+        ],
+        one_traffic_light: {
+          status: 'green',
+          question:
+            "Khi gặp ý kiến khác mình hoặc tranh luận, em sẽ tự hỏi 'Còn góc nhìn nào khác không?' và thử đặt mình vào góc nhìn của bạn.",
+        },
+      },
+      takeaway_sentence:
+        'Thế giới không chỉ có hai màu đen trắng, mà rực rỡ muôn vàn sắc màu. Hãy luôn tò mò hỏi Còn góc nhìn nào khác không? để tâm trí con luôn rộng mở và trái tim luôn biết thấu cảm.',
+    },
+  },
+
+  // ===========================================================================
   // BÀI 1: LỊCH SỬ 7 - BÀI 6 (CÁC VƯƠNG QUỐC PHONG KIẾN ĐÔNG NAM Á)
   // ===========================================================================
   {
